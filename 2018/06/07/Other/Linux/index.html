@@ -1,0 +1,239 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+
+  
+  <title>Ronnie Jing</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="Linux12345678910111213141516171819202122232425262728293031323334353637383940414243444546474849505152535455561. 程序开机启动，他们在window中叫做服务（service），在Linux中叫做守护进程2. chown 修改文件属性3. chgrp 修改文件属组4. 处理目录的常用命令">
+<meta name="keywords" content="ronnie">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Ronnie Jing">
+<meta property="og:url" content="http://yoursite.com/2018/06/07/Other/Linux/index.html">
+<meta property="og:site_name" content="Ronnie Jing">
+<meta property="og:description" content="Linux12345678910111213141516171819202122232425262728293031323334353637383940414243444546474849505152535455561. 程序开机启动，他们在window中叫做服务（service），在Linux中叫做守护进程2. chown 修改文件属性3. chgrp 修改文件属组4. 处理目录的常用命令">
+<meta property="og:locale" content="zh-CN">
+<meta property="og:updated_time" content="2018-06-07T06:09:18.475Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Ronnie Jing">
+<meta name="twitter:description" content="Linux12345678910111213141516171819202122232425262728293031323334353637383940414243444546474849505152535455561. 程序开机启动，他们在window中叫做服务（service），在Linux中叫做守护进程2. chown 修改文件属性3. chgrp 修改文件属组4. 处理目录的常用命令">
+  
+    <link rel="alternate" href="/atom.xml" title="Ronnie Jing" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.png">
+  
+  
+    <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
+  
+  <link rel="stylesheet" href="/css/style.css">
+</head>
+
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/" id="logo">Ronnie Jing</a>
+      </h1>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"></a>
+        
+          <a class="main-nav-link" href="/">Home</a>
+        
+          <a class="main-nav-link" href="/archives">Archives</a>
+        
+          <a class="main-nav-link" href="/demo">Practice</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+          <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSS Feed"></a>
+        
+        <a id="nav-search-btn" class="nav-icon" title="搜索"></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://yoursite.com"></form>
+      </div>
+    </div>
+  </div>
+</header>
+      <div class="outer">
+        <section id="main"><article id="post-Other/Linux" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2018/06/07/Other/Linux/" class="article-date">
+  <time datetime="2018-06-07T06:08:20.254Z" itemprop="datePublished">2018-06-07</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h2 id="Linux"><a href="#Linux" class="headerlink" title="Linux"></a>Linux</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br></pre></td><td class="code"><pre><span class="line">1. 程序开机启动，他们在window中叫做服务（service），在Linux中叫做守护进程</span><br><span class="line">2. chown 修改文件属性</span><br><span class="line">3. chgrp 修改文件属组</span><br><span class="line">4. 处理目录的常用命令</span><br><span class="line">    * ls: 列出目录</span><br><span class="line">    * cd：切换目录</span><br><span class="line">    * pwd：显示目前的目录</span><br><span class="line">    * mkdir：创建一个新的目录</span><br><span class="line">    * rmdir：删除一个空的目录</span><br><span class="line">    * cp: 复制文件或目录</span><br><span class="line">    * rm: 移除文件或目录</span><br><span class="line">5. 查看文件内容</span><br><span class="line">    * cat  由第一行开始显示文件内容</span><br><span class="line">    * tac  从最后一行开始显示，可以看出 tac 是 cat 的倒著写！</span><br><span class="line">    * nl   显示的时候，顺道输出行号！</span><br><span class="line">    * more 一页一页的显示文件内容</span><br><span class="line">    * less 与 more 类似，但是比 more 更好的是，他可以往前翻页！</span><br><span class="line">    * head 只看头几行</span><br><span class="line">    * tail 只看尾巴几行</span><br><span class="line">6. Linux磁盘管理</span><br><span class="line">    * df：列出文件系统的整体磁盘使用量</span><br><span class="line">    * du：检查磁盘空间使用量</span><br><span class="line">    * fdisk：用于磁盘分区</span><br><span class="line">7. 磁盘的挂载和卸除</span><br><span class="line">#### Linux 的磁盘挂载使用 mount 命令，卸载使用 umount 命令。</span><br><span class="line">8. linux yum命令</span><br><span class="line">##### yum</span><br><span class="line"></span><br><span class="line">&gt; yum [options] [command] [package ...]</span><br><span class="line"></span><br><span class="line">* options：可选，选项包括-h（帮助），-y（当安装过程提示选择全部为&quot;yes&quot;），-q（不显示安装的过程）等等。</span><br><span class="line">* command：要进行的操作。</span><br><span class="line">* package操作的对象。</span><br><span class="line">9. yum常用命令</span><br><span class="line">    1. 列出所有可更新的软件清单命令：yum check-update</span><br><span class="line">    2. 更新所有软件命令：yum update</span><br><span class="line">    3. 仅安装指定的软件命令：yum install &lt;package_name&gt;</span><br><span class="line">    4. 仅更新指定的软件命令：yum update &lt;package_name&gt;</span><br><span class="line">    5. 列出所有可安裝的软件清单命令：yum list</span><br><span class="line">    6. 删除软件包命令：yum remove &lt;package_name&gt;</span><br><span class="line">    7. 查找软件包 命令：yum search &lt;keyword&gt;</span><br><span class="line">    8. 清除缓存命令:</span><br><span class="line">        * yum clean packages: 清除缓存目录下的软件包</span><br><span class="line">        * yum clean headers: 清除缓存目录下的 headers</span><br><span class="line">        * yum clean oldheaders: 清除缓存目录下旧的 headers</span><br><span class="line">        * yum clean, yum clean all (= yum clean packages;</span><br><span class="line">        * yum clean oldheaders) :清除缓存目录下的软件包及旧的headers</span><br><span class="line"></span><br><span class="line">## Shell</span><br><span class="line">##### Shell 是一个用 C 语言编写的程序，它是用户使用 Linux 的桥梁。Shell 既是一种命令语言，又是一种程序设计语言。</span><br><span class="line">##### Shell 脚本（shell script），是一种为 shell 编写的脚本程序。</span><br><span class="line">##### #! 是一个约定的标记，它告诉系统这个脚本需要什么解释器来执行，即使用哪一种 Shell。</span><br><span class="line">1. 常用命令</span><br><span class="line">    * echo 命令向用于向窗口输出文本，结尾自动添加换行符</span><br><span class="line">    * printf命令</span><br><span class="line">    &gt; printf  format-string  [arguments...]</span><br></pre></td></tr></table></figure>
+<pre><code>%s %c %d %f都是格式替代符
+%-10s 指一个宽度为10个字符（-表示左对齐，没有则表示右对齐），任何字符都会被显示在10个字符宽的字符内，如果不足则自动以空格填充，超过也会将内容全部显示出来。
+%-4.2f 指格式化为小数，其中.2指保留2位小数。
+
+printf &quot;%-10s %-8s %-4s\n&quot; 姓名 性别 体重kg  
+printf &quot;%-10s %-8s %-4.2f\n&quot; 郭靖 男 66.1234 
+printf &quot;%-10s %-8s %-4.2f\n&quot; 杨过 男 48.6543 
+printf &quot;%-10s %-8s %-4.2f\n&quot; 郭芙 女 47.9876 
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">    * test命令用于检查某个条件是否成立，它可以进行数值、字符和文件三个方面的测试</span><br><span class="line"></span><br><span class="line">2. 执行shell脚本的两种方法</span><br><span class="line">* 作为可执行程序</span><br></pre></td></tr></table></figure>
+</code></pre><p>chmod -x ./test.sh #使脚本具有执行权限<br>./test.sh #执行脚本<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">* 作为解释器参数</span><br></pre></td></tr></table></figure></p>
+<p>/bin/sh test.sh<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">3. 定义变量</span><br><span class="line">##### 定义变量变量不加美元符号（$）变量和等号之间不能有空格</span><br></pre></td></tr></table></figure></p>
+<p>yourname=”test”<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">##### 命名规则</span><br><span class="line">* 命名只能使用英文字母，数字和下划线，首个字符不能以数字开头。</span><br><span class="line">* 中间不能有空格，可以使用下划线（_）。</span><br><span class="line">* 不能使用标点符号。</span><br><span class="line">* 不能使用bash里的关键字（可用help命令查看保留关键字）。</span><br><span class="line">4. 使用一个定义过的变量，只要在变量名前面添加美元符号即可</span><br></pre></td></tr></table></figure></p>
+<p>echo $yourname<br>echo ${yourname}<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">5. 只读变量readonly yourname</span><br><span class="line">6. 删除变量unset yourname。变量被删除后不能再次使用。unset 命令不能删除只读变量。</span><br><span class="line">7. 变量类型</span><br><span class="line">* 局部变量 局部变量在脚本或命令中定义，仅在当前shell实例中有效，其他shell启动的程序不能访问局部变量。</span><br><span class="line">* 环境变量 所有的程序，包括shell启动的程序，都能访问环境变量，有些程序需要环境变量来保证其正常运行。必要的时候shell脚本也可以定义环境变量。</span><br><span class="line">* shell变量 shell变量是由shell程序设置的特殊变量。shell变量中有一部分是环境变量，有一部分是局部变量，这些变量保证了shell的正常运行 </span><br><span class="line">8. Shell字符串</span><br><span class="line">* 单引号字符串原样输出，字符串中的变量无效，单引号中不能有单引号</span><br><span class="line">* 双引号字符串可以有变量，可以出现转义字符。</span><br><span class="line">* 获取字符串长度 echo $&#123;#a&#125;</span><br><span class="line">* 提取字符串 echo $&#123;string:1:4&#125; 提取从第二个字符开始的四个字符</span><br><span class="line">* 查找子字符串</span><br></pre></td></tr></table></figure></p>
+<p>string=”runoob is a great company”<br>echo <code>expr index &quot;$string&quot; is</code>  # 输出 8<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">9. Shell 数组（一维数组，没有数组大小的限定）</span><br><span class="line">##### 在Shell中，用括号来表示数组，数组元素用&quot;空格&quot;符号分割开。定义数组的一般形式为：</span><br><span class="line">&gt; 数组名=(值1 值2 ... 值n)</span><br><span class="line">10. 读取数组 $&#123;数组名[下标]&#125;</span><br><span class="line">11. 获取数组长度</span><br><span class="line">* 取得数组元素的个数</span><br><span class="line">&gt; length=$&#123;#array_name[@]&#125;</span><br><span class="line">*  或者</span><br><span class="line">&gt; length=$&#123;#array_name[*]&#125;</span><br><span class="line">*  取得数组单个元素的长度</span><br><span class="line">&gt; lengthn=$&#123;#array_name[n]&#125;</span><br></pre></td></tr></table></figure></p>
+<p>my_array=(A B “C” D)<br>for a in ${my_array[*]}<br>do<br>echo $a<br>done<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">12. Shell 注释</span><br><span class="line">##### 以&quot;#&quot;开头的行就是注释，会被解释器忽略。</span><br><span class="line">13. Shell 基本运算符</span><br><span class="line">##### expr 是一款表达式计算工具，使用它能完成表达式的求值操作。</span><br></pre></td></tr></table></figure></p>
+<p>a=<code>expr 2 + 2</code><br>echo ${a}<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></td><td class="code"><pre><span class="line">####   注意</span><br><span class="line">&gt; 表达式和运算符之间要有空格，例如 2+2 是不对的，必须写成 2 + 2，这与我们熟悉的大多数编程语言不一样。</span><br><span class="line"></span><br><span class="line">&gt; 完整的表达式要被 ` ` 包含，注意这个字符不是常用的单引号，在 Esc 键下边。</span><br><span class="line"></span><br><span class="line">&gt; 条件表达式要放在方括号之间，并且要有空格，例如: [$a==$b] 是错误的，必须写成 [ $a == $b ]。</span><br><span class="line"></span><br><span class="line">&gt;乘号(*)前边必须加反斜杠(\)才能实现乘法运算；</span><br><span class="line"></span><br><span class="line">&gt;在 MAC 中 shell 的 expr 语法是：$((表达式))，此处表达式中的 &quot;*&quot; 不需要转义符号 &quot;\&quot; 。</span><br><span class="line">14. 关系运算符</span><br><span class="line">* -eq 相等</span><br><span class="line">* -ne 不相等</span><br><span class="line">* -gt 大于</span><br><span class="line">* -lt 小于</span><br><span class="line">* -ge 大于等于</span><br><span class="line">* -le 小于等于</span><br><span class="line">15. 布尔运算符</span><br><span class="line">* ！非</span><br><span class="line">* -o 或</span><br><span class="line">* -a 与</span><br><span class="line">16. 逻辑运算符</span><br><span class="line">* &amp;&amp;逻辑的AND ||逻辑的OR</span><br><span class="line">17. 字符串运算符</span><br><span class="line">18. 文件测试运算符</span><br><span class="line">19. Shell流程控制</span><br><span class="line">* if语句</span><br></pre></td></tr></table></figure></p>
+<p>if<br>then<br>else<br>fi</p>
+<p>if<br>then<br>elif<br>then<br>else<br>fi<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">* for语句</span><br></pre></td></tr></table></figure></p>
+<p>for loop in 1 2 3 4 5<br>do<br>    echo “The value is: $loop”<br>done<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">* while语句</span><br></pre></td></tr></table></figure></p>
+<p>while condition<br>do<br>    command<br>done<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">* case语句</span><br></pre></td></tr></table></figure></p>
+<p>echo ‘输入 1 到 4 之间的数字:’<br>echo ‘你输入的数字为:’<br>read aNum<br>case $aNum in<br>    1)  echo ‘你选择了 1’<br>    ;;<br>    2)  echo ‘你选择了 2’<br>    ;;<br>    3)  echo ‘你选择了 3’<br>    ;;<br>    4)  echo ‘你选择了 4’<br>    ;;<br>    *)  echo ‘你没有输入 1 到 4 之间的数字’<br>    ;;<br>esac<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">* break命令允许跳出所有循环 continue，它不会跳出所有循环，仅仅跳出当前循环。</span><br><span class="line"></span><br><span class="line">20. 函数</span><br><span class="line">21. Shell 输入/输出重定向</span><br><span class="line">* command &gt; file	将输出重定向到 file。</span><br><span class="line">* command &lt; file	将输入重定向到 file。</span><br><span class="line">* command &gt;&gt; file	将输出以追加的方式重定向到 file。</span><br><span class="line">* n &gt; file	将文件描述符为 n 的文件重定向到 file。</span><br><span class="line">* n &gt;&gt; file	将文件描述符为 n 的文件以追加的方式重定向到 file。</span><br><span class="line">* n &gt;&amp; m	将输出文件 m 和 n 合并。</span><br><span class="line">* n &lt;&amp; m	将输入文件 m 和 n 合并。</span><br><span class="line">* &lt;&lt; tag	将开始标记 tag 和结束标记 tag 之间的内容作为输入。</span><br><span class="line">22. Shell 文件包含</span><br><span class="line"></span><br><span class="line">[Linux命令大全] (http://www.runoob.com/linux/linux-command-manual.html)</span><br></pre></td></tr></table></figure></p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2018/06/07/Other/Linux/" data-id="cji4553hw000017rq6dn2zb7d" class="article-share-link">Share</a>
+      
+      
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+  
+    <a href="/2018/04/21/web/UIAntdDesign/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Older</strong>
+      <div class="article-nav-title">AntdDesign的使用</div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+</section>
+        
+          <aside id="sidebar">
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">分类</h3>
+    <div class="widget">
+      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/Android/">Android</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/Other/">Other</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/React-Native/">React Native</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/Web/">Web</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/iOS/">iOS</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">标签</h3>
+    <div class="widget">
+      <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/2018/">2018</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Activity/">Activity</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Android/">Android</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Antd/">Antd</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/AntdDesign/">AntdDesign</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/C/">C</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/ES6/">ES6</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/IPC/">IPC</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/IntentFilter/">IntentFilter</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Less/">Less</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Objective-C/">Objective-C</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/React/">React</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/React-Native/">React Native</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Redux/">Redux</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Retrofit/">Retrofit</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Router/">Router</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/iOS/">iOS</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/web/">web</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/前端/">前端</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/工作计划/">工作计划</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/移动开发/">移动开发</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/算法/">算法</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/网络请求/">网络请求</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">标签云</h3>
+    <div class="widget tagcloud">
+      <a href="/tags/2018/" style="font-size: 12px;">2018</a> <a href="/tags/Activity/" style="font-size: 10px;">Activity</a> <a href="/tags/Android/" style="font-size: 16px;">Android</a> <a href="/tags/Antd/" style="font-size: 10px;">Antd</a> <a href="/tags/AntdDesign/" style="font-size: 10px;">AntdDesign</a> <a href="/tags/C/" style="font-size: 12px;">C</a> <a href="/tags/ES6/" style="font-size: 12px;">ES6</a> <a href="/tags/IPC/" style="font-size: 10px;">IPC</a> <a href="/tags/IntentFilter/" style="font-size: 10px;">IntentFilter</a> <a href="/tags/Less/" style="font-size: 10px;">Less</a> <a href="/tags/Objective-C/" style="font-size: 12px;">Objective-C</a> <a href="/tags/React/" style="font-size: 14px;">React</a> <a href="/tags/React-Native/" style="font-size: 14px;">React Native</a> <a href="/tags/Redux/" style="font-size: 10px;">Redux</a> <a href="/tags/Retrofit/" style="font-size: 10px;">Retrofit</a> <a href="/tags/Router/" style="font-size: 10px;">Router</a> <a href="/tags/iOS/" style="font-size: 12px;">iOS</a> <a href="/tags/web/" style="font-size: 20px;">web</a> <a href="/tags/前端/" style="font-size: 20px;">前端</a> <a href="/tags/工作计划/" style="font-size: 12px;">工作计划</a> <a href="/tags/移动开发/" style="font-size: 18px;">移动开发</a> <a href="/tags/算法/" style="font-size: 10px;">算法</a> <a href="/tags/网络请求/" style="font-size: 10px;">网络请求</a>
+    </div>
+  </div>
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">归档</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/06/">六月 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/04/">四月 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/03/">三月 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/02/">二月 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/01/">一月 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/12/">十二月 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/03/">三月 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2013/10/">十月 2013</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">最新文章</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/2018/06/07/Other/Linux/">(no title)</a>
+          </li>
+        
+          <li>
+            <a href="/2018/04/21/web/UIAntdDesign/">AntdDesign的使用</a>
+          </li>
+        
+          <li>
+            <a href="/2018/04/03/web/WebTrainingDesignRouter4/">Router4的使用</a>
+          </li>
+        
+          <li>
+            <a href="/2018/03/30/web/WebTrainingDesignRedux/">Redux的使用</a>
+          </li>
+        
+          <li>
+            <a href="/2018/03/30/web/WebTrainingDesignReact/">React的使用</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      &copy; 2018 Ronnie Jing<br>
+      Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>
+    </div>
+  </div>
+</footer>
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">Home</a>
+  
+    <a href="/archives" class="mobile-nav-link">Archives</a>
+  
+    <a href="/demo" class="mobile-nav-link">Practice</a>
+  
+</nav>
+    
+
+<script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+
+
+  <link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+  <script src="/fancybox/jquery.fancybox.pack.js"></script>
+
+
+<script src="/js/script.js"></script>
+
+
+
+  </div>
+</body>
+</html>

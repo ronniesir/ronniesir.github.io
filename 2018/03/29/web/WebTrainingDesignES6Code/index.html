@@ -1,0 +1,242 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+
+  
+  <title>ES6培训用例代码 | Ronnie Jing</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="12345678910111213141516171819202122232425262728293031323334353637383940414243444546474849505152535455565758596061626364656667686970717273747576777879808182838485868788899091929394959697989910010110210">
+<meta name="keywords" content="web,前端,ES6">
+<meta property="og:type" content="article">
+<meta property="og:title" content="ES6培训用例代码">
+<meta property="og:url" content="http://yoursite.com/2018/03/29/web/WebTrainingDesignES6Code/index.html">
+<meta property="og:site_name" content="Ronnie Jing">
+<meta property="og:description" content="12345678910111213141516171819202122232425262728293031323334353637383940414243444546474849505152535455565758596061626364656667686970717273747576777879808182838485868788899091929394959697989910010110210">
+<meta property="og:locale" content="zh-CN">
+<meta property="og:updated_time" content="2018-06-07T05:55:26.609Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="ES6培训用例代码">
+<meta name="twitter:description" content="12345678910111213141516171819202122232425262728293031323334353637383940414243444546474849505152535455565758596061626364656667686970717273747576777879808182838485868788899091929394959697989910010110210">
+  
+    <link rel="alternate" href="/atom.xml" title="Ronnie Jing" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.png">
+  
+  
+    <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
+  
+  <link rel="stylesheet" href="/css/style.css">
+</head>
+
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/" id="logo">Ronnie Jing</a>
+      </h1>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"></a>
+        
+          <a class="main-nav-link" href="/">Home</a>
+        
+          <a class="main-nav-link" href="/archives">Archives</a>
+        
+          <a class="main-nav-link" href="/demo">Practice</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+          <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSS Feed"></a>
+        
+        <a id="nav-search-btn" class="nav-icon" title="搜索"></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://yoursite.com"></form>
+      </div>
+    </div>
+  </div>
+</header>
+      <div class="outer">
+        <section id="main"><article id="post-web/WebTrainingDesignES6Code" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2018/03/29/web/WebTrainingDesignES6Code/" class="article-date">
+  <time datetime="2018-03-28T16:00:00.000Z" itemprop="datePublished">2018-03-29</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/Web/">Web</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      ES6培训用例代码
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br><span class="line">106</span><br><span class="line">107</span><br><span class="line">108</span><br><span class="line">109</span><br><span class="line">110</span><br><span class="line">111</span><br><span class="line">112</span><br><span class="line">113</span><br><span class="line">114</span><br><span class="line">115</span><br><span class="line">116</span><br><span class="line">117</span><br><span class="line">118</span><br><span class="line">119</span><br><span class="line">120</span><br><span class="line">121</span><br><span class="line">122</span><br><span class="line">123</span><br><span class="line">124</span><br><span class="line">125</span><br><span class="line">126</span><br><span class="line">127</span><br><span class="line">128</span><br><span class="line">129</span><br><span class="line">130</span><br><span class="line">131</span><br><span class="line">132</span><br><span class="line">133</span><br><span class="line">134</span><br><span class="line">135</span><br><span class="line">136</span><br><span class="line">137</span><br><span class="line">138</span><br><span class="line">139</span><br><span class="line">140</span><br><span class="line">141</span><br><span class="line">142</span><br><span class="line">143</span><br><span class="line">144</span><br><span class="line">145</span><br><span class="line">146</span><br><span class="line">147</span><br><span class="line">148</span><br><span class="line">149</span><br><span class="line">150</span><br><span class="line">151</span><br><span class="line">152</span><br><span class="line">153</span><br><span class="line">154</span><br><span class="line">155</span><br><span class="line">156</span><br><span class="line">157</span><br><span class="line">158</span><br><span class="line">159</span><br><span class="line">160</span><br><span class="line">161</span><br><span class="line">162</span><br><span class="line">163</span><br><span class="line">164</span><br><span class="line">165</span><br><span class="line">166</span><br><span class="line">167</span><br><span class="line">168</span><br><span class="line">169</span><br><span class="line">170</span><br><span class="line">171</span><br><span class="line">172</span><br><span class="line">173</span><br><span class="line">174</span><br><span class="line">175</span><br><span class="line">176</span><br><span class="line">177</span><br><span class="line">178</span><br><span class="line">179</span><br><span class="line">180</span><br><span class="line">181</span><br><span class="line">182</span><br><span class="line">183</span><br><span class="line">184</span><br><span class="line">185</span><br><span class="line">186</span><br><span class="line">187</span><br><span class="line">188</span><br><span class="line">189</span><br><span class="line">190</span><br><span class="line">191</span><br><span class="line">192</span><br><span class="line">193</span><br><span class="line">194</span><br><span class="line">195</span><br><span class="line">196</span><br><span class="line">197</span><br><span class="line">198</span><br><span class="line">199</span><br><span class="line">200</span><br><span class="line">201</span><br><span class="line">202</span><br><span class="line">203</span><br><span class="line">204</span><br><span class="line">205</span><br><span class="line">206</span><br><span class="line">207</span><br><span class="line">208</span><br><span class="line">209</span><br><span class="line">210</span><br><span class="line">211</span><br><span class="line">212</span><br><span class="line">213</span><br><span class="line">214</span><br><span class="line">215</span><br><span class="line">216</span><br><span class="line">217</span><br><span class="line">218</span><br><span class="line">219</span><br><span class="line">220</span><br><span class="line">221</span><br><span class="line">222</span><br><span class="line">223</span><br><span class="line">224</span><br><span class="line">225</span><br><span class="line">226</span><br><span class="line">227</span><br><span class="line">228</span><br><span class="line">229</span><br><span class="line">230</span><br><span class="line">231</span><br><span class="line">232</span><br><span class="line">233</span><br><span class="line">234</span><br><span class="line">235</span><br><span class="line">236</span><br><span class="line">237</span><br><span class="line">238</span><br></pre></td><td class="code"><pre><span class="line">import React, &#123; Component &#125; from &apos;react&apos;;</span><br><span class="line"></span><br><span class="line">class Home extends Component &#123;</span><br><span class="line"></span><br><span class="line">    // 构造</span><br><span class="line">    constructor(props) &#123;</span><br><span class="line">        super(props);</span><br><span class="line">        // 初始状态</span><br><span class="line">        this.state = &#123;&#125;;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    componentDidMount() &#123;</span><br><span class="line">        //let和const的学习</span><br><span class="line">        this.letConstFunc();</span><br><span class="line">        this.variableDeconstruction();</span><br><span class="line">        this.stringExtend();</span><br><span class="line">        this.numberExtend();</span><br><span class="line">        this.funcExtend();</span><br><span class="line">        this.arrayExtend();</span><br><span class="line">        this.objectExtend();</span><br><span class="line">        this.mapSet();</span><br><span class="line">        this.promiseUse();</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">    /**</span><br><span class="line">     * let const变量的使用</span><br><span class="line">     */</span><br><span class="line">    letConstFunc = () =&gt; &#123;</span><br><span class="line">        &#123;</span><br><span class="line">            let aLet = 10;</span><br><span class="line">            var bVar = 20;</span><br><span class="line">        &#125;</span><br><span class="line">        //not defined</span><br><span class="line">        // console.log(aLet);</span><br><span class="line">        console.log(bVar);</span><br><span class="line"></span><br><span class="line">        const c = 1234;</span><br><span class="line">        //报错</span><br><span class="line">        // c=234;</span><br><span class="line"></span><br><span class="line">        //可在任意位置调用</span><br><span class="line">        global.c = 23423;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    /**</span><br><span class="line">     * 变量的解构赋值</span><br><span class="line">     */</span><br><span class="line">    variableDeconstruction = () =&gt; &#123;</span><br><span class="line">        //数组解构</span><br><span class="line">        let [aa, bb, cc] = [11, 22, 33];</span><br><span class="line">        //11-22-33</span><br><span class="line">        console.log(aa + &quot;-&quot; + bb + &quot;-&quot; + cc);</span><br><span class="line"></span><br><span class="line">        //对象解构</span><br><span class="line">        let &#123;o1, o2&#125; = &#123;o1: 1, o2: 2&#125;;</span><br><span class="line">        //1-2</span><br><span class="line">        console.log(o1 + &quot;-&quot; + o2);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    //字符串扩展</span><br><span class="line">    stringExtend = () =&gt; &#123;</span><br><span class="line">        let helloWorld = &quot;Hello World&quot;;</span><br><span class="line">        // true</span><br><span class="line">        console.log(helloWorld.includes(&quot;Hello&quot;));</span><br><span class="line">        //true</span><br><span class="line">        console.log(helloWorld.startsWith(&quot;Hello&quot;));</span><br><span class="line">        //false</span><br><span class="line">        console.log(helloWorld.endsWith(&quot;Hello&quot;));</span><br><span class="line"></span><br><span class="line">        // 模板字符串</span><br><span class="line">        let templateStr = `</span><br><span class="line">            $&#123;helloWorld&#125;</span><br><span class="line">            测试</span><br><span class="line">                    模板</span><br><span class="line">                             字符串</span><br><span class="line">        `;</span><br><span class="line">        console.log(templateStr);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    //数值扩展</span><br><span class="line">    numberExtend = () =&gt; &#123;</span><br><span class="line">        let intData = Number.parseInt(&apos;12.34&apos;) // 12</span><br><span class="line">        let floatData = Number.parseFloat(&apos;123.45#&apos;) // 123.45</span><br><span class="line">        let truncData = Math.trunc(4.1);</span><br><span class="line">        //12---123.45---4</span><br><span class="line">        console.log(intData + &quot;---&quot; + floatData + &quot;---&quot; + truncData);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    //函数扩展</span><br><span class="line">    funcExtend = () =&gt; &#123;</span><br><span class="line">        //输出1-----undefined</span><br><span class="line">        this.funcExtendDefaultValue();</span><br><span class="line">        //输出2-----3</span><br><span class="line">        this.funcExtendDefaultValue(2, 3);</span><br><span class="line">        this.funcExtendDefaultValue2(&#123;y: 2&#125;);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    //默认值函数</span><br><span class="line">    funcExtendDefaultValue = (x = 1, y, ...values) =&gt; &#123;</span><br><span class="line">        console.log(x + &quot;-----&quot; + y);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    //解构结合函数</span><br><span class="line">    funcExtendDefaultValue2 = (&#123;x = 1, y&#125;) =&gt; &#123;</span><br><span class="line">        console.log(x + &quot;-----&quot; + y);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    //数组的扩展</span><br><span class="line">    arrayExtend = () =&gt; &#123;</span><br><span class="line">        //扩展运算符 1 2 3</span><br><span class="line">        console.log(&quot;扩展运算符&quot;, ...[1, 2, 3]);</span><br><span class="line"></span><br><span class="line">        let array1 = [1, 2, 3];</span><br><span class="line">        let array2 = [4, 5, 6];</span><br><span class="line">        console.log(&quot;push&quot;, array1.push(...array2));</span><br><span class="line">        console.log(&quot;pop&quot;, array1.pop());</span><br><span class="line">        console.log(&quot;shift&quot;, array1.shift());</span><br><span class="line">        console.log(&quot;unshift&quot;, array1.unshift(...array2));</span><br><span class="line"></span><br><span class="line">        //直接复制</span><br><span class="line">        const a1 = [1, 2];</span><br><span class="line">        const a2 = a1;</span><br><span class="line">        a2[0] = 2;</span><br><span class="line">        console.log(a1) // [2, 2]</span><br><span class="line"></span><br><span class="line">        //concat函数的使用,返回原数组的克隆，修改新数组数据不会影响原数组数据</span><br><span class="line">        const a3 = [1, 2];</span><br><span class="line">        const a4 = a2.concat();</span><br><span class="line">        a4[0] = 2;</span><br><span class="line">        console.log(a3) // [1, 2]</span><br><span class="line"></span><br><span class="line">        let array11 = Array.from(&#123;&apos;0&apos;: 1, &apos;1&apos;: 2, &apos;2&apos;: 3, length: 3&#125;);</span><br><span class="line">        //[1, 2, 3]</span><br><span class="line">        console.log(&quot;111&quot;, array11);</span><br><span class="line"></span><br><span class="line">        let array22 = Array.of(123, 23423, 54354);</span><br><span class="line">        // [123, 23423, 54354]</span><br><span class="line">        console.log(&quot;222&quot;, array22);</span><br><span class="line"></span><br><span class="line">        // 0</span><br><span class="line">        // 1</span><br><span class="line">        for (let index of [&apos;a&apos;, &apos;b&apos;].keys()) &#123;</span><br><span class="line">            console.log(index);</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        // 0 &quot;a&quot;</span><br><span class="line">        // 1 &quot;b&quot;</span><br><span class="line">        for (let [index, elem] of [&apos;a&apos;, &apos;b&apos;].entries()) &#123;</span><br><span class="line">            console.log(index, elem);</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    //对象的扩展</span><br><span class="line">    objectExtend = () =&gt; &#123;</span><br><span class="line">        const objectKey = &apos;objectValue&apos;;</span><br><span class="line">        const objectNew = &#123;objectKey&#125;;</span><br><span class="line">        //&#123;objectKey: &quot;objectValue&quot;&#125;</span><br><span class="line">        console.log(&quot;obejct new&quot;, objectNew);</span><br><span class="line"></span><br><span class="line">        //属性名表达式</span><br><span class="line">        //&#123;objectKey: &quot;objectValue&quot;, abc: &quot;abd&quot;&#125;</span><br><span class="line">        objectNew[&apos;a&apos; + &apos;bc&apos;] = &apos;abd&apos;;</span><br><span class="line">        console.log(&quot;obejct new&quot;, objectNew);</span><br><span class="line"></span><br><span class="line">        let objectOne = &#123;&#125;;</span><br><span class="line">        //返回false 两个不同的对象</span><br><span class="line">        console.log(&quot;object.is&quot;, Object.is(&#123;&#125;, &#123;&#125;));</span><br><span class="line">        //&#123;a: 1, b: 2&#125;</span><br><span class="line">        console.log(&quot;object.assign&quot;, Object.assign(objectOne, &#123;a: 1, b: 2&#125;))</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    //set和map的使用</span><br><span class="line">    mapSet = () =&gt; &#123;</span><br><span class="line">        const set = new Set([11, 22, 33, 4, 5, 6, 123, 11, 22, 33, 4]);</span><br><span class="line"></span><br><span class="line">        set.add(456);</span><br><span class="line">        //11 22 33 4 5 6 123 456</span><br><span class="line">        set.forEach((item) =&gt; &#123;</span><br><span class="line">            console.log(item);</span><br><span class="line">        &#125;);</span><br><span class="line"></span><br><span class="line">        const map = new Map();</span><br><span class="line">        map.set(&quot;name&quot;, &quot;value&quot;);</span><br><span class="line">        console.log(&quot;map&quot;,map.get(&quot;name&quot;));</span><br><span class="line">        map.has(&quot;name&quot;);</span><br><span class="line">        map.delete(&quot;name&quot;);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    //promise的使用</span><br><span class="line">    promiseUse=()=&gt;&#123;</span><br><span class="line"></span><br><span class="line">        const promiseSuccess = new Promise((resolve,reject)=&gt;&#123;</span><br><span class="line">            resolve(&quot;成功了&quot;);</span><br><span class="line">            throw new Error(&quot;成功后抛出无效&quot;);</span><br><span class="line">        &#125;)</span><br><span class="line"></span><br><span class="line">        //成功处理</span><br><span class="line">        promiseSuccess.then((successValue)=&gt;&#123;</span><br><span class="line">            console.log(successValue)</span><br><span class="line">        &#125;).catch((failedValue)=&gt;&#123;</span><br><span class="line">            console.log(&quot;error&quot;,failedValue)</span><br><span class="line">        &#125;);</span><br><span class="line"></span><br><span class="line">        const promiseFailed = new Promise((resolve,reject)=&gt;&#123;</span><br><span class="line">            reject(new Error(&apos;失败后抛出&apos;));</span><br><span class="line"></span><br><span class="line">        &#125;)</span><br><span class="line"></span><br><span class="line">        //失败调用直接在catch中进行处理</span><br><span class="line">        promiseFailed.then((successValue)=&gt;&#123;</span><br><span class="line"></span><br><span class="line">        &#125;).catch((error)=&gt;&#123;</span><br><span class="line">            console.log(&quot;error&quot;,error)</span><br><span class="line">        &#125;).finally(()=&gt;&#123;</span><br><span class="line">            console.log(&quot;finally&quot;)</span><br><span class="line">        &#125;);</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line">    render() &#123;</span><br><span class="line">        return (</span><br><span class="line">            &lt;div&gt;</span><br><span class="line">                &lt;h2&gt;Home Page&lt;/h2&gt;</span><br><span class="line">                &lt;p&gt;Home Page Content&lt;/p&gt;</span><br><span class="line">            &lt;/div&gt;</span><br><span class="line">        );</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">Home.propTypes = &#123;&#125;;</span><br><span class="line">Home.defaultProps = &#123;&#125;;</span><br><span class="line"></span><br><span class="line">export default Home;</span><br></pre></td></tr></table></figure>
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2018/03/29/web/WebTrainingDesignES6Code/" data-id="cji44rp1k000xctrqj4hvzwq5" class="article-share-link">Share</a>
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/ES6/">ES6</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/web/">web</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/前端/">前端</a></li></ul>
+
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="/2018/03/30/web/WebTrainingDesignReact/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Newer</strong>
+      <div class="article-nav-title">
+        
+          React的使用
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2018/03/29/web/WebTrainingDesignES6/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Older</strong>
+      <div class="article-nav-title">ES6培训材料整理</div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+</section>
+        
+          <aside id="sidebar">
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">分类</h3>
+    <div class="widget">
+      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/Android/">Android</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/Other/">Other</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/React-Native/">React Native</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/Web/">Web</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/iOS/">iOS</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">标签</h3>
+    <div class="widget">
+      <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/2018/">2018</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Activity/">Activity</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Android/">Android</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Antd/">Antd</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/AntdDesign/">AntdDesign</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/C/">C</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/ES6/">ES6</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/IPC/">IPC</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/IntentFilter/">IntentFilter</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Less/">Less</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Objective-C/">Objective-C</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/React/">React</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/React-Native/">React Native</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Redux/">Redux</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Retrofit/">Retrofit</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Router/">Router</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/iOS/">iOS</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/web/">web</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/前端/">前端</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/工作计划/">工作计划</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/移动开发/">移动开发</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/算法/">算法</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/网络请求/">网络请求</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">标签云</h3>
+    <div class="widget tagcloud">
+      <a href="/tags/2018/" style="font-size: 12px;">2018</a> <a href="/tags/Activity/" style="font-size: 10px;">Activity</a> <a href="/tags/Android/" style="font-size: 16px;">Android</a> <a href="/tags/Antd/" style="font-size: 10px;">Antd</a> <a href="/tags/AntdDesign/" style="font-size: 10px;">AntdDesign</a> <a href="/tags/C/" style="font-size: 12px;">C</a> <a href="/tags/ES6/" style="font-size: 12px;">ES6</a> <a href="/tags/IPC/" style="font-size: 10px;">IPC</a> <a href="/tags/IntentFilter/" style="font-size: 10px;">IntentFilter</a> <a href="/tags/Less/" style="font-size: 10px;">Less</a> <a href="/tags/Objective-C/" style="font-size: 12px;">Objective-C</a> <a href="/tags/React/" style="font-size: 14px;">React</a> <a href="/tags/React-Native/" style="font-size: 14px;">React Native</a> <a href="/tags/Redux/" style="font-size: 10px;">Redux</a> <a href="/tags/Retrofit/" style="font-size: 10px;">Retrofit</a> <a href="/tags/Router/" style="font-size: 10px;">Router</a> <a href="/tags/iOS/" style="font-size: 12px;">iOS</a> <a href="/tags/web/" style="font-size: 20px;">web</a> <a href="/tags/前端/" style="font-size: 20px;">前端</a> <a href="/tags/工作计划/" style="font-size: 12px;">工作计划</a> <a href="/tags/移动开发/" style="font-size: 18px;">移动开发</a> <a href="/tags/算法/" style="font-size: 10px;">算法</a> <a href="/tags/网络请求/" style="font-size: 10px;">网络请求</a>
+    </div>
+  </div>
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">归档</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/06/">六月 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/04/">四月 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/03/">三月 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/02/">二月 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/01/">一月 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/12/">十二月 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/03/">三月 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2013/10/">十月 2013</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">最新文章</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/2018/06/07/Other/Linux/">(no title)</a>
+          </li>
+        
+          <li>
+            <a href="/2018/04/21/web/UIAntdDesign/">AntdDesign的使用</a>
+          </li>
+        
+          <li>
+            <a href="/2018/04/03/web/WebTrainingDesignRouter4/">Router4的使用</a>
+          </li>
+        
+          <li>
+            <a href="/2018/03/30/web/WebTrainingDesignRedux/">Redux的使用</a>
+          </li>
+        
+          <li>
+            <a href="/2018/03/30/web/WebTrainingDesignReact/">React的使用</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      &copy; 2018 Ronnie Jing<br>
+      Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>
+    </div>
+  </div>
+</footer>
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">Home</a>
+  
+    <a href="/archives" class="mobile-nav-link">Archives</a>
+  
+    <a href="/demo" class="mobile-nav-link">Practice</a>
+  
+</nav>
+    
+
+<script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+
+
+  <link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+  <script src="/fancybox/jquery.fancybox.pack.js"></script>
+
+
+<script src="/js/script.js"></script>
+
+
+
+  </div>
+</body>
+</html>

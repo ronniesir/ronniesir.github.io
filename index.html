@@ -1,0 +1,822 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+
+  
+  <title>Ronnie Jing</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="景先生自己的博客，记录自己想要记的事情，每天记一点，进步一点点。">
+<meta name="keywords" content="ronnie">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Ronnie Jing">
+<meta property="og:url" content="http://yoursite.com/index.html">
+<meta property="og:site_name" content="Ronnie Jing">
+<meta property="og:description" content="景先生自己的博客，记录自己想要记的事情，每天记一点，进步一点点。">
+<meta property="og:locale" content="zh-CN">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Ronnie Jing">
+<meta name="twitter:description" content="景先生自己的博客，记录自己想要记的事情，每天记一点，进步一点点。">
+  
+    <link rel="alternate" href="/atom.xml" title="Ronnie Jing" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.png">
+  
+  
+    <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
+  
+  <link rel="stylesheet" href="/css/style.css">
+</head>
+
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/" id="logo">Ronnie Jing</a>
+      </h1>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"></a>
+        
+          <a class="main-nav-link" href="/">Home</a>
+        
+          <a class="main-nav-link" href="/archives">Archives</a>
+        
+          <a class="main-nav-link" href="/demo">Practice</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+          <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSS Feed"></a>
+        
+        <a id="nav-search-btn" class="nav-icon" title="搜索"></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://yoursite.com"></form>
+      </div>
+    </div>
+  </div>
+</header>
+      <div class="outer">
+        <section id="main">
+  
+    <article id="post-Other/Linux" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2018/06/07/Other/Linux/" class="article-date">
+  <time datetime="2018-06-07T06:08:20.254Z" itemprop="datePublished">2018-06-07</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h2 id="Linux"><a href="#Linux" class="headerlink" title="Linux"></a>Linux</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br></pre></td><td class="code"><pre><span class="line">1. 程序开机启动，他们在window中叫做服务（service），在Linux中叫做守护进程</span><br><span class="line">2. chown 修改文件属性</span><br><span class="line">3. chgrp 修改文件属组</span><br><span class="line">4. 处理目录的常用命令</span><br><span class="line">    * ls: 列出目录</span><br><span class="line">    * cd：切换目录</span><br><span class="line">    * pwd：显示目前的目录</span><br><span class="line">    * mkdir：创建一个新的目录</span><br><span class="line">    * rmdir：删除一个空的目录</span><br><span class="line">    * cp: 复制文件或目录</span><br><span class="line">    * rm: 移除文件或目录</span><br><span class="line">5. 查看文件内容</span><br><span class="line">    * cat  由第一行开始显示文件内容</span><br><span class="line">    * tac  从最后一行开始显示，可以看出 tac 是 cat 的倒著写！</span><br><span class="line">    * nl   显示的时候，顺道输出行号！</span><br><span class="line">    * more 一页一页的显示文件内容</span><br><span class="line">    * less 与 more 类似，但是比 more 更好的是，他可以往前翻页！</span><br><span class="line">    * head 只看头几行</span><br><span class="line">    * tail 只看尾巴几行</span><br><span class="line">6. Linux磁盘管理</span><br><span class="line">    * df：列出文件系统的整体磁盘使用量</span><br><span class="line">    * du：检查磁盘空间使用量</span><br><span class="line">    * fdisk：用于磁盘分区</span><br><span class="line">7. 磁盘的挂载和卸除</span><br><span class="line">#### Linux 的磁盘挂载使用 mount 命令，卸载使用 umount 命令。</span><br><span class="line">8. linux yum命令</span><br><span class="line">##### yum</span><br><span class="line"></span><br><span class="line">&gt; yum [options] [command] [package ...]</span><br><span class="line"></span><br><span class="line">* options：可选，选项包括-h（帮助），-y（当安装过程提示选择全部为&quot;yes&quot;），-q（不显示安装的过程）等等。</span><br><span class="line">* command：要进行的操作。</span><br><span class="line">* package操作的对象。</span><br><span class="line">9. yum常用命令</span><br><span class="line">    1. 列出所有可更新的软件清单命令：yum check-update</span><br><span class="line">    2. 更新所有软件命令：yum update</span><br><span class="line">    3. 仅安装指定的软件命令：yum install &lt;package_name&gt;</span><br><span class="line">    4. 仅更新指定的软件命令：yum update &lt;package_name&gt;</span><br><span class="line">    5. 列出所有可安裝的软件清单命令：yum list</span><br><span class="line">    6. 删除软件包命令：yum remove &lt;package_name&gt;</span><br><span class="line">    7. 查找软件包 命令：yum search &lt;keyword&gt;</span><br><span class="line">    8. 清除缓存命令:</span><br><span class="line">        * yum clean packages: 清除缓存目录下的软件包</span><br><span class="line">        * yum clean headers: 清除缓存目录下的 headers</span><br><span class="line">        * yum clean oldheaders: 清除缓存目录下旧的 headers</span><br><span class="line">        * yum clean, yum clean all (= yum clean packages;</span><br><span class="line">        * yum clean oldheaders) :清除缓存目录下的软件包及旧的headers</span><br><span class="line"></span><br><span class="line">## Shell</span><br><span class="line">##### Shell 是一个用 C 语言编写的程序，它是用户使用 Linux 的桥梁。Shell 既是一种命令语言，又是一种程序设计语言。</span><br><span class="line">##### Shell 脚本（shell script），是一种为 shell 编写的脚本程序。</span><br><span class="line">##### #! 是一个约定的标记，它告诉系统这个脚本需要什么解释器来执行，即使用哪一种 Shell。</span><br><span class="line">1. 常用命令</span><br><span class="line">    * echo 命令向用于向窗口输出文本，结尾自动添加换行符</span><br><span class="line">    * printf命令</span><br><span class="line">    &gt; printf  format-string  [arguments...]</span><br></pre></td></tr></table></figure>
+<pre><code>%s %c %d %f都是格式替代符
+%-10s 指一个宽度为10个字符（-表示左对齐，没有则表示右对齐），任何字符都会被显示在10个字符宽的字符内，如果不足则自动以空格填充，超过也会将内容全部显示出来。
+%-4.2f 指格式化为小数，其中.2指保留2位小数。
+
+printf &quot;%-10s %-8s %-4s\n&quot; 姓名 性别 体重kg  
+printf &quot;%-10s %-8s %-4.2f\n&quot; 郭靖 男 66.1234 
+printf &quot;%-10s %-8s %-4.2f\n&quot; 杨过 男 48.6543 
+printf &quot;%-10s %-8s %-4.2f\n&quot; 郭芙 女 47.9876 
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">    * test命令用于检查某个条件是否成立，它可以进行数值、字符和文件三个方面的测试</span><br><span class="line"></span><br><span class="line">2. 执行shell脚本的两种方法</span><br><span class="line">* 作为可执行程序</span><br></pre></td></tr></table></figure>
+</code></pre><p>chmod -x ./test.sh #使脚本具有执行权限<br>./test.sh #执行脚本<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">* 作为解释器参数</span><br></pre></td></tr></table></figure></p>
+<p>/bin/sh test.sh<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">3. 定义变量</span><br><span class="line">##### 定义变量变量不加美元符号（$）变量和等号之间不能有空格</span><br></pre></td></tr></table></figure></p>
+<p>yourname=”test”<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">##### 命名规则</span><br><span class="line">* 命名只能使用英文字母，数字和下划线，首个字符不能以数字开头。</span><br><span class="line">* 中间不能有空格，可以使用下划线（_）。</span><br><span class="line">* 不能使用标点符号。</span><br><span class="line">* 不能使用bash里的关键字（可用help命令查看保留关键字）。</span><br><span class="line">4. 使用一个定义过的变量，只要在变量名前面添加美元符号即可</span><br></pre></td></tr></table></figure></p>
+<p>echo $yourname<br>echo ${yourname}<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">5. 只读变量readonly yourname</span><br><span class="line">6. 删除变量unset yourname。变量被删除后不能再次使用。unset 命令不能删除只读变量。</span><br><span class="line">7. 变量类型</span><br><span class="line">* 局部变量 局部变量在脚本或命令中定义，仅在当前shell实例中有效，其他shell启动的程序不能访问局部变量。</span><br><span class="line">* 环境变量 所有的程序，包括shell启动的程序，都能访问环境变量，有些程序需要环境变量来保证其正常运行。必要的时候shell脚本也可以定义环境变量。</span><br><span class="line">* shell变量 shell变量是由shell程序设置的特殊变量。shell变量中有一部分是环境变量，有一部分是局部变量，这些变量保证了shell的正常运行 </span><br><span class="line">8. Shell字符串</span><br><span class="line">* 单引号字符串原样输出，字符串中的变量无效，单引号中不能有单引号</span><br><span class="line">* 双引号字符串可以有变量，可以出现转义字符。</span><br><span class="line">* 获取字符串长度 echo $&#123;#a&#125;</span><br><span class="line">* 提取字符串 echo $&#123;string:1:4&#125; 提取从第二个字符开始的四个字符</span><br><span class="line">* 查找子字符串</span><br></pre></td></tr></table></figure></p>
+<p>string=”runoob is a great company”<br>echo <code>expr index &quot;$string&quot; is</code>  # 输出 8<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">9. Shell 数组（一维数组，没有数组大小的限定）</span><br><span class="line">##### 在Shell中，用括号来表示数组，数组元素用&quot;空格&quot;符号分割开。定义数组的一般形式为：</span><br><span class="line">&gt; 数组名=(值1 值2 ... 值n)</span><br><span class="line">10. 读取数组 $&#123;数组名[下标]&#125;</span><br><span class="line">11. 获取数组长度</span><br><span class="line">* 取得数组元素的个数</span><br><span class="line">&gt; length=$&#123;#array_name[@]&#125;</span><br><span class="line">*  或者</span><br><span class="line">&gt; length=$&#123;#array_name[*]&#125;</span><br><span class="line">*  取得数组单个元素的长度</span><br><span class="line">&gt; lengthn=$&#123;#array_name[n]&#125;</span><br></pre></td></tr></table></figure></p>
+<p>my_array=(A B “C” D)<br>for a in ${my_array[*]}<br>do<br>echo $a<br>done<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">12. Shell 注释</span><br><span class="line">##### 以&quot;#&quot;开头的行就是注释，会被解释器忽略。</span><br><span class="line">13. Shell 基本运算符</span><br><span class="line">##### expr 是一款表达式计算工具，使用它能完成表达式的求值操作。</span><br></pre></td></tr></table></figure></p>
+<p>a=<code>expr 2 + 2</code><br>echo ${a}<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></td><td class="code"><pre><span class="line">####   注意</span><br><span class="line">&gt; 表达式和运算符之间要有空格，例如 2+2 是不对的，必须写成 2 + 2，这与我们熟悉的大多数编程语言不一样。</span><br><span class="line"></span><br><span class="line">&gt; 完整的表达式要被 ` ` 包含，注意这个字符不是常用的单引号，在 Esc 键下边。</span><br><span class="line"></span><br><span class="line">&gt; 条件表达式要放在方括号之间，并且要有空格，例如: [$a==$b] 是错误的，必须写成 [ $a == $b ]。</span><br><span class="line"></span><br><span class="line">&gt;乘号(*)前边必须加反斜杠(\)才能实现乘法运算；</span><br><span class="line"></span><br><span class="line">&gt;在 MAC 中 shell 的 expr 语法是：$((表达式))，此处表达式中的 &quot;*&quot; 不需要转义符号 &quot;\&quot; 。</span><br><span class="line">14. 关系运算符</span><br><span class="line">* -eq 相等</span><br><span class="line">* -ne 不相等</span><br><span class="line">* -gt 大于</span><br><span class="line">* -lt 小于</span><br><span class="line">* -ge 大于等于</span><br><span class="line">* -le 小于等于</span><br><span class="line">15. 布尔运算符</span><br><span class="line">* ！非</span><br><span class="line">* -o 或</span><br><span class="line">* -a 与</span><br><span class="line">16. 逻辑运算符</span><br><span class="line">* &amp;&amp;逻辑的AND ||逻辑的OR</span><br><span class="line">17. 字符串运算符</span><br><span class="line">18. 文件测试运算符</span><br><span class="line">19. Shell流程控制</span><br><span class="line">* if语句</span><br></pre></td></tr></table></figure></p>
+<p>if<br>then<br>else<br>fi</p>
+<p>if<br>then<br>elif<br>then<br>else<br>fi<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">* for语句</span><br></pre></td></tr></table></figure></p>
+<p>for loop in 1 2 3 4 5<br>do<br>    echo “The value is: $loop”<br>done<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">* while语句</span><br></pre></td></tr></table></figure></p>
+<p>while condition<br>do<br>    command<br>done<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">* case语句</span><br></pre></td></tr></table></figure></p>
+<p>echo ‘输入 1 到 4 之间的数字:’<br>echo ‘你输入的数字为:’<br>read aNum<br>case $aNum in<br>    1)  echo ‘你选择了 1’<br>    ;;<br>    2)  echo ‘你选择了 2’<br>    ;;<br>    3)  echo ‘你选择了 3’<br>    ;;<br>    4)  echo ‘你选择了 4’<br>    ;;<br>    *)  echo ‘你没有输入 1 到 4 之间的数字’<br>    ;;<br>esac<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">* break命令允许跳出所有循环 continue，它不会跳出所有循环，仅仅跳出当前循环。</span><br><span class="line"></span><br><span class="line">20. 函数</span><br><span class="line">21. Shell 输入/输出重定向</span><br><span class="line">* command &gt; file	将输出重定向到 file。</span><br><span class="line">* command &lt; file	将输入重定向到 file。</span><br><span class="line">* command &gt;&gt; file	将输出以追加的方式重定向到 file。</span><br><span class="line">* n &gt; file	将文件描述符为 n 的文件重定向到 file。</span><br><span class="line">* n &gt;&gt; file	将文件描述符为 n 的文件以追加的方式重定向到 file。</span><br><span class="line">* n &gt;&amp; m	将输出文件 m 和 n 合并。</span><br><span class="line">* n &lt;&amp; m	将输入文件 m 和 n 合并。</span><br><span class="line">* &lt;&lt; tag	将开始标记 tag 和结束标记 tag 之间的内容作为输入。</span><br><span class="line">22. Shell 文件包含</span><br><span class="line"></span><br><span class="line">[Linux命令大全] (http://www.runoob.com/linux/linux-command-manual.html)</span><br></pre></td></tr></table></figure></p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2018/06/07/Other/Linux/" data-id="cji4553hw000017rq6dn2zb7d" class="article-share-link">Share</a>
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+    <article id="post-web/UIAntdDesign" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2018/04/21/web/UIAntdDesign/" class="article-date">
+  <time datetime="2018-04-20T16:00:00.000Z" itemprop="datePublished">2018-04-21</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/Web/">Web</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2018/04/21/web/UIAntdDesign/">AntdDesign的使用</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h2 id="安装"><a href="#安装" class="headerlink" title="安装"></a>安装</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">//package.json</span><br><span class="line">npm install antd babel-plugin-import --save</span><br><span class="line">// .babelrc or babel-loader option</span><br><span class="line">&#123;</span><br><span class="line">  &quot;plugins&quot;: [</span><br><span class="line">    [&quot;import&quot;, &#123; &quot;libraryName&quot;: &quot;antd&quot;, &quot;libraryDirectory&quot;: &quot;es&quot;, &quot;style&quot;: &quot;css&quot; &#125;] // `style: true` 会加载 less 文件</span><br><span class="line">  ]</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2018/04/21/web/UIAntdDesign/" data-id="cji44rp1h000qctrqoyn3s9of" class="article-share-link">Share</a>
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Antd/">Antd</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/AntdDesign/">AntdDesign</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/web/">web</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/前端/">前端</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+    <article id="post-web/WebTrainingDesignRouter4" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2018/04/03/web/WebTrainingDesignRouter4/" class="article-date">
+  <time datetime="2018-04-02T16:00:00.000Z" itemprop="datePublished">2018-04-03</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/Web/">Web</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2018/04/03/web/WebTrainingDesignRouter4/">Router4的使用</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm install --save react-router-dom</span><br></pre></td></tr></table></figure>
+<h2 id="组件"><a href="#组件" class="headerlink" title="组件"></a>组件</h2><h3 id=""><a href="#" class="headerlink" title=""></a><browserrouter></browserrouter></h3><h5 id="一个高阶路由组件，保证你的UI界面和URL保持同步。"><a href="#一个高阶路由组件，保证你的UI界面和URL保持同步。" class="headerlink" title="一个高阶路由组件，保证你的UI界面和URL保持同步。"></a>一个高阶路由组件，保证你的UI界面和URL保持同步。</h5><h4 id="1-basename-string"><a href="#1-basename-string" class="headerlink" title="1. basename:string"></a>1. basename:string</h4><h5 id="作用：为所有位置添加一个基准URL"><a href="#作用：为所有位置添加一个基准URL" class="headerlink" title="作用：为所有位置添加一个基准URL"></a>作用：为所有位置添加一个基准URL</h5><h5 id="使用场景：加入你把页面部署到服务器的二级目录下，你可以使用basename设置此目录"><a href="#使用场景：加入你把页面部署到服务器的二级目录下，你可以使用basename设置此目录" class="headerlink" title="使用场景：加入你把页面部署到服务器的二级目录下，你可以使用basename设置此目录"></a>使用场景：加入你把页面部署到服务器的二级目录下，你可以使用basename设置此目录</h5><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">&lt;BrowserRouter basename=&quot;/minooo&quot; /&gt;</span><br><span class="line">&lt;Link to=&quot;/react&quot; /&gt; // 最终渲染为 &lt;a href=&quot;/minooo/react&quot;&gt;</span><br></pre></td></tr></table></figure>
+<h4 id="2-getUserConfirmation-func"><a href="#2-getUserConfirmation-func" class="headerlink" title="2. getUserConfirmation: func"></a>2. getUserConfirmation: func</h4><h5 id="导航到此页面前执行的函数"><a href="#导航到此页面前执行的函数" class="headerlink" title="导航到此页面前执行的函数"></a>导航到此页面前执行的函数</h5><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;BrowserRouter getUserConfirmation=&#123;getConfirmation(&apos;Are you sure?&apos;, yourCallBack)&#125; /&gt;</span><br></pre></td></tr></table></figure>
+<h4 id="3-forceRefresh-bool"><a href="#3-forceRefresh-bool" class="headerlink" title="3. forceRefresh: bool"></a>3. forceRefresh: bool</h4><h5 id="当浏览器不支持-HTML5-的-history-API-时强制刷新页面。"><a href="#当浏览器不支持-HTML5-的-history-API-时强制刷新页面。" class="headerlink" title="当浏览器不支持 HTML5 的 history API 时强制刷新页面。"></a>当浏览器不支持 HTML5 的 history API 时强制刷新页面。</h5><h4 id="4-keyLength-number"><a href="#4-keyLength-number" class="headerlink" title="4. keyLength: number"></a>4. keyLength: number</h4><h5 id="作用：设置它里面路由的-location-key-的长度。默认是6。（key的作用：点击同一个链接时，每次该路由下的-location-key都会改变，可以通过-key-的变化来刷新页面。）"><a href="#作用：设置它里面路由的-location-key-的长度。默认是6。（key的作用：点击同一个链接时，每次该路由下的-location-key都会改变，可以通过-key-的变化来刷新页面。）" class="headerlink" title="作用：设置它里面路由的 location.key 的长度。默认是6。（key的作用：点击同一个链接时，每次该路由下的 location.key都会改变，可以通过 key 的变化来刷新页面。）"></a>作用：设置它里面路由的 location.key 的长度。默认是6。（key的作用：点击同一个链接时，每次该路由下的 location.key都会改变，可以通过 key 的变化来刷新页面。）</h5><h4 id="5-children-node"><a href="#5-children-node" class="headerlink" title="5. children: node"></a>5. children: node</h4><h5 id="作用：渲染唯一子元素。"><a href="#作用：渲染唯一子元素。" class="headerlink" title="作用：渲染唯一子元素。"></a>作用：渲染唯一子元素。</h5><h3 id="-1"><a href="#-1" class="headerlink" title=""></a><hashrouter></hashrouter></h3><h5 id="不支持-location-key-和-location-state。另外由于该技术只是用来支持旧版浏览器，因此更推荐大家使用-BrowserRouter"><a href="#不支持-location-key-和-location-state。另外由于该技术只是用来支持旧版浏览器，因此更推荐大家使用-BrowserRouter" class="headerlink" title="不支持 location.key 和 location.state。另外由于该技术只是用来支持旧版浏览器，因此更推荐大家使用 BrowserRouter"></a>不支持 location.key 和 location.state。另外由于该技术只是用来支持旧版浏览器，因此更推荐大家使用 BrowserRouter</h5><h3 id="-2"><a href="#-2" class="headerlink" title=""></a><route></route></h3><h5 id="最重要的组件-自带三个-render-method-和三个-props"><a href="#最重要的组件-自带三个-render-method-和三个-props" class="headerlink" title="最重要的组件,自带三个 render method 和三个 props"></a>最重要的组件,自带三个 render method 和三个 props</h5><h4 id="render-method"><a href="#render-method" class="headerlink" title="render method"></a>render method</h4><h5 id="每种-render-method-都有不同的应用场景，同一个-应该只使用一种-render-method-，大部分情况下你将使用-component"><a href="#每种-render-method-都有不同的应用场景，同一个-应该只使用一种-render-method-，大部分情况下你将使用-component" class="headerlink" title="每种 render method 都有不同的应用场景，同一个 应该只使用一种 render method ，大部分情况下你将使用 component"></a>每种 render method 都有不同的应用场景，同一个<route> 应该只使用一种 render method ，大部分情况下你将使用 component</route></h5><h5 id="1-Route-component-gt"><a href="#1-Route-component-gt" class="headerlink" title="1.Route component&gt;"></a>1.Route component&gt;</h5><h5 id="只有当访问地址和路由匹配时，一个-React-component-才会被渲染，此时此组件接受-route-props-match-location-history-。"><a href="#只有当访问地址和路由匹配时，一个-React-component-才会被渲染，此时此组件接受-route-props-match-location-history-。" class="headerlink" title="只有当访问地址和路由匹配时，一个 React component 才会被渲染，此时此组件接受 route props (match, location, history)。"></a>只有当访问地址和路由匹配时，一个 React component 才会被渲染，此时此组件接受 route props (match, location, history)。</h5><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">&lt;Route path=&quot;/user/:username&quot; component=&#123;User&#125; /&gt;</span><br><span class="line">const User = (&#123; match &#125;) =&gt; &#123;</span><br><span class="line">  return &lt;h1&gt;Hello &#123;match.params.username&#125;!&lt;/h1&gt;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h5 id="2-Route-render-func"><a href="#2-Route-render-func" class="headerlink" title="2.Route render func"></a>2.Route render func</h5><h5 id="此方法适用于内联渲染，而且不会产生上文说的重复装载问题。"><a href="#此方法适用于内联渲染，而且不会产生上文说的重复装载问题。" class="headerlink" title="此方法适用于内联渲染，而且不会产生上文说的重复装载问题。"></a>此方法适用于内联渲染，而且不会产生上文说的重复装载问题。</h5><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;Route path=&quot;/home&quot; render=&#123;() =&gt; &lt;h1&gt;Home&lt;/h1&#125; /&gt;</span><br></pre></td></tr></table></figure>
+<h5 id="3-Route-children"><a href="#3-Route-children" class="headerlink" title="3.Route children"></a>3.Route children</h5><h5 id="4-path-string"><a href="#4-path-string" class="headerlink" title="4.path:string"></a>4.path:string</h5><h5 id="任何可以被-path-to-regexp解析的有效-URL-路径-如果不设置path路由将总是匹配"><a href="#任何可以被-path-to-regexp解析的有效-URL-路径-如果不设置path路由将总是匹配" class="headerlink" title="任何可以被 path-to-regexp解析的有效 URL 路径,如果不设置path路由将总是匹配"></a>任何可以被 path-to-regexp解析的有效 URL 路径,如果不设置path路由将总是匹配</h5><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;Route path=&quot;/users/:id&quot; component=&#123;User&#125; /&gt;</span><br></pre></td></tr></table></figure>
+<h5 id="5-exact-bool"><a href="#5-exact-bool" class="headerlink" title="5.exact: bool"></a>5.exact: bool</h5><h5 id="如果为-true，path-为-‘-one’-的路由将不能匹配-‘-one-two’，反之，亦然。"><a href="#如果为-true，path-为-‘-one’-的路由将不能匹配-‘-one-two’，反之，亦然。" class="headerlink" title="如果为 true，path 为 ‘/one’ 的路由将不能匹配 ‘/one/two’，反之，亦然。"></a>如果为 true，path 为 ‘/one’ 的路由将不能匹配 ‘/one/two’，反之，亦然。</h5><h5 id="6-strict-bool"><a href="#6-strict-bool" class="headerlink" title="6.strict: bool"></a>6.strict: bool</h5><h5 id="对路径末尾斜杠的匹配。如果为-true。path-为-‘-one-‘-将不能匹配-‘-one’-但可以匹配-‘-one-two’。"><a href="#对路径末尾斜杠的匹配。如果为-true。path-为-‘-one-‘-将不能匹配-‘-one’-但可以匹配-‘-one-two’。" class="headerlink" title="对路径末尾斜杠的匹配。如果为 true。path 为 ‘/one/‘ 将不能匹配 ‘/one’ 但可以匹配 ‘/one/two’。"></a>对路径末尾斜杠的匹配。如果为 true。path 为 ‘/one/‘ 将不能匹配 ‘/one’ 但可以匹配 ‘/one/two’。</h5><h5 id="如果要确保路由没有末尾斜杠，那么-strict-和exact-都必须同时为-true"><a href="#如果要确保路由没有末尾斜杠，那么-strict-和exact-都必须同时为-true" class="headerlink" title="如果要确保路由没有末尾斜杠，那么 strict 和exact 都必须同时为 true"></a>如果要确保路由没有末尾斜杠，那么 strict 和exact 都必须同时为 true</h5><h4 id="props"><a href="#props" class="headerlink" title="props"></a>props</h4><h3 id="Link-提供声明式导航"><a href="#Link-提供声明式导航" class="headerlink" title="Link 提供声明式导航"></a>Link 提供声明式导航</h3><h5 id="to-string-作用：跳转到指定路径"><a href="#to-string-作用：跳转到指定路径" class="headerlink" title="to: string 作用：跳转到指定路径"></a>to: string 作用：跳转到指定路径</h5><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;Link to=&quot;/courses&quot; /&gt;</span><br></pre></td></tr></table></figure>
+<h5 id="to-object-作用：携带参数跳转到指定路径"><a href="#to-object-作用：携带参数跳转到指定路径" class="headerlink" title="to: object 作用：携带参数跳转到指定路径"></a>to: object 作用：携带参数跳转到指定路径</h5><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">&lt;Link to=&#123;&#123;</span><br><span class="line">  pathname: &apos;/course&apos;,</span><br><span class="line">  search: &apos;?sort=name&apos;,</span><br><span class="line">  state: &#123; price: 18 &#125;</span><br><span class="line">&#125;&#125; /&gt;</span><br></pre></td></tr></table></figure>
+<h3 id="NavLink-link的特殊，为页面导航准备的因为导航需要有激活状态"><a href="#NavLink-link的特殊，为页面导航准备的因为导航需要有激活状态" class="headerlink" title="NavLink link的特殊，为页面导航准备的因为导航需要有激活状态"></a>NavLink link的特殊，为页面导航准备的因为导航需要有激活状态</h3><h5 id="activeClassName-string"><a href="#activeClassName-string" class="headerlink" title="activeClassName: string"></a>activeClassName: string</h5><h5 id="导航选中激活时候应用的样式名，默认样式名为-active"><a href="#导航选中激活时候应用的样式名，默认样式名为-active" class="headerlink" title="导航选中激活时候应用的样式名，默认样式名为 active"></a>导航选中激活时候应用的样式名，默认样式名为 active</h5><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">&lt;NavLink</span><br><span class="line">  to=&quot;/about&quot;</span><br><span class="line">  activeClassName=&quot;selected&quot;</span><br><span class="line">&gt;MyBlog&lt;/NavLink&gt;</span><br></pre></td></tr></table></figure>
+<h6 id="activeStyle-object-如果不想使用上面样式名可以直接使用这个属性写样式"><a href="#activeStyle-object-如果不想使用上面样式名可以直接使用这个属性写样式" class="headerlink" title="activeStyle: object 如果不想使用上面样式名可以直接使用这个属性写样式"></a>activeStyle: object 如果不想使用上面样式名可以直接使用这个属性写样式</h6><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">&lt;NavLink</span><br><span class="line">  to=&quot;/about&quot;</span><br><span class="line">  activeStyle=&#123;&#123; color: &apos;green&apos;, fontWeight: &apos;bold&apos; &#125;&#125;</span><br><span class="line">&gt;MyBlog&lt;/NavLink&gt;</span><br></pre></td></tr></table></figure>
+<h5 id="exact-bool"><a href="#exact-bool" class="headerlink" title="exact: bool"></a>exact: bool</h5><h5 id="若为-true，只有当访问地址严格匹配时激活样式才会应用"><a href="#若为-true，只有当访问地址严格匹配时激活样式才会应用" class="headerlink" title="若为 true，只有当访问地址严格匹配时激活样式才会应用"></a>若为 true，只有当访问地址严格匹配时激活样式才会应用</h5><h5 id="strict-bool"><a href="#strict-bool" class="headerlink" title="strict: bool"></a>strict: bool</h5><h5 id="若为-true，只有当访问地址后缀斜杠严格匹配（有或无）时激活样式才会应用"><a href="#若为-true，只有当访问地址后缀斜杠严格匹配（有或无）时激活样式才会应用" class="headerlink" title="若为 true，只有当访问地址后缀斜杠严格匹配（有或无）时激活样式才会应用"></a>若为 true，只有当访问地址后缀斜杠严格匹配（有或无）时激活样式才会应用</h5><h5 id="isActive-func"><a href="#isActive-func" class="headerlink" title="isActive: func"></a>isActive: func</h5><h5 id="决定导航是否激活，或者在导航激活时候做点别的事情。不管怎样，它不能决定对应页面是否可以渲染。"><a href="#决定导航是否激活，或者在导航激活时候做点别的事情。不管怎样，它不能决定对应页面是否可以渲染。" class="headerlink" title="决定导航是否激活，或者在导航激活时候做点别的事情。不管怎样，它不能决定对应页面是否可以渲染。"></a>决定导航是否激活，或者在导航激活时候做点别的事情。不管怎样，它不能决定对应页面是否可以渲染。</h5><h3 id="Switch"><a href="#Switch" class="headerlink" title="Switch"></a>Switch</h3><h5 id="只渲染出第一个与当前访问地址匹配的-Route-或-Redirect。"><a href="#只渲染出第一个与当前访问地址匹配的-Route-或-Redirect。" class="headerlink" title="只渲染出第一个与当前访问地址匹配的 Route 或 Redirect。"></a>只渲染出第一个与当前访问地址匹配的 Route 或 Redirect。</h5><h3 id="Redirect"><a href="#Redirect" class="headerlink" title="Redirect"></a>Redirect</h3><h5 id="渲染时将导航到一个新地址，这个新地址覆盖在访问历史信息里面的本该访问的那个地址。"><a href="#渲染时将导航到一个新地址，这个新地址覆盖在访问历史信息里面的本该访问的那个地址。" class="headerlink" title="渲染时将导航到一个新地址，这个新地址覆盖在访问历史信息里面的本该访问的那个地址。"></a>渲染时将导航到一个新地址，这个新地址覆盖在访问历史信息里面的本该访问的那个地址。</h5><h5 id="to-string"><a href="#to-string" class="headerlink" title="to: string"></a>to: string</h5><h5 id="重定向的-URL-字符串"><a href="#重定向的-URL-字符串" class="headerlink" title="重定向的 URL 字符串"></a>重定向的 URL 字符串</h5><h5 id="to-object"><a href="#to-object" class="headerlink" title="to: object"></a>to: object</h5><h5 id="重定向的-location-对象"><a href="#重定向的-location-对象" class="headerlink" title="重定向的 location 对象"></a>重定向的 location 对象</h5><h5 id="push-bool"><a href="#push-bool" class="headerlink" title="push: bool"></a>push: bool</h5><h5 id="若为真，重定向操作将会把新地址加入到访问历史记录里面，并且无法回退到前面的页面。"><a href="#若为真，重定向操作将会把新地址加入到访问历史记录里面，并且无法回退到前面的页面。" class="headerlink" title="若为真，重定向操作将会把新地址加入到访问历史记录里面，并且无法回退到前面的页面。"></a>若为真，重定向操作将会把新地址加入到访问历史记录里面，并且无法回退到前面的页面。</h5><h5 id="from-string"><a href="#from-string" class="headerlink" title="from: string"></a>from: string</h5><h5 id="需要匹配的将要被重定向路径。"><a href="#需要匹配的将要被重定向路径。" class="headerlink" title="需要匹配的将要被重定向路径。"></a>需要匹配的将要被重定向路径。</h5><h3 id="Prompt-当用户离开当前页面前做出一些提示。"><a href="#Prompt-当用户离开当前页面前做出一些提示。" class="headerlink" title="Prompt 当用户离开当前页面前做出一些提示。"></a>Prompt 当用户离开当前页面前做出一些提示。</h3><p>message: string<br>当用户离开当前页面时，设置的提示信息。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;Prompt message=&quot;确定要离开？&quot; /&gt;</span><br></pre></td></tr></table></figure></p>
+<p>message: func<br>当用户离开当前页面时，设置的回掉函数<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">&lt;Prompt message=&#123;location =&gt; (</span><br><span class="line">  `Are you sue you want to go to $&#123;location.pathname&#125;?`</span><br><span class="line">)&#125; /&gt;</span><br></pre></td></tr></table></figure></p>
+<p>when: bool<br>通过设置一定条件要决定是否启用 Prompt<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">&lt;Prompt</span><br><span class="line">          when=&#123;this.state.dirty&#125;</span><br><span class="line">          message=&quot;数据尚未保存，确定离开？&quot; /&gt;</span><br></pre></td></tr></table></figure></p>
+<h3 id="对象和方法"><a href="#对象和方法" class="headerlink" title="对象和方法"></a>对象和方法</h3><h5 id="history对会话历史的管理"><a href="#history对会话历史的管理" class="headerlink" title="history对会话历史的管理"></a>history对会话历史的管理</h5><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line">我们会经常使用以下术语：</span><br><span class="line">&quot;browser history&quot; - history 在 DOM 上的实现，用于支持 HTML5 history API 的浏览器</span><br><span class="line">&quot;hash history&quot; - history 在 DOM 上的实现，用于旧版浏览器。</span><br><span class="line">&quot;memory history&quot; - history 在内存上的实现，用于测试或非 DOM 环境（例如 React Native）。</span><br><span class="line">history 对象通常具有以下属性和方法：</span><br><span class="line"></span><br><span class="line">length: number 浏览历史堆栈中的条目数</span><br><span class="line">action: string 路由跳转到当前页面执行的动作，分为 PUSH, REPLACE, POP</span><br><span class="line">location: object 当前访问地址信息组成的对象，具有如下属性：</span><br><span class="line">pathname: string URL路径</span><br><span class="line">search: string URL中的查询字符串</span><br><span class="line">hash: string URL的 hash 片段</span><br><span class="line">state: string 例如执行 push(path, state) 操作时，location 的 state 将被提供到堆栈信息里，state 只有在 browser 和 memory history 有效。</span><br><span class="line">push(path, [state]) 在历史堆栈信息里加入一个新条目。</span><br><span class="line">replace(path, [state]) 在历史堆栈信息里替换掉当前的条目</span><br><span class="line">go(n) 将 history 堆栈中的指针向前移动 n。</span><br><span class="line">goBack() 等同于 go(-1)</span><br><span class="line">goForward 等同于 go(1)</span><br><span class="line">block(prompt) 阻止跳转</span><br></pre></td></tr></table></figure>
+<h5 id="注意：history是可变的，因此建议从route的prop中获取location，而不是从history-location直接获取。"><a href="#注意：history是可变的，因此建议从route的prop中获取location，而不是从history-location直接获取。" class="headerlink" title="注意：history是可变的，因此建议从route的prop中获取location，而不是从history.location直接获取。"></a>注意：history是可变的，因此建议从route的prop中获取location，而不是从history.location直接获取。</h5><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">componentWillReceiveProps(nextProps) &#123;</span><br><span class="line">   // locationChanged</span><br><span class="line">   const locationChanged = nextProps.location !== this.props.location</span><br><span class="line">   // 错误方式，locationChanged 永远为 false，因为history 是可变的</span><br><span class="line">   const locationChanged = nextProps.history.location !== this.props.history.location</span><br><span class="line"> &#125;</span><br></pre></td></tr></table></figure>
+<h3 id="location是指你当前的位置"><a href="#location是指你当前的位置" class="headerlink" title="location是指你当前的位置"></a>location是指你当前的位置</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">&#123;</span><br><span class="line">  key: &apos;123&apos;</span><br><span class="line">  pathname: &apos;/about&apos;,</span><br><span class="line">  search: &apos;?name=123&apos;</span><br><span class="line">  hash: &apos;#123&apos;,</span><br><span class="line">  state: &#123;</span><br><span class="line">    price: 324234</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h4 id="在以下情境中可以获取-location-对象"><a href="#在以下情境中可以获取-location-对象" class="headerlink" title="在以下情境中可以获取 location 对象"></a>在以下情境中可以获取 location 对象</h4><ul>
+<li>在 Route component 中，以 this.props.location 获取</li>
+<li>在 Route render 中，以 ({location}) =&gt; () 方式获取</li>
+<li>在 Route children 中，以 ({location}) =&gt; () 方式获取</li>
+<li>在 withRouter 中，以 this.props.location 的方式获取<h3 id="match"><a href="#match" class="headerlink" title="match"></a>match</h3><h4 id="包含了Route-path如何与URL匹配的信息"><a href="#包含了Route-path如何与URL匹配的信息" class="headerlink" title="包含了Route path如何与URL匹配的信息"></a>包含了Route path如何与URL匹配的信息</h4><h5 id="包含属性如下："><a href="#包含属性如下：" class="headerlink" title="包含属性如下："></a>包含属性如下：</h5></li>
+<li>params: object 路径参数，通过解析 URL 中的动态部分获得键值对</li>
+<li>isExact: bool 为 true 时，整个 URL 都需要匹配</li>
+<li>path: string 用来匹配的路径模式，用于创建嵌套的 <route></route></li>
+<li>url: string URL 匹配的部分，用于嵌套的 <link><h5 id="在以下情境中可以获取-match-对象"><a href="#在以下情境中可以获取-match-对象" class="headerlink" title="在以下情境中可以获取 match 对象"></a>在以下情境中可以获取 match 对象</h5></li>
+<li>在 Route component 中，以 this.props.match获取</li>
+<li>在 Route render 中，以 ({match}) =&gt; () 方式获取</li>
+<li>在 Route children 中，以 ({match}) =&gt; () 方式获取</li>
+<li>在 withRouter 中，以 this.props.match的方式获取</li>
+<li>matchPath 的返回值</li>
+</ul>
+<h2 id="相关链接"><a href="#相关链接" class="headerlink" title="相关链接"></a>相关链接</h2><p><a href="https://www.cnblogs.com/zhanghuiming/p/7592132.html" target="_blank" rel="noopener">React-Router4.x中文文档</a><br><a href="https://reacttraining.com/react-router/web/example/basic" target="_blank" rel="noopener">React Router</a><br><!-- [初探 React Router 4.0](https://blog.csdn.net/sinat_17775997/article/details/69218382) --></p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2018/04/03/web/WebTrainingDesignRouter4/" data-id="cji44rp1n0017ctrqiklw3bmi" class="article-share-link">Share</a>
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/React/">React</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Router/">Router</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/web/">web</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/前端/">前端</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+    <article id="post-web/WebTrainingDesignRedux" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2018/03/30/web/WebTrainingDesignRedux/" class="article-date">
+  <time datetime="2018-03-29T16:00:00.000Z" itemprop="datePublished">2018-03-30</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/Web/">Web</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2018/03/30/web/WebTrainingDesignRedux/">Redux的使用</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h3 id="Redux中文文档"><a href="#Redux中文文档" class="headerlink" title="Redux中文文档"></a><a href="http://www.redux.org.cn/" target="_blank" rel="noopener">Redux中文文档</a></h3><h1 id="最简单的实例"><a href="#最简单的实例" class="headerlink" title="最简单的实例"></a>最简单的实例</h1><h5 id="如果你不确定是否需要它，那么其实你是不需要它的，当你遇到问题才使用redux。"><a href="#如果你不确定是否需要它，那么其实你是不需要它的，当你遇到问题才使用redux。" class="headerlink" title="如果你不确定是否需要它，那么其实你是不需要它的，当你遇到问题才使用redux。"></a>如果你不确定是否需要它，那么其实你是不需要它的，当你遇到问题才使用redux。</h5><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">npm install --save redux</span><br><span class="line">npm install --save react-redux</span><br></pre></td></tr></table></figure>
+<h3 id="步骤"><a href="#步骤" class="headerlink" title="步骤"></a>步骤</h3><h4 id="1-创建store并使用provider传递store到所有组件"><a href="#1-创建store并使用provider传递store到所有组件" class="headerlink" title="1.创建store并使用provider传递store到所有组件"></a>1.创建store并使用provider传递store到所有组件</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">import thunk from &apos;redux-thunk&apos;</span><br><span class="line">import indexReducers from &apos;./reducers&apos;;</span><br><span class="line">import &#123; Provider &#125; from &apos;react-redux&apos;;</span><br><span class="line">import &#123; createStore, applyMiddleware &#125; from &apos;redux&apos;;</span><br><span class="line">//createStore所创建的redux store没有middleware所以只支持同步数据流</span><br><span class="line">//可以使用applyMiddleware来增强createStore。</span><br><span class="line">const store = createStore(indexReducers, applyMiddleware(thunk));</span><br><span class="line">ReactDOM.render((</span><br><span class="line">    &lt;Provider store=&#123;store&#125;&gt;</span><br><span class="line">        &lt;BrowserRouter&gt;</span><br><span class="line">            &lt;ReactComponent/&gt;</span><br><span class="line">        &lt;/BrowserRouter&gt;</span><br><span class="line">    &lt;/Provider&gt;</span><br><span class="line">), document.getElementById(&apos;root&apos;))</span><br></pre></td></tr></table></figure>
+<h4 id="2-定义个Action创建函数"><a href="#2-定义个Action创建函数" class="headerlink" title="2.定义个Action创建函数"></a>2.定义个Action创建函数</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">export function testAction()&#123;</span><br><span class="line">    return &#123;</span><br><span class="line">        type:&apos;TEST_ACTION&apos;,</span><br><span class="line">        text:&apos;测试数据&apos;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h4 id="3-创建reducer并组合"><a href="#3-创建reducer并组合" class="headerlink" title="3.创建reducer并组合"></a>3.创建reducer并组合</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line">//文件 TestReducer.js</span><br><span class="line">const testFun = (state = [], action) =&gt; &#123;</span><br><span class="line"></span><br><span class="line">    switch (action.type) &#123;</span><br><span class="line">        case &apos;TEST_ACTION&apos;:</span><br><span class="line">            return Object.assign(&#123;&#125;, state, &#123;text:action.text&#125;)</span><br><span class="line">        default :</span><br><span class="line">            return state;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line">export default testFun;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">//reducer下的index文件进行组合</span><br><span class="line">import &#123; combineReducers &#125; from &apos;redux&apos;;</span><br><span class="line">//此处名称决定了引用变量的名称</span><br><span class="line">import TestReducer from &apos;./TestReducer&apos;;</span><br><span class="line"></span><br><span class="line">const ReducerIndex = combineReducers(&#123;</span><br><span class="line">    TestReducer</span><br><span class="line">&#125;)</span><br><span class="line"></span><br><span class="line">export default ReducerIndex;</span><br></pre></td></tr></table></figure>
+<h4 id="4-展示页面调用"><a href="#4-展示页面调用" class="headerlink" title="4.展示页面调用"></a>4.展示页面调用</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br></pre></td><td class="code"><pre><span class="line">class ReactComponent extends Component &#123;</span><br><span class="line"></span><br><span class="line">    constructor(props) &#123;</span><br><span class="line">        super(props);</span><br><span class="line">        //初始化state</span><br><span class="line">        this.state = &#123;</span><br><span class="line">            name: &quot;测试姓名&quot;</span><br><span class="line">        &#125;</span><br><span class="line">        this.clickMe = this.clickMe.bind(this);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    componentDidMount() &#123;</span><br><span class="line"></span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    componentWillReceiveProps(props) &#123;</span><br><span class="line">        this.setState(&#123;</span><br><span class="line">            name: props.name</span><br><span class="line">        &#125;)</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">    clickMe = () =&gt; &#123;</span><br><span class="line">        this.props.dispatch(&#123;</span><br><span class="line">            type:&apos;TEST_ACTION&apos;,</span><br><span class="line">            text:&apos;点击返回了数据-测试&apos;</span><br><span class="line">        &#125;)</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    render() &#123;</span><br><span class="line">        return (</span><br><span class="line">            &lt;div className=&quot;bgContainer&quot;&gt;</span><br><span class="line"></span><br><span class="line">                &#123;/*ref使用和state中参数的使用，向子组件中传递数据和事件*/&#125;</span><br><span class="line">                &lt;ReactChildComponent</span><br><span class="line">                    ref=&#123;(childClick) =&gt; &#123;</span><br><span class="line">                        this.childClick = childClick</span><br><span class="line">                    &#125;&#125;</span><br><span class="line">                    name=&#123;this.state.name&#125;</span><br><span class="line">                    onClickCallBack=&#123;() =&gt; &#123;</span><br><span class="line">                        this.clickMe();</span><br><span class="line">                    &#125;&#125;</span><br><span class="line">                /&gt;</span><br><span class="line"></span><br><span class="line">                &#123;/*点击通过ref获取子控件触发子控件中的方法*/&#125;</span><br><span class="line">                &lt;div</span><br><span class="line">                    onClick=&#123;() =&gt; &#123;</span><br><span class="line">                        this.childClick.onChildClick();</span><br><span class="line">                    &#125;&#125;&gt;</span><br><span class="line">                    ref to click</span><br><span class="line">                &lt;/div&gt;</span><br><span class="line"></span><br><span class="line">            &lt;/div&gt;</span><br><span class="line">        )</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">const mapDispatchToProps = (state) =&gt; &#123;</span><br><span class="line">    //此处TestReducer名称和reducer引入名称有关</span><br><span class="line">    return &#123;</span><br><span class="line">        name: state.TestReducer.text</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">export default connect(mapDispatchToProps)(ReactComponent);</span><br></pre></td></tr></table></figure>
+<h1 id="理论"><a href="#理论" class="headerlink" title="理论"></a>理论</h1><h2 id="三大原则"><a href="#三大原则" class="headerlink" title="三大原则"></a>三大原则</h2><h5 id="严格的单向数据流是Redux架构的设计核心"><a href="#严格的单向数据流是Redux架构的设计核心" class="headerlink" title="严格的单向数据流是Redux架构的设计核心"></a>严格的单向数据流是Redux架构的设计核心</h5><h3 id="1-单一数据源"><a href="#1-单一数据源" class="headerlink" title="1.单一数据源"></a>1.单一数据源</h3><h4 id="整个应用应用的state被存储在一个object-tree中，并且这个object-tree只存在于唯一的store中"><a href="#整个应用应用的state被存储在一个object-tree中，并且这个object-tree只存在于唯一的store中" class="headerlink" title="整个应用应用的state被存储在一个object tree中，并且这个object tree只存在于唯一的store中"></a>整个应用应用的state被存储在一个object tree中，并且这个object tree只存在于唯一的store中</h4><h3 id="2-State是只读的"><a href="#2-State是只读的" class="headerlink" title="2.State是只读的"></a>2.State是只读的</h3><h4 id="唯一改变state的方法就是触发action，action是一个用于描述已发生事件的普通对象"><a href="#唯一改变state的方法就是触发action，action是一个用于描述已发生事件的普通对象" class="headerlink" title="唯一改变state的方法就是触发action，action是一个用于描述已发生事件的普通对象"></a>唯一改变state的方法就是触发action，action是一个用于描述已发生事件的普通对象</h4><h3 id="3-使用纯函数来执行修改（reducers）"><a href="#3-使用纯函数来执行修改（reducers）" class="headerlink" title="3.使用纯函数来执行修改（reducers）"></a>3.使用纯函数来执行修改（reducers）</h3><h4 id="为了描述action如何改变state-tree，你需要编写reducers。"><a href="#为了描述action如何改变state-tree，你需要编写reducers。" class="headerlink" title="为了描述action如何改变state tree，你需要编写reducers。"></a>为了描述action如何改变state tree，你需要编写reducers。</h4><h2 id="Action"><a href="#Action" class="headerlink" title="Action"></a>Action</h2><h5 id="Action是把数据从应用传到store的有效载荷。他是store数据的唯一来源。一般是通过store-dispatch-将action传到store。"><a href="#Action是把数据从应用传到store的有效载荷。他是store数据的唯一来源。一般是通过store-dispatch-将action传到store。" class="headerlink" title="Action是把数据从应用传到store的有效载荷。他是store数据的唯一来源。一般是通过store.dispatch()将action传到store。"></a>Action是把数据从应用传到store的有效载荷。他是store数据的唯一来源。一般是通过store.dispatch()将action传到store。</h5><h5 id="Action是一个普通js对象，action内必须使用一个字符串类型的type字段来表示将要执行的动作。通常把type定义成常量，并在单独的模块进行维护。"><a href="#Action是一个普通js对象，action内必须使用一个字符串类型的type字段来表示将要执行的动作。通常把type定义成常量，并在单独的模块进行维护。" class="headerlink" title="Action是一个普通js对象，action内必须使用一个字符串类型的type字段来表示将要执行的动作。通常把type定义成常量，并在单独的模块进行维护。"></a>Action是一个普通js对象，action内必须使用一个字符串类型的type字段来表示将要执行的动作。通常把type定义成常量，并在单独的模块进行维护。</h5><h2 id="Reducer"><a href="#Reducer" class="headerlink" title="Reducer"></a>Reducer</h2><h5 id="Reducers指定了应用状态的变化如何响应actions并发送到store的。"><a href="#Reducers指定了应用状态的变化如何响应actions并发送到store的。" class="headerlink" title="Reducers指定了应用状态的变化如何响应actions并发送到store的。"></a>Reducers指定了应用状态的变化如何响应actions并发送到store的。</h5><h5 id="Reducers就是一个纯函数，接收旧的state和action，返回新的state。"><a href="#Reducers就是一个纯函数，接收旧的state和action，返回新的state。" class="headerlink" title="Reducers就是一个纯函数，接收旧的state和action，返回新的state。"></a>Reducers就是一个纯函数，接收旧的state和action，返回新的state。</h5><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">(previousState, action) =&gt; newState</span><br></pre></td></tr></table></figure>
+<h5 id="注意尽可能的保持reducer的纯净，不要做以下操作"><a href="#注意尽可能的保持reducer的纯净，不要做以下操作" class="headerlink" title="注意尽可能的保持reducer的纯净，不要做以下操作"></a>注意尽可能的保持reducer的纯净，不要做以下操作</h5><ul>
+<li>修改传入参数</li>
+<li>执行有副作用的操作，如API请求和路由跳转。</li>
+<li>调用非纯函数，如Date.now()或Math.random()</li>
+</ul>
+<h5 id="combineReducers所做的只是生成一个函数，这个函数来调用你的一些列reducer，每个reducer根据他们的key来筛选出state中的一部分数据并出来，然后这个生成函数在将所有reducer的结果合并成一个大的对象。"><a href="#combineReducers所做的只是生成一个函数，这个函数来调用你的一些列reducer，每个reducer根据他们的key来筛选出state中的一部分数据并出来，然后这个生成函数在将所有reducer的结果合并成一个大的对象。" class="headerlink" title="combineReducers所做的只是生成一个函数，这个函数来调用你的一些列reducer，每个reducer根据他们的key来筛选出state中的一部分数据并出来，然后这个生成函数在将所有reducer的结果合并成一个大的对象。"></a>combineReducers所做的只是生成一个函数，这个函数来调用你的一些列reducer，每个reducer根据他们的key来筛选出state中的一部分数据并出来，然后这个生成函数在将所有reducer的结果合并成一个大的对象。</h5><h2 id="Store"><a href="#Store" class="headerlink" title="Store"></a>Store</h2><h3 id="Store职责"><a href="#Store职责" class="headerlink" title="Store职责"></a>Store职责</h3><ul>
+<li>维持应用的 state；</li>
+<li>提供 getState() 方法获取 state；</li>
+<li>提供 dispatch(action) 方法更新 state；</li>
+<li>通过 subscribe(listener) 注册监听器;</li>
+<li>通过 subscribe(listener) 返回的函数注销监听器。<h5 id="强调Redux应用只有一个单一的store，当拆分数据处理逻辑时，你应该使用reducer组合而不是创建多个store。"><a href="#强调Redux应用只有一个单一的store，当拆分数据处理逻辑时，你应该使用reducer组合而不是创建多个store。" class="headerlink" title="强调Redux应用只有一个单一的store，当拆分数据处理逻辑时，你应该使用reducer组合而不是创建多个store。"></a>强调Redux应用只有一个单一的store，当拆分数据处理逻辑时，你应该使用reducer组合而不是创建多个store。</h5><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">//创建一个store 如果是多个reducer可以使用combineReducers()方法合并</span><br><span class="line">//createStore第二个参数是可选的用来设置state初始化状态</span><br><span class="line">let store = createStore(reducers);</span><br><span class="line">// 注意 subscribe() 返回一个函数用来注销监听器</span><br><span class="line">const unsubscribe = store.subscribe(() =&gt;</span><br><span class="line">  console.log(store.getState())</span><br><span class="line">)</span><br><span class="line">// 停止监听 state 更新</span><br><span class="line">unsubscribe();</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<h1 id="高级（可后期了解）"><a href="#高级（可后期了解）" class="headerlink" title="高级（可后期了解）"></a>高级（可后期了解）</h1><h2 id="异步Action"><a href="#异步Action" class="headerlink" title="异步Action"></a>异步Action</h2><h4 id="一般情况下，每个API请求都需要dispatch至少三种action"><a href="#一般情况下，每个API请求都需要dispatch至少三种action" class="headerlink" title="一般情况下，每个API请求都需要dispatch至少三种action"></a>一般情况下，每个API请求都需要dispatch至少三种action</h4><ul>
+<li>一种通知 reducer 请求开始的 action。开始loading</li>
+<li>一种通知 reducer 请求成功的 action。隐藏loading，显示数据</li>
+<li>一种通知 reducer 请求失败的 action。隐藏loading，提示失败信息<br>个人喜欢定义不同的type展示<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">&#123; type: &apos;FETCH_POSTS_REQUEST&apos; &#125;</span><br><span class="line">&#123; type: &apos;FETCH_POSTS_FAILURE&apos;, error: &apos;Oops&apos; &#125;</span><br><span class="line">&#123; type: &apos;FETCH_POSTS_SUCCESS&apos;, response: &#123; ... &#125; &#125;</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<h4 id="异步action创建函数"><a href="#异步action创建函数" class="headerlink" title="异步action创建函数"></a>异步action创建函数</h4><h5 id="action创建函数除了返回action对象还可以返回函数，这是action创建函数就成为了thunk。当action创建函数返回函数时，这个函数会被Redux-Thunk-middleware执行。"><a href="#action创建函数除了返回action对象还可以返回函数，这是action创建函数就成为了thunk。当action创建函数返回函数时，这个函数会被Redux-Thunk-middleware执行。" class="headerlink" title="action创建函数除了返回action对象还可以返回函数，这是action创建函数就成为了thunk。当action创建函数返回函数时，这个函数会被Redux Thunk middleware执行。"></a>action创建函数除了返回action对象还可以返回函数，这是action创建函数就成为了thunk。当action创建函数返回函数时，这个函数会被Redux Thunk middleware执行。</h5><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">//定义个异步的action创建函数</span><br><span class="line">export  function fetchDataAction()&#123;</span><br><span class="line">    return function(dispatch)&#123;</span><br><span class="line">        return fetch(&apos;url&apos;)</span><br><span class="line">                .then((success)=&gt;&#123;&#125;)</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line">//调用,thunk的一个优点就是它的结果可以再次被dispatch</span><br><span class="line">store.dispatch(fetchDataAction());</span><br></pre></td></tr></table></figure>
+<h2 id="Middleware中间件"><a href="#Middleware中间件" class="headerlink" title="Middleware中间件"></a>Middleware中间件</h2><h5 id="它提供的是位于-action-被发起之后，到达-reducer-之前的扩展点"><a href="#它提供的是位于-action-被发起之后，到达-reducer-之前的扩展点" class="headerlink" title="它提供的是位于 action 被发起之后，到达 reducer 之前的扩展点"></a>它提供的是位于 action 被发起之后，到达 reducer 之前的扩展点</h5><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">indexReducers, applyMiddleware(thunk,...);</span><br></pre></td></tr></table></figure>
+<h2 id="最常见的问题"><a href="#最常见的问题" class="headerlink" title="最常见的问题"></a>最常见的问题</h2><h4 id="为什么组件没有被重新渲染，或则mapStateToProps没有运行"><a href="#为什么组件没有被重新渲染，或则mapStateToProps没有运行" class="headerlink" title="为什么组件没有被重新渲染，或则mapStateToProps没有运行"></a>为什么组件没有被重新渲染，或则mapStateToProps没有运行</h4><h5 id="最常见的原因就是对state进行了直接的修改，redux期望reducer以不可变的方式更新state。如果直接返回同一个对象，redux也会认为没有变化。"><a href="#最常见的原因就是对state进行了直接的修改，redux期望reducer以不可变的方式更新state。如果直接返回同一个对象，redux也会认为没有变化。" class="headerlink" title="最常见的原因就是对state进行了直接的修改，redux期望reducer以不可变的方式更新state。如果直接返回同一个对象，redux也会认为没有变化。"></a>最常见的原因就是对state进行了直接的修改，redux期望reducer以不可变的方式更新state。如果直接返回同一个对象，redux也会认为没有变化。</h5>
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2018/03/30/web/WebTrainingDesignRedux/" data-id="cji44rp1m0014ctrq8g8pcobc" class="article-share-link">Share</a>
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/React/">React</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Redux/">Redux</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/web/">web</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/前端/">前端</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+    <article id="post-web/WebTrainingDesignReact" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2018/03/30/web/WebTrainingDesignReact/" class="article-date">
+  <time datetime="2018-03-29T16:00:00.000Z" itemprop="datePublished">2018-03-30</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/Web/">Web</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2018/03/30/web/WebTrainingDesignReact/">React的使用</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h2 id="基础"><a href="#基础" class="headerlink" title="基础"></a>基础</h2><h3 id="使用-create-react-app-快速构建-React-开发环境"><a href="#使用-create-react-app-快速构建-React-开发环境" class="headerlink" title="使用 create-react-app 快速构建 React 开发环境"></a>使用 create-react-app 快速构建 React 开发环境</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">$ cnpm install -g create-react-app</span><br><span class="line">$ create-react-app my-app</span><br><span class="line">$ cd my-app/</span><br><span class="line">$ npm start</span><br></pre></td></tr></table></figure>
+<h3 id="一个例子说明react的基本使用-父组件"><a href="#一个例子说明react的基本使用-父组件" class="headerlink" title="一个例子说明react的基本使用-父组件"></a>一个例子说明react的基本使用-父组件</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br></pre></td><td class="code"><pre><span class="line">import React, &#123; Component, PureComponent &#125; from &apos;react&apos;;</span><br><span class="line">import &apos;./react_demo.css&apos;</span><br><span class="line">import ReactChildComponent from &quot;./ReactChildComponent&quot;;</span><br><span class="line"></span><br><span class="line">/**</span><br><span class="line"> * 这个例子简单介绍了react的使用</span><br><span class="line"> * 主要知识点包括</span><br><span class="line"> * 1.component和PureComponent</span><br><span class="line"> * 2.state和props初始化</span><br><span class="line"> * 3.父组件向子组件中传递数据和事件</span><br><span class="line"> * 4.ref的使用</span><br><span class="line"> * 5.propTypes类型约束，如果类型不对会在控制台报错</span><br><span class="line"> */</span><br><span class="line">class ReactComponent extends Component &#123;</span><br><span class="line"></span><br><span class="line">    constructor(props) &#123;</span><br><span class="line">        super(props);</span><br><span class="line">        //初始化state</span><br><span class="line">        this.state = &#123;</span><br><span class="line">            name: &quot;测试姓名&quot;</span><br><span class="line">        &#125;</span><br><span class="line">        this.clickMe = this.clickMe.bind(this);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    clickMe = () =&gt; &#123;</span><br><span class="line">        this.setState(&#123;</span><br><span class="line">            name:&apos;你已经点击了我&apos;</span><br><span class="line">        &#125;)</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    render() &#123;</span><br><span class="line">        return (</span><br><span class="line">            &lt;div className=&quot;bgContainer&quot;&gt;</span><br><span class="line"></span><br><span class="line">                &#123;/*ref使用和state中参数的使用，向子组件中传递数据和事件*/&#125;</span><br><span class="line">                &lt;ReactChildComponent</span><br><span class="line">                    ref=&#123;(childClick) =&gt; &#123;</span><br><span class="line">                        this.childClick = childClick</span><br><span class="line">                    &#125;&#125;</span><br><span class="line">                    name=&#123;this.state.name&#125;</span><br><span class="line">                    onClickCallBack=&#123;() =&gt; &#123;</span><br><span class="line">                        this.clickMe();</span><br><span class="line">                    &#125;&#125;</span><br><span class="line">                /&gt;</span><br><span class="line"></span><br><span class="line">                &#123;/*点击通过ref获取子控件触发子控件中的方法*/&#125;</span><br><span class="line">                &lt;div</span><br><span class="line">                    onClick=&#123;() =&gt; &#123;</span><br><span class="line">                        this.childClick.onChildClick();</span><br><span class="line">                    &#125;&#125;&gt;</span><br><span class="line">                    ref to click</span><br><span class="line">                &lt;/div&gt;</span><br><span class="line"></span><br><span class="line">            &lt;/div&gt;</span><br><span class="line">        )</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">export default ReactComponent;</span><br></pre></td></tr></table></figure>
+<h3 id="一个例子说明react的基本使用-子组件"><a href="#一个例子说明react的基本使用-子组件" class="headerlink" title="一个例子说明react的基本使用-子组件"></a>一个例子说明react的基本使用-子组件</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br></pre></td><td class="code"><pre><span class="line">import React, &#123; PureComponent &#125; from &apos;react&apos;;</span><br><span class="line">import PropsType from &apos;prop-types&apos;;</span><br><span class="line">export default class ReactChildComponent extends PureComponent &#123;</span><br><span class="line"></span><br><span class="line">    // 构造</span><br><span class="line">    constructor(props) &#123;</span><br><span class="line">        super(props);</span><br><span class="line">        // 初始状态</span><br><span class="line">        this.state = &#123;&#125;;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    onChildClick = () =&gt; &#123;</span><br><span class="line">            this.props.onClickCallBack();</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    render() &#123;</span><br><span class="line">        return (</span><br><span class="line">            &lt;div&gt;&#123;this.props.name&#125;&lt;/div&gt;</span><br><span class="line">        );</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">ReactChildComponent.propTypes=&#123;</span><br><span class="line">        name: PropsType.string.isRequired,</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line">ReactChildComponent.defaultProps = &#123;</span><br><span class="line">      name:&apos;默认名称&apos;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+<h4 id="prop-types包已经从react16中移除掉如果要使用需要单独安装"><a href="#prop-types包已经从react16中移除掉如果要使用需要单独安装" class="headerlink" title="prop-types包已经从react16中移除掉如果要使用需要单独安装"></a>prop-types包已经从react16中移除掉如果要使用需要单独安装</h4><h4 id="npm-install-–save-prop-types"><a href="#npm-install-–save-prop-types" class="headerlink" title="npm install –save prop-types"></a>npm install –save prop-types</h4><h4 id="1-类型说明："><a href="#1-类型说明：" class="headerlink" title="1.类型说明："></a>1.类型说明：</h4><ul>
+<li>optionalArray: React.PropTypes.array, 数组</li>
+<li>optionalBool: React.PropTypes.bool, 布尔类型</li>
+<li>optionalFunc: React.PropTypes.func, 方法</li>
+<li>optionalNumber: React.PropTypes.number, 数字</li>
+<li>optionalObject: React.PropTypes.object, 对象</li>
+<li>optionalString: React.PropTypes.string, 字符串</li>
+<li>optionalEnum: React.PropTypes.oneOf([‘News’, ‘Photos’]),限定只能接受指定值</li>
+</ul>
+<h4 id="2-可以是多个对象类型中的一个"><a href="#2-可以是多个对象类型中的一个" class="headerlink" title="2.可以是多个对象类型中的一个"></a>2.可以是多个对象类型中的一个</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">optionalUnion: React.PropTypes.oneOfType([</span><br><span class="line">    React.PropTypes.string,</span><br><span class="line">    React.PropTypes.number,</span><br><span class="line">    React.PropTypes.instanceOf(Message)</span><br><span class="line">]),</span><br></pre></td></tr></table></figure>
+<h4 id="3-指定类型组成的数组"><a href="#3-指定类型组成的数组" class="headerlink" title="3.指定类型组成的数组"></a>3.指定类型组成的数组</h4><ul>
+<li>optionalArrayOf: React.PropTypes.arrayOf(React.PropTypes.number),</li>
+</ul>
+<h4 id="4-指定类型的属性构成的对象"><a href="#4-指定类型的属性构成的对象" class="headerlink" title="4.指定类型的属性构成的对象"></a>4.指定类型的属性构成的对象</h4><ul>
+<li>optionalObjectOf: React.PropTypes.objectOf(React.PropTypes.number),</li>
+</ul>
+<h4 id="5-任意类型加上-isRequired-来使-prop-不可空。"><a href="#5-任意类型加上-isRequired-来使-prop-不可空。" class="headerlink" title="5.任意类型加上 isRequired 来使 prop 不可空。"></a>5.任意类型加上 <code>isRequired</code> 来使 prop 不可空。</h4><ul>
+<li>requiredFunc: React.PropTypes.func.isRequired,</li>
+</ul>
+<h4 id="6-不可空的任意类型"><a href="#6-不可空的任意类型" class="headerlink" title="6.不可空的任意类型"></a>6.不可空的任意类型</h4><ul>
+<li>requiredAny: React.PropTypes.any.isRequired,</li>
+</ul>
+<h2 id="更多了解-React-API"><a href="#更多了解-React-API" class="headerlink" title="更多了解 React API"></a>更多了解 React API</h2><h3 id="1-setState-设置状态方法"><a href="#1-setState-设置状态方法" class="headerlink" title="1.setState 设置状态方法"></a>1.setState 设置状态方法</h3><h4 id="setState-object-nextState-function-callback"><a href="#setState-object-nextState-function-callback" class="headerlink" title="setState(object nextState[, function callback])"></a>setState(object nextState[, function callback])</h4><h4 id="说明："><a href="#说明：" class="headerlink" title="说明："></a>说明：</h4><ul>
+<li>两个参数：第一个是新状态，新状态会和当前状态合并。第二个参数是设置成功后的回调方法，可选。</li>
+<li>setState方法不会立即改变this.state。所以它不是同步了，为了提高效率会批量处理执行state和dom渲染</li>
+<li>setState方法总会触发一次组件重绘，除非在shouldComponentUpdate中实现一些条件渲染逻辑，参考列表数据重绘逻辑。</li>
+</ul>
+<h3 id="2-replaceState替换状态"><a href="#2-replaceState替换状态" class="headerlink" title="2.replaceState替换状态"></a>2.replaceState替换状态</h3><h4 id="replaceState-object-nextState-function-callback"><a href="#replaceState-object-nextState-function-callback" class="headerlink" title="replaceState(object nextState[, function callback])"></a>replaceState(object nextState[, function callback])</h4><h4 id="说明：使用方法和setState类似，区别在于只保留新状态，原state不在新状态中的状态都会删除"><a href="#说明：使用方法和setState类似，区别在于只保留新状态，原state不在新状态中的状态都会删除" class="headerlink" title="说明：使用方法和setState类似，区别在于只保留新状态，原state不在新状态中的状态都会删除"></a>说明：使用方法和setState类似，区别在于只保留新状态，原state不在新状态中的状态都会删除</h4><h3 id="3-setProps设置属性"><a href="#3-setProps设置属性" class="headerlink" title="3.setProps设置属性"></a>3.setProps设置属性</h3><h4 id="setProps-object-nextProps-function-callback"><a href="#setProps-object-nextProps-function-callback" class="headerlink" title="setProps(object nextProps[, function callback])"></a>setProps(object nextProps[, function callback])</h4><h4 id="说明"><a href="#说明" class="headerlink" title="说明"></a>说明</h4><ul>
+<li>新的props和当前的props合并</li>
+</ul>
+<h3 id="4-replaceProps替换属性"><a href="#4-replaceProps替换属性" class="headerlink" title="4.replaceProps替换属性"></a>4.replaceProps替换属性</h3><h4 id="replaceProps-object-nextProps-function-callback"><a href="#replaceProps-object-nextProps-function-callback" class="headerlink" title="replaceProps(object nextProps[, function callback])"></a>replaceProps(object nextProps[, function callback])</h4><h3 id="5-forceUpdate-强制刷新"><a href="#5-forceUpdate-强制刷新" class="headerlink" title="5.forceUpdate 强制刷新"></a>5.forceUpdate 强制刷新</h3><h4 id="forceUpdate-function-callback"><a href="#forceUpdate-function-callback" class="headerlink" title="forceUpdate([function callback])"></a>forceUpdate([function callback])</h4><h4 id="此属性适用于this-props和this-state之外的组件重绘。"><a href="#此属性适用于this-props和this-state之外的组件重绘。" class="headerlink" title="此属性适用于this.props和this.state之外的组件重绘。"></a>此属性适用于this.props和this.state之外的组件重绘。</h4><h3 id="6-获取DOM节点：findDOMNode"><a href="#6-获取DOM节点：findDOMNode" class="headerlink" title="6.获取DOM节点：findDOMNode"></a>6.获取DOM节点：findDOMNode</h3><h4 id="DOMElement-findDOMNode"><a href="#DOMElement-findDOMNode" class="headerlink" title="DOMElement findDOMNode()"></a>DOMElement findDOMNode()</h4><h3 id="7-isMounted判断组件是否挂载到dom中"><a href="#7-isMounted判断组件是否挂载到dom中" class="headerlink" title="7.isMounted判断组件是否挂载到dom中"></a>7.isMounted判断组件是否挂载到dom中</h3><h4 id="bool-isMounted"><a href="#bool-isMounted" class="headerlink" title="bool isMounted()"></a>bool isMounted()</h4><h4 id="说明：返回值：true或false，表示组件是否已挂载到DOM中"><a href="#说明：返回值：true或false，表示组件是否已挂载到DOM中" class="headerlink" title="说明：返回值：true或false，表示组件是否已挂载到DOM中"></a>说明：返回值：true或false，表示组件是否已挂载到DOM中</h4><h2 id="React组件生命周期"><a href="#React组件生命周期" class="headerlink" title="React组件生命周期"></a>React组件生命周期</h2><h3 id="组件的声明周期可分成三种状态"><a href="#组件的声明周期可分成三种状态" class="headerlink" title="组件的声明周期可分成三种状态"></a>组件的声明周期可分成三种状态</h3><ul>
+<li>Mounting: 已插入真的DOM</li>
+<li>Updating: 正在被重新渲染</li>
+<li>Unmounting: 已移除真实DOM</li>
+</ul>
+<h3 id="生命周期的方法"><a href="#生命周期的方法" class="headerlink" title="生命周期的方法"></a>生命周期的方法</h3><ul>
+<li>componentWillMount 渲染前调用，在客户端也在服务端</li>
+<li>componentDidMount 第一次渲染后滴啊用，只在客户端</li>
+<li>componentWillReceiveProps 在组件接收到一个新的prop时被调用，这个方法在初始化render时不会被调用。</li>
+<li>shouldComponentUpdate 返回一个布尔值。在组件接收到新的props或者state时被调用。在初始化时或者使用forceUpdate时不被调用。 可以在你确认不需要更新组件时使用。</li>
+<li>componentWillUpdate 在组件接收到新的props或state但还没render时调用，在初始化时不会调用。</li>
+<li>componentDidUpdate 在组件更新完成后立即调用，初始化时不会调用。</li>
+<li>componentWillUnmount 在组件从DOM中移除的时候立刻被调用。</li>
+</ul>
+<h3 id="表单中value属性和onChange时间的使用"><a href="#表单中value属性和onChange时间的使用" class="headerlink" title="表单中value属性和onChange时间的使用"></a>表单中value属性和onChange时间的使用</h3><h3 id="在componentDidMount中获取网络数据"><a href="#在componentDidMount中获取网络数据" class="headerlink" title="在componentDidMount中获取网络数据"></a>在componentDidMount中获取网络数据</h3><h3 id="React-Refs的使用"><a href="#React-Refs的使用" class="headerlink" title="React Refs的使用"></a>React Refs的使用</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">&lt;input ref=&quot;myInput&quot;&gt;</span><br><span class="line">使用this.refs.myInput获取实例</span><br></pre></td></tr></table></figure>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2018/03/30/web/WebTrainingDesignReact/" data-id="cji44rp1l0011ctrqpf65ufrq" class="article-share-link">Share</a>
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/React/">React</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/web/">web</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/前端/">前端</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+    <article id="post-web/WebTrainingDesignES6Code" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2018/03/29/web/WebTrainingDesignES6Code/" class="article-date">
+  <time datetime="2018-03-28T16:00:00.000Z" itemprop="datePublished">2018-03-29</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/Web/">Web</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2018/03/29/web/WebTrainingDesignES6Code/">ES6培训用例代码</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br><span class="line">106</span><br><span class="line">107</span><br><span class="line">108</span><br><span class="line">109</span><br><span class="line">110</span><br><span class="line">111</span><br><span class="line">112</span><br><span class="line">113</span><br><span class="line">114</span><br><span class="line">115</span><br><span class="line">116</span><br><span class="line">117</span><br><span class="line">118</span><br><span class="line">119</span><br><span class="line">120</span><br><span class="line">121</span><br><span class="line">122</span><br><span class="line">123</span><br><span class="line">124</span><br><span class="line">125</span><br><span class="line">126</span><br><span class="line">127</span><br><span class="line">128</span><br><span class="line">129</span><br><span class="line">130</span><br><span class="line">131</span><br><span class="line">132</span><br><span class="line">133</span><br><span class="line">134</span><br><span class="line">135</span><br><span class="line">136</span><br><span class="line">137</span><br><span class="line">138</span><br><span class="line">139</span><br><span class="line">140</span><br><span class="line">141</span><br><span class="line">142</span><br><span class="line">143</span><br><span class="line">144</span><br><span class="line">145</span><br><span class="line">146</span><br><span class="line">147</span><br><span class="line">148</span><br><span class="line">149</span><br><span class="line">150</span><br><span class="line">151</span><br><span class="line">152</span><br><span class="line">153</span><br><span class="line">154</span><br><span class="line">155</span><br><span class="line">156</span><br><span class="line">157</span><br><span class="line">158</span><br><span class="line">159</span><br><span class="line">160</span><br><span class="line">161</span><br><span class="line">162</span><br><span class="line">163</span><br><span class="line">164</span><br><span class="line">165</span><br><span class="line">166</span><br><span class="line">167</span><br><span class="line">168</span><br><span class="line">169</span><br><span class="line">170</span><br><span class="line">171</span><br><span class="line">172</span><br><span class="line">173</span><br><span class="line">174</span><br><span class="line">175</span><br><span class="line">176</span><br><span class="line">177</span><br><span class="line">178</span><br><span class="line">179</span><br><span class="line">180</span><br><span class="line">181</span><br><span class="line">182</span><br><span class="line">183</span><br><span class="line">184</span><br><span class="line">185</span><br><span class="line">186</span><br><span class="line">187</span><br><span class="line">188</span><br><span class="line">189</span><br><span class="line">190</span><br><span class="line">191</span><br><span class="line">192</span><br><span class="line">193</span><br><span class="line">194</span><br><span class="line">195</span><br><span class="line">196</span><br><span class="line">197</span><br><span class="line">198</span><br><span class="line">199</span><br><span class="line">200</span><br><span class="line">201</span><br><span class="line">202</span><br><span class="line">203</span><br><span class="line">204</span><br><span class="line">205</span><br><span class="line">206</span><br><span class="line">207</span><br><span class="line">208</span><br><span class="line">209</span><br><span class="line">210</span><br><span class="line">211</span><br><span class="line">212</span><br><span class="line">213</span><br><span class="line">214</span><br><span class="line">215</span><br><span class="line">216</span><br><span class="line">217</span><br><span class="line">218</span><br><span class="line">219</span><br><span class="line">220</span><br><span class="line">221</span><br><span class="line">222</span><br><span class="line">223</span><br><span class="line">224</span><br><span class="line">225</span><br><span class="line">226</span><br><span class="line">227</span><br><span class="line">228</span><br><span class="line">229</span><br><span class="line">230</span><br><span class="line">231</span><br><span class="line">232</span><br><span class="line">233</span><br><span class="line">234</span><br><span class="line">235</span><br><span class="line">236</span><br><span class="line">237</span><br><span class="line">238</span><br></pre></td><td class="code"><pre><span class="line">import React, &#123; Component &#125; from &apos;react&apos;;</span><br><span class="line"></span><br><span class="line">class Home extends Component &#123;</span><br><span class="line"></span><br><span class="line">    // 构造</span><br><span class="line">    constructor(props) &#123;</span><br><span class="line">        super(props);</span><br><span class="line">        // 初始状态</span><br><span class="line">        this.state = &#123;&#125;;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    componentDidMount() &#123;</span><br><span class="line">        //let和const的学习</span><br><span class="line">        this.letConstFunc();</span><br><span class="line">        this.variableDeconstruction();</span><br><span class="line">        this.stringExtend();</span><br><span class="line">        this.numberExtend();</span><br><span class="line">        this.funcExtend();</span><br><span class="line">        this.arrayExtend();</span><br><span class="line">        this.objectExtend();</span><br><span class="line">        this.mapSet();</span><br><span class="line">        this.promiseUse();</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">    /**</span><br><span class="line">     * let const变量的使用</span><br><span class="line">     */</span><br><span class="line">    letConstFunc = () =&gt; &#123;</span><br><span class="line">        &#123;</span><br><span class="line">            let aLet = 10;</span><br><span class="line">            var bVar = 20;</span><br><span class="line">        &#125;</span><br><span class="line">        //not defined</span><br><span class="line">        // console.log(aLet);</span><br><span class="line">        console.log(bVar);</span><br><span class="line"></span><br><span class="line">        const c = 1234;</span><br><span class="line">        //报错</span><br><span class="line">        // c=234;</span><br><span class="line"></span><br><span class="line">        //可在任意位置调用</span><br><span class="line">        global.c = 23423;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    /**</span><br><span class="line">     * 变量的解构赋值</span><br><span class="line">     */</span><br><span class="line">    variableDeconstruction = () =&gt; &#123;</span><br><span class="line">        //数组解构</span><br><span class="line">        let [aa, bb, cc] = [11, 22, 33];</span><br><span class="line">        //11-22-33</span><br><span class="line">        console.log(aa + &quot;-&quot; + bb + &quot;-&quot; + cc);</span><br><span class="line"></span><br><span class="line">        //对象解构</span><br><span class="line">        let &#123;o1, o2&#125; = &#123;o1: 1, o2: 2&#125;;</span><br><span class="line">        //1-2</span><br><span class="line">        console.log(o1 + &quot;-&quot; + o2);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    //字符串扩展</span><br><span class="line">    stringExtend = () =&gt; &#123;</span><br><span class="line">        let helloWorld = &quot;Hello World&quot;;</span><br><span class="line">        // true</span><br><span class="line">        console.log(helloWorld.includes(&quot;Hello&quot;));</span><br><span class="line">        //true</span><br><span class="line">        console.log(helloWorld.startsWith(&quot;Hello&quot;));</span><br><span class="line">        //false</span><br><span class="line">        console.log(helloWorld.endsWith(&quot;Hello&quot;));</span><br><span class="line"></span><br><span class="line">        // 模板字符串</span><br><span class="line">        let templateStr = `</span><br><span class="line">            $&#123;helloWorld&#125;</span><br><span class="line">            测试</span><br><span class="line">                    模板</span><br><span class="line">                             字符串</span><br><span class="line">        `;</span><br><span class="line">        console.log(templateStr);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    //数值扩展</span><br><span class="line">    numberExtend = () =&gt; &#123;</span><br><span class="line">        let intData = Number.parseInt(&apos;12.34&apos;) // 12</span><br><span class="line">        let floatData = Number.parseFloat(&apos;123.45#&apos;) // 123.45</span><br><span class="line">        let truncData = Math.trunc(4.1);</span><br><span class="line">        //12---123.45---4</span><br><span class="line">        console.log(intData + &quot;---&quot; + floatData + &quot;---&quot; + truncData);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    //函数扩展</span><br><span class="line">    funcExtend = () =&gt; &#123;</span><br><span class="line">        //输出1-----undefined</span><br><span class="line">        this.funcExtendDefaultValue();</span><br><span class="line">        //输出2-----3</span><br><span class="line">        this.funcExtendDefaultValue(2, 3);</span><br><span class="line">        this.funcExtendDefaultValue2(&#123;y: 2&#125;);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    //默认值函数</span><br><span class="line">    funcExtendDefaultValue = (x = 1, y, ...values) =&gt; &#123;</span><br><span class="line">        console.log(x + &quot;-----&quot; + y);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    //解构结合函数</span><br><span class="line">    funcExtendDefaultValue2 = (&#123;x = 1, y&#125;) =&gt; &#123;</span><br><span class="line">        console.log(x + &quot;-----&quot; + y);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    //数组的扩展</span><br><span class="line">    arrayExtend = () =&gt; &#123;</span><br><span class="line">        //扩展运算符 1 2 3</span><br><span class="line">        console.log(&quot;扩展运算符&quot;, ...[1, 2, 3]);</span><br><span class="line"></span><br><span class="line">        let array1 = [1, 2, 3];</span><br><span class="line">        let array2 = [4, 5, 6];</span><br><span class="line">        console.log(&quot;push&quot;, array1.push(...array2));</span><br><span class="line">        console.log(&quot;pop&quot;, array1.pop());</span><br><span class="line">        console.log(&quot;shift&quot;, array1.shift());</span><br><span class="line">        console.log(&quot;unshift&quot;, array1.unshift(...array2));</span><br><span class="line"></span><br><span class="line">        //直接复制</span><br><span class="line">        const a1 = [1, 2];</span><br><span class="line">        const a2 = a1;</span><br><span class="line">        a2[0] = 2;</span><br><span class="line">        console.log(a1) // [2, 2]</span><br><span class="line"></span><br><span class="line">        //concat函数的使用,返回原数组的克隆，修改新数组数据不会影响原数组数据</span><br><span class="line">        const a3 = [1, 2];</span><br><span class="line">        const a4 = a2.concat();</span><br><span class="line">        a4[0] = 2;</span><br><span class="line">        console.log(a3) // [1, 2]</span><br><span class="line"></span><br><span class="line">        let array11 = Array.from(&#123;&apos;0&apos;: 1, &apos;1&apos;: 2, &apos;2&apos;: 3, length: 3&#125;);</span><br><span class="line">        //[1, 2, 3]</span><br><span class="line">        console.log(&quot;111&quot;, array11);</span><br><span class="line"></span><br><span class="line">        let array22 = Array.of(123, 23423, 54354);</span><br><span class="line">        // [123, 23423, 54354]</span><br><span class="line">        console.log(&quot;222&quot;, array22);</span><br><span class="line"></span><br><span class="line">        // 0</span><br><span class="line">        // 1</span><br><span class="line">        for (let index of [&apos;a&apos;, &apos;b&apos;].keys()) &#123;</span><br><span class="line">            console.log(index);</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        // 0 &quot;a&quot;</span><br><span class="line">        // 1 &quot;b&quot;</span><br><span class="line">        for (let [index, elem] of [&apos;a&apos;, &apos;b&apos;].entries()) &#123;</span><br><span class="line">            console.log(index, elem);</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    //对象的扩展</span><br><span class="line">    objectExtend = () =&gt; &#123;</span><br><span class="line">        const objectKey = &apos;objectValue&apos;;</span><br><span class="line">        const objectNew = &#123;objectKey&#125;;</span><br><span class="line">        //&#123;objectKey: &quot;objectValue&quot;&#125;</span><br><span class="line">        console.log(&quot;obejct new&quot;, objectNew);</span><br><span class="line"></span><br><span class="line">        //属性名表达式</span><br><span class="line">        //&#123;objectKey: &quot;objectValue&quot;, abc: &quot;abd&quot;&#125;</span><br><span class="line">        objectNew[&apos;a&apos; + &apos;bc&apos;] = &apos;abd&apos;;</span><br><span class="line">        console.log(&quot;obejct new&quot;, objectNew);</span><br><span class="line"></span><br><span class="line">        let objectOne = &#123;&#125;;</span><br><span class="line">        //返回false 两个不同的对象</span><br><span class="line">        console.log(&quot;object.is&quot;, Object.is(&#123;&#125;, &#123;&#125;));</span><br><span class="line">        //&#123;a: 1, b: 2&#125;</span><br><span class="line">        console.log(&quot;object.assign&quot;, Object.assign(objectOne, &#123;a: 1, b: 2&#125;))</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    //set和map的使用</span><br><span class="line">    mapSet = () =&gt; &#123;</span><br><span class="line">        const set = new Set([11, 22, 33, 4, 5, 6, 123, 11, 22, 33, 4]);</span><br><span class="line"></span><br><span class="line">        set.add(456);</span><br><span class="line">        //11 22 33 4 5 6 123 456</span><br><span class="line">        set.forEach((item) =&gt; &#123;</span><br><span class="line">            console.log(item);</span><br><span class="line">        &#125;);</span><br><span class="line"></span><br><span class="line">        const map = new Map();</span><br><span class="line">        map.set(&quot;name&quot;, &quot;value&quot;);</span><br><span class="line">        console.log(&quot;map&quot;,map.get(&quot;name&quot;));</span><br><span class="line">        map.has(&quot;name&quot;);</span><br><span class="line">        map.delete(&quot;name&quot;);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    //promise的使用</span><br><span class="line">    promiseUse=()=&gt;&#123;</span><br><span class="line"></span><br><span class="line">        const promiseSuccess = new Promise((resolve,reject)=&gt;&#123;</span><br><span class="line">            resolve(&quot;成功了&quot;);</span><br><span class="line">            throw new Error(&quot;成功后抛出无效&quot;);</span><br><span class="line">        &#125;)</span><br><span class="line"></span><br><span class="line">        //成功处理</span><br><span class="line">        promiseSuccess.then((successValue)=&gt;&#123;</span><br><span class="line">            console.log(successValue)</span><br><span class="line">        &#125;).catch((failedValue)=&gt;&#123;</span><br><span class="line">            console.log(&quot;error&quot;,failedValue)</span><br><span class="line">        &#125;);</span><br><span class="line"></span><br><span class="line">        const promiseFailed = new Promise((resolve,reject)=&gt;&#123;</span><br><span class="line">            reject(new Error(&apos;失败后抛出&apos;));</span><br><span class="line"></span><br><span class="line">        &#125;)</span><br><span class="line"></span><br><span class="line">        //失败调用直接在catch中进行处理</span><br><span class="line">        promiseFailed.then((successValue)=&gt;&#123;</span><br><span class="line"></span><br><span class="line">        &#125;).catch((error)=&gt;&#123;</span><br><span class="line">            console.log(&quot;error&quot;,error)</span><br><span class="line">        &#125;).finally(()=&gt;&#123;</span><br><span class="line">            console.log(&quot;finally&quot;)</span><br><span class="line">        &#125;);</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line">    render() &#123;</span><br><span class="line">        return (</span><br><span class="line">            &lt;div&gt;</span><br><span class="line">                &lt;h2&gt;Home Page&lt;/h2&gt;</span><br><span class="line">                &lt;p&gt;Home Page Content&lt;/p&gt;</span><br><span class="line">            &lt;/div&gt;</span><br><span class="line">        );</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">Home.propTypes = &#123;&#125;;</span><br><span class="line">Home.defaultProps = &#123;&#125;;</span><br><span class="line"></span><br><span class="line">export default Home;</span><br></pre></td></tr></table></figure>
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2018/03/29/web/WebTrainingDesignES6Code/" data-id="cji44rp1k000xctrqj4hvzwq5" class="article-share-link">Share</a>
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/ES6/">ES6</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/web/">web</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/前端/">前端</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+    <article id="post-web/WebTrainingDesignES6" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2018/03/29/web/WebTrainingDesignES6/" class="article-date">
+  <time datetime="2018-03-28T16:00:00.000Z" itemprop="datePublished">2018-03-29</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/Web/">Web</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2018/03/29/web/WebTrainingDesignES6/">ES6培训材料整理</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h3 id="let和const使用"><a href="#let和const使用" class="headerlink" title="let和const使用"></a>let和const使用</h3><ul>
+<li><p>let用来声明变量，用法与var类似，let只在所在的代码块内有效。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">//let const变量的使用</span><br><span class="line"> letConstFunc = () =&gt; &#123;</span><br><span class="line">     &#123;</span><br><span class="line">         let aLet = 10;</span><br><span class="line">         var bVar = 20;</span><br><span class="line">     &#125;</span><br><span class="line">     //not defined</span><br><span class="line">     // console.log(aLet);</span><br><span class="line">     console.log(bVar);</span><br><span class="line"> &#125;</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>const声明一个只读的常量，常量的值不可修改。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">const c=1234;</span><br><span class="line">//报错</span><br><span class="line">// c=234;</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>顶层对象的使用<br> 浏览器环境指的是window对象，node中是global对象。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">//可在任意位置调用</span><br><span class="line">global.c=23423;</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<h3 id="变量的解构赋值"><a href="#变量的解构赋值" class="headerlink" title="变量的解构赋值"></a>变量的解构赋值</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">variableDeconstruction = () =&gt; &#123;</span><br><span class="line">      //数组解构</span><br><span class="line">      let [aa, bb, cc] = [11, 22, 33];</span><br><span class="line">      //11-22-33</span><br><span class="line">      console.log(aa + &quot;-&quot; + bb + &quot;-&quot; + cc);</span><br><span class="line"></span><br><span class="line">      //对象解构</span><br><span class="line">      let &#123;o1, o2&#125; = &#123;o1: 1, o2: 2&#125;;</span><br><span class="line">      //1-2</span><br><span class="line">      console.log(o1 + &quot;-&quot; + o2);</span><br><span class="line">  &#125;</span><br></pre></td></tr></table></figure>
+<h3 id="字符串的扩展"><a href="#字符串的扩展" class="headerlink" title="字符串的扩展"></a>字符串的扩展</h3><ul>
+<li>includes 返回布尔值，表示是否找到了参数字符串</li>
+<li>startsWith 返回布尔值，表示参数字符串是否在原字符串的头部</li>
+<li>endsWith 返回布尔值，表示参数字符串是否在原字符串的尾部<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line">stringExtend = () =&gt; &#123;</span><br><span class="line">      let helloWorld=&quot;Hello World&quot;;</span><br><span class="line">      // true</span><br><span class="line">      console.log(helloWorld.includes(&quot;Hello&quot;));</span><br><span class="line">      //true</span><br><span class="line">      console.log(helloWorld.startsWith(&quot;Hello&quot;));</span><br><span class="line">      //false</span><br><span class="line">      console.log(helloWorld.endsWith(&quot;Hello&quot;));</span><br><span class="line"></span><br><span class="line">       // 模板字符串 ，模板字符串中可添加表达式$&#123;表达式&#125;</span><br><span class="line">              let templateStr=`</span><br><span class="line">                       $&#123;helloWorld&#125;</span><br><span class="line">                  测试</span><br><span class="line">                          模板</span><br><span class="line">                                   字符串</span><br><span class="line">              `;</span><br><span class="line">              console.log(templateStr);</span><br><span class="line">  &#125;</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<h3 id="数值的扩展"><a href="#数值的扩展" class="headerlink" title="数值的扩展"></a>数值的扩展</h3><ul>
+<li>Number.parseInt(), Number.parseFloat()</li>
+<li>Math函数的使用<ul>
+<li>Math.trunc()去除小数部分 Math.trunc(4.1) // 4</li>
+<li>ath.sign(-5) // -1 判断是正数（+1）负数（-1）还是零（0）<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">Number.parseInt(&apos;12.34&apos;) // 12</span><br><span class="line">Number.parseFloat(&apos;123.45#&apos;) // 123.45</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+</li>
+</ul>
+<h3 id="函数扩展"><a href="#函数扩展" class="headerlink" title="函数扩展"></a>函数扩展</h3><ul>
+<li>函数默认值</li>
+<li>与结构默认值相结合</li>
+<li>rest（…变量名）参数的使用,rest参数搭配的变量是一个数组，rest参数只能作为最后一个参数。</li>
+<li>函数的name属性<ul>
+<li>方法的name返回方法的名称</li>
+<li>构造方法的name返回anomymous</li>
+<li>bind返回的函数name属性值会加上bound前缀</li>
+<li>get和set函数的name属性值前面会添加get set前缀<ul>
+<li>箭头函数的使用以及作用域：定义所在的对象，而不是使用时所在的对象</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line">//函数扩展</span><br><span class="line">   funcExtend=()=&gt;&#123;</span><br><span class="line">       //输出1-----undefined</span><br><span class="line">       this.funcExtendDefaultValue();</span><br><span class="line">       //输出2-----3</span><br><span class="line">       this.funcExtendDefaultValue(2,3);</span><br><span class="line">       //解构结合使用输出1----2</span><br><span class="line">       this.funcExtendDefaultValue2(&#123;y:2&#125;);</span><br><span class="line">   &#125;</span><br><span class="line"></span><br><span class="line">   //默认值函数</span><br><span class="line">   funcExtendDefaultValue=(x=1,y,...z)=&gt;&#123;</span><br><span class="line">       console.log(x+&quot;-----&quot;+y);</span><br><span class="line">   &#125;</span><br><span class="line"></span><br><span class="line">    //解构结合函数</span><br><span class="line">   funcExtendDefaultValue2 = (&#123;x = 1, y&#125;) =&gt; &#123;</span><br><span class="line">       console.log(x + &quot;-----&quot; + y);</span><br><span class="line">   &#125;</span><br></pre></td></tr></table></figure>
+<h3 id="数组的扩展"><a href="#数组的扩展" class="headerlink" title="数组的扩展"></a>数组的扩展</h3><ul>
+<li>扩展运算符 （…）他好比rest函数的逆运算，将一个数组转化为用逗号分割的参数序列</li>
+<li>shift unshift push pop方法的使用,返回值为数组的长度</li>
+<li>数组的复制<ul>
+<li>直接复制，只是复制了指向数据的指针，而不是克隆全新的数组，复制的数组修改数据后会导致原数组数据发生变化</li>
+<li>concat、slice函数的使用</li>
+</ul>
+</li>
+<li>数组的转换<ul>
+<li>Array.from();对象转数组对象</li>
+<li>Array.of();一组数值转化为数组对象</li>
+</ul>
+</li>
+<li>数组方法entries，keys，values，map，forEach<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br></pre></td><td class="code"><pre><span class="line">//数组的扩展</span><br><span class="line">arrayExtend = () =&gt; &#123;</span><br><span class="line">    //扩展运算符 1 2 3</span><br><span class="line">    console.log(&quot;扩展运算符&quot;,...[1, 2, 3]);</span><br><span class="line">    //方法的使用</span><br><span class="line">       let array1 = [1, 2, 3];</span><br><span class="line">       let array2 = [4, 5, 6];</span><br><span class="line">        //push 6</span><br><span class="line">        console.log(&quot;push&quot;,array1.push(...array2));</span><br><span class="line">        //pop 6</span><br><span class="line">        console.log(&quot;pop&quot;,array1.pop());</span><br><span class="line">        //shift 1</span><br><span class="line">        console.log(&quot;shift&quot;,array1.shift());</span><br><span class="line">        //unshift 7</span><br><span class="line">        console.log(&quot;unshift&quot;,array1.unshift(...array2));</span><br><span class="line"></span><br><span class="line">          //直接复制</span><br><span class="line">        const a1 = [1, 2];</span><br><span class="line">        const a2 = a1;</span><br><span class="line">        a2[0] = 2;</span><br><span class="line">        a1 // [2, 2]</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">    //concat函数的使用,返回原数组的克隆，修改新数组数据不会影响原数组数据</span><br><span class="line">        const a3 = [1, 2];</span><br><span class="line">        const a4 = a2.concat();</span><br><span class="line">        a4[0] = 2;</span><br><span class="line">        console.log(a3) // [1, 2]</span><br><span class="line"></span><br><span class="line">        let array11=Array.from(&#123;&apos;0&apos;:1,&apos;1&apos;:2,&apos;2&apos;:3,length:3&#125;);</span><br><span class="line">        //[1, 2, 3]</span><br><span class="line">        console.log(&quot;111&quot;,array11);</span><br><span class="line"></span><br><span class="line">        let array22 = Array.of(123,23423,54354);</span><br><span class="line">        // [123, 23423, 54354]</span><br><span class="line">        console.log(&quot;222&quot;,array22);</span><br><span class="line"></span><br><span class="line">        // 0</span><br><span class="line">        // 1</span><br><span class="line">        for (let index of [&apos;a&apos;, &apos;b&apos;].keys()) &#123;</span><br><span class="line">            console.log(index);</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        // 0 &quot;a&quot;</span><br><span class="line">        // 1 &quot;b&quot;</span><br><span class="line">        for (let [index, elem] of [&apos;a&apos;, &apos;b&apos;].entries()) &#123;</span><br><span class="line">            console.log(index, elem);</span><br><span class="line">        &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<h3 id="对象的扩展"><a href="#对象的扩展" class="headerlink" title="对象的扩展"></a>对象的扩展</h3><ul>
+<li>Object.is 对象比较(===)，值的严格比较</li>
+<li>Object.assign() 用于对象合并，浅拷贝，同名函数替换</li>
+<li>Object.keys()，Object.values()，Object.entries()<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line">objectExtend = () =&gt; &#123;</span><br><span class="line">    const objectKey = &apos;objectValue&apos;;</span><br><span class="line">    const objectNew = &#123;objectKey&#125;;</span><br><span class="line">    //&#123;objectKey: &quot;objectValue&quot;&#125;</span><br><span class="line">    console.log(&quot;obejct new&quot;, objectNew);</span><br><span class="line"></span><br><span class="line">    //属性名表达式</span><br><span class="line">    //&#123;objectKey: &quot;objectValue&quot;, abc: &quot;abd&quot;&#125;</span><br><span class="line">    objectNew[&apos;a&apos; + &apos;bc&apos;] = &apos;abd&apos;;</span><br><span class="line">    console.log(&quot;obejct new&quot;, objectNew);</span><br><span class="line"></span><br><span class="line">    let objectOne = &#123;&#125;;</span><br><span class="line">    //返回false 两个不同的对象</span><br><span class="line">    console.log(&quot;object.is&quot;, Object.is(&#123;&#125;, &#123;&#125;));</span><br><span class="line">    //&#123;a: 1, b: 2&#125;</span><br><span class="line">    console.log(&quot;object.assign&quot;,Object.assign(objectOne,&#123;a: 1, b: 2&#125;))</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<h3 id="set和map的使用"><a href="#set和map的使用" class="headerlink" title="set和map的使用"></a>set和map的使用</h3><ul>
+<li>set类似于数组，成员的值唯一，没有重复值。</li>
+<li>set中add delete has clear方法的使用</li>
+<li>set中keys values entries foreach方法的使用</li>
+<li>set转化为数组的方法 […set] , Array.from(set);</li>
+<li>map中get set方法的使用<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">mapSet = () =&gt; &#123;</span><br><span class="line">        const set = new Set([11, 22, 33, 4, 5, 6, 123, 11, 22, 33, 4]);</span><br><span class="line"></span><br><span class="line">        set.add(456);</span><br><span class="line">        //11 22 33 4 5 6 123 456</span><br><span class="line">        set.forEach((item) =&gt; &#123;</span><br><span class="line">            console.log(item);</span><br><span class="line">        &#125;);</span><br><span class="line"></span><br><span class="line">        const map = new Map();</span><br><span class="line">        map.set(&quot;name&quot;, &quot;value&quot;);</span><br><span class="line">        console.log(&quot;map&quot;,map.get(&quot;name&quot;));</span><br><span class="line">        map.has(&quot;name&quot;);</span><br><span class="line">        map.delete(&quot;name&quot;);</span><br><span class="line">    &#125;</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<h3 id="Class的使用"><a href="#Class的使用" class="headerlink" title="Class的使用"></a>Class的使用</h3><ul>
+<li>构造方法：使用constructor</li>
+<li>使用new创建类的实例对象</li>
+<li>私有方法前面添加下划线表示只限于内部使用的私有方法</li>
+<li>this的指向，可以使用箭头函数和bind的方法</li>
+<li>static静态方法的使用</li>
+<li>类的继承：构造方法中出现super关键字，表示父类的构造方法</li>
+<li>(了解)类的 prototype 属性和<strong>proto</strong>属性<h3 id="Promise对象的使用"><a href="#Promise对象的使用" class="headerlink" title="Promise对象的使用"></a>Promise对象的使用</h3>异步编程的一种解决方案。<blockquote>
+<p>Promise对象是一个构造函数，用来生成Promise实例。<br>Promise接受一个函数作为参数，该函数的两个参数分别为resolve（成功）和reject（失败）。<br>Promise实例生成以后，可以使用then分别制定resolved和rejected状态的回调函数。<br>注意reject方法等同于抛出错误，如果在resolve后面抛出错误则抛出错误无效<br>一般来说，不要在then方法里面定义 Reject 状态的回调函数（即then的第二个参数），总是使用catch方法。<br>finally方法用于指定不管 Promise 对象最后状态如何，都会执行的操作</p>
+</blockquote>
+</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">//unhandledRejection事件的监听函数有两个参数，第一个是错误对象，第二个是报错的 Promise 实例，它可以用来了解发生错误的环境信息</span><br><span class="line">process.on(&apos;unhandledRejection&apos;, function (err, p) &#123;</span><br><span class="line">  throw err;</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br></pre></td><td class="code"><pre><span class="line">  //promise的使用</span><br><span class="line">promiseUse=()=&gt;&#123;</span><br><span class="line"></span><br><span class="line">      const promiseSuccess = new Promise((resolve,reject)=&gt;&#123;</span><br><span class="line">          resolve(&quot;成功了&quot;);</span><br><span class="line">          throw new Error(&quot;成功后抛出无效&quot;);</span><br><span class="line">      &#125;)</span><br><span class="line"></span><br><span class="line">      //成功处理</span><br><span class="line">      promiseSuccess.then((successValue)=&gt;&#123;</span><br><span class="line">          console.log(successValue)</span><br><span class="line">      &#125;).catch((failedValue)=&gt;&#123;</span><br><span class="line">          console.log(&quot;error&quot;,failedValue)</span><br><span class="line">      &#125;);</span><br><span class="line"></span><br><span class="line">      const promiseFailed = new Promise((resolve,reject)=&gt;&#123;</span><br><span class="line">          reject(new Error(&apos;失败后抛出&apos;));</span><br><span class="line"></span><br><span class="line">      &#125;)</span><br><span class="line"></span><br><span class="line">      //失败调用直接在catch中进行处理</span><br><span class="line">      promiseFailed.then((successValue)=&gt;&#123;</span><br><span class="line"></span><br><span class="line">      &#125;).catch((error)=&gt;&#123;</span><br><span class="line">          console.log(&quot;error&quot;,error)</span><br><span class="line">      &#125;).finally(()=&gt;&#123;</span><br><span class="line">          console.log(&quot;finally&quot;)</span><br><span class="line">      &#125;);</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">  &#125;</span><br></pre></td></tr></table></figure>
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2018/03/29/web/WebTrainingDesignES6/" data-id="cji44rp1j000uctrqp82iif1p" class="article-share-link">Share</a>
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/ES6/">ES6</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/web/">web</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/前端/">前端</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+    <article id="post-Other/2018WorkPlan" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2018/02/21/Other/2018WorkPlan/" class="article-date">
+  <time datetime="2018-02-20T16:00:00.000Z" itemprop="datePublished">2018-02-21</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/Other/">Other</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2018/02/21/Other/2018WorkPlan/">2017工作总结和计划</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h1 id="2018年计划"><a href="#2018年计划" class="headerlink" title="2018年计划"></a>2018年计划</h1><h2 id="1-完成一个完整的web实战项目"><a href="#1-完成一个完整的web实战项目" class="headerlink" title="1. 完成一个完整的web实战项目"></a>1. <a href="https://pareto.hylaa.net/signin" target="_blank" rel="noopener">完成一个完整的web实战项目</a></h2><h3 id="需要储备的知识"><a href="#需要储备的知识" class="headerlink" title="需要储备的知识"></a>需要储备的知识</h3><h4 id="H5"><a href="#H5" class="headerlink" title="* H5"></a>* <a href="https://pan.baidu.com/s/1voM4nnHr9TupUYL3es74Ag" target="_blank" rel="noopener">H5</a></h4><h4 id="CSS3"><a href="#CSS3" class="headerlink" title="* CSS3"></a>* <a href="https://pan.baidu.com/s/1voM4nnHr9TupUYL3es74Ag" target="_blank" rel="noopener">CSS3</a></h4><h4 id="Node"><a href="#Node" class="headerlink" title="* Node"></a>* Node</h4><h4 id="React"><a href="#React" class="headerlink" title="* React"></a>* React</h4><h4 id="React-Redux"><a href="#React-Redux" class="headerlink" title="* React-Redux"></a>* React-Redux</h4><h4 id="React-Router"><a href="#React-Router" class="headerlink" title="* React-Router"></a>* React-Router</h4><h4 id="Webpack"><a href="#Webpack" class="headerlink" title="* Webpack"></a>* Webpack</h4><h2 id="2-完成一个完整的iOS实战项目"><a href="#2-完成一个完整的iOS实战项目" class="headerlink" title="2. 完成一个完整的iOS实战项目"></a>2. 完成一个完整的iOS实战项目</h2>
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2018/02/21/Other/2018WorkPlan/" data-id="cji44rp0w0000ctrqv095sbtd" class="article-share-link">Share</a>
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/2018/">2018</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/工作计划/">工作计划</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+    <article id="post-web/WebLeanSource" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2018/02/21/web/WebLeanSource/" class="article-date">
+  <time datetime="2018-02-20T16:00:00.000Z" itemprop="datePublished">2018-02-21</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/Web/">Web</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2018/02/21/web/WebLeanSource/">前端学习</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h3 id="npm模块管理器"><a href="#npm模块管理器" class="headerlink" title="npm模块管理器"></a><a href="http://javascript.ruanyifeng.com/nodejs/npm.html#toc14" target="_blank" rel="noopener">npm模块管理器</a></h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">检查当前项目所有依赖的模块是否有新版本</span><br><span class="line">npm outdated</span><br><span class="line">检查当前项目的node_modules目录下是否有package.json里面没有提到的模块，然后把这些模块快输入到命令行</span><br></pre></td></tr></table></figure>
+<h3 id="NPM-相关知识"><a href="#NPM-相关知识" class="headerlink" title="NPM 相关知识"></a><a href="https://github.com/wy-ei/notebook/issues/42#issuecomment-266946999" target="_blank" rel="noopener">NPM 相关知识</a></h3><h3 id="React学习"><a href="#React学习" class="headerlink" title="React学习"></a><a href="http://www.css88.com/react/docs/context.html" target="_blank" rel="noopener">React学习</a></h3><h3 id="react-router"><a href="#react-router" class="headerlink" title="react-router"></a><a href="https://medium.com/@pshrmn/a-simple-react-router-v4-tutorial-7f23ff27adf" target="_blank" rel="noopener">react-router</a></h3><h3 id="webpack-读一篇就够了"><a href="#webpack-读一篇就够了" class="headerlink" title="webpack 读一篇就够了"></a><a href="https://www.jianshu.com/p/42e11515c10f" target="_blank" rel="noopener">webpack 读一篇就够了</a></h3><h3 id="webpack中文文档"><a href="#webpack中文文档" class="headerlink" title="webpack中文文档"></a><a href="https://www.webpackjs.com/concepts/" target="_blank" rel="noopener">webpack中文文档</a></h3><h3 id="redux中文文档"><a href="#redux中文文档" class="headerlink" title="redux中文文档"></a><a href="http://cn.redux.js.org/" target="_blank" rel="noopener">redux中文文档</a></h3><h3 id="Babel入门教程"><a href="#Babel入门教程" class="headerlink" title="Babel入门教程"></a><a href="http://www.ruanyifeng.com/blog/2016/01/babel.html" target="_blank" rel="noopener">Babel入门教程</a></h3><h3 id="SASS用法指南"><a href="#SASS用法指南" class="headerlink" title="SASS用法指南"></a><a href="http://www.ruanyifeng.com/blog/2012/06/sass.html" target="_blank" rel="noopener">SASS用法指南</a></h3><h3 id="React-Bootstrap"><a href="#React-Bootstrap" class="headerlink" title="React-Bootstrap"></a><a href="http://react-bootstrap.cn/components.html" target="_blank" rel="noopener">React-Bootstrap</a></h3><h2 id="好的项目"><a href="#好的项目" class="headerlink" title="好的项目"></a>好的项目</h2><p><a href="https://github.com/wellyshen/react-cool-starter" target="_blank" rel="noopener">react-cool-starter</a></p>
+<h2 id="前端UI框架对比"><a href="#前端UI框架对比" class="headerlink" title="前端UI框架对比"></a>前端UI框架对比</h2><p><a href="http://www.semantic-ui.cn/" target="_blank" rel="noopener">Semantic UI</a><br><a href="http://www.material-ui.com/#/components/list" target="_blank" rel="noopener">Material-UI</a><br><a href="https://ant.design/components/mention-cn/" target="_blank" rel="noopener">Ant Design</a></p>
+<h2 id="前端好库"><a href="#前端好库" class="headerlink" title="前端好库"></a>前端好库</h2><p>[国际化解决方案]<a href="https://github.com/alibaba/react-intl-universal" target="_blank" rel="noopener">https://github.com/alibaba/react-intl-universal</a></p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2018/02/21/web/WebLeanSource/" data-id="cji44rp1i000rctrqr7jt2krx" class="article-share-link">Share</a>
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/web/">web</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/前端/">前端</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+    <article id="post-Other/TestUiAutomator" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2018/02/21/Other/TestUiAutomator/" class="article-date">
+  <time datetime="2018-02-20T16:00:00.000Z" itemprop="datePublished">2018-02-21</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/Other/">Other</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2018/02/21/Other/TestUiAutomator/">2017工作总结和计划</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h2 id="UIAutomator"><a href="#UIAutomator" class="headerlink" title="UIAutomator"></a>UIAutomator</h2><h4 id="安装"><a href="#安装" class="headerlink" title="安装"></a>安装</h4><p>新建一个项目在gradle中添加依赖compile </p>
+<blockquote>
+<p> androidTestImplementation ‘com.android.support.test.uiautomator:uiautomator-v18:2.1.2’</p>
+</blockquote>
+<h5 id="需要注意的是minSdkVersion必须大于等于18。"><a href="#需要注意的是minSdkVersion必须大于等于18。" class="headerlink" title="需要注意的是minSdkVersion必须大于等于18。"></a>需要注意的是minSdkVersion必须大于等于18。</h5><h5 id="Android通过Annotation来识别测试用例"><a href="#Android通过Annotation来识别测试用例" class="headerlink" title="Android通过Annotation来识别测试用例"></a>Android通过Annotation来识别测试用例</h5><ul>
+<li>红色：通过声明@RunWith（AndroidJUnit4.class），来表示该类为一个测试集合。 </li>
+<li>黄色：通过声明@Test，来表示该方法为一个测试用例。 </li>
+<li>蓝色：“快进箭头”，用于运行一组测试用例。 </li>
+<li>绿色：“播放箭头”，用于运行一个测试用例。</li>
+</ul>
+<h2 id="命令"><a href="#命令" class="headerlink" title="命令"></a>命令</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">adb push D:\Workspace\Android\Farmer\app\build\outputs\apk\debug\app-debug.apk /data/local/tmp/com.smart.farmer</span><br><span class="line">adb shell pm install -t -r &quot;/data/local/tmp/com.smart.farmer&quot;</span><br><span class="line"></span><br><span class="line">adb push D:\Workspace\Android\Farmer\app\build\outputs\apk\androidTest\debug\app-debug-androidTest.apk /data/local/tmp/com.smart.farmer.test</span><br><span class="line">adb shell pm install -t -r &quot;/data/local/tmp/com.smart.farmer.test&quot;</span><br><span class="line"></span><br><span class="line">adb shell am instrument -w -r   -e debug false -e class &apos;com.smart.farmer.ExampleInstrumentedTest#test1&apos; com.smart.farmer.test/android.support.test.runner.AndroidJUnitRunner</span><br></pre></td></tr></table></figure>
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2018/02/21/Other/TestUiAutomator/" data-id="cji4501ze0001uxrq76z8ncrw" class="article-share-link">Share</a>
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/2018/">2018</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/工作计划/">工作计划</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+
+
+  <nav id="page-nav">
+    
+    <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><a class="extend next" rel="next" href="/page/2/">下一页 &raquo;</a>
+  </nav>
+
+</section>
+        
+          <aside id="sidebar">
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">分类</h3>
+    <div class="widget">
+      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/Android/">Android</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/Other/">Other</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/React-Native/">React Native</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/Web/">Web</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/iOS/">iOS</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">标签</h3>
+    <div class="widget">
+      <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/2018/">2018</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Activity/">Activity</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Android/">Android</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Antd/">Antd</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/AntdDesign/">AntdDesign</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/C/">C</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/ES6/">ES6</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/IPC/">IPC</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/IntentFilter/">IntentFilter</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Less/">Less</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Objective-C/">Objective-C</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/React/">React</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/React-Native/">React Native</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Redux/">Redux</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Retrofit/">Retrofit</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Router/">Router</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/iOS/">iOS</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/web/">web</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/前端/">前端</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/工作计划/">工作计划</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/移动开发/">移动开发</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/算法/">算法</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/网络请求/">网络请求</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">标签云</h3>
+    <div class="widget tagcloud">
+      <a href="/tags/2018/" style="font-size: 12px;">2018</a> <a href="/tags/Activity/" style="font-size: 10px;">Activity</a> <a href="/tags/Android/" style="font-size: 16px;">Android</a> <a href="/tags/Antd/" style="font-size: 10px;">Antd</a> <a href="/tags/AntdDesign/" style="font-size: 10px;">AntdDesign</a> <a href="/tags/C/" style="font-size: 12px;">C</a> <a href="/tags/ES6/" style="font-size: 12px;">ES6</a> <a href="/tags/IPC/" style="font-size: 10px;">IPC</a> <a href="/tags/IntentFilter/" style="font-size: 10px;">IntentFilter</a> <a href="/tags/Less/" style="font-size: 10px;">Less</a> <a href="/tags/Objective-C/" style="font-size: 12px;">Objective-C</a> <a href="/tags/React/" style="font-size: 14px;">React</a> <a href="/tags/React-Native/" style="font-size: 14px;">React Native</a> <a href="/tags/Redux/" style="font-size: 10px;">Redux</a> <a href="/tags/Retrofit/" style="font-size: 10px;">Retrofit</a> <a href="/tags/Router/" style="font-size: 10px;">Router</a> <a href="/tags/iOS/" style="font-size: 12px;">iOS</a> <a href="/tags/web/" style="font-size: 20px;">web</a> <a href="/tags/前端/" style="font-size: 20px;">前端</a> <a href="/tags/工作计划/" style="font-size: 12px;">工作计划</a> <a href="/tags/移动开发/" style="font-size: 18px;">移动开发</a> <a href="/tags/算法/" style="font-size: 10px;">算法</a> <a href="/tags/网络请求/" style="font-size: 10px;">网络请求</a>
+    </div>
+  </div>
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">归档</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/06/">六月 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/04/">四月 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/03/">三月 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/02/">二月 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/01/">一月 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/12/">十二月 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/03/">三月 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2013/10/">十月 2013</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">最新文章</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/2018/06/07/Other/Linux/">(no title)</a>
+          </li>
+        
+          <li>
+            <a href="/2018/04/21/web/UIAntdDesign/">AntdDesign的使用</a>
+          </li>
+        
+          <li>
+            <a href="/2018/04/03/web/WebTrainingDesignRouter4/">Router4的使用</a>
+          </li>
+        
+          <li>
+            <a href="/2018/03/30/web/WebTrainingDesignRedux/">Redux的使用</a>
+          </li>
+        
+          <li>
+            <a href="/2018/03/30/web/WebTrainingDesignReact/">React的使用</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      &copy; 2018 Ronnie Jing<br>
+      Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>
+    </div>
+  </div>
+</footer>
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">Home</a>
+  
+    <a href="/archives" class="mobile-nav-link">Archives</a>
+  
+    <a href="/demo" class="mobile-nav-link">Practice</a>
+  
+</nav>
+    
+
+<script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+
+
+  <link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+  <script src="/fancybox/jquery.fancybox.pack.js"></script>
+
+
+<script src="/js/script.js"></script>
+
+
+
+  </div>
+</body>
+</html>

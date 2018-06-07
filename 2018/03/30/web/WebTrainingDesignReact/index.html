@@ -1,0 +1,290 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+
+  
+  <title>React的使用 | Ronnie Jing</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="基础使用 create-react-app 快速构建 React 开发环境1234$ cnpm install -g create-react-app$ create-react-app my-app$ cd my-app/$ npm start 一个例子说明react的基本使用-父组件12345678910111213141516171819202122232425262728293031323">
+<meta name="keywords" content="web,前端,React">
+<meta property="og:type" content="article">
+<meta property="og:title" content="React的使用">
+<meta property="og:url" content="http://yoursite.com/2018/03/30/web/WebTrainingDesignReact/index.html">
+<meta property="og:site_name" content="Ronnie Jing">
+<meta property="og:description" content="基础使用 create-react-app 快速构建 React 开发环境1234$ cnpm install -g create-react-app$ create-react-app my-app$ cd my-app/$ npm start 一个例子说明react的基本使用-父组件12345678910111213141516171819202122232425262728293031323">
+<meta property="og:locale" content="zh-CN">
+<meta property="og:updated_time" content="2018-06-07T05:55:26.610Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="React的使用">
+<meta name="twitter:description" content="基础使用 create-react-app 快速构建 React 开发环境1234$ cnpm install -g create-react-app$ create-react-app my-app$ cd my-app/$ npm start 一个例子说明react的基本使用-父组件12345678910111213141516171819202122232425262728293031323">
+  
+    <link rel="alternate" href="/atom.xml" title="Ronnie Jing" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.png">
+  
+  
+    <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
+  
+  <link rel="stylesheet" href="/css/style.css">
+</head>
+
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/" id="logo">Ronnie Jing</a>
+      </h1>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"></a>
+        
+          <a class="main-nav-link" href="/">Home</a>
+        
+          <a class="main-nav-link" href="/archives">Archives</a>
+        
+          <a class="main-nav-link" href="/demo">Practice</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+          <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSS Feed"></a>
+        
+        <a id="nav-search-btn" class="nav-icon" title="搜索"></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://yoursite.com"></form>
+      </div>
+    </div>
+  </div>
+</header>
+      <div class="outer">
+        <section id="main"><article id="post-web/WebTrainingDesignReact" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2018/03/30/web/WebTrainingDesignReact/" class="article-date">
+  <time datetime="2018-03-29T16:00:00.000Z" itemprop="datePublished">2018-03-30</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/Web/">Web</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      React的使用
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h2 id="基础"><a href="#基础" class="headerlink" title="基础"></a>基础</h2><h3 id="使用-create-react-app-快速构建-React-开发环境"><a href="#使用-create-react-app-快速构建-React-开发环境" class="headerlink" title="使用 create-react-app 快速构建 React 开发环境"></a>使用 create-react-app 快速构建 React 开发环境</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">$ cnpm install -g create-react-app</span><br><span class="line">$ create-react-app my-app</span><br><span class="line">$ cd my-app/</span><br><span class="line">$ npm start</span><br></pre></td></tr></table></figure>
+<h3 id="一个例子说明react的基本使用-父组件"><a href="#一个例子说明react的基本使用-父组件" class="headerlink" title="一个例子说明react的基本使用-父组件"></a>一个例子说明react的基本使用-父组件</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br></pre></td><td class="code"><pre><span class="line">import React, &#123; Component, PureComponent &#125; from &apos;react&apos;;</span><br><span class="line">import &apos;./react_demo.css&apos;</span><br><span class="line">import ReactChildComponent from &quot;./ReactChildComponent&quot;;</span><br><span class="line"></span><br><span class="line">/**</span><br><span class="line"> * 这个例子简单介绍了react的使用</span><br><span class="line"> * 主要知识点包括</span><br><span class="line"> * 1.component和PureComponent</span><br><span class="line"> * 2.state和props初始化</span><br><span class="line"> * 3.父组件向子组件中传递数据和事件</span><br><span class="line"> * 4.ref的使用</span><br><span class="line"> * 5.propTypes类型约束，如果类型不对会在控制台报错</span><br><span class="line"> */</span><br><span class="line">class ReactComponent extends Component &#123;</span><br><span class="line"></span><br><span class="line">    constructor(props) &#123;</span><br><span class="line">        super(props);</span><br><span class="line">        //初始化state</span><br><span class="line">        this.state = &#123;</span><br><span class="line">            name: &quot;测试姓名&quot;</span><br><span class="line">        &#125;</span><br><span class="line">        this.clickMe = this.clickMe.bind(this);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    clickMe = () =&gt; &#123;</span><br><span class="line">        this.setState(&#123;</span><br><span class="line">            name:&apos;你已经点击了我&apos;</span><br><span class="line">        &#125;)</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    render() &#123;</span><br><span class="line">        return (</span><br><span class="line">            &lt;div className=&quot;bgContainer&quot;&gt;</span><br><span class="line"></span><br><span class="line">                &#123;/*ref使用和state中参数的使用，向子组件中传递数据和事件*/&#125;</span><br><span class="line">                &lt;ReactChildComponent</span><br><span class="line">                    ref=&#123;(childClick) =&gt; &#123;</span><br><span class="line">                        this.childClick = childClick</span><br><span class="line">                    &#125;&#125;</span><br><span class="line">                    name=&#123;this.state.name&#125;</span><br><span class="line">                    onClickCallBack=&#123;() =&gt; &#123;</span><br><span class="line">                        this.clickMe();</span><br><span class="line">                    &#125;&#125;</span><br><span class="line">                /&gt;</span><br><span class="line"></span><br><span class="line">                &#123;/*点击通过ref获取子控件触发子控件中的方法*/&#125;</span><br><span class="line">                &lt;div</span><br><span class="line">                    onClick=&#123;() =&gt; &#123;</span><br><span class="line">                        this.childClick.onChildClick();</span><br><span class="line">                    &#125;&#125;&gt;</span><br><span class="line">                    ref to click</span><br><span class="line">                &lt;/div&gt;</span><br><span class="line"></span><br><span class="line">            &lt;/div&gt;</span><br><span class="line">        )</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">export default ReactComponent;</span><br></pre></td></tr></table></figure>
+<h3 id="一个例子说明react的基本使用-子组件"><a href="#一个例子说明react的基本使用-子组件" class="headerlink" title="一个例子说明react的基本使用-子组件"></a>一个例子说明react的基本使用-子组件</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br></pre></td><td class="code"><pre><span class="line">import React, &#123; PureComponent &#125; from &apos;react&apos;;</span><br><span class="line">import PropsType from &apos;prop-types&apos;;</span><br><span class="line">export default class ReactChildComponent extends PureComponent &#123;</span><br><span class="line"></span><br><span class="line">    // 构造</span><br><span class="line">    constructor(props) &#123;</span><br><span class="line">        super(props);</span><br><span class="line">        // 初始状态</span><br><span class="line">        this.state = &#123;&#125;;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    onChildClick = () =&gt; &#123;</span><br><span class="line">            this.props.onClickCallBack();</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    render() &#123;</span><br><span class="line">        return (</span><br><span class="line">            &lt;div&gt;&#123;this.props.name&#125;&lt;/div&gt;</span><br><span class="line">        );</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">ReactChildComponent.propTypes=&#123;</span><br><span class="line">        name: PropsType.string.isRequired,</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line">ReactChildComponent.defaultProps = &#123;</span><br><span class="line">      name:&apos;默认名称&apos;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+<h4 id="prop-types包已经从react16中移除掉如果要使用需要单独安装"><a href="#prop-types包已经从react16中移除掉如果要使用需要单独安装" class="headerlink" title="prop-types包已经从react16中移除掉如果要使用需要单独安装"></a>prop-types包已经从react16中移除掉如果要使用需要单独安装</h4><h4 id="npm-install-–save-prop-types"><a href="#npm-install-–save-prop-types" class="headerlink" title="npm install –save prop-types"></a>npm install –save prop-types</h4><h4 id="1-类型说明："><a href="#1-类型说明：" class="headerlink" title="1.类型说明："></a>1.类型说明：</h4><ul>
+<li>optionalArray: React.PropTypes.array, 数组</li>
+<li>optionalBool: React.PropTypes.bool, 布尔类型</li>
+<li>optionalFunc: React.PropTypes.func, 方法</li>
+<li>optionalNumber: React.PropTypes.number, 数字</li>
+<li>optionalObject: React.PropTypes.object, 对象</li>
+<li>optionalString: React.PropTypes.string, 字符串</li>
+<li>optionalEnum: React.PropTypes.oneOf([‘News’, ‘Photos’]),限定只能接受指定值</li>
+</ul>
+<h4 id="2-可以是多个对象类型中的一个"><a href="#2-可以是多个对象类型中的一个" class="headerlink" title="2.可以是多个对象类型中的一个"></a>2.可以是多个对象类型中的一个</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">optionalUnion: React.PropTypes.oneOfType([</span><br><span class="line">    React.PropTypes.string,</span><br><span class="line">    React.PropTypes.number,</span><br><span class="line">    React.PropTypes.instanceOf(Message)</span><br><span class="line">]),</span><br></pre></td></tr></table></figure>
+<h4 id="3-指定类型组成的数组"><a href="#3-指定类型组成的数组" class="headerlink" title="3.指定类型组成的数组"></a>3.指定类型组成的数组</h4><ul>
+<li>optionalArrayOf: React.PropTypes.arrayOf(React.PropTypes.number),</li>
+</ul>
+<h4 id="4-指定类型的属性构成的对象"><a href="#4-指定类型的属性构成的对象" class="headerlink" title="4.指定类型的属性构成的对象"></a>4.指定类型的属性构成的对象</h4><ul>
+<li>optionalObjectOf: React.PropTypes.objectOf(React.PropTypes.number),</li>
+</ul>
+<h4 id="5-任意类型加上-isRequired-来使-prop-不可空。"><a href="#5-任意类型加上-isRequired-来使-prop-不可空。" class="headerlink" title="5.任意类型加上 isRequired 来使 prop 不可空。"></a>5.任意类型加上 <code>isRequired</code> 来使 prop 不可空。</h4><ul>
+<li>requiredFunc: React.PropTypes.func.isRequired,</li>
+</ul>
+<h4 id="6-不可空的任意类型"><a href="#6-不可空的任意类型" class="headerlink" title="6.不可空的任意类型"></a>6.不可空的任意类型</h4><ul>
+<li>requiredAny: React.PropTypes.any.isRequired,</li>
+</ul>
+<h2 id="更多了解-React-API"><a href="#更多了解-React-API" class="headerlink" title="更多了解 React API"></a>更多了解 React API</h2><h3 id="1-setState-设置状态方法"><a href="#1-setState-设置状态方法" class="headerlink" title="1.setState 设置状态方法"></a>1.setState 设置状态方法</h3><h4 id="setState-object-nextState-function-callback"><a href="#setState-object-nextState-function-callback" class="headerlink" title="setState(object nextState[, function callback])"></a>setState(object nextState[, function callback])</h4><h4 id="说明："><a href="#说明：" class="headerlink" title="说明："></a>说明：</h4><ul>
+<li>两个参数：第一个是新状态，新状态会和当前状态合并。第二个参数是设置成功后的回调方法，可选。</li>
+<li>setState方法不会立即改变this.state。所以它不是同步了，为了提高效率会批量处理执行state和dom渲染</li>
+<li>setState方法总会触发一次组件重绘，除非在shouldComponentUpdate中实现一些条件渲染逻辑，参考列表数据重绘逻辑。</li>
+</ul>
+<h3 id="2-replaceState替换状态"><a href="#2-replaceState替换状态" class="headerlink" title="2.replaceState替换状态"></a>2.replaceState替换状态</h3><h4 id="replaceState-object-nextState-function-callback"><a href="#replaceState-object-nextState-function-callback" class="headerlink" title="replaceState(object nextState[, function callback])"></a>replaceState(object nextState[, function callback])</h4><h4 id="说明：使用方法和setState类似，区别在于只保留新状态，原state不在新状态中的状态都会删除"><a href="#说明：使用方法和setState类似，区别在于只保留新状态，原state不在新状态中的状态都会删除" class="headerlink" title="说明：使用方法和setState类似，区别在于只保留新状态，原state不在新状态中的状态都会删除"></a>说明：使用方法和setState类似，区别在于只保留新状态，原state不在新状态中的状态都会删除</h4><h3 id="3-setProps设置属性"><a href="#3-setProps设置属性" class="headerlink" title="3.setProps设置属性"></a>3.setProps设置属性</h3><h4 id="setProps-object-nextProps-function-callback"><a href="#setProps-object-nextProps-function-callback" class="headerlink" title="setProps(object nextProps[, function callback])"></a>setProps(object nextProps[, function callback])</h4><h4 id="说明"><a href="#说明" class="headerlink" title="说明"></a>说明</h4><ul>
+<li>新的props和当前的props合并</li>
+</ul>
+<h3 id="4-replaceProps替换属性"><a href="#4-replaceProps替换属性" class="headerlink" title="4.replaceProps替换属性"></a>4.replaceProps替换属性</h3><h4 id="replaceProps-object-nextProps-function-callback"><a href="#replaceProps-object-nextProps-function-callback" class="headerlink" title="replaceProps(object nextProps[, function callback])"></a>replaceProps(object nextProps[, function callback])</h4><h3 id="5-forceUpdate-强制刷新"><a href="#5-forceUpdate-强制刷新" class="headerlink" title="5.forceUpdate 强制刷新"></a>5.forceUpdate 强制刷新</h3><h4 id="forceUpdate-function-callback"><a href="#forceUpdate-function-callback" class="headerlink" title="forceUpdate([function callback])"></a>forceUpdate([function callback])</h4><h4 id="此属性适用于this-props和this-state之外的组件重绘。"><a href="#此属性适用于this-props和this-state之外的组件重绘。" class="headerlink" title="此属性适用于this.props和this.state之外的组件重绘。"></a>此属性适用于this.props和this.state之外的组件重绘。</h4><h3 id="6-获取DOM节点：findDOMNode"><a href="#6-获取DOM节点：findDOMNode" class="headerlink" title="6.获取DOM节点：findDOMNode"></a>6.获取DOM节点：findDOMNode</h3><h4 id="DOMElement-findDOMNode"><a href="#DOMElement-findDOMNode" class="headerlink" title="DOMElement findDOMNode()"></a>DOMElement findDOMNode()</h4><h3 id="7-isMounted判断组件是否挂载到dom中"><a href="#7-isMounted判断组件是否挂载到dom中" class="headerlink" title="7.isMounted判断组件是否挂载到dom中"></a>7.isMounted判断组件是否挂载到dom中</h3><h4 id="bool-isMounted"><a href="#bool-isMounted" class="headerlink" title="bool isMounted()"></a>bool isMounted()</h4><h4 id="说明：返回值：true或false，表示组件是否已挂载到DOM中"><a href="#说明：返回值：true或false，表示组件是否已挂载到DOM中" class="headerlink" title="说明：返回值：true或false，表示组件是否已挂载到DOM中"></a>说明：返回值：true或false，表示组件是否已挂载到DOM中</h4><h2 id="React组件生命周期"><a href="#React组件生命周期" class="headerlink" title="React组件生命周期"></a>React组件生命周期</h2><h3 id="组件的声明周期可分成三种状态"><a href="#组件的声明周期可分成三种状态" class="headerlink" title="组件的声明周期可分成三种状态"></a>组件的声明周期可分成三种状态</h3><ul>
+<li>Mounting: 已插入真的DOM</li>
+<li>Updating: 正在被重新渲染</li>
+<li>Unmounting: 已移除真实DOM</li>
+</ul>
+<h3 id="生命周期的方法"><a href="#生命周期的方法" class="headerlink" title="生命周期的方法"></a>生命周期的方法</h3><ul>
+<li>componentWillMount 渲染前调用，在客户端也在服务端</li>
+<li>componentDidMount 第一次渲染后滴啊用，只在客户端</li>
+<li>componentWillReceiveProps 在组件接收到一个新的prop时被调用，这个方法在初始化render时不会被调用。</li>
+<li>shouldComponentUpdate 返回一个布尔值。在组件接收到新的props或者state时被调用。在初始化时或者使用forceUpdate时不被调用。 可以在你确认不需要更新组件时使用。</li>
+<li>componentWillUpdate 在组件接收到新的props或state但还没render时调用，在初始化时不会调用。</li>
+<li>componentDidUpdate 在组件更新完成后立即调用，初始化时不会调用。</li>
+<li>componentWillUnmount 在组件从DOM中移除的时候立刻被调用。</li>
+</ul>
+<h3 id="表单中value属性和onChange时间的使用"><a href="#表单中value属性和onChange时间的使用" class="headerlink" title="表单中value属性和onChange时间的使用"></a>表单中value属性和onChange时间的使用</h3><h3 id="在componentDidMount中获取网络数据"><a href="#在componentDidMount中获取网络数据" class="headerlink" title="在componentDidMount中获取网络数据"></a>在componentDidMount中获取网络数据</h3><h3 id="React-Refs的使用"><a href="#React-Refs的使用" class="headerlink" title="React Refs的使用"></a>React Refs的使用</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">&lt;input ref=&quot;myInput&quot;&gt;</span><br><span class="line">使用this.refs.myInput获取实例</span><br></pre></td></tr></table></figure>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2018/03/30/web/WebTrainingDesignReact/" data-id="cji44rp1l0011ctrqpf65ufrq" class="article-share-link">Share</a>
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/React/">React</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/web/">web</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/前端/">前端</a></li></ul>
+
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="/2018/03/30/web/WebTrainingDesignRedux/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Newer</strong>
+      <div class="article-nav-title">
+        
+          Redux的使用
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2018/03/29/web/WebTrainingDesignES6Code/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Older</strong>
+      <div class="article-nav-title">ES6培训用例代码</div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+</section>
+        
+          <aside id="sidebar">
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">分类</h3>
+    <div class="widget">
+      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/Android/">Android</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/Other/">Other</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/React-Native/">React Native</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/Web/">Web</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/iOS/">iOS</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">标签</h3>
+    <div class="widget">
+      <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/2018/">2018</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Activity/">Activity</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Android/">Android</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Antd/">Antd</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/AntdDesign/">AntdDesign</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/C/">C</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/ES6/">ES6</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/IPC/">IPC</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/IntentFilter/">IntentFilter</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Less/">Less</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Objective-C/">Objective-C</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/React/">React</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/React-Native/">React Native</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Redux/">Redux</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Retrofit/">Retrofit</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Router/">Router</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/iOS/">iOS</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/web/">web</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/前端/">前端</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/工作计划/">工作计划</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/移动开发/">移动开发</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/算法/">算法</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/网络请求/">网络请求</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">标签云</h3>
+    <div class="widget tagcloud">
+      <a href="/tags/2018/" style="font-size: 12px;">2018</a> <a href="/tags/Activity/" style="font-size: 10px;">Activity</a> <a href="/tags/Android/" style="font-size: 16px;">Android</a> <a href="/tags/Antd/" style="font-size: 10px;">Antd</a> <a href="/tags/AntdDesign/" style="font-size: 10px;">AntdDesign</a> <a href="/tags/C/" style="font-size: 12px;">C</a> <a href="/tags/ES6/" style="font-size: 12px;">ES6</a> <a href="/tags/IPC/" style="font-size: 10px;">IPC</a> <a href="/tags/IntentFilter/" style="font-size: 10px;">IntentFilter</a> <a href="/tags/Less/" style="font-size: 10px;">Less</a> <a href="/tags/Objective-C/" style="font-size: 12px;">Objective-C</a> <a href="/tags/React/" style="font-size: 14px;">React</a> <a href="/tags/React-Native/" style="font-size: 14px;">React Native</a> <a href="/tags/Redux/" style="font-size: 10px;">Redux</a> <a href="/tags/Retrofit/" style="font-size: 10px;">Retrofit</a> <a href="/tags/Router/" style="font-size: 10px;">Router</a> <a href="/tags/iOS/" style="font-size: 12px;">iOS</a> <a href="/tags/web/" style="font-size: 20px;">web</a> <a href="/tags/前端/" style="font-size: 20px;">前端</a> <a href="/tags/工作计划/" style="font-size: 12px;">工作计划</a> <a href="/tags/移动开发/" style="font-size: 18px;">移动开发</a> <a href="/tags/算法/" style="font-size: 10px;">算法</a> <a href="/tags/网络请求/" style="font-size: 10px;">网络请求</a>
+    </div>
+  </div>
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">归档</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/06/">六月 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/04/">四月 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/03/">三月 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/02/">二月 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/01/">一月 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/12/">十二月 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/03/">三月 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2013/10/">十月 2013</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">最新文章</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/2018/06/07/Other/Linux/">(no title)</a>
+          </li>
+        
+          <li>
+            <a href="/2018/04/21/web/UIAntdDesign/">AntdDesign的使用</a>
+          </li>
+        
+          <li>
+            <a href="/2018/04/03/web/WebTrainingDesignRouter4/">Router4的使用</a>
+          </li>
+        
+          <li>
+            <a href="/2018/03/30/web/WebTrainingDesignRedux/">Redux的使用</a>
+          </li>
+        
+          <li>
+            <a href="/2018/03/30/web/WebTrainingDesignReact/">React的使用</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      &copy; 2018 Ronnie Jing<br>
+      Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>
+    </div>
+  </div>
+</footer>
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">Home</a>
+  
+    <a href="/archives" class="mobile-nav-link">Archives</a>
+  
+    <a href="/demo" class="mobile-nav-link">Practice</a>
+  
+</nav>
+    
+
+<script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+
+
+  <link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+  <script src="/fancybox/jquery.fancybox.pack.js"></script>
+
+
+<script src="/js/script.js"></script>
+
+
+
+  </div>
+</body>
+</html>

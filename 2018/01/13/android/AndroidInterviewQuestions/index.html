@@ -1,0 +1,330 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+
+  
+  <title>Android 题库 | Ronnie Jing</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="算法leetcode Activity启动流程全解析String Stringbuffer Stringbuilder区别 String 字符串常量，字符串长度不可变 StringBuffer 线程安全的可变字符序列，常用的方法toString(),append(),insert() StringBuilder 非线程安全字符串 String是不可变对象，因此每次对String类型进行改变的时候，">
+<meta name="keywords" content="Android,算法">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Android 题库">
+<meta property="og:url" content="http://yoursite.com/2018/01/13/android/AndroidInterviewQuestions/index.html">
+<meta property="og:site_name" content="Ronnie Jing">
+<meta property="og:description" content="算法leetcode Activity启动流程全解析String Stringbuffer Stringbuilder区别 String 字符串常量，字符串长度不可变 StringBuffer 线程安全的可变字符序列，常用的方法toString(),append(),insert() StringBuilder 非线程安全字符串 String是不可变对象，因此每次对String类型进行改变的时候，">
+<meta property="og:locale" content="zh-CN">
+<meta property="og:updated_time" content="2018-06-07T05:55:26.608Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Android 题库">
+<meta name="twitter:description" content="算法leetcode Activity启动流程全解析String Stringbuffer Stringbuilder区别 String 字符串常量，字符串长度不可变 StringBuffer 线程安全的可变字符序列，常用的方法toString(),append(),insert() StringBuilder 非线程安全字符串 String是不可变对象，因此每次对String类型进行改变的时候，">
+  
+    <link rel="alternate" href="/atom.xml" title="Ronnie Jing" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.png">
+  
+  
+    <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
+  
+  <link rel="stylesheet" href="/css/style.css">
+</head>
+
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/" id="logo">Ronnie Jing</a>
+      </h1>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"></a>
+        
+          <a class="main-nav-link" href="/">Home</a>
+        
+          <a class="main-nav-link" href="/archives">Archives</a>
+        
+          <a class="main-nav-link" href="/demo">Practice</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+          <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSS Feed"></a>
+        
+        <a id="nav-search-btn" class="nav-icon" title="搜索"></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://yoursite.com"></form>
+      </div>
+    </div>
+  </div>
+</header>
+      <div class="outer">
+        <section id="main"><article id="post-android/AndroidInterviewQuestions" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2018/01/13/android/AndroidInterviewQuestions/" class="article-date">
+  <time datetime="2018-01-12T16:00:00.000Z" itemprop="datePublished">2018-01-13</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/Android/">Android</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      Android 题库
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h4 id="算法"><a href="#算法" class="headerlink" title="算法"></a>算法</h4><p><a href="https://github.com/dark74/Awesome-java-leetcode" target="_blank" rel="noopener">leetcode</a></p>
+<h4 id="Activity启动流程全解析"><a href="#Activity启动流程全解析" class="headerlink" title="Activity启动流程全解析"></a><a href="http://blog.csdn.net/luoshengyang/article/details/6689748" target="_blank" rel="noopener">Activity启动流程全解析</a></h4><h4 id="String-Stringbuffer-Stringbuilder区别"><a href="#String-Stringbuffer-Stringbuilder区别" class="headerlink" title="String Stringbuffer Stringbuilder区别"></a>String Stringbuffer Stringbuilder区别</h4><ul>
+<li>String 字符串常量，字符串长度不可变</li>
+<li>StringBuffer 线程安全的可变字符序列，常用的方法toString(),append(),insert()</li>
+<li>StringBuilder 非线程安全字符串</li>
+<li>String是不可变对象，因此每次对String类型进行改变的时候，都会生成一个新的String对象，然后将指向新的String对象，所以经常改变内容的字符串最好不要使用String使用String。</li>
+<li>使用原则操作少的使用String，单线程操作大量数据使用StringBuilder，多线程使用StringBuffer</li>
+</ul>
+<h4 id="Activity的启动模式"><a href="#Activity的启动模式" class="headerlink" title="Activity的启动模式"></a>Activity的启动模式</h4><ul>
+<li>standard 默认启动方式，每次启动activity都会启动一个新的实例，并放在栈结构的顶部。</li>
+<li>singleTop 当启动一个activity的时候如果栈中存在并在栈顶，则重复利用，如果存在但不在栈顶就创建一个新的实例</li>
+<li>singleTask 当启动一个activity的时候系统发现存在这个实例则不会创建新的实例，而是将骑上的activity统统出栈，如果找不到则创建新实例。</li>
+<li>singleInstance 启动一个activity为其创建一个新栈。</li>
+</ul>
+<h4 id="如何配置Activity的启动模式"><a href="#如何配置Activity的启动模式" class="headerlink" title="如何配置Activity的启动模式"></a>如何配置Activity的启动模式</h4><ul>
+<li>在AndroidManifest.xml配置android:launchMode属性</li>
+<li>在startActivity的intent中添加flag<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">Intent qIntent =new Intent(this, QMUIActivity.class);</span><br><span class="line">qIntent.setFlags(Intent.FLAG_ACTIVITY_SINGLE_TOP)</span><br><span class="line">tartActivity(qIntent);</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<h4 id="Android服务两种启动方式的区别"><a href="#Android服务两种启动方式的区别" class="headerlink" title="Android服务两种启动方式的区别"></a>Android服务两种启动方式的区别</h4><h5 id="startService的方式"><a href="#startService的方式" class="headerlink" title="startService的方式"></a>startService的方式</h5><h5 id="使用Service的步骤"><a href="#使用Service的步骤" class="headerlink" title="使用Service的步骤"></a>使用Service的步骤</h5><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">1. 定义一个类继承Service</span><br><span class="line">2. 在Manifest.xml文件中配置该Service</span><br><span class="line">3. 使用Context的startService(Intent)方法启动该Service</span><br><span class="line">4. 调用stopService(Intent)方法停止该服务</span><br></pre></td></tr></table></figure>
+<h5 id="使用start方式的声明周期-onCreate-gt-onStartCommand-gt-onDestory-如果服务已经启动不会重复执行onceate-方法而是会调用onStart-和onStartCommand"><a href="#使用start方式的声明周期-onCreate-gt-onStartCommand-gt-onDestory-如果服务已经启动不会重复执行onceate-方法而是会调用onStart-和onStartCommand" class="headerlink" title="使用start方式的声明周期 onCreate() -&gt;onStartCommand -&gt; onDestory() 如果服务已经启动不会重复执行onceate()方法而是会调用onStart()和onStartCommand();"></a>使用start方式的声明周期 onCreate() -&gt;onStartCommand -&gt; onDestory() 如果服务已经启动不会重复执行onceate()方法而是会调用onStart()和onStartCommand();</h5><h5 id="特点一旦服务启动就和开启者没有关系了，开启者退出也不会影响到服务服务还在后台运行。"><a href="#特点一旦服务启动就和开启者没有关系了，开启者退出也不会影响到服务服务还在后台运行。" class="headerlink" title="特点一旦服务启动就和开启者没有关系了，开启者退出也不会影响到服务服务还在后台运行。"></a>特点一旦服务启动就和开启者没有关系了，开启者退出也不会影响到服务服务还在后台运行。</h5><h5 id="bindService的方式"><a href="#bindService的方式" class="headerlink" title="bindService的方式"></a>bindService的方式</h5><h5 id="使用Service的步骤-1"><a href="#使用Service的步骤-1" class="headerlink" title="使用Service的步骤"></a>使用Service的步骤</h5><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">1. 定义一个类继承Service</span><br><span class="line">2. 在Manifest.xml文件中配置该Service</span><br><span class="line">3. 使用Context的bindService(Intent, ServiceConnection, int)方法启动该Service</span><br><span class="line">4. 不再使用时，调用unbindService(ServiceConnection)方法停止该服务</span><br></pre></td></tr></table></figure>
+<h5 id="使用这种bind方式启动的Service的生命周期-onCreate-gt-onBind-gt-onunbind-gt-onDestory"><a href="#使用这种bind方式启动的Service的生命周期-onCreate-gt-onBind-gt-onunbind-gt-onDestory" class="headerlink" title="使用这种bind方式启动的Service的生命周期 onCreate() -&gt;onBind()-&gt;onunbind()-&gt;onDestory()"></a>使用这种bind方式启动的Service的生命周期 onCreate() -&gt;onBind()-&gt;onunbind()-&gt;onDestory()</h5><h5 id="特点bind的方式开启服务，绑定服务，调用者挂了，服务也会跟着挂掉。绑定者可以调用服务里面的方法。"><a href="#特点bind的方式开启服务，绑定服务，调用者挂了，服务也会跟着挂掉。绑定者可以调用服务里面的方法。" class="headerlink" title="特点bind的方式开启服务，绑定服务，调用者挂了，服务也会跟着挂掉。绑定者可以调用服务里面的方法。"></a>特点bind的方式开启服务，绑定服务，调用者挂了，服务也会跟着挂掉。绑定者可以调用服务里面的方法。</h5><h4 id="Android两种注册、发送广播的区别"><a href="#Android两种注册、发送广播的区别" class="headerlink" title="Android两种注册、发送广播的区别"></a>Android两种注册、发送广播的区别</h4><h5 id="代码中动态注册"><a href="#代码中动态注册" class="headerlink" title="代码中动态注册"></a>代码中动态注册</h5><ol>
+<li>实例化自定义的广播接受者</li>
+<li>实例化意图过滤器，并设置要过滤的广播类型</li>
+<li>使用Context的registerReceiver(BroadcastReceiver,IntentFilter,String,Handler)方法注册广播<h6 id="广播跟随程序的生命周期"><a href="#广播跟随程序的生命周期" class="headerlink" title="广播跟随程序的生命周期"></a>广播跟随程序的生命周期</h6><h5 id="在Manifest-xml中静态注册"><a href="#在Manifest-xml中静态注册" class="headerlink" title="在Manifest.xml中静态注册"></a>在Manifest.xml中静态注册</h5><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">&lt;receiver android:name=&quot;.MyBroadCastReceiver&quot;&gt;</span><br><span class="line">    &lt;intent-filter android:priority=&quot;20&quot;&gt;</span><br><span class="line">    &lt;actionandroid:name=&quot;android.provider.Telephony.SMS_RECEIVED&quot;/&gt;</span><br><span class="line">    &lt;/intent-filter&gt;</span><br><span class="line">&lt;/receiver&gt;</span><br></pre></td></tr></table></figure>
+</li>
+</ol>
+<h6 id="常驻型广播，程序关闭后，如果有信息广播来，程序也会被系统调用自动运行。"><a href="#常驻型广播，程序关闭后，如果有信息广播来，程序也会被系统调用自动运行。" class="headerlink" title="常驻型广播，程序关闭后，如果有信息广播来，程序也会被系统调用自动运行。"></a>常驻型广播，程序关闭后，如果有信息广播来，程序也会被系统调用自动运行。</h6><h5 id="发送广播"><a href="#发送广播" class="headerlink" title="发送广播"></a>发送广播</h5><h6 id="无序广播-Context-sendBroadcast-Intent-或Context-sendBroadcast-Intent-String-发送的无需广播添加了权限，无序广播所有的接受者都会接收事件，不可以被拦截，不可以被修改。"><a href="#无序广播-Context-sendBroadcast-Intent-或Context-sendBroadcast-Intent-String-发送的无需广播添加了权限，无序广播所有的接受者都会接收事件，不可以被拦截，不可以被修改。" class="headerlink" title="无序广播 Context.sendBroadcast(Intent)或Context.sendBroadcast(Intent,String)发送的无需广播添加了权限，无序广播所有的接受者都会接收事件，不可以被拦截，不可以被修改。"></a>无序广播 Context.sendBroadcast(Intent)或Context.sendBroadcast(Intent,String)发送的无需广播添加了权限，无序广播所有的接受者都会接收事件，不可以被拦截，不可以被修改。</h6><h6 id="有序广播-Context-sendOrderedBroadcast-Intent-String-BroadCastReceiver-Handler-int-String-Bundle-给每个接收者设置优先级，就可以在小于自己优先级的接收者得到广播前修改或终止广播。"><a href="#有序广播-Context-sendOrderedBroadcast-Intent-String-BroadCastReceiver-Handler-int-String-Bundle-给每个接收者设置优先级，就可以在小于自己优先级的接收者得到广播前修改或终止广播。" class="headerlink" title="有序广播 Context.sendOrderedBroadcast(Intent,String,BroadCastReceiver,Handler,int,String,Bundle)给每个接收者设置优先级，就可以在小于自己优先级的接收者得到广播前修改或终止广播。"></a>有序广播 Context.sendOrderedBroadcast(Intent,String,BroadCastReceiver,Handler,int,String,Bundle)给每个接收者设置优先级，就可以在小于自己优先级的接收者得到广播前修改或终止广播。</h6><h4 id="http和https的区别"><a href="#http和https的区别" class="headerlink" title="http和https的区别"></a>http和https的区别</h4><ol>
+<li>HTTP 的 URL 以 http:// 开头，而 HTTPS 的 URL 以 https:// 开头</li>
+<li>HTTP 是不安全的，而 HTTPS 是安全的</li>
+<li>HTTP 标准端口是 80 ，而 HTTPS 的标准端口是 443</li>
+<li>在 OSI 网络模型中，HTTP 工作于应用层，而 HTTPS 工作在传输层</li>
+<li>HTTP 无需加密，而 HTTPS 对传输的数据进行加密</li>
+<li>HTTP 无需证书，而 HTTPS 需要认证证书</li>
+</ol>
+<h4 id="Android进程保活"><a href="#Android进程保活" class="headerlink" title="Android进程保活"></a>Android进程保活</h4><ol>
+<li>不同app进程，用广播相互唤醒</li>
+<li>启动前台service（在系统的通知栏产生一个Notification，用来让用户知道app在运行）</li>
+<li>利用系统的漏洞启动前台service（不会产生一个Notification，看起来就如同一个后台的service）<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">思路一：API &lt; 18，启动前台Service时直接传入new Notification()；</span><br><span class="line">思路二：API &gt;= 18，同时启动两个id相同的前台Service，然后再将后启动的Service做stop处理；</span><br></pre></td></tr></table></figure>
+</li>
+</ol>
+<h4 id="进程通信的方式"><a href="#进程通信的方式" class="headerlink" title="进程通信的方式"></a>进程通信的方式</h4><ol>
+<li><a href="http://blog.csdn.net/lmj623565791/article/details/38461079" target="_blank" rel="noopener">AIDL</a></li>
+<li><a href="http://blog.csdn.net/lmj623565791/article/details/47017485" target="_blank" rel="noopener">广播</a></li>
+<li>Messenger</li>
+</ol>
+<h4 id="三级缓存"><a href="#三级缓存" class="headerlink" title="三级缓存"></a>三级缓存</h4><ol>
+<li>内存</li>
+<li>本地</li>
+<li>网络</li>
+</ol>
+<h4 id="浅谈MVC-MVP-MVVM"><a href="#浅谈MVC-MVP-MVVM" class="headerlink" title="浅谈MVC MVP MVVM"></a>浅谈MVC MVP MVVM</h4><h4 id="java虚拟机和Dalvik"><a href="#java虚拟机和Dalvik" class="headerlink" title="java虚拟机和Dalvik"></a>java虚拟机和Dalvik</h4><ul>
+<li>java虚拟机运行的是java字节码，Dalvid虚拟机运行的是Dalvid字节码。传统的java程序经经过编译，生成java字节码保存在class中。java虚拟机通过解码class文件中的内容来运行。而Dalvik虚拟机运行的是Dalvik码，所有的Dalvik字节码由java字节码转换过来的，并被打包到一个DEX可执行文件中，Dalvik虚拟机通过解析DEX文件来这行这些字节码。</li>
+<li>Dalvik可执行文件体积更小。SDK中有一个dx的工具负责将java字节码转换为Dalvik字节码</li>
+<li>java虚拟机与Dalvik虚拟机架构不同。java虚拟机基于栈结构。程序在运行时虚拟机需要频繁的从栈顶上读取或写入数据。这个过程需要更多的指令分配与内存访问次数，会耗费不少CPU时间。Dalvik虚拟机基于寄存器架构，数据的访问通过寄存器直接传递，这样的访问方式比基于栈的方式快的多。</li>
+</ul>
+<h4 id="sleep和wait有什么区别"><a href="#sleep和wait有什么区别" class="headerlink" title="sleep和wait有什么区别"></a>sleep和wait有什么区别</h4><ol>
+<li>都是用来进行线程控制，他们最大的区别是sleep不释放同步锁，wait释放同步锁。</li>
+<li>sleep(milliseconds)可以用时间指定他自动醒过来，如果时间不到只能调用interreput来强行打断，wait可以使用notify直接唤醒。</li>
+<li>sleep是Thread类的静态方法，wait是object的方法。</li>
+</ol>
+<h4 id="View-ViewGroup事件分发"><a href="#View-ViewGroup事件分发" class="headerlink" title="View,ViewGroup事件分发"></a>View,ViewGroup事件分发</h4><h4 id="保持Activity状态"><a href="#保持Activity状态" class="headerlink" title="保持Activity状态"></a>保持Activity状态</h4><p>onSaveInstanceState()</p>
+<h4 id="内存泄漏检测，内存性能优化"><a href="#内存泄漏检测，内存性能优化" class="headerlink" title="内存泄漏检测，内存性能优化"></a>内存泄漏检测，内存性能优化</h4><ol>
+<li>节制的使用Service（IntentService：特点是当后台任务结束后自动停止）</li>
+<li>在Activity中重写onTrimMemory方法监听TRIM_MEMORY_UI_HIDDEN这个级别，触发了之后说明用户离开了我们的程序，那么就可以世行资源。</li>
+<li>尽量避免渲染高分辨率的图片。</li>
+<li>使用优化过的数据结合如：SparseArray,SparseBooleanArray以及LongSpareArray</li>
+<li>了解内存的使用情况<ul>
+<li>枚举比使用静态常量要消耗两倍以上的内存</li>
+<li>任何一个类包括内部类匿名类都要暂用大约500字节的内存</li>
+<li>任何一个类的实例都要消耗12-16字节的内存</li>
+<li>在用HashMap时即使你设置一个基本数据类型作为键他也会按照对象大小来分配内存32字节。</li>
+</ul>
+</li>
+<li>谨慎使用抽象编程</li>
+<li>尽量避免使用依赖注入框架</li>
+<li>使用ProGuard简化代码，它除了混淆代码还可以压缩和优化代码。</li>
+</ol>
+<h4 id="布局优化"><a href="#布局优化" class="headerlink" title="布局优化"></a>布局优化</h4><ol>
+<li><include> 如果需要在标签中覆写laout属性，必须将layout_width和layout_height两个属性进行覆写，否则覆写不会生效</include></li>
+<li><merge>  标签作为include标签的一种辅助扩展使用，它主要是防止在引用布局文件时产生多余的布局嵌套。</merge></li>
+<li><viewstub>仅在需要的时候加载布局，所加载的布局不能使用<merge>标签的</merge></viewstub></li>
+</ol>
+<h4 id="String，StringBuffer，StringBuilder"><a href="#String，StringBuffer，StringBuilder" class="headerlink" title="String，StringBuffer，StringBuilder"></a>String，StringBuffer，StringBuilder</h4><ol>
+<li>String不可变对象，每次赋值连接字符串都会产生新的字符串</li>
+<li>StringBuffer线程安全</li>
+<li>StringBuilder线程不安全 效率高 推荐单线程时使用</li>
+</ol>
+<h4 id="java设计模式"><a href="#java设计模式" class="headerlink" title="java设计模式"></a>java设计模式</h4>
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2018/01/13/android/AndroidInterviewQuestions/" data-id="cji44rp150005ctrqd3fg9syr" class="article-share-link">Share</a>
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Android/">Android</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/算法/">算法</a></li></ul>
+
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="/2018/01/13/android/AndroidRetrofit/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Newer</strong>
+      <div class="article-nav-title">
+        
+          Android Retrofit
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2018/01/13/android/AndroidIPC/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Older</strong>
+      <div class="article-nav-title">Android IPC</div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+</section>
+        
+          <aside id="sidebar">
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">分类</h3>
+    <div class="widget">
+      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/Android/">Android</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/Other/">Other</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/React-Native/">React Native</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/Web/">Web</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/iOS/">iOS</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">标签</h3>
+    <div class="widget">
+      <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/2018/">2018</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Activity/">Activity</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Android/">Android</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Antd/">Antd</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/AntdDesign/">AntdDesign</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/C/">C</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/ES6/">ES6</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/IPC/">IPC</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/IntentFilter/">IntentFilter</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Less/">Less</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Objective-C/">Objective-C</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/React/">React</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/React-Native/">React Native</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Redux/">Redux</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Retrofit/">Retrofit</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Router/">Router</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/iOS/">iOS</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/web/">web</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/前端/">前端</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/工作计划/">工作计划</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/移动开发/">移动开发</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/算法/">算法</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/网络请求/">网络请求</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">标签云</h3>
+    <div class="widget tagcloud">
+      <a href="/tags/2018/" style="font-size: 12px;">2018</a> <a href="/tags/Activity/" style="font-size: 10px;">Activity</a> <a href="/tags/Android/" style="font-size: 16px;">Android</a> <a href="/tags/Antd/" style="font-size: 10px;">Antd</a> <a href="/tags/AntdDesign/" style="font-size: 10px;">AntdDesign</a> <a href="/tags/C/" style="font-size: 12px;">C</a> <a href="/tags/ES6/" style="font-size: 12px;">ES6</a> <a href="/tags/IPC/" style="font-size: 10px;">IPC</a> <a href="/tags/IntentFilter/" style="font-size: 10px;">IntentFilter</a> <a href="/tags/Less/" style="font-size: 10px;">Less</a> <a href="/tags/Objective-C/" style="font-size: 12px;">Objective-C</a> <a href="/tags/React/" style="font-size: 14px;">React</a> <a href="/tags/React-Native/" style="font-size: 14px;">React Native</a> <a href="/tags/Redux/" style="font-size: 10px;">Redux</a> <a href="/tags/Retrofit/" style="font-size: 10px;">Retrofit</a> <a href="/tags/Router/" style="font-size: 10px;">Router</a> <a href="/tags/iOS/" style="font-size: 12px;">iOS</a> <a href="/tags/web/" style="font-size: 20px;">web</a> <a href="/tags/前端/" style="font-size: 20px;">前端</a> <a href="/tags/工作计划/" style="font-size: 12px;">工作计划</a> <a href="/tags/移动开发/" style="font-size: 18px;">移动开发</a> <a href="/tags/算法/" style="font-size: 10px;">算法</a> <a href="/tags/网络请求/" style="font-size: 10px;">网络请求</a>
+    </div>
+  </div>
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">归档</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/06/">六月 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/04/">四月 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/03/">三月 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/02/">二月 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/01/">一月 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/12/">十二月 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/03/">三月 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2013/10/">十月 2013</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">最新文章</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/2018/06/07/Other/Linux/">(no title)</a>
+          </li>
+        
+          <li>
+            <a href="/2018/04/21/web/UIAntdDesign/">AntdDesign的使用</a>
+          </li>
+        
+          <li>
+            <a href="/2018/04/03/web/WebTrainingDesignRouter4/">Router4的使用</a>
+          </li>
+        
+          <li>
+            <a href="/2018/03/30/web/WebTrainingDesignRedux/">Redux的使用</a>
+          </li>
+        
+          <li>
+            <a href="/2018/03/30/web/WebTrainingDesignReact/">React的使用</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      &copy; 2018 Ronnie Jing<br>
+      Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>
+    </div>
+  </div>
+</footer>
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">Home</a>
+  
+    <a href="/archives" class="mobile-nav-link">Archives</a>
+  
+    <a href="/demo" class="mobile-nav-link">Practice</a>
+  
+</nav>
+    
+
+<script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+
+
+  <link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+  <script src="/fancybox/jquery.fancybox.pack.js"></script>
+
+
+<script src="/js/script.js"></script>
+
+
+
+  </div>
+</body>
+</html>

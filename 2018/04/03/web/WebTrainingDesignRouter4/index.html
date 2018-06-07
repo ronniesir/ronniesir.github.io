@@ -1,0 +1,274 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+
+  
+  <title>Router4的使用 | Ronnie Jing</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="1npm install --save react-router-dom 组件一个高阶路由组件，保证你的UI界面和URL保持同步。1. basename:string作用：为所有位置添加一个基准URL使用场景：加入你把页面部署到服务器的二级目录下，你可以使用basename设置此目录12&amp;lt;BrowserRouter basename=&amp;quot;/minooo&amp;quot; /&amp;gt;&amp;lt;">
+<meta name="keywords" content="web,前端,React,Router">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Router4的使用">
+<meta property="og:url" content="http://yoursite.com/2018/04/03/web/WebTrainingDesignRouter4/index.html">
+<meta property="og:site_name" content="Ronnie Jing">
+<meta property="og:description" content="1npm install --save react-router-dom 组件一个高阶路由组件，保证你的UI界面和URL保持同步。1. basename:string作用：为所有位置添加一个基准URL使用场景：加入你把页面部署到服务器的二级目录下，你可以使用basename设置此目录12&amp;lt;BrowserRouter basename=&amp;quot;/minooo&amp;quot; /&amp;gt;&amp;lt;">
+<meta property="og:locale" content="zh-CN">
+<meta property="og:updated_time" content="2018-06-07T05:55:26.610Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Router4的使用">
+<meta name="twitter:description" content="1npm install --save react-router-dom 组件一个高阶路由组件，保证你的UI界面和URL保持同步。1. basename:string作用：为所有位置添加一个基准URL使用场景：加入你把页面部署到服务器的二级目录下，你可以使用basename设置此目录12&amp;lt;BrowserRouter basename=&amp;quot;/minooo&amp;quot; /&amp;gt;&amp;lt;">
+  
+    <link rel="alternate" href="/atom.xml" title="Ronnie Jing" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.png">
+  
+  
+    <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
+  
+  <link rel="stylesheet" href="/css/style.css">
+</head>
+
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/" id="logo">Ronnie Jing</a>
+      </h1>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"></a>
+        
+          <a class="main-nav-link" href="/">Home</a>
+        
+          <a class="main-nav-link" href="/archives">Archives</a>
+        
+          <a class="main-nav-link" href="/demo">Practice</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+          <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSS Feed"></a>
+        
+        <a id="nav-search-btn" class="nav-icon" title="搜索"></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://yoursite.com"></form>
+      </div>
+    </div>
+  </div>
+</header>
+      <div class="outer">
+        <section id="main"><article id="post-web/WebTrainingDesignRouter4" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2018/04/03/web/WebTrainingDesignRouter4/" class="article-date">
+  <time datetime="2018-04-02T16:00:00.000Z" itemprop="datePublished">2018-04-03</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/Web/">Web</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      Router4的使用
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm install --save react-router-dom</span><br></pre></td></tr></table></figure>
+<h2 id="组件"><a href="#组件" class="headerlink" title="组件"></a>组件</h2><h3 id=""><a href="#" class="headerlink" title=""></a><browserrouter></browserrouter></h3><h5 id="一个高阶路由组件，保证你的UI界面和URL保持同步。"><a href="#一个高阶路由组件，保证你的UI界面和URL保持同步。" class="headerlink" title="一个高阶路由组件，保证你的UI界面和URL保持同步。"></a>一个高阶路由组件，保证你的UI界面和URL保持同步。</h5><h4 id="1-basename-string"><a href="#1-basename-string" class="headerlink" title="1. basename:string"></a>1. basename:string</h4><h5 id="作用：为所有位置添加一个基准URL"><a href="#作用：为所有位置添加一个基准URL" class="headerlink" title="作用：为所有位置添加一个基准URL"></a>作用：为所有位置添加一个基准URL</h5><h5 id="使用场景：加入你把页面部署到服务器的二级目录下，你可以使用basename设置此目录"><a href="#使用场景：加入你把页面部署到服务器的二级目录下，你可以使用basename设置此目录" class="headerlink" title="使用场景：加入你把页面部署到服务器的二级目录下，你可以使用basename设置此目录"></a>使用场景：加入你把页面部署到服务器的二级目录下，你可以使用basename设置此目录</h5><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">&lt;BrowserRouter basename=&quot;/minooo&quot; /&gt;</span><br><span class="line">&lt;Link to=&quot;/react&quot; /&gt; // 最终渲染为 &lt;a href=&quot;/minooo/react&quot;&gt;</span><br></pre></td></tr></table></figure>
+<h4 id="2-getUserConfirmation-func"><a href="#2-getUserConfirmation-func" class="headerlink" title="2. getUserConfirmation: func"></a>2. getUserConfirmation: func</h4><h5 id="导航到此页面前执行的函数"><a href="#导航到此页面前执行的函数" class="headerlink" title="导航到此页面前执行的函数"></a>导航到此页面前执行的函数</h5><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;BrowserRouter getUserConfirmation=&#123;getConfirmation(&apos;Are you sure?&apos;, yourCallBack)&#125; /&gt;</span><br></pre></td></tr></table></figure>
+<h4 id="3-forceRefresh-bool"><a href="#3-forceRefresh-bool" class="headerlink" title="3. forceRefresh: bool"></a>3. forceRefresh: bool</h4><h5 id="当浏览器不支持-HTML5-的-history-API-时强制刷新页面。"><a href="#当浏览器不支持-HTML5-的-history-API-时强制刷新页面。" class="headerlink" title="当浏览器不支持 HTML5 的 history API 时强制刷新页面。"></a>当浏览器不支持 HTML5 的 history API 时强制刷新页面。</h5><h4 id="4-keyLength-number"><a href="#4-keyLength-number" class="headerlink" title="4. keyLength: number"></a>4. keyLength: number</h4><h5 id="作用：设置它里面路由的-location-key-的长度。默认是6。（key的作用：点击同一个链接时，每次该路由下的-location-key都会改变，可以通过-key-的变化来刷新页面。）"><a href="#作用：设置它里面路由的-location-key-的长度。默认是6。（key的作用：点击同一个链接时，每次该路由下的-location-key都会改变，可以通过-key-的变化来刷新页面。）" class="headerlink" title="作用：设置它里面路由的 location.key 的长度。默认是6。（key的作用：点击同一个链接时，每次该路由下的 location.key都会改变，可以通过 key 的变化来刷新页面。）"></a>作用：设置它里面路由的 location.key 的长度。默认是6。（key的作用：点击同一个链接时，每次该路由下的 location.key都会改变，可以通过 key 的变化来刷新页面。）</h5><h4 id="5-children-node"><a href="#5-children-node" class="headerlink" title="5. children: node"></a>5. children: node</h4><h5 id="作用：渲染唯一子元素。"><a href="#作用：渲染唯一子元素。" class="headerlink" title="作用：渲染唯一子元素。"></a>作用：渲染唯一子元素。</h5><h3 id="-1"><a href="#-1" class="headerlink" title=""></a><hashrouter></hashrouter></h3><h5 id="不支持-location-key-和-location-state。另外由于该技术只是用来支持旧版浏览器，因此更推荐大家使用-BrowserRouter"><a href="#不支持-location-key-和-location-state。另外由于该技术只是用来支持旧版浏览器，因此更推荐大家使用-BrowserRouter" class="headerlink" title="不支持 location.key 和 location.state。另外由于该技术只是用来支持旧版浏览器，因此更推荐大家使用 BrowserRouter"></a>不支持 location.key 和 location.state。另外由于该技术只是用来支持旧版浏览器，因此更推荐大家使用 BrowserRouter</h5><h3 id="-2"><a href="#-2" class="headerlink" title=""></a><route></route></h3><h5 id="最重要的组件-自带三个-render-method-和三个-props"><a href="#最重要的组件-自带三个-render-method-和三个-props" class="headerlink" title="最重要的组件,自带三个 render method 和三个 props"></a>最重要的组件,自带三个 render method 和三个 props</h5><h4 id="render-method"><a href="#render-method" class="headerlink" title="render method"></a>render method</h4><h5 id="每种-render-method-都有不同的应用场景，同一个-应该只使用一种-render-method-，大部分情况下你将使用-component"><a href="#每种-render-method-都有不同的应用场景，同一个-应该只使用一种-render-method-，大部分情况下你将使用-component" class="headerlink" title="每种 render method 都有不同的应用场景，同一个 应该只使用一种 render method ，大部分情况下你将使用 component"></a>每种 render method 都有不同的应用场景，同一个<route> 应该只使用一种 render method ，大部分情况下你将使用 component</route></h5><h5 id="1-Route-component-gt"><a href="#1-Route-component-gt" class="headerlink" title="1.Route component&gt;"></a>1.Route component&gt;</h5><h5 id="只有当访问地址和路由匹配时，一个-React-component-才会被渲染，此时此组件接受-route-props-match-location-history-。"><a href="#只有当访问地址和路由匹配时，一个-React-component-才会被渲染，此时此组件接受-route-props-match-location-history-。" class="headerlink" title="只有当访问地址和路由匹配时，一个 React component 才会被渲染，此时此组件接受 route props (match, location, history)。"></a>只有当访问地址和路由匹配时，一个 React component 才会被渲染，此时此组件接受 route props (match, location, history)。</h5><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">&lt;Route path=&quot;/user/:username&quot; component=&#123;User&#125; /&gt;</span><br><span class="line">const User = (&#123; match &#125;) =&gt; &#123;</span><br><span class="line">  return &lt;h1&gt;Hello &#123;match.params.username&#125;!&lt;/h1&gt;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h5 id="2-Route-render-func"><a href="#2-Route-render-func" class="headerlink" title="2.Route render func"></a>2.Route render func</h5><h5 id="此方法适用于内联渲染，而且不会产生上文说的重复装载问题。"><a href="#此方法适用于内联渲染，而且不会产生上文说的重复装载问题。" class="headerlink" title="此方法适用于内联渲染，而且不会产生上文说的重复装载问题。"></a>此方法适用于内联渲染，而且不会产生上文说的重复装载问题。</h5><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;Route path=&quot;/home&quot; render=&#123;() =&gt; &lt;h1&gt;Home&lt;/h1&#125; /&gt;</span><br></pre></td></tr></table></figure>
+<h5 id="3-Route-children"><a href="#3-Route-children" class="headerlink" title="3.Route children"></a>3.Route children</h5><h5 id="4-path-string"><a href="#4-path-string" class="headerlink" title="4.path:string"></a>4.path:string</h5><h5 id="任何可以被-path-to-regexp解析的有效-URL-路径-如果不设置path路由将总是匹配"><a href="#任何可以被-path-to-regexp解析的有效-URL-路径-如果不设置path路由将总是匹配" class="headerlink" title="任何可以被 path-to-regexp解析的有效 URL 路径,如果不设置path路由将总是匹配"></a>任何可以被 path-to-regexp解析的有效 URL 路径,如果不设置path路由将总是匹配</h5><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;Route path=&quot;/users/:id&quot; component=&#123;User&#125; /&gt;</span><br></pre></td></tr></table></figure>
+<h5 id="5-exact-bool"><a href="#5-exact-bool" class="headerlink" title="5.exact: bool"></a>5.exact: bool</h5><h5 id="如果为-true，path-为-‘-one’-的路由将不能匹配-‘-one-two’，反之，亦然。"><a href="#如果为-true，path-为-‘-one’-的路由将不能匹配-‘-one-two’，反之，亦然。" class="headerlink" title="如果为 true，path 为 ‘/one’ 的路由将不能匹配 ‘/one/two’，反之，亦然。"></a>如果为 true，path 为 ‘/one’ 的路由将不能匹配 ‘/one/two’，反之，亦然。</h5><h5 id="6-strict-bool"><a href="#6-strict-bool" class="headerlink" title="6.strict: bool"></a>6.strict: bool</h5><h5 id="对路径末尾斜杠的匹配。如果为-true。path-为-‘-one-‘-将不能匹配-‘-one’-但可以匹配-‘-one-two’。"><a href="#对路径末尾斜杠的匹配。如果为-true。path-为-‘-one-‘-将不能匹配-‘-one’-但可以匹配-‘-one-two’。" class="headerlink" title="对路径末尾斜杠的匹配。如果为 true。path 为 ‘/one/‘ 将不能匹配 ‘/one’ 但可以匹配 ‘/one/two’。"></a>对路径末尾斜杠的匹配。如果为 true。path 为 ‘/one/‘ 将不能匹配 ‘/one’ 但可以匹配 ‘/one/two’。</h5><h5 id="如果要确保路由没有末尾斜杠，那么-strict-和exact-都必须同时为-true"><a href="#如果要确保路由没有末尾斜杠，那么-strict-和exact-都必须同时为-true" class="headerlink" title="如果要确保路由没有末尾斜杠，那么 strict 和exact 都必须同时为 true"></a>如果要确保路由没有末尾斜杠，那么 strict 和exact 都必须同时为 true</h5><h4 id="props"><a href="#props" class="headerlink" title="props"></a>props</h4><h3 id="Link-提供声明式导航"><a href="#Link-提供声明式导航" class="headerlink" title="Link 提供声明式导航"></a>Link 提供声明式导航</h3><h5 id="to-string-作用：跳转到指定路径"><a href="#to-string-作用：跳转到指定路径" class="headerlink" title="to: string 作用：跳转到指定路径"></a>to: string 作用：跳转到指定路径</h5><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;Link to=&quot;/courses&quot; /&gt;</span><br></pre></td></tr></table></figure>
+<h5 id="to-object-作用：携带参数跳转到指定路径"><a href="#to-object-作用：携带参数跳转到指定路径" class="headerlink" title="to: object 作用：携带参数跳转到指定路径"></a>to: object 作用：携带参数跳转到指定路径</h5><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">&lt;Link to=&#123;&#123;</span><br><span class="line">  pathname: &apos;/course&apos;,</span><br><span class="line">  search: &apos;?sort=name&apos;,</span><br><span class="line">  state: &#123; price: 18 &#125;</span><br><span class="line">&#125;&#125; /&gt;</span><br></pre></td></tr></table></figure>
+<h3 id="NavLink-link的特殊，为页面导航准备的因为导航需要有激活状态"><a href="#NavLink-link的特殊，为页面导航准备的因为导航需要有激活状态" class="headerlink" title="NavLink link的特殊，为页面导航准备的因为导航需要有激活状态"></a>NavLink link的特殊，为页面导航准备的因为导航需要有激活状态</h3><h5 id="activeClassName-string"><a href="#activeClassName-string" class="headerlink" title="activeClassName: string"></a>activeClassName: string</h5><h5 id="导航选中激活时候应用的样式名，默认样式名为-active"><a href="#导航选中激活时候应用的样式名，默认样式名为-active" class="headerlink" title="导航选中激活时候应用的样式名，默认样式名为 active"></a>导航选中激活时候应用的样式名，默认样式名为 active</h5><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">&lt;NavLink</span><br><span class="line">  to=&quot;/about&quot;</span><br><span class="line">  activeClassName=&quot;selected&quot;</span><br><span class="line">&gt;MyBlog&lt;/NavLink&gt;</span><br></pre></td></tr></table></figure>
+<h6 id="activeStyle-object-如果不想使用上面样式名可以直接使用这个属性写样式"><a href="#activeStyle-object-如果不想使用上面样式名可以直接使用这个属性写样式" class="headerlink" title="activeStyle: object 如果不想使用上面样式名可以直接使用这个属性写样式"></a>activeStyle: object 如果不想使用上面样式名可以直接使用这个属性写样式</h6><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">&lt;NavLink</span><br><span class="line">  to=&quot;/about&quot;</span><br><span class="line">  activeStyle=&#123;&#123; color: &apos;green&apos;, fontWeight: &apos;bold&apos; &#125;&#125;</span><br><span class="line">&gt;MyBlog&lt;/NavLink&gt;</span><br></pre></td></tr></table></figure>
+<h5 id="exact-bool"><a href="#exact-bool" class="headerlink" title="exact: bool"></a>exact: bool</h5><h5 id="若为-true，只有当访问地址严格匹配时激活样式才会应用"><a href="#若为-true，只有当访问地址严格匹配时激活样式才会应用" class="headerlink" title="若为 true，只有当访问地址严格匹配时激活样式才会应用"></a>若为 true，只有当访问地址严格匹配时激活样式才会应用</h5><h5 id="strict-bool"><a href="#strict-bool" class="headerlink" title="strict: bool"></a>strict: bool</h5><h5 id="若为-true，只有当访问地址后缀斜杠严格匹配（有或无）时激活样式才会应用"><a href="#若为-true，只有当访问地址后缀斜杠严格匹配（有或无）时激活样式才会应用" class="headerlink" title="若为 true，只有当访问地址后缀斜杠严格匹配（有或无）时激活样式才会应用"></a>若为 true，只有当访问地址后缀斜杠严格匹配（有或无）时激活样式才会应用</h5><h5 id="isActive-func"><a href="#isActive-func" class="headerlink" title="isActive: func"></a>isActive: func</h5><h5 id="决定导航是否激活，或者在导航激活时候做点别的事情。不管怎样，它不能决定对应页面是否可以渲染。"><a href="#决定导航是否激活，或者在导航激活时候做点别的事情。不管怎样，它不能决定对应页面是否可以渲染。" class="headerlink" title="决定导航是否激活，或者在导航激活时候做点别的事情。不管怎样，它不能决定对应页面是否可以渲染。"></a>决定导航是否激活，或者在导航激活时候做点别的事情。不管怎样，它不能决定对应页面是否可以渲染。</h5><h3 id="Switch"><a href="#Switch" class="headerlink" title="Switch"></a>Switch</h3><h5 id="只渲染出第一个与当前访问地址匹配的-Route-或-Redirect。"><a href="#只渲染出第一个与当前访问地址匹配的-Route-或-Redirect。" class="headerlink" title="只渲染出第一个与当前访问地址匹配的 Route 或 Redirect。"></a>只渲染出第一个与当前访问地址匹配的 Route 或 Redirect。</h5><h3 id="Redirect"><a href="#Redirect" class="headerlink" title="Redirect"></a>Redirect</h3><h5 id="渲染时将导航到一个新地址，这个新地址覆盖在访问历史信息里面的本该访问的那个地址。"><a href="#渲染时将导航到一个新地址，这个新地址覆盖在访问历史信息里面的本该访问的那个地址。" class="headerlink" title="渲染时将导航到一个新地址，这个新地址覆盖在访问历史信息里面的本该访问的那个地址。"></a>渲染时将导航到一个新地址，这个新地址覆盖在访问历史信息里面的本该访问的那个地址。</h5><h5 id="to-string"><a href="#to-string" class="headerlink" title="to: string"></a>to: string</h5><h5 id="重定向的-URL-字符串"><a href="#重定向的-URL-字符串" class="headerlink" title="重定向的 URL 字符串"></a>重定向的 URL 字符串</h5><h5 id="to-object"><a href="#to-object" class="headerlink" title="to: object"></a>to: object</h5><h5 id="重定向的-location-对象"><a href="#重定向的-location-对象" class="headerlink" title="重定向的 location 对象"></a>重定向的 location 对象</h5><h5 id="push-bool"><a href="#push-bool" class="headerlink" title="push: bool"></a>push: bool</h5><h5 id="若为真，重定向操作将会把新地址加入到访问历史记录里面，并且无法回退到前面的页面。"><a href="#若为真，重定向操作将会把新地址加入到访问历史记录里面，并且无法回退到前面的页面。" class="headerlink" title="若为真，重定向操作将会把新地址加入到访问历史记录里面，并且无法回退到前面的页面。"></a>若为真，重定向操作将会把新地址加入到访问历史记录里面，并且无法回退到前面的页面。</h5><h5 id="from-string"><a href="#from-string" class="headerlink" title="from: string"></a>from: string</h5><h5 id="需要匹配的将要被重定向路径。"><a href="#需要匹配的将要被重定向路径。" class="headerlink" title="需要匹配的将要被重定向路径。"></a>需要匹配的将要被重定向路径。</h5><h3 id="Prompt-当用户离开当前页面前做出一些提示。"><a href="#Prompt-当用户离开当前页面前做出一些提示。" class="headerlink" title="Prompt 当用户离开当前页面前做出一些提示。"></a>Prompt 当用户离开当前页面前做出一些提示。</h3><p>message: string<br>当用户离开当前页面时，设置的提示信息。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;Prompt message=&quot;确定要离开？&quot; /&gt;</span><br></pre></td></tr></table></figure></p>
+<p>message: func<br>当用户离开当前页面时，设置的回掉函数<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">&lt;Prompt message=&#123;location =&gt; (</span><br><span class="line">  `Are you sue you want to go to $&#123;location.pathname&#125;?`</span><br><span class="line">)&#125; /&gt;</span><br></pre></td></tr></table></figure></p>
+<p>when: bool<br>通过设置一定条件要决定是否启用 Prompt<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">&lt;Prompt</span><br><span class="line">          when=&#123;this.state.dirty&#125;</span><br><span class="line">          message=&quot;数据尚未保存，确定离开？&quot; /&gt;</span><br></pre></td></tr></table></figure></p>
+<h3 id="对象和方法"><a href="#对象和方法" class="headerlink" title="对象和方法"></a>对象和方法</h3><h5 id="history对会话历史的管理"><a href="#history对会话历史的管理" class="headerlink" title="history对会话历史的管理"></a>history对会话历史的管理</h5><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line">我们会经常使用以下术语：</span><br><span class="line">&quot;browser history&quot; - history 在 DOM 上的实现，用于支持 HTML5 history API 的浏览器</span><br><span class="line">&quot;hash history&quot; - history 在 DOM 上的实现，用于旧版浏览器。</span><br><span class="line">&quot;memory history&quot; - history 在内存上的实现，用于测试或非 DOM 环境（例如 React Native）。</span><br><span class="line">history 对象通常具有以下属性和方法：</span><br><span class="line"></span><br><span class="line">length: number 浏览历史堆栈中的条目数</span><br><span class="line">action: string 路由跳转到当前页面执行的动作，分为 PUSH, REPLACE, POP</span><br><span class="line">location: object 当前访问地址信息组成的对象，具有如下属性：</span><br><span class="line">pathname: string URL路径</span><br><span class="line">search: string URL中的查询字符串</span><br><span class="line">hash: string URL的 hash 片段</span><br><span class="line">state: string 例如执行 push(path, state) 操作时，location 的 state 将被提供到堆栈信息里，state 只有在 browser 和 memory history 有效。</span><br><span class="line">push(path, [state]) 在历史堆栈信息里加入一个新条目。</span><br><span class="line">replace(path, [state]) 在历史堆栈信息里替换掉当前的条目</span><br><span class="line">go(n) 将 history 堆栈中的指针向前移动 n。</span><br><span class="line">goBack() 等同于 go(-1)</span><br><span class="line">goForward 等同于 go(1)</span><br><span class="line">block(prompt) 阻止跳转</span><br></pre></td></tr></table></figure>
+<h5 id="注意：history是可变的，因此建议从route的prop中获取location，而不是从history-location直接获取。"><a href="#注意：history是可变的，因此建议从route的prop中获取location，而不是从history-location直接获取。" class="headerlink" title="注意：history是可变的，因此建议从route的prop中获取location，而不是从history.location直接获取。"></a>注意：history是可变的，因此建议从route的prop中获取location，而不是从history.location直接获取。</h5><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">componentWillReceiveProps(nextProps) &#123;</span><br><span class="line">   // locationChanged</span><br><span class="line">   const locationChanged = nextProps.location !== this.props.location</span><br><span class="line">   // 错误方式，locationChanged 永远为 false，因为history 是可变的</span><br><span class="line">   const locationChanged = nextProps.history.location !== this.props.history.location</span><br><span class="line"> &#125;</span><br></pre></td></tr></table></figure>
+<h3 id="location是指你当前的位置"><a href="#location是指你当前的位置" class="headerlink" title="location是指你当前的位置"></a>location是指你当前的位置</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">&#123;</span><br><span class="line">  key: &apos;123&apos;</span><br><span class="line">  pathname: &apos;/about&apos;,</span><br><span class="line">  search: &apos;?name=123&apos;</span><br><span class="line">  hash: &apos;#123&apos;,</span><br><span class="line">  state: &#123;</span><br><span class="line">    price: 324234</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h4 id="在以下情境中可以获取-location-对象"><a href="#在以下情境中可以获取-location-对象" class="headerlink" title="在以下情境中可以获取 location 对象"></a>在以下情境中可以获取 location 对象</h4><ul>
+<li>在 Route component 中，以 this.props.location 获取</li>
+<li>在 Route render 中，以 ({location}) =&gt; () 方式获取</li>
+<li>在 Route children 中，以 ({location}) =&gt; () 方式获取</li>
+<li>在 withRouter 中，以 this.props.location 的方式获取<h3 id="match"><a href="#match" class="headerlink" title="match"></a>match</h3><h4 id="包含了Route-path如何与URL匹配的信息"><a href="#包含了Route-path如何与URL匹配的信息" class="headerlink" title="包含了Route path如何与URL匹配的信息"></a>包含了Route path如何与URL匹配的信息</h4><h5 id="包含属性如下："><a href="#包含属性如下：" class="headerlink" title="包含属性如下："></a>包含属性如下：</h5></li>
+<li>params: object 路径参数，通过解析 URL 中的动态部分获得键值对</li>
+<li>isExact: bool 为 true 时，整个 URL 都需要匹配</li>
+<li>path: string 用来匹配的路径模式，用于创建嵌套的 <route></route></li>
+<li>url: string URL 匹配的部分，用于嵌套的 <link><h5 id="在以下情境中可以获取-match-对象"><a href="#在以下情境中可以获取-match-对象" class="headerlink" title="在以下情境中可以获取 match 对象"></a>在以下情境中可以获取 match 对象</h5></li>
+<li>在 Route component 中，以 this.props.match获取</li>
+<li>在 Route render 中，以 ({match}) =&gt; () 方式获取</li>
+<li>在 Route children 中，以 ({match}) =&gt; () 方式获取</li>
+<li>在 withRouter 中，以 this.props.match的方式获取</li>
+<li>matchPath 的返回值</li>
+</ul>
+<h2 id="相关链接"><a href="#相关链接" class="headerlink" title="相关链接"></a>相关链接</h2><p><a href="https://www.cnblogs.com/zhanghuiming/p/7592132.html" target="_blank" rel="noopener">React-Router4.x中文文档</a><br><a href="https://reacttraining.com/react-router/web/example/basic" target="_blank" rel="noopener">React Router</a><br><!-- [初探 React Router 4.0](https://blog.csdn.net/sinat_17775997/article/details/69218382) --></p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2018/04/03/web/WebTrainingDesignRouter4/" data-id="cji44rp1n0017ctrqiklw3bmi" class="article-share-link">Share</a>
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/React/">React</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Router/">Router</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/web/">web</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/前端/">前端</a></li></ul>
+
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="/2018/04/21/web/UIAntdDesign/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Newer</strong>
+      <div class="article-nav-title">
+        
+          AntdDesign的使用
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2018/03/30/web/WebTrainingDesignRedux/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Older</strong>
+      <div class="article-nav-title">Redux的使用</div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+</section>
+        
+          <aside id="sidebar">
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">分类</h3>
+    <div class="widget">
+      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/Android/">Android</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/Other/">Other</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/React-Native/">React Native</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/Web/">Web</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/iOS/">iOS</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">标签</h3>
+    <div class="widget">
+      <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/2018/">2018</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Activity/">Activity</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Android/">Android</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Antd/">Antd</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/AntdDesign/">AntdDesign</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/C/">C</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/ES6/">ES6</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/IPC/">IPC</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/IntentFilter/">IntentFilter</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Less/">Less</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Objective-C/">Objective-C</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/React/">React</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/React-Native/">React Native</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Redux/">Redux</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Retrofit/">Retrofit</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Router/">Router</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/iOS/">iOS</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/web/">web</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/前端/">前端</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/工作计划/">工作计划</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/移动开发/">移动开发</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/算法/">算法</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/网络请求/">网络请求</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">标签云</h3>
+    <div class="widget tagcloud">
+      <a href="/tags/2018/" style="font-size: 12px;">2018</a> <a href="/tags/Activity/" style="font-size: 10px;">Activity</a> <a href="/tags/Android/" style="font-size: 16px;">Android</a> <a href="/tags/Antd/" style="font-size: 10px;">Antd</a> <a href="/tags/AntdDesign/" style="font-size: 10px;">AntdDesign</a> <a href="/tags/C/" style="font-size: 12px;">C</a> <a href="/tags/ES6/" style="font-size: 12px;">ES6</a> <a href="/tags/IPC/" style="font-size: 10px;">IPC</a> <a href="/tags/IntentFilter/" style="font-size: 10px;">IntentFilter</a> <a href="/tags/Less/" style="font-size: 10px;">Less</a> <a href="/tags/Objective-C/" style="font-size: 12px;">Objective-C</a> <a href="/tags/React/" style="font-size: 14px;">React</a> <a href="/tags/React-Native/" style="font-size: 14px;">React Native</a> <a href="/tags/Redux/" style="font-size: 10px;">Redux</a> <a href="/tags/Retrofit/" style="font-size: 10px;">Retrofit</a> <a href="/tags/Router/" style="font-size: 10px;">Router</a> <a href="/tags/iOS/" style="font-size: 12px;">iOS</a> <a href="/tags/web/" style="font-size: 20px;">web</a> <a href="/tags/前端/" style="font-size: 20px;">前端</a> <a href="/tags/工作计划/" style="font-size: 12px;">工作计划</a> <a href="/tags/移动开发/" style="font-size: 18px;">移动开发</a> <a href="/tags/算法/" style="font-size: 10px;">算法</a> <a href="/tags/网络请求/" style="font-size: 10px;">网络请求</a>
+    </div>
+  </div>
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">归档</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/06/">六月 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/04/">四月 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/03/">三月 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/02/">二月 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/01/">一月 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/12/">十二月 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/03/">三月 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2013/10/">十月 2013</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">最新文章</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/2018/06/07/Other/Linux/">(no title)</a>
+          </li>
+        
+          <li>
+            <a href="/2018/04/21/web/UIAntdDesign/">AntdDesign的使用</a>
+          </li>
+        
+          <li>
+            <a href="/2018/04/03/web/WebTrainingDesignRouter4/">Router4的使用</a>
+          </li>
+        
+          <li>
+            <a href="/2018/03/30/web/WebTrainingDesignRedux/">Redux的使用</a>
+          </li>
+        
+          <li>
+            <a href="/2018/03/30/web/WebTrainingDesignReact/">React的使用</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      &copy; 2018 Ronnie Jing<br>
+      Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>
+    </div>
+  </div>
+</footer>
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">Home</a>
+  
+    <a href="/archives" class="mobile-nav-link">Archives</a>
+  
+    <a href="/demo" class="mobile-nav-link">Practice</a>
+  
+</nav>
+    
+
+<script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+
+
+  <link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+  <script src="/fancybox/jquery.fancybox.pack.js"></script>
+
+
+<script src="/js/script.js"></script>
+
+
+
+  </div>
+</body>
+</html>

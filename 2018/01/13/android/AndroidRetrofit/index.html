@@ -1,0 +1,271 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+
+  
+  <title>Android Retrofit | Ronnie Jing</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="Retrofit入门Retrofit将你的HTTP API变成一个Java接口1234public interface GitHubService&amp;#123;     @GET(&amp;quot;users/&amp;#123;user&amp;#125;/repos&amp;quot;)      Call&amp;lt;List&amp;lt;Repo&amp;gt;&amp;gt; listRepos(@Path(&amp;quot;user&amp;quot;) S">
+<meta name="keywords" content="Android,Retrofit,网络请求">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Android Retrofit">
+<meta property="og:url" content="http://yoursite.com/2018/01/13/android/AndroidRetrofit/index.html">
+<meta property="og:site_name" content="Ronnie Jing">
+<meta property="og:description" content="Retrofit入门Retrofit将你的HTTP API变成一个Java接口1234public interface GitHubService&amp;#123;     @GET(&amp;quot;users/&amp;#123;user&amp;#125;/repos&amp;quot;)      Call&amp;lt;List&amp;lt;Repo&amp;gt;&amp;gt; listRepos(@Path(&amp;quot;user&amp;quot;) S">
+<meta property="og:locale" content="zh-CN">
+<meta property="og:updated_time" content="2018-06-07T05:55:26.608Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Android Retrofit">
+<meta name="twitter:description" content="Retrofit入门Retrofit将你的HTTP API变成一个Java接口1234public interface GitHubService&amp;#123;     @GET(&amp;quot;users/&amp;#123;user&amp;#125;/repos&amp;quot;)      Call&amp;lt;List&amp;lt;Repo&amp;gt;&amp;gt; listRepos(@Path(&amp;quot;user&amp;quot;) S">
+  
+    <link rel="alternate" href="/atom.xml" title="Ronnie Jing" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.png">
+  
+  
+    <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
+  
+  <link rel="stylesheet" href="/css/style.css">
+</head>
+
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/" id="logo">Ronnie Jing</a>
+      </h1>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"></a>
+        
+          <a class="main-nav-link" href="/">Home</a>
+        
+          <a class="main-nav-link" href="/archives">Archives</a>
+        
+          <a class="main-nav-link" href="/demo">Practice</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+          <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSS Feed"></a>
+        
+        <a id="nav-search-btn" class="nav-icon" title="搜索"></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://yoursite.com"></form>
+      </div>
+    </div>
+  </div>
+</header>
+      <div class="outer">
+        <section id="main"><article id="post-android/AndroidRetrofit" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2018/01/13/android/AndroidRetrofit/" class="article-date">
+  <time datetime="2018-01-12T16:00:00.000Z" itemprop="datePublished">2018-01-13</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/Android/">Android</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      Android Retrofit
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h3 id="Retrofit"><a href="#Retrofit" class="headerlink" title="Retrofit"></a>Retrofit</h3><h4 id="入门"><a href="#入门" class="headerlink" title="入门"></a>入门</h4><h5 id="Retrofit将你的HTTP-API变成一个Java接口"><a href="#Retrofit将你的HTTP-API变成一个Java接口" class="headerlink" title="Retrofit将你的HTTP API变成一个Java接口"></a>Retrofit将你的HTTP API变成一个Java接口</h5><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">public interface GitHubService&#123;</span><br><span class="line">     @GET(&quot;users/&#123;user&#125;/repos&quot;)</span><br><span class="line">      Call&lt;List&lt;Repo&gt;&gt; listRepos(@Path(&quot;user&quot;) String user);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h5 id="Retrofit类生成一个GitHubService接口的实现"><a href="#Retrofit类生成一个GitHubService接口的实现" class="headerlink" title="Retrofit类生成一个GitHubService接口的实现"></a>Retrofit类生成一个GitHubService接口的实现</h5><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">Retrofit retrofit = new Retrofit.Builder()</span><br><span class="line">    .baseUrl(&quot;https://api.github.com/&quot;)</span><br><span class="line">    .build();</span><br><span class="line"></span><br><span class="line">GitHubService service = retrofit.create(GitHubService.class);</span><br></pre></td></tr></table></figure>
+<h5 id="调用GitHubService可以同步或异步访问远程的服务器"><a href="#调用GitHubService可以同步或异步访问远程的服务器" class="headerlink" title="调用GitHubService可以同步或异步访问远程的服务器"></a>调用GitHubService可以同步或异步访问远程的服务器</h5><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Call&lt;List&lt;Repo&gt;&gt; repos = service.listRepos(&quot;octocat&quot;);</span><br></pre></td></tr></table></figure>
+<h5 id="使用注解描述HTTP请求"><a href="#使用注解描述HTTP请求" class="headerlink" title="使用注解描述HTTP请求"></a>使用注解描述HTTP请求</h5><ul>
+<li>支持URL参数的替换和Query</li>
+<li>对象转换成请求体</li>
+<li>多类型的请求体和文件上传<h4 id="API-说明"><a href="#API-说明" class="headerlink" title="API 说明"></a>API 说明</h4>在接口方法上注解，并说明这个请求需要的参数。<h4 id="请求方法"><a href="#请求方法" class="headerlink" title="请求方法"></a>请求方法</h4>每一个方法必须有一个HTTP注解提供请求方法（GET、POST等）和相对的URL。有五个内置注解：GET,POST,PUT,DELETE和HEAD.在注解中指定子资源的相对URL.你也可以<br>在URL中添加问号参数。<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">@GET(&quot;users/list?sort=desc&quot;)</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<h4 id="URL操作"><a href="#URL操作" class="headerlink" title="URL操作"></a>URL操作</h4><p>可以在请求的URL中使用参数和块动态的更新。一个替换块是一个使用{}包含的字符数字字符串。相应的参数必须使用@path注解。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">@GET(&quot;group/&#123;id&#125;/users&quot;)</span><br><span class="line">Call&lt;List&lt;User&gt;&gt; groupList(@Path(&quot;id&quot;) int groupId);</span><br></pre></td></tr></table></figure></p>
+<h4 id="也可以添加Query参数"><a href="#也可以添加Query参数" class="headerlink" title="也可以添加Query参数"></a>也可以添加Query参数</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">@GET(&quot;group/&#123;id&#125;/users&quot;)</span><br><span class="line">Call&lt;List&lt;User&gt;&gt; groupList(@Path(&quot;id&quot;) int groupId, @Query(&quot;sort&quot;) String sort);</span><br></pre></td></tr></table></figure>
+<h4 id="复杂的query参数组合可以使用一个map"><a href="#复杂的query参数组合可以使用一个map" class="headerlink" title="复杂的query参数组合可以使用一个map"></a>复杂的query参数组合可以使用一个map</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">@GET(&quot;group/&#123;id&#125;/users&quot;)</span><br><span class="line">Call&lt;List&lt;User&gt;&gt; groupList(@Path(&quot;id&quot;) int groupId, @QueryMap Map&lt;String, String&gt; options);</span><br></pre></td></tr></table></figure>
+<h4 id="可以使用一个-body注解的对象作为HTTP请求的请求体"><a href="#可以使用一个-body注解的对象作为HTTP请求的请求体" class="headerlink" title="可以使用一个@body注解的对象作为HTTP请求的请求体"></a>可以使用一个@body注解的对象作为HTTP请求的请求体</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">@POST(&quot;users/new&quot;)</span><br><span class="line">Call&lt;User&gt; createUser(@Body User user);</span><br></pre></td></tr></table></figure>
+<h5 id="The-object-will-also-be-converted-using-a-converter-specified-on-the-Retrofit-instance-If-no-converter-is-added-only-RequestBody-can-be-used"><a href="#The-object-will-also-be-converted-using-a-converter-specified-on-the-Retrofit-instance-If-no-converter-is-added-only-RequestBody-can-be-used" class="headerlink" title="The object will also be converted using a converter specified on the Retrofit instance. If no converter is added, only RequestBody can be used."></a>The object will also be converted using a converter specified on the Retrofit instance. If no converter is added, only RequestBody can be used.</h5><h4 id="FORM和MULTIPART"><a href="#FORM和MULTIPART" class="headerlink" title="FORM和MULTIPART"></a>FORM和MULTIPART</h4><h5 id="也可以使用form-encoded和mutipart方法"><a href="#也可以使用form-encoded和mutipart方法" class="headerlink" title="也可以使用form-encoded和mutipart方法"></a>也可以使用form-encoded和mutipart方法</h5><h5 id="在方法上添加-FormUrlEncoded可以发送Form-encoded数据，每一个键值对可使用-Field注解名字和这个对象提供的值"><a href="#在方法上添加-FormUrlEncoded可以发送Form-encoded数据，每一个键值对可使用-Field注解名字和这个对象提供的值" class="headerlink" title="在方法上添加@FormUrlEncoded可以发送Form-encoded数据，每一个键值对可使用@Field注解名字和这个对象提供的值"></a>在方法上添加@FormUrlEncoded可以发送Form-encoded数据，每一个键值对可使用@Field注解名字和这个对象提供的值</h5><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">@FormUrlEncoded</span><br><span class="line">@POST(&quot;user/edit&quot;)</span><br><span class="line">Call&lt;User&gt; updateUser(@Field(&quot;first_name&quot;) String first, @Field(&quot;last_name&quot;) String last);</span><br></pre></td></tr></table></figure>
+<h5 id="在方法上添加-Multipart注解来使用Multipart请求，Parts使用-Part注解"><a href="#在方法上添加-Multipart注解来使用Multipart请求，Parts使用-Part注解" class="headerlink" title="在方法上添加@Multipart注解来使用Multipart请求，Parts使用@Part注解"></a>在方法上添加@Multipart注解来使用Multipart请求，Parts使用@Part注解</h5><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">@Multipart</span><br><span class="line">@PUT(&quot;user/photo&quot;)</span><br><span class="line">Call&lt;User&gt; updateUser(@Part(&quot;photo&quot;) RequestBody photo, @Part(&quot;description&quot;) RequestBody description);</span><br></pre></td></tr></table></figure>
+<h5 id="Multipart的parts使用实现RequestBody的Retrofit的转换器实现他们自己的序列化"><a href="#Multipart的parts使用实现RequestBody的Retrofit的转换器实现他们自己的序列化" class="headerlink" title="Multipart的parts使用实现RequestBody的Retrofit的转换器实现他们自己的序列化"></a>Multipart的parts使用实现RequestBody的Retrofit的转换器实现他们自己的序列化</h5><h4 id="HEADER操作"><a href="#HEADER操作" class="headerlink" title="HEADER操作"></a>HEADER操作</h4><h5 id="你可以使用-Headers设置静态的头方法"><a href="#你可以使用-Headers设置静态的头方法" class="headerlink" title="你可以使用@Headers设置静态的头方法"></a>你可以使用@Headers设置静态的头方法</h5><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">@Headers(&quot;Cache-Control: max-age=640000&quot;)</span><br><span class="line">@GET(&quot;widget/list&quot;)</span><br><span class="line">Call&lt;List&lt;Widget&gt;&gt; widgetList();</span><br><span class="line"></span><br><span class="line">@Headers(&#123;</span><br><span class="line">    &quot;Accept: application/vnd.github.v3.full+json&quot;,</span><br><span class="line">    &quot;User-Agent: Retrofit-Sample-App&quot;</span><br><span class="line">&#125;)</span><br><span class="line">@GET(&quot;users/&#123;username&#125;&quot;)</span><br><span class="line">Call&lt;User&gt; getUser(@Path(&quot;username&quot;) String username);</span><br></pre></td></tr></table></figure>
+<h5 id="注意headers不会相互覆盖，所有的headers都包含在请求里面"><a href="#注意headers不会相互覆盖，所有的headers都包含在请求里面" class="headerlink" title="注意headers不会相互覆盖，所有的headers都包含在请求里面"></a>注意headers不会相互覆盖，所有的headers都包含在请求里面</h5><h5 id="请求头可以使用-Header注解动态更新，-Header必须提供相应的参数，如果值为null这个header被忽略。否则这个值将调用toString方法并被使用。"><a href="#请求头可以使用-Header注解动态更新，-Header必须提供相应的参数，如果值为null这个header被忽略。否则这个值将调用toString方法并被使用。" class="headerlink" title="请求头可以使用@Header注解动态更新，@Header必须提供相应的参数，如果值为null这个header被忽略。否则这个值将调用toString方法并被使用。"></a>请求头可以使用@Header注解动态更新，@Header必须提供相应的参数，如果值为null这个header被忽略。否则这个值将调用toString方法并被使用。</h5><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">@GET(&quot;user&quot;)</span><br><span class="line">Call&lt;User&gt; getUser(@Header(&quot;Authorization&quot;) String authorization)</span><br></pre></td></tr></table></figure>
+<h5 id="可以使用okhttp的interceptor（拦截器）将headers加入到每一个请求中"><a href="#可以使用okhttp的interceptor（拦截器）将headers加入到每一个请求中" class="headerlink" title="可以使用okhttp的interceptor（拦截器）将headers加入到每一个请求中"></a>可以使用okhttp的interceptor（拦截器）将headers加入到每一个请求中</h5><h4 id="SYNCHRONOUS-VS-ASYNCHRONOUS（同步和异步对比）"><a href="#SYNCHRONOUS-VS-ASYNCHRONOUS（同步和异步对比）" class="headerlink" title="SYNCHRONOUS VS. ASYNCHRONOUS（同步和异步对比）"></a>SYNCHRONOUS VS. ASYNCHRONOUS（同步和异步对比）</h4><h5 id="Call实例可以同步或异步执行。每一个实例只能用一次，如果需要重复使用可以使用clone-方法创建一个新的实例在使用。"><a href="#Call实例可以同步或异步执行。每一个实例只能用一次，如果需要重复使用可以使用clone-方法创建一个新的实例在使用。" class="headerlink" title="Call实例可以同步或异步执行。每一个实例只能用一次，如果需要重复使用可以使用clone()方法创建一个新的实例在使用。"></a>Call实例可以同步或异步执行。每一个实例只能用一次，如果需要重复使用可以使用clone()方法创建一个新的实例在使用。</h5><h5 id="在Android中回调执行在主线程，在JVM中回调发生在执行HTTP请求的相同线程中。"><a href="#在Android中回调执行在主线程，在JVM中回调发生在执行HTTP请求的相同线程中。" class="headerlink" title="在Android中回调执行在主线程，在JVM中回调发生在执行HTTP请求的相同线程中。"></a>在Android中回调执行在主线程，在JVM中回调发生在执行HTTP请求的相同线程中。</h5><h4 id="CONVERTERS转换器"><a href="#CONVERTERS转换器" class="headerlink" title="CONVERTERS转换器"></a>CONVERTERS转换器</h4><h5 id="默认情况Retrofit只可以将HTTP请求体反序列化为Okttp的ResponseBody类型，他只能接受-body注解的RequestBody"><a href="#默认情况Retrofit只可以将HTTP请求体反序列化为Okttp的ResponseBody类型，他只能接受-body注解的RequestBody" class="headerlink" title="默认情况Retrofit只可以将HTTP请求体反序列化为Okttp的ResponseBody类型，他只能接受@body注解的RequestBody"></a>默认情况Retrofit只可以将HTTP请求体反序列化为Okttp的ResponseBody类型，他只能接受@body注解的RequestBody</h5><h5 id="Converters可以添加支持其他类型。提供6个兄弟模块适配常用的序列化库"><a href="#Converters可以添加支持其他类型。提供6个兄弟模块适配常用的序列化库" class="headerlink" title="Converters可以添加支持其他类型。提供6个兄弟模块适配常用的序列化库"></a>Converters可以添加支持其他类型。提供6个兄弟模块适配常用的序列化库</h5><ul>
+<li>Gson: com.squareup.retrofit2:converter-gson</li>
+<li>Jackson: com.squareup.retrofit2:converter-jackson</li>
+<li>Moshi: com.squareup.retrofit2:converter-moshi</li>
+<li>Protobuf: com.squareup.retrofit2:converter-protobuf</li>
+<li>Wire: com.squareup.retrofit2:converter-wire</li>
+<li>Simple XML: com.squareup.retrofit2:converter-simplexml</li>
+<li>Scalars (primitives, boxed, and String): com.squareup.retrofit2:converter-scalars<h5 id="这是一个GitHubService接口使用GsonConverterFactory工厂类实现Gson反序列化的实例"><a href="#这是一个GitHubService接口使用GsonConverterFactory工厂类实现Gson反序列化的实例" class="headerlink" title="这是一个GitHubService接口使用GsonConverterFactory工厂类实现Gson反序列化的实例"></a>这是一个GitHubService接口使用GsonConverterFactory工厂类实现Gson反序列化的实例</h5><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">Retrofit retrofit = new Retrofit.Builder()</span><br><span class="line">    .baseUrl(&quot;https://api.github.com&quot;)</span><br><span class="line">    .addConverterFactory(GsonConverterFactory.create())</span><br><span class="line">    .build();</span><br><span class="line"></span><br><span class="line">GitHubService service = retrofit.create(GitHubService.class);</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<h4 id="自定义转换器"><a href="#自定义转换器" class="headerlink" title="自定义转换器"></a>自定义转换器</h4><h5 id="创建一个继承Converter-Factory的类传一个实例构建你的适配器。"><a href="#创建一个继承Converter-Factory的类传一个实例构建你的适配器。" class="headerlink" title="创建一个继承Converter.Factory的类传一个实例构建你的适配器。"></a>创建一个继承Converter.Factory的类传一个实例构建你的适配器。</h5><h4 id="Maven"><a href="#Maven" class="headerlink" title="Maven"></a>Maven</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">&lt;dependency&gt;</span><br><span class="line">  &lt;groupId&gt;com.squareup.retrofit2&lt;/groupId&gt;</span><br><span class="line">  &lt;artifactId&gt;retrofit&lt;/artifactId&gt;</span><br><span class="line">  &lt;version&gt;2.3.0&lt;/version&gt;</span><br><span class="line">&lt;/dependency&gt;</span><br></pre></td></tr></table></figure>
+<h4 id="Gradle"><a href="#Gradle" class="headerlink" title="Gradle"></a>Gradle</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">compile &apos;com.squareup.retrofit2:retrofit:2.3.0&apos;</span><br></pre></td></tr></table></figure>
+<h4 id="PROGUARD混淆"><a href="#PROGUARD混淆" class="headerlink" title="PROGUARD混淆"></a>PROGUARD混淆</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"># Platform calls Class.forName on types which do not exist on Android to determine platform.</span><br><span class="line">-dontnote retrofit2.Platform</span><br><span class="line"># Platform used when running on Java 8 VMs. Will not be used at runtime.</span><br><span class="line">-dontwarn retrofit2.Platform$Java8</span><br><span class="line"># Retain generic type information for use by reflection by converters and adapters.</span><br><span class="line">-keepattributes Signature</span><br><span class="line"># Retain declared checked exceptions for use by a Proxy instance.</span><br><span class="line">-keepattributes Exceptions</span><br></pre></td></tr></table></figure>
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2018/01/13/android/AndroidRetrofit/" data-id="cji44rp160006ctrq457vp4n6" class="article-share-link">Share</a>
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Android/">Android</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Retrofit/">Retrofit</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/网络请求/">网络请求</a></li></ul>
+
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="/2018/01/13/android/AndroidActivity/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Newer</strong>
+      <div class="article-nav-title">
+        
+          Android Activity
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2018/01/13/android/AndroidInterviewQuestions/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Older</strong>
+      <div class="article-nav-title">Android 题库</div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+</section>
+        
+          <aside id="sidebar">
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">分类</h3>
+    <div class="widget">
+      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/Android/">Android</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/Other/">Other</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/React-Native/">React Native</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/Web/">Web</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/iOS/">iOS</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">标签</h3>
+    <div class="widget">
+      <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/2018/">2018</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Activity/">Activity</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Android/">Android</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Antd/">Antd</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/AntdDesign/">AntdDesign</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/C/">C</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/ES6/">ES6</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/IPC/">IPC</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/IntentFilter/">IntentFilter</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Less/">Less</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Objective-C/">Objective-C</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/React/">React</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/React-Native/">React Native</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Redux/">Redux</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Retrofit/">Retrofit</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Router/">Router</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/iOS/">iOS</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/web/">web</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/前端/">前端</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/工作计划/">工作计划</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/移动开发/">移动开发</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/算法/">算法</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/网络请求/">网络请求</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">标签云</h3>
+    <div class="widget tagcloud">
+      <a href="/tags/2018/" style="font-size: 12px;">2018</a> <a href="/tags/Activity/" style="font-size: 10px;">Activity</a> <a href="/tags/Android/" style="font-size: 16px;">Android</a> <a href="/tags/Antd/" style="font-size: 10px;">Antd</a> <a href="/tags/AntdDesign/" style="font-size: 10px;">AntdDesign</a> <a href="/tags/C/" style="font-size: 12px;">C</a> <a href="/tags/ES6/" style="font-size: 12px;">ES6</a> <a href="/tags/IPC/" style="font-size: 10px;">IPC</a> <a href="/tags/IntentFilter/" style="font-size: 10px;">IntentFilter</a> <a href="/tags/Less/" style="font-size: 10px;">Less</a> <a href="/tags/Objective-C/" style="font-size: 12px;">Objective-C</a> <a href="/tags/React/" style="font-size: 14px;">React</a> <a href="/tags/React-Native/" style="font-size: 14px;">React Native</a> <a href="/tags/Redux/" style="font-size: 10px;">Redux</a> <a href="/tags/Retrofit/" style="font-size: 10px;">Retrofit</a> <a href="/tags/Router/" style="font-size: 10px;">Router</a> <a href="/tags/iOS/" style="font-size: 12px;">iOS</a> <a href="/tags/web/" style="font-size: 20px;">web</a> <a href="/tags/前端/" style="font-size: 20px;">前端</a> <a href="/tags/工作计划/" style="font-size: 12px;">工作计划</a> <a href="/tags/移动开发/" style="font-size: 18px;">移动开发</a> <a href="/tags/算法/" style="font-size: 10px;">算法</a> <a href="/tags/网络请求/" style="font-size: 10px;">网络请求</a>
+    </div>
+  </div>
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">归档</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/06/">六月 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/04/">四月 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/03/">三月 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/02/">二月 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/01/">一月 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/12/">十二月 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/03/">三月 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2013/10/">十月 2013</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">最新文章</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/2018/06/07/Other/Linux/">(no title)</a>
+          </li>
+        
+          <li>
+            <a href="/2018/04/21/web/UIAntdDesign/">AntdDesign的使用</a>
+          </li>
+        
+          <li>
+            <a href="/2018/04/03/web/WebTrainingDesignRouter4/">Router4的使用</a>
+          </li>
+        
+          <li>
+            <a href="/2018/03/30/web/WebTrainingDesignRedux/">Redux的使用</a>
+          </li>
+        
+          <li>
+            <a href="/2018/03/30/web/WebTrainingDesignReact/">React的使用</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      &copy; 2018 Ronnie Jing<br>
+      Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>
+    </div>
+  </div>
+</footer>
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">Home</a>
+  
+    <a href="/archives" class="mobile-nav-link">Archives</a>
+  
+    <a href="/demo" class="mobile-nav-link">Practice</a>
+  
+</nav>
+    
+
+<script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+
+
+  <link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+  <script src="/fancybox/jquery.fancybox.pack.js"></script>
+
+
+<script src="/js/script.js"></script>
+
+
+
+  </div>
+</body>
+</html>

@@ -1,0 +1,275 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+
+  
+  <title>React Native 基础 | Ronnie Jing</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="颜色以下这些格式的颜色代码都是支持的：  ‘#f0f’ (#rgb) ‘#f0fc’ (#rgba) ‘#ff00ff’ (#rrggbb) ‘#ff00ff00’ (#rrggbbaa) ‘rgb(255, 255, 255)’ ‘rgba(255, 255, 255, 1.0)’ ‘hsl(360, 100%, 100%)’ ‘hsla(360, 100%, 100%, 1.0)’ ‘tran">
+<meta name="keywords" content="移动开发,React Native">
+<meta property="og:type" content="article">
+<meta property="og:title" content="React Native 基础">
+<meta property="og:url" content="http://yoursite.com/2017/03/13/react_native/RNColor/index.html">
+<meta property="og:site_name" content="Ronnie Jing">
+<meta property="og:description" content="颜色以下这些格式的颜色代码都是支持的：  ‘#f0f’ (#rgb) ‘#f0fc’ (#rgba) ‘#ff00ff’ (#rrggbb) ‘#ff00ff00’ (#rrggbbaa) ‘rgb(255, 255, 255)’ ‘rgba(255, 255, 255, 1.0)’ ‘hsl(360, 100%, 100%)’ ‘hsla(360, 100%, 100%, 1.0)’ ‘tran">
+<meta property="og:locale" content="zh-CN">
+<meta property="og:updated_time" content="2018-06-07T05:55:26.608Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="React Native 基础">
+<meta name="twitter:description" content="颜色以下这些格式的颜色代码都是支持的：  ‘#f0f’ (#rgb) ‘#f0fc’ (#rgba) ‘#ff00ff’ (#rrggbb) ‘#ff00ff00’ (#rrggbbaa) ‘rgb(255, 255, 255)’ ‘rgba(255, 255, 255, 1.0)’ ‘hsl(360, 100%, 100%)’ ‘hsla(360, 100%, 100%, 1.0)’ ‘tran">
+  
+    <link rel="alternate" href="/atom.xml" title="Ronnie Jing" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.png">
+  
+  
+    <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
+  
+  <link rel="stylesheet" href="/css/style.css">
+</head>
+
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/" id="logo">Ronnie Jing</a>
+      </h1>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"></a>
+        
+          <a class="main-nav-link" href="/">Home</a>
+        
+          <a class="main-nav-link" href="/archives">Archives</a>
+        
+          <a class="main-nav-link" href="/demo">Practice</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+          <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSS Feed"></a>
+        
+        <a id="nav-search-btn" class="nav-icon" title="搜索"></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://yoursite.com"></form>
+      </div>
+    </div>
+  </div>
+</header>
+      <div class="outer">
+        <section id="main"><article id="post-react_native/RNColor" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2017/03/13/react_native/RNColor/" class="article-date">
+  <time datetime="2017-03-12T16:00:00.000Z" itemprop="datePublished">2017-03-13</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/React-Native/">React Native</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      React Native 基础
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h3 id="颜色"><a href="#颜色" class="headerlink" title="颜色"></a>颜色</h3><p>以下这些格式的颜色代码都是支持的：</p>
+<ul>
+<li>‘#f0f’ (#rgb)</li>
+<li>‘#f0fc’ (#rgba)</li>
+<li>‘#ff00ff’ (#rrggbb)</li>
+<li>‘#ff00ff00’ (#rrggbbaa)</li>
+<li>‘rgb(255, 255, 255)’</li>
+<li>‘rgba(255, 255, 255, 1.0)’</li>
+<li>‘hsl(360, 100%, 100%)’</li>
+<li>‘hsla(360, 100%, 100%, 1.0)’</li>
+<li>‘transparent’</li>
+<li>‘red’</li>
+<li>0xff00ff00 (0xrrggbbaa)<h3 id="图片"><a href="#图片" class="headerlink" title="图片"></a>图片</h3><h4 id="本地图片"><a href="#本地图片" class="headerlink" title="本地图片"></a>本地图片</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;Image source=&#123;require(&apos;./my-icon.png&apos;)&#125; style=&#123;&#123;width: 40, height: 40&#125;&#125; /&gt;</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<h4 id="网络图片（必须手动指定图片的尺寸）"><a href="#网络图片（必须手动指定图片的尺寸）" class="headerlink" title="网络图片（必须手动指定图片的尺寸）"></a>网络图片（必须手动指定图片的尺寸）</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;Image source=&#123;&#123;uri: &apos;app_icon&apos;&#125;&#125; style=&#123;&#123;width: 40, height: 40&#125;&#125; /&gt;</span><br></pre></td></tr></table></figure>
+<h4 id="图片命名"><a href="#图片命名" class="headerlink" title="图片命名"></a>图片命名</h4><blockquote>
+<p> 如果你有my-icon.ios.png和my-icon.android.png，Packager就会根据平台而选择不同的文件.<br>你还可以使用@2x，@3x这样的文件名后缀，来为不同的屏幕精度提供图片。</p>
+</blockquote>
+<h5 id="注意：如果你添加图片的时候packager正在运行，可能需要重启packager以便能正确引入新添加的图片。"><a href="#注意：如果你添加图片的时候packager正在运行，可能需要重启packager以便能正确引入新添加的图片。" class="headerlink" title="注意：如果你添加图片的时候packager正在运行，可能需要重启packager以便能正确引入新添加的图片。"></a>注意：如果你添加图片的时候packager正在运行，可能需要重启packager以便能正确引入新添加的图片。</h5><h5 id="这样会带来如下的一些好处"><a href="#这样会带来如下的一些好处" class="headerlink" title="这样会带来如下的一些好处:"></a>这样会带来如下的一些好处:</h5><ul>
+<li>iOS和Android一致的文件系统。</li>
+<li>图片和JS代码处在相同的文件夹，这样组件就可以包含自己所用的图片而不用单独去设置。</li>
+<li>不需要全局命名。你不用再担心图片名字的冲突问题了。</li>
+<li>只有实际被用到（即被require）的图片才会被打包到你的app。</li>
+<li>现在在开发期间，增加和修改图片不需要重新编译了，只要和修改js代码一样刷新你的模拟器就可以了。</li>
+<li>与访问网络图片相比，Packager可以得知图片大小了，不需要在代码里再声明一遍尺寸。</li>
+<li>现在通过npm来分发组件或库可以包含图片了。<blockquote>
+<p> 注意：为了使新的图片资源机制正常工作，require中的图片名字必须是一个静态字符串（不能使用变量！因为require是在编译时期执行，而非运行时期执行！）</p>
+</blockquote>
+<h4 id="混合app图片资源的使用"><a href="#混合app图片资源的使用" class="headerlink" title="混合app图片资源的使用"></a>混合app图片资源的使用</h4><h5 id="注意：这一做法并没有任何安全检查。你需要自己确保图片在应用中确实存在，而且还需要指定尺寸。"><a href="#注意：这一做法并没有任何安全检查。你需要自己确保图片在应用中确实存在，而且还需要指定尺寸。" class="headerlink" title="注意：这一做法并没有任何安全检查。你需要自己确保图片在应用中确实存在，而且还需要指定尺寸。"></a>注意：这一做法并没有任何安全检查。你需要自己确保图片在应用中确实存在，而且还需要指定尺寸。</h5><h5 id="1、Android的drawable目录下的资源和xcode的asset类目中的资源，引用方式：直接使用文件名，不带路径和后缀"><a href="#1、Android的drawable目录下的资源和xcode的asset类目中的资源，引用方式：直接使用文件名，不带路径和后缀" class="headerlink" title="1、Android的drawable目录下的资源和xcode的asset类目中的资源，引用方式：直接使用文件名，不带路径和后缀"></a>1、Android的drawable目录下的资源和xcode的asset类目中的资源，引用方式：直接使用文件名，不带路径和后缀</h5><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;Image source=&#123;&#123;uri: &apos;app_icon&apos;&#125;&#125; style=&#123;&#123;width: 40, height: 40&#125;&#125; /&gt;</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<h5 id="2、-Android的assets目录下的资源，引用方式还可以使用asset-前缀来引用："><a href="#2、-Android的assets目录下的资源，引用方式还可以使用asset-前缀来引用：" class="headerlink" title="2、  Android的assets目录下的资源，引用方式还可以使用asset:/前缀来引用："></a>2、  Android的assets目录下的资源，引用方式还可以使用asset:/前缀来引用：</h5><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;Image source=&#123;&#123;uri: &apos;asset:/app_icon.png&apos;&#125;&#125; style=&#123;&#123;width: 40, height: 40&#125;&#125; /&gt;</span><br></pre></td></tr></table></figure>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2017/03/13/react_native/RNColor/" data-id="cji44rp1a000ectrqfow9z5fb" class="article-share-link">Share</a>
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/React-Native/">React Native</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/移动开发/">移动开发</a></li></ul>
+
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="/2017/12/13/react_native/RNSouceCode/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Newer</strong>
+      <div class="article-nav-title">
+        
+          React Native 从源代码开始编译
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2017/03/12/react_native/RNFlexbox/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Older</strong>
+      <div class="article-nav-title">React Native Flexbox</div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+</section>
+        
+          <aside id="sidebar">
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">分类</h3>
+    <div class="widget">
+      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/Android/">Android</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/Other/">Other</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/React-Native/">React Native</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/Web/">Web</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/iOS/">iOS</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">标签</h3>
+    <div class="widget">
+      <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/2018/">2018</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Activity/">Activity</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Android/">Android</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Antd/">Antd</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/AntdDesign/">AntdDesign</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/C/">C</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/ES6/">ES6</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/IPC/">IPC</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/IntentFilter/">IntentFilter</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Less/">Less</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Objective-C/">Objective-C</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/React/">React</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/React-Native/">React Native</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Redux/">Redux</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Retrofit/">Retrofit</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Router/">Router</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/iOS/">iOS</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/web/">web</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/前端/">前端</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/工作计划/">工作计划</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/移动开发/">移动开发</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/算法/">算法</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/网络请求/">网络请求</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">标签云</h3>
+    <div class="widget tagcloud">
+      <a href="/tags/2018/" style="font-size: 12px;">2018</a> <a href="/tags/Activity/" style="font-size: 10px;">Activity</a> <a href="/tags/Android/" style="font-size: 16px;">Android</a> <a href="/tags/Antd/" style="font-size: 10px;">Antd</a> <a href="/tags/AntdDesign/" style="font-size: 10px;">AntdDesign</a> <a href="/tags/C/" style="font-size: 12px;">C</a> <a href="/tags/ES6/" style="font-size: 12px;">ES6</a> <a href="/tags/IPC/" style="font-size: 10px;">IPC</a> <a href="/tags/IntentFilter/" style="font-size: 10px;">IntentFilter</a> <a href="/tags/Less/" style="font-size: 10px;">Less</a> <a href="/tags/Objective-C/" style="font-size: 12px;">Objective-C</a> <a href="/tags/React/" style="font-size: 14px;">React</a> <a href="/tags/React-Native/" style="font-size: 14px;">React Native</a> <a href="/tags/Redux/" style="font-size: 10px;">Redux</a> <a href="/tags/Retrofit/" style="font-size: 10px;">Retrofit</a> <a href="/tags/Router/" style="font-size: 10px;">Router</a> <a href="/tags/iOS/" style="font-size: 12px;">iOS</a> <a href="/tags/web/" style="font-size: 20px;">web</a> <a href="/tags/前端/" style="font-size: 20px;">前端</a> <a href="/tags/工作计划/" style="font-size: 12px;">工作计划</a> <a href="/tags/移动开发/" style="font-size: 18px;">移动开发</a> <a href="/tags/算法/" style="font-size: 10px;">算法</a> <a href="/tags/网络请求/" style="font-size: 10px;">网络请求</a>
+    </div>
+  </div>
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">归档</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/06/">六月 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/04/">四月 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/03/">三月 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/02/">二月 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/01/">一月 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/12/">十二月 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/03/">三月 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2013/10/">十月 2013</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">最新文章</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/2018/06/07/Other/Linux/">(no title)</a>
+          </li>
+        
+          <li>
+            <a href="/2018/04/21/web/UIAntdDesign/">AntdDesign的使用</a>
+          </li>
+        
+          <li>
+            <a href="/2018/04/03/web/WebTrainingDesignRouter4/">Router4的使用</a>
+          </li>
+        
+          <li>
+            <a href="/2018/03/30/web/WebTrainingDesignRedux/">Redux的使用</a>
+          </li>
+        
+          <li>
+            <a href="/2018/03/30/web/WebTrainingDesignReact/">React的使用</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      &copy; 2018 Ronnie Jing<br>
+      Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>
+    </div>
+  </div>
+</footer>
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">Home</a>
+  
+    <a href="/archives" class="mobile-nav-link">Archives</a>
+  
+    <a href="/demo" class="mobile-nav-link">Practice</a>
+  
+</nav>
+    
+
+<script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+
+
+  <link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+  <script src="/fancybox/jquery.fancybox.pack.js"></script>
+
+
+<script src="/js/script.js"></script>
+
+
+
+  </div>
+</body>
+</html>

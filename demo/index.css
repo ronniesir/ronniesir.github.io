@@ -1,0 +1,40 @@
+body {
+
+}
+
+.headerContainer {
+    height: 200px;
+    width: 100%;
+    background: url("./images/banner.jpg") no-repeat;
+    background-size: 100%;
+    text-align: center;
+
+}
+
+.headerTitle {
+    color: white;
+    font-size: 24px;
+    padding-top: 90px;
+}
+
+.practiceList {
+    width: 800px;
+    min-height: 400px;
+    border-color: #2d2d2d;
+    border-width: 2px;
+    border-radius: 8px;
+    margin: 0px auto;
+    background: #f1f1f1;
+    margin-top: 24px;
+    padding: 24px 16px;
+}
+
+.practiceList li {
+    display:block;
+    font-size: 16px;
+    border-bottom-color: #838383;
+    border-bottom-width: 1px;
+    border-bottom-style: solid;
+    margin-top: 16px;
+
+}
