@@ -68,6 +68,91 @@
       <div class="outer">
         <section id="main">
   
+    <article id="post-Other/log" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2018/06/12/Other/log/" class="article-date">
+  <time datetime="2018-06-11T16:00:00.000Z" itemprop="datePublished">2018-06-12</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/Other/">Other</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2018/06/12/Other/log/">每日做的事情</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h2 id="2018-6-12"><a href="#2018-6-12" class="headerlink" title="2018-6-12"></a>2018-6-12</h2><ol>
+<li><p>创建一个project和三个momodules</p>
+<ul>
+<li>app android基础页面</li>
+<li>test-robot robotium测试程序</li>
+<li><p>test-uiautomator UiAutomator2测试程序</p>
+<p>adb shell<br>pm list instrumentation</p>
+</li>
+</ul>
+</li>
+</ol>
+<pre><code>adb shell am instrument -w com.ronnie.robotiumtest.test/android.test.InstrumentationTestRunner
+
+adb shell am instrument -w -r   -e debug false -e class &apos;com.ronnie.test_robot.RobotiumTest&apos; com.ronnie.testdemo.test/android.test.InstrumentationTestRunner
+
+
+am instrument --user 0  -w -r -e debug false -e class com.ronnie.testdemo.UiAutomatorTest#useAppContext com.ronnie.testdemo.test/android.support.test.runner.AndroidJUnitRunner
+</code></pre><ol start="2">
+<li><p>Robotium无源码apk测试</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">task copyTask(type: Copy) &#123;</span><br><span class="line">    from &apos;app-debug.apk&apos;//将被测试apk放在工程app目录下</span><br><span class="line">    into &apos;build/outputs/apk/debug/&apos;//将apk复制到指定目录</span><br><span class="line">    rename &#123; String fileName -&gt; //在复制时重命名文件</span><br><span class="line">        fileName = &quot;app-debug.apk&quot; // 重命名</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line">//修改  applicationId &quot;com.ronnie.testdemo&quot;为被测app的包名</span><br><span class="line">//testInstrumentationRunner &quot;android.test.InstrumentationTestRunner&quot;</span><br><span class="line">//运行-editconfiguration 在中间添加一个gradle:app:copyTask</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>instrumentation的原理</p>
+</li>
+<li><p>Robotium 和uiautomator混合使用</p>
+<ul>
+<li>包名保持一致</li>
+<li>签名保持一致</li>
+<li>统一使用AndroidJUnitRunner</li>
+<li>UiAutomator产生一个包的方法</li>
+</ul>
+</li>
+</ol>
+<h3 id="参考资料"><a href="#参考资料" class="headerlink" title="参考资料"></a>参考资料</h3><ol>
+<li><a href="https://blog.csdn.net/xlyrh/article/details/52851037" target="_blank" rel="noopener">Robotium在AndroidStudio中搭建及参数化测试实践</a></li>
+<li><a href="https://github.com/ttraveler/robotium-as-demo/blob/master/tutorial/t2.md" target="_blank" rel="noopener">Robotium (无源码)基于Android Studio 的自动化测试</a></li>
+<li><a href="https://github.com/ttraveler/robotium-as-demo" target="_blank" rel="noopener">Android Studio Robotium</a></li>
+<li><a href="https://www.jianshu.com/p/62dabd69a409" target="_blank" rel="noopener">理解 android instrumentation</a></li>
+<li><a href="https://github.com/qNone/AutoClick" target="_blank" rel="noopener">基于Robotium的自动遍历方案</a></li>
+<li><p><a href="https://testerhome.com/topics/7298" target="_blank" rel="noopener">基于Robotium的自动遍历方案</a></p>
+</li>
+<li><p>了解appium基本概念</p>
+</li>
+</ol>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2018/06/12/Other/log/" data-id="cjiwg0u4000034hrq8jd0b4fi" class="article-share-link">Share</a>
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Log/">Log</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+  
     <article id="post-Other/Linux" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
     <a href="/2018/06/07/Other/Linux/" class="article-date">
@@ -109,6 +194,115 @@ printf &quot;%-10s %-8s %-4.2f\n&quot; 郭芙 女 47.9876
       <a data-url="http://yoursite.com/2018/06/07/Other/Linux/" data-id="cji4553hw000017rq6dn2zb7d" class="article-share-link">Share</a>
       
       
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+    <article id="post-Other/adb" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2018/06/06/Other/adb/" class="article-date">
+  <time datetime="2018-06-05T16:00:00.000Z" itemprop="datePublished">2018-06-06</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/Other/">Other</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2018/06/06/Other/adb/">ADB</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p><a href="https://developer.android.com/studio/command-line/adb" target="_blank" rel="noopener">ADB</a></p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2018/06/06/Other/adb/" data-id="cjiwg0u3t00014hrqbtlbensm" class="article-share-link">Share</a>
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/adb/">adb</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/android/">android</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/test/">test</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+    <article id="post-Other/AndroidTest" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2018/06/06/Other/AndroidTest/" class="article-date">
+  <time datetime="2018-06-05T16:00:00.000Z" itemprop="datePublished">2018-06-06</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/Other/">Other</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2018/06/06/Other/AndroidTest/">Android Test</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h3 id="Instrumentation"><a href="#Instrumentation" class="headerlink" title="Instrumentation"></a>Instrumentation</h3><ul>
+<li>通过Instrumentation你可以模拟按键按下、抬起、屏幕点击、滚动等事件。</li>
+<li>Instrumentation是通过将主程序和测试程序运行在同一个进程来实现这些功能，你可以把Instrumentation看成一个类似Activity或者Service并且不带界面的组件，在程序运行期间监控你的主程序。</li>
+<li>缺点是对测试人员来说编写代码能力要求较高，需要对Android相关知识有一定了解，还需要配置AndroidManifest.xml文件，不能跨多个App。<h3 id="UiAutomator"><a href="#UiAutomator" class="headerlink" title="UiAutomator"></a>UiAutomator</h3>Google提供的自动化测试框架，支持Android上的所有事件操作。可以跨App测试不能对Hybird App和WebApp测试<h3 id="Espresso"><a href="#Espresso" class="headerlink" title="Espresso"></a>Espresso</h3>Espresso基于Instrumentation开发的<h3 id="Robotium"><a href="#Robotium" class="headerlink" title="Robotium"></a>Robotium</h3>Robotium基于Instrumentation开发的不能跨app测试可以测试webapp</li>
+</ul>
+<p>adb shell pm list instrumentation</p>
+<h2 id="步骤"><a href="#步骤" class="headerlink" title="步骤"></a>步骤</h2><ol>
+<li>构造TestCast测试用例</li>
+<li>已经连接上AccessibilityService的UiDevice准备好</li>
+<li>AccessibilityService监听事件并返回info信息。</li>
+<li>UiAutomatorBridge通过UiAutomation提供的方法来获取AccessibilityNodeInfo信息</li>
+<li>通过translateCompoundSelector方法根据用户提供的UiSelector来遍历节点获取目标控件</li>
+<li>事件触发的时候才会去取节点信息，事件把控件节点的信息转换成控件的坐标点进行点击的</li>
+</ol>
+<h3 id="测试知识点记录"><a href="#测试知识点记录" class="headerlink" title="测试知识点记录"></a>测试知识点记录</h3><ol>
+<li><a href="https://www.jianshu.com/p/4cd8c109cdfb" target="_blank" rel="noopener">AccessibilityService</a></li>
+<li><a href="https://developer.android.com/reference/android/accessibilityservice/AccessibilityService" target="_blank" rel="noopener">Google AccessibilityService</a></li>
+</ol>
+<h2 id="相关资料"><a href="#相关资料" class="headerlink" title="相关资料"></a>相关资料</h2><ol>
+<li><p><a href="https://blog.csdn.net/zhubaitian/article/details/40504827" target="_blank" rel="noopener">Android4.3引入的UiAutomation新框架官方简介</a></p>
+</li>
+<li><p><a href="https://blog.csdn.net/wanglha/article/details/42523855" target="_blank" rel="noopener">Robotium源码分析之Instrumentation进阶</a></p>
+</li>
+</ol>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2018/06/06/Other/AndroidTest/" data-id="cjiwg0u3p00004hrqzoxs6yr7" class="article-share-link">Share</a>
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Instrumentation/">Instrumentation</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Robotium/">Robotium</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/UiAutomator/">UiAutomator</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/UiAutomator2-0/">UiAutomator2.0</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/test/">test</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/测试/">测试</a></li></ul>
+
     </footer>
   </div>
   
@@ -561,151 +755,11 @@ printf &quot;%-10s %-8s %-4.2f\n&quot; 郭芙 女 47.9876
 
 
   
-    <article id="post-Other/2018WorkPlan" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-meta">
-    <a href="/2018/02/21/Other/2018WorkPlan/" class="article-date">
-  <time datetime="2018-02-20T16:00:00.000Z" itemprop="datePublished">2018-02-21</time>
-</a>
-    
-  <div class="article-category">
-    <a class="article-category-link" href="/categories/Other/">Other</a>
-  </div>
-
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2018/02/21/Other/2018WorkPlan/">2017工作总结和计划</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h1 id="2018年计划"><a href="#2018年计划" class="headerlink" title="2018年计划"></a>2018年计划</h1><h2 id="1-完成一个完整的web实战项目"><a href="#1-完成一个完整的web实战项目" class="headerlink" title="1. 完成一个完整的web实战项目"></a>1. <a href="https://pareto.hylaa.net/signin" target="_blank" rel="noopener">完成一个完整的web实战项目</a></h2><h3 id="需要储备的知识"><a href="#需要储备的知识" class="headerlink" title="需要储备的知识"></a>需要储备的知识</h3><h4 id="H5"><a href="#H5" class="headerlink" title="* H5"></a>* <a href="https://pan.baidu.com/s/1voM4nnHr9TupUYL3es74Ag" target="_blank" rel="noopener">H5</a></h4><h4 id="CSS3"><a href="#CSS3" class="headerlink" title="* CSS3"></a>* <a href="https://pan.baidu.com/s/1voM4nnHr9TupUYL3es74Ag" target="_blank" rel="noopener">CSS3</a></h4><h4 id="Node"><a href="#Node" class="headerlink" title="* Node"></a>* Node</h4><h4 id="React"><a href="#React" class="headerlink" title="* React"></a>* React</h4><h4 id="React-Redux"><a href="#React-Redux" class="headerlink" title="* React-Redux"></a>* React-Redux</h4><h4 id="React-Router"><a href="#React-Router" class="headerlink" title="* React-Router"></a>* React-Router</h4><h4 id="Webpack"><a href="#Webpack" class="headerlink" title="* Webpack"></a>* Webpack</h4><h2 id="2-完成一个完整的iOS实战项目"><a href="#2-完成一个完整的iOS实战项目" class="headerlink" title="2. 完成一个完整的iOS实战项目"></a>2. 完成一个完整的iOS实战项目</h2>
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="http://yoursite.com/2018/02/21/Other/2018WorkPlan/" data-id="cji44rp0w0000ctrqv095sbtd" class="article-share-link">Share</a>
-      
-      
-  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/2018/">2018</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/工作计划/">工作计划</a></li></ul>
-
-    </footer>
-  </div>
-  
-</article>
-
-
-  
-    <article id="post-web/WebLeanSource" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-meta">
-    <a href="/2018/02/21/web/WebLeanSource/" class="article-date">
-  <time datetime="2018-02-20T16:00:00.000Z" itemprop="datePublished">2018-02-21</time>
-</a>
-    
-  <div class="article-category">
-    <a class="article-category-link" href="/categories/Web/">Web</a>
-  </div>
-
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2018/02/21/web/WebLeanSource/">前端学习</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h3 id="npm模块管理器"><a href="#npm模块管理器" class="headerlink" title="npm模块管理器"></a><a href="http://javascript.ruanyifeng.com/nodejs/npm.html#toc14" target="_blank" rel="noopener">npm模块管理器</a></h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">检查当前项目所有依赖的模块是否有新版本</span><br><span class="line">npm outdated</span><br><span class="line">检查当前项目的node_modules目录下是否有package.json里面没有提到的模块，然后把这些模块快输入到命令行</span><br></pre></td></tr></table></figure>
-<h3 id="NPM-相关知识"><a href="#NPM-相关知识" class="headerlink" title="NPM 相关知识"></a><a href="https://github.com/wy-ei/notebook/issues/42#issuecomment-266946999" target="_blank" rel="noopener">NPM 相关知识</a></h3><h3 id="React学习"><a href="#React学习" class="headerlink" title="React学习"></a><a href="http://www.css88.com/react/docs/context.html" target="_blank" rel="noopener">React学习</a></h3><h3 id="react-router"><a href="#react-router" class="headerlink" title="react-router"></a><a href="https://medium.com/@pshrmn/a-simple-react-router-v4-tutorial-7f23ff27adf" target="_blank" rel="noopener">react-router</a></h3><h3 id="webpack-读一篇就够了"><a href="#webpack-读一篇就够了" class="headerlink" title="webpack 读一篇就够了"></a><a href="https://www.jianshu.com/p/42e11515c10f" target="_blank" rel="noopener">webpack 读一篇就够了</a></h3><h3 id="webpack中文文档"><a href="#webpack中文文档" class="headerlink" title="webpack中文文档"></a><a href="https://www.webpackjs.com/concepts/" target="_blank" rel="noopener">webpack中文文档</a></h3><h3 id="redux中文文档"><a href="#redux中文文档" class="headerlink" title="redux中文文档"></a><a href="http://cn.redux.js.org/" target="_blank" rel="noopener">redux中文文档</a></h3><h3 id="Babel入门教程"><a href="#Babel入门教程" class="headerlink" title="Babel入门教程"></a><a href="http://www.ruanyifeng.com/blog/2016/01/babel.html" target="_blank" rel="noopener">Babel入门教程</a></h3><h3 id="SASS用法指南"><a href="#SASS用法指南" class="headerlink" title="SASS用法指南"></a><a href="http://www.ruanyifeng.com/blog/2012/06/sass.html" target="_blank" rel="noopener">SASS用法指南</a></h3><h3 id="React-Bootstrap"><a href="#React-Bootstrap" class="headerlink" title="React-Bootstrap"></a><a href="http://react-bootstrap.cn/components.html" target="_blank" rel="noopener">React-Bootstrap</a></h3><h2 id="好的项目"><a href="#好的项目" class="headerlink" title="好的项目"></a>好的项目</h2><p><a href="https://github.com/wellyshen/react-cool-starter" target="_blank" rel="noopener">react-cool-starter</a></p>
-<h2 id="前端UI框架对比"><a href="#前端UI框架对比" class="headerlink" title="前端UI框架对比"></a>前端UI框架对比</h2><p><a href="http://www.semantic-ui.cn/" target="_blank" rel="noopener">Semantic UI</a><br><a href="http://www.material-ui.com/#/components/list" target="_blank" rel="noopener">Material-UI</a><br><a href="https://ant.design/components/mention-cn/" target="_blank" rel="noopener">Ant Design</a></p>
-<h2 id="前端好库"><a href="#前端好库" class="headerlink" title="前端好库"></a>前端好库</h2><p>[国际化解决方案]<a href="https://github.com/alibaba/react-intl-universal" target="_blank" rel="noopener">https://github.com/alibaba/react-intl-universal</a></p>
-
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="http://yoursite.com/2018/02/21/web/WebLeanSource/" data-id="cji44rp1i000rctrqr7jt2krx" class="article-share-link">Share</a>
-      
-      
-  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/web/">web</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/前端/">前端</a></li></ul>
-
-    </footer>
-  </div>
-  
-</article>
-
-
-  
-    <article id="post-Other/TestUiAutomator" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-meta">
-    <a href="/2018/02/21/Other/TestUiAutomator/" class="article-date">
-  <time datetime="2018-02-20T16:00:00.000Z" itemprop="datePublished">2018-02-21</time>
-</a>
-    
-  <div class="article-category">
-    <a class="article-category-link" href="/categories/Other/">Other</a>
-  </div>
-
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2018/02/21/Other/TestUiAutomator/">2017工作总结和计划</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h2 id="UIAutomator"><a href="#UIAutomator" class="headerlink" title="UIAutomator"></a>UIAutomator</h2><h4 id="安装"><a href="#安装" class="headerlink" title="安装"></a>安装</h4><p>新建一个项目在gradle中添加依赖compile </p>
-<blockquote>
-<p> androidTestImplementation ‘com.android.support.test.uiautomator:uiautomator-v18:2.1.2’</p>
-</blockquote>
-<h5 id="需要注意的是minSdkVersion必须大于等于18。"><a href="#需要注意的是minSdkVersion必须大于等于18。" class="headerlink" title="需要注意的是minSdkVersion必须大于等于18。"></a>需要注意的是minSdkVersion必须大于等于18。</h5><h5 id="Android通过Annotation来识别测试用例"><a href="#Android通过Annotation来识别测试用例" class="headerlink" title="Android通过Annotation来识别测试用例"></a>Android通过Annotation来识别测试用例</h5><ul>
-<li>红色：通过声明@RunWith（AndroidJUnit4.class），来表示该类为一个测试集合。 </li>
-<li>黄色：通过声明@Test，来表示该方法为一个测试用例。 </li>
-<li>蓝色：“快进箭头”，用于运行一组测试用例。 </li>
-<li>绿色：“播放箭头”，用于运行一个测试用例。</li>
-</ul>
-<h2 id="命令"><a href="#命令" class="headerlink" title="命令"></a>命令</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">adb push D:\Workspace\Android\Farmer\app\build\outputs\apk\debug\app-debug.apk /data/local/tmp/com.smart.farmer</span><br><span class="line">adb shell pm install -t -r &quot;/data/local/tmp/com.smart.farmer&quot;</span><br><span class="line"></span><br><span class="line">adb push D:\Workspace\Android\Farmer\app\build\outputs\apk\androidTest\debug\app-debug-androidTest.apk /data/local/tmp/com.smart.farmer.test</span><br><span class="line">adb shell pm install -t -r &quot;/data/local/tmp/com.smart.farmer.test&quot;</span><br><span class="line"></span><br><span class="line">adb shell am instrument -w -r   -e debug false -e class &apos;com.smart.farmer.ExampleInstrumentedTest#test1&apos; com.smart.farmer.test/android.support.test.runner.AndroidJUnitRunner</span><br></pre></td></tr></table></figure>
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="http://yoursite.com/2018/02/21/Other/TestUiAutomator/" data-id="cji4501ze0001uxrq76z8ncrw" class="article-share-link">Share</a>
-      
-      
-  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/2018/">2018</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/工作计划/">工作计划</a></li></ul>
-
-    </footer>
-  </div>
-  
-</article>
-
-
-  
 
 
   <nav id="page-nav">
     
-    <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><a class="extend next" rel="next" href="/page/2/">下一页 &raquo;</a>
+    <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><a class="page-number" href="/page/3/">3</a><a class="extend next" rel="next" href="/page/2/">下一页 &raquo;</a>
   </nav>
 
 </section>
@@ -726,7 +780,7 @@ printf &quot;%-10s %-8s %-4.2f\n&quot; 郭芙 女 47.9876
   <div class="widget-wrap">
     <h3 class="widget-title">标签</h3>
     <div class="widget">
-      <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/2018/">2018</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Activity/">Activity</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Android/">Android</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Antd/">Antd</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/AntdDesign/">AntdDesign</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/C/">C</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/ES6/">ES6</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/IPC/">IPC</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/IntentFilter/">IntentFilter</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Less/">Less</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Objective-C/">Objective-C</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/React/">React</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/React-Native/">React Native</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Redux/">Redux</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Retrofit/">Retrofit</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Router/">Router</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/iOS/">iOS</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/web/">web</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/前端/">前端</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/工作计划/">工作计划</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/移动开发/">移动开发</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/算法/">算法</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/网络请求/">网络请求</a></li></ul>
+      <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/2018/">2018</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Activity/">Activity</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Android/">Android</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Antd/">Antd</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/AntdDesign/">AntdDesign</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/C/">C</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/ES6/">ES6</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/IPC/">IPC</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Instrumentation/">Instrumentation</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/IntentFilter/">IntentFilter</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Less/">Less</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Log/">Log</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Objective-C/">Objective-C</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/React/">React</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/React-Native/">React Native</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Redux/">Redux</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Retrofit/">Retrofit</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Robotium/">Robotium</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Router/">Router</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/UiAutomator/">UiAutomator</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/UiAutomator2-0/">UiAutomator2.0</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/adb/">adb</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/android/">android</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/iOS/">iOS</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/test/">test</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/web/">web</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/前端/">前端</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/工作计划/">工作计划</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/测试/">测试</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/移动开发/">移动开发</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/算法/">算法</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/网络请求/">网络请求</a></li></ul>
     </div>
   </div>
 
@@ -736,7 +790,7 @@ printf &quot;%-10s %-8s %-4.2f\n&quot; 郭芙 女 47.9876
   <div class="widget-wrap">
     <h3 class="widget-title">标签云</h3>
     <div class="widget tagcloud">
-      <a href="/tags/2018/" style="font-size: 12px;">2018</a> <a href="/tags/Activity/" style="font-size: 10px;">Activity</a> <a href="/tags/Android/" style="font-size: 16px;">Android</a> <a href="/tags/Antd/" style="font-size: 10px;">Antd</a> <a href="/tags/AntdDesign/" style="font-size: 10px;">AntdDesign</a> <a href="/tags/C/" style="font-size: 12px;">C</a> <a href="/tags/ES6/" style="font-size: 12px;">ES6</a> <a href="/tags/IPC/" style="font-size: 10px;">IPC</a> <a href="/tags/IntentFilter/" style="font-size: 10px;">IntentFilter</a> <a href="/tags/Less/" style="font-size: 10px;">Less</a> <a href="/tags/Objective-C/" style="font-size: 12px;">Objective-C</a> <a href="/tags/React/" style="font-size: 14px;">React</a> <a href="/tags/React-Native/" style="font-size: 14px;">React Native</a> <a href="/tags/Redux/" style="font-size: 10px;">Redux</a> <a href="/tags/Retrofit/" style="font-size: 10px;">Retrofit</a> <a href="/tags/Router/" style="font-size: 10px;">Router</a> <a href="/tags/iOS/" style="font-size: 12px;">iOS</a> <a href="/tags/web/" style="font-size: 20px;">web</a> <a href="/tags/前端/" style="font-size: 20px;">前端</a> <a href="/tags/工作计划/" style="font-size: 12px;">工作计划</a> <a href="/tags/移动开发/" style="font-size: 18px;">移动开发</a> <a href="/tags/算法/" style="font-size: 10px;">算法</a> <a href="/tags/网络请求/" style="font-size: 10px;">网络请求</a>
+      <a href="/tags/2018/" style="font-size: 12px;">2018</a> <a href="/tags/Activity/" style="font-size: 10px;">Activity</a> <a href="/tags/Android/" style="font-size: 16px;">Android</a> <a href="/tags/Antd/" style="font-size: 10px;">Antd</a> <a href="/tags/AntdDesign/" style="font-size: 10px;">AntdDesign</a> <a href="/tags/C/" style="font-size: 12px;">C</a> <a href="/tags/ES6/" style="font-size: 12px;">ES6</a> <a href="/tags/IPC/" style="font-size: 10px;">IPC</a> <a href="/tags/Instrumentation/" style="font-size: 10px;">Instrumentation</a> <a href="/tags/IntentFilter/" style="font-size: 10px;">IntentFilter</a> <a href="/tags/Less/" style="font-size: 10px;">Less</a> <a href="/tags/Log/" style="font-size: 10px;">Log</a> <a href="/tags/Objective-C/" style="font-size: 12px;">Objective-C</a> <a href="/tags/React/" style="font-size: 14px;">React</a> <a href="/tags/React-Native/" style="font-size: 14px;">React Native</a> <a href="/tags/Redux/" style="font-size: 10px;">Redux</a> <a href="/tags/Retrofit/" style="font-size: 10px;">Retrofit</a> <a href="/tags/Robotium/" style="font-size: 10px;">Robotium</a> <a href="/tags/Router/" style="font-size: 10px;">Router</a> <a href="/tags/UiAutomator/" style="font-size: 10px;">UiAutomator</a> <a href="/tags/UiAutomator2-0/" style="font-size: 10px;">UiAutomator2.0</a> <a href="/tags/adb/" style="font-size: 10px;">adb</a> <a href="/tags/android/" style="font-size: 10px;">android</a> <a href="/tags/iOS/" style="font-size: 12px;">iOS</a> <a href="/tags/test/" style="font-size: 12px;">test</a> <a href="/tags/web/" style="font-size: 20px;">web</a> <a href="/tags/前端/" style="font-size: 20px;">前端</a> <a href="/tags/工作计划/" style="font-size: 12px;">工作计划</a> <a href="/tags/测试/" style="font-size: 10px;">测试</a> <a href="/tags/移动开发/" style="font-size: 18px;">移动开发</a> <a href="/tags/算法/" style="font-size: 10px;">算法</a> <a href="/tags/网络请求/" style="font-size: 10px;">网络请求</a>
     </div>
   </div>
 
@@ -758,23 +812,23 @@ printf &quot;%-10s %-8s %-4.2f\n&quot; 郭芙 女 47.9876
       <ul>
         
           <li>
+            <a href="/2018/06/12/Other/log/">每日做的事情</a>
+          </li>
+        
+          <li>
             <a href="/2018/06/07/Other/Linux/">(no title)</a>
           </li>
         
           <li>
+            <a href="/2018/06/06/Other/adb/">ADB</a>
+          </li>
+        
+          <li>
+            <a href="/2018/06/06/Other/AndroidTest/">Android Test</a>
+          </li>
+        
+          <li>
             <a href="/2018/04/21/web/UIAntdDesign/">AntdDesign的使用</a>
-          </li>
-        
-          <li>
-            <a href="/2018/04/03/web/WebTrainingDesignRouter4/">Router4的使用</a>
-          </li>
-        
-          <li>
-            <a href="/2018/03/30/web/WebTrainingDesignRedux/">Redux的使用</a>
-          </li>
-        
-          <li>
-            <a href="/2018/03/30/web/WebTrainingDesignReact/">React的使用</a>
           </li>
         
       </ul>
