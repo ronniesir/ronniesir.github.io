@@ -1,0 +1,983 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>艾莎冰雪识字乐园</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/hanzi-writer@1.3/dist/hanzi-writer.min.css">
+    <script src="https://cdn.jsdelivr.net/npm/hanzi-writer@1.3/dist/hanzi-writer.min.js"></script>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: "微软雅黑", sans-serif;
+        }
+
+        body {
+            background: linear-gradient(135deg, #e8f4ff 0%, #d0e8fb 100%);
+            min-height: 100vh;
+            text-align: center;
+            padding: 0 0 30px 0;
+        }
+
+        /* ========== 欢迎页样式 ========== */
+        .welcome-page {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100vh;
+            background: linear-gradient(135deg, #1e88e5, #0d47a1);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            z-index: 9999;
+            color: #fff;
+            transition: opacity 0.8s ease;
+        }
+        .welcome-page.hide {
+            opacity: 0;
+            pointer-events: none;
+        }
+        .welcome-title {
+            font-size: 32px;
+            font-weight: bold;
+            margin-bottom: 30px;
+            text-shadow: 0 3px 10px rgba(0,0,0,0.2);
+        }
+        /* 欢迎页恢复长尺寸（竖版） */
+        .elsa-welcome {
+            width: 180px; 
+            height: 320px; 
+            object-fit: cover; /* 保证图片不变形 */
+            border-radius: 20px; 
+            margin-bottom: 40px;
+            animation: elsaFloat 2s infinite ease-in-out;
+            border: 5px solid rgba(255,255,255,0.8);
+        }
+        @keyframes elsaFloat {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-15px); }
+        }
+        .welcome-btn {
+            padding: 12px 40px;
+            background: rgba(255,255,255,0.9);
+            color: #1976d2;
+            border: none;
+            border-radius: 50px;
+            font-size: 18px;
+            font-weight: bold;
+            cursor: pointer;
+            box-shadow: 0 6px 20px rgba(0,0,0,0.15);
+            transition: all 0.3s ease;
+        }
+        .welcome-btn:active {
+            transform: translateY(3px);
+            box-shadow: 0 3px 10px rgba(0,0,0,0.1);
+        }
+        .countdown {
+            position: absolute;
+            bottom: 30px;
+            font-size: 16px;
+            opacity: 0.8;
+        }
+
+        /* 顶部统一导航栏 */
+        .app-header {
+            background: linear-gradient(135deg, #52a8f5, #1976d2);
+            color: #fff;
+            padding: 16px 15px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            box-shadow: 0 3px 10px rgba(15,104,179,0.2);
+            position: sticky;
+            top: 0;
+            z-index: 999;
+        }
+        .back-btn {
+            background: rgba(255,255,255,0.2);
+            border: none;
+            color: #fff;
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            font-size: 18px;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        .header-title {
+            font-size: 20px;
+            font-weight: bold;
+        }
+        .header-space {
+            width: 40px;
+        }
+
+        /* 首页隐藏返回按钮 */
+        .page.active#pageHome ~ .app-header .back-btn {
+            visibility: hidden;
+        }
+        .page.active:not(#pageHome) ~ .app-header .back-btn {
+            visibility: visible;
+        }
+
+        .page {
+            display: none;
+            max-width: 420px;
+            margin: 20px auto 0;
+            padding: 0 15px;
+        }
+
+        .page.active {
+            display: block;
+            animation: fadeIn 0.5s ease;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(10px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .top-title {
+            font-size: 26px;
+            color: #0f68b3;
+            font-weight: bold;
+            margin: 10px 0 20px;
+            text-shadow: 0 2px 6px rgba(15,104,179,0.15);
+        }
+
+        /* ========== 全新首页布局：顶部艾莎图 + 下方两行两列菜单 ========== */
+        .home-container {
+            width: 100%;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 25px;
+        }
+        
+        /* 首页艾莎大图 - 方形尺寸 */
+        .home-elsa-banner {
+            width: 280px; /* 方形宽度 */
+            height: 280px; /* 方形高度 */
+            object-fit: cover; /* 强制保持比例，避免变形 */
+            border-radius: 30px;
+            box-shadow: 0 10px 30px rgba(15,104,179,0.2);
+            animation: elsaBannerFloat 3s infinite ease-in-out;
+            border: 6px solid #fff;
+        }
+        
+        @keyframes elsaBannerFloat {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-10px); }
+        }
+        
+        /* 两行两列菜单网格 */
+        .home-menu-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 15px;
+            width: 100%;
+            max-width: 380px;
+        }
+        
+        /* 艾莎主题菜单按钮 */
+        .elsa-menu-btn {
+            height: 80px;
+            border: none;
+            border-radius: 20px;
+            font-size: 16px;
+            font-weight: bold;
+            color: #fff;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            gap: 5px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            box-shadow: 0 6px 15px rgba(0,0,0,0.15);
+            position: relative;
+            overflow: hidden;
+        }
+        
+        /* 按钮渐变背景（艾莎冰雪主题） */
+        .elsa-menu-btn::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(45deg, rgba(255,255,255,0.1), rgba(255,255,255,0.3));
+            transform: translateX(-100%);
+            transition: transform 0.6s ease;
+        }
+        
+        .elsa-menu-btn:hover::before {
+            transform: translateX(100%);
+        }
+        
+        .elsa-menu-btn:active {
+            transform: translateY(3px);
+            box-shadow: 0 3px 8px rgba(0,0,0,0.1);
+        }
+        
+        /* 不同按钮的冰雪主题配色 */
+        .btn-elsa-blue {
+            background: linear-gradient(135deg, #52a8f5, #1976d2);
+        }
+        
+        .btn-elsa-lightblue {
+            background: linear-gradient(135deg, #81d4fa, #29b6f6);
+        }
+        
+        .btn-elsa-purple {
+            background: linear-gradient(135deg, #9575cd, #7e57c2);
+        }
+        
+        .btn-elsa-green {
+            background: linear-gradient(135deg, #73d085, #388e3c);
+        }
+        
+        /* 按钮图标 */
+        .menu-icon {
+            font-size: 24px;
+            margin-bottom: 3px;
+        }
+
+        .char-box {
+            width: 260px;
+            height: 260px;
+            background: #ffffff;
+            border-radius: 30px;
+            margin: 25px auto;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 10px 30px rgba(15,104,179,0.15);
+            border: 3px solid #e3f0fc;
+        }
+
+        #hanzi-target, #review-target {
+            width: 230px;
+            height: 230px;
+        }
+
+        .pinyin {
+            font-size: 28px;
+            color: #0f68b3;
+            font-weight: 600;
+            margin: 10px 0;
+        }
+
+        .icon-btn {
+            width: 70px;
+            height: 70px;
+            border-radius: 50%;
+            background: #ffffff;
+            border: none;
+            font-size: 28px;
+            box-shadow: 0 5px 15px rgba(15,104,179,0.15);
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .icon-btn:active {
+            transform: scale(0.95);
+        }
+
+        .row {
+            display: flex;
+            justify-content: center;
+            gap: 18px;
+            margin: 20px 0;
+            flex-wrap: wrap;
+        }
+
+        .tip {
+            font-size: 17px;
+            color: #444;
+            margin: 10px 0;
+            background: #fff;
+            display: inline-block;
+            padding: 6px 20px;
+            border-radius: 30px;
+            box-shadow: 0 4px 12px rgba(15,104,179,0.1);
+        }
+
+        /* 学习/复习 计划小字 */
+        .study-plan, .review-plan {
+            font-size: 14px;
+            color: #0f68b3;
+            margin: -5px 0 10px;
+            opacity: 0.8;
+        }
+
+        /* 麦克风波纹动画 */
+        .mic-wrap {
+            position: relative;
+        }
+        .mic-wave {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%,-50%);
+            width: 70px;
+            height: 70px;
+            border-radius: 50%;
+            border: 3px solid #42a5f5;
+            animation: micRipple 1.6s infinite ease-out;
+            display: none;
+        }
+        @keyframes micRipple {
+            0% {
+                width: 70px;
+                height: 70px;
+                opacity: 1;
+            }
+            100% {
+                width: 120px;
+                height: 120px;
+                opacity: 0;
+            }
+        }
+        .listening .mic-wave {
+            display: block;
+        }
+
+        /* 错字卡片布局 */
+        .wrong-list {
+            margin: 25px 0;
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 15px 12px;
+        }
+        .wrong-char {
+            width: 72px;
+            height: 100px;
+            background: #ffffff;
+            border-radius: 18px;
+            box-shadow: 0 4px 12px rgba(15,104,179,0.12);
+            cursor: pointer;
+            position: relative;
+            padding: 8px 0;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: space-between;
+            transition: transform 0.2s ease;
+        }
+        .wrong-char:active {
+            transform: scale(0.96);
+        }
+        .wrong-char .hanzi-text {
+            font-size: 32px;
+            color: #1a1a1a;
+            font-weight: 500;
+            line-height: 1;
+        }
+        .wrong-count {
+            font-size: 11px;
+            color: #e53935;
+            font-weight: bold;
+            background: #ffebee;
+            padding: 3px 8px;
+            border-radius: 12px;
+            white-space: nowrap;
+        }
+        .empty-tip {
+            color: #666;
+            font-size: 16px;
+            margin: 40px 0;
+        }
+
+        /* 滑动缩略图导航（学习 + 复习通用） */
+        .slide-wrap {
+            width: 100%;
+            overflow-x: auto;
+            margin: 10px 0;
+        }
+        .slide-list {
+            display: flex;
+            gap: 10px;
+            padding: 0 10px;
+            width: max-content;
+            margin: 0 auto;
+        }
+        .slide-thumb {
+            width: 50px;
+            height: 50px;
+            background: #fff;
+            border-radius: 12px;
+            font-size: 24px;
+            line-height: 50px;
+            box-shadow: 0 3px 8px rgba(15,104,179,0.1);
+            cursor: pointer;
+            border: 2px solid transparent;
+        }
+        .slide-thumb.active {
+            border-color: #1976d2;
+            background: #e3f0fc;
+        }
+        .slide-tip {
+            font-size: 15px;
+            color: #1976d2;
+            margin: 5px 0 15px;
+            font-weight: 500;
+        }
+
+        /* ========== 新增缺失的按钮样式 ========== */
+        .big-btn {
+            padding: 12px 35px;
+            border: none;
+            border-radius: 50px;
+            font-size: 18px;
+            font-weight: bold;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            box-shadow: 0 6px 15px rgba(0,0,0,0.15);
+            min-width: 120px;
+        }
+        /* 绿色按钮（确认/正确） */
+        .btn-green {
+            background: linear-gradient(135deg, #4caf50, #388e3c);
+            color: #fff;
+        }
+        /* 红色按钮（错误/删除） */
+        .btn-red {
+            background: linear-gradient(135deg, #f44336, #d32f2f);
+            color: #fff;
+        }
+        /* 按钮点击/hover效果 */
+        .big-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 20px rgba(0,0,0,0.2);
+        }
+        .big-btn:active {
+            transform: translateY(2px);
+            box-shadow: 0 4px 10px rgba(0,0,0,0.15);
+        }
+    </style>
+</head>
+
+<body>
+    <!-- 欢迎页面 -->
+    <div class="welcome-page" id="welcomePage">
+        <div class="welcome-title">爱莎汉字小课堂</div>
+        <!-- 欢迎页：长尺寸艾莎图片 -->
+        <img class="elsa-welcome" src="https://img0.baidu.com/it/u=1615767756,860607809&fm=253&app=138&f=JPEG?w=684&h=1216" alt="艾莎">
+        <button class="welcome-btn" onclick="skipWelcome()">启动欢迎页</button>
+        <div class="countdown" id="countdown">3秒后自动进入...</div>
+    </div>
+
+    <!-- 顶部统一导航栏 -->
+    <div class="app-header">
+        <button class="back-btn" onclick="goBack()">←</button>
+        <div class="header-title">艾莎冰雪识字乐园</div>
+        <div class="header-space"></div>
+    </div>
+
+    <!-- 首页：顶部方形艾莎大图 + 下方两行两列菜单 -->
+    <div class="page active" id="pageHome">
+        <div class="top-title">👸 欢迎来到识字乐园</div>
+        
+        <div class="home-container">
+            <!-- 首页：方形艾莎图片 -->
+            <img class="home-elsa-banner" src="https://img0.baidu.com/it/u=1615767756,860607809&fm=253&app=138&f=JPEG?w=684&h=1216" alt="艾莎公主">
+            
+            <!-- 两行两列菜单网格 -->
+            <div class="home-menu-grid">
+                <button class="elsa-menu-btn btn-elsa-blue" onclick="startStudy()">
+                    <span class="menu-icon">📚</span>
+                    开始今日学习
+                </button>
+                <button class="elsa-menu-btn btn-elsa-lightblue" onclick="openReview()">
+                    <span class="menu-icon">❄️</span>
+                    复习闯关
+                </button>
+                <button class="elsa-menu-btn btn-elsa-purple" onclick="openWrongBook()">
+                    <span class="menu-icon">📖</span>
+                    错字待复习
+                </button>
+                <button class="elsa-menu-btn btn-elsa-green" onclick="openWrongHistory()">
+                    <span class="menu-icon">📜</span>
+                    错字历史记录
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <!-- 学习新字页面 -->
+    <div class="page" id="pageStudy">
+        <div class="top-title">✨ 今日学习</div>
+        <div class="study-plan">📅 学习计划：每日5个新字，轻松掌握</div>
+        <div class="slide-tip">📚 今日学习内容（左右滑动切换）</div>
+
+        <div class="slide-wrap">
+            <div class="slide-list" id="studySlide"></div>
+        </div>
+
+        <div class="char-box">
+            <div id="hanzi-target"></div>
+        </div>
+        <div class="pinyin" id="pinyin">rén</div>
+        <div class="tip" id="tipTxt">请点击麦克风跟读</div>
+
+        <div class="row">
+            <button class="icon-btn" onclick="playVoice()">🔊</button>
+            <button class="icon-btn" onclick="playStroke()">✍️</button>
+            <div class="mic-wrap" id="micWrap">
+                <div class="mic-wave"></div>
+                <button class="icon-btn" onclick="startListen()">🎤</button>
+            </div>
+        </div>
+
+        <div class="row">
+            <button class="big-btn btn-green" onclick="knowChar()">✅ 认识</button>
+            <button class="big-btn btn-red" onclick="unknowChar()">❌ 不认识</button>
+        </div>
+    </div>
+
+    <!-- 复习页面 -->
+    <div class="page" id="pageReview">
+        <div class="top-title">❄️ 复习闯关</div>
+        <div class="review-plan">📅 复习计划：每日复习错字，巩固记忆</div>
+        <div class="slide-tip">📚 今日复习内容（左右滑动切换）</div>
+
+        <div class="slide-wrap">
+            <div class="slide-list" id="reviewSlide"></div>
+        </div>
+
+        <div class="char-box">
+            <div id="review-target"></div>
+        </div>
+        <div class="pinyin" id="review-pinyin">shān</div>
+
+        <div class="row">
+            <button class="big-btn btn-green" onclick="reviewRight()">✅ 读对</button>
+            <button class="big-btn btn-red" onclick="reviewWrong()">❌ 读错</button>
+        </div>
+
+        <button class="big-btn" onclick="openCalendar()">📅 日历选择学习</button>
+    </div>
+
+    <!-- 错字待复习 -->
+    <div class="page" id="pageWrong">
+        <div class="top-title">📖 错字待复习</div>
+        <div id="wrongList" class="wrong-list"></div>
+        <button class="big-btn" onclick="clearWrongBook()">🗑️ 清空待复习</button>
+    </div>
+
+    <!-- 错字历史记录 -->
+    <div class="page" id="pageWrongHistory">
+        <div class="top-title">📜 错字历史记录</div>
+        <div id="wrongHistoryList" class="wrong-list"></div>
+        <button class="big-btn btn-red" onclick="clearWrongHistory()">🗑️ 清空历史记录</button>
+    </div>
+
+<script>
+const charList = [
+    { c: "人", p: "rén" },
+    { c: "山", p: "shān" },
+    { c: "水", p: "shuǐ" },
+    { c: "云", p: "yún" },
+    { c: "日", p: "rì" }
+];
+
+let currentIndex = 0;
+let reviewIndex = 0;
+let writer, reviewWriter;
+let recognition;
+let isFromWrongBook = false;
+
+// 欢迎页逻辑
+let countdownTimer;
+let countdown = 3;
+
+// 页面加载完成后启动欢迎页倒计时
+window.onload = function () {
+    // 初始化欢迎页倒计时
+    startWelcomeCountdown();
+    // 初始化汉字
+    initChar('hanzi-target', '人');
+    initReviewChar('山');
+    switchPage('pageHome');
+};
+
+// 欢迎页倒计时
+function startWelcomeCountdown() {
+    const countdownEl = document.getElementById('countdown');
+    countdownTimer = setInterval(() => {
+        countdown--;
+        if (countdown <= 0) {
+            clearInterval(countdownTimer);
+            enterHomePage();
+        } else {
+            countdownEl.innerText = `${countdown}秒后自动进入...`;
+        }
+    }, 1000);
+}
+
+// 跳过欢迎页
+function skipWelcome() {
+    clearInterval(countdownTimer);
+    enterHomePage();
+}
+
+// 进入首页
+function enterHomePage() {
+    const welcomePage = document.getElementById('welcomePage');
+    welcomePage.classList.add('hide');
+    // 显示首页
+    document.getElementById('pageHome').classList.add('active');
+}
+
+// 统一返回首页
+function goBack() {
+    switchPage('pageHome');
+}
+
+// 页面切换
+function switchPage(id) {
+    document.querySelectorAll('.page').forEach(p => p.classList.remove('active'));
+    document.getElementById(id).classList.add('active');
+    const backBtn = document.querySelector('.back-btn');
+    backBtn.style.visibility = id === 'pageHome' ? 'hidden' : 'visible';
+}
+
+// 初始化汉字
+function initChar(target, char) {
+    document.getElementById(target).innerHTML = "";
+    return HanziWriter.create(target, char, {
+        width: 230, height: 230, padding: 8,
+        strokeColor: '#1976d2',
+        strokeAnimationSpeed: 1.4,
+        delayBetweenStrokes: 550
+    });
+}
+function initReviewChar(char) {
+    reviewWriter = initChar('review-target', char);
+    document.getElementById('review-pinyin').innerText = charList[reviewIndex].p;
+}
+
+// 学习滑动
+function renderStudySlide() {
+    const box = document.getElementById('studySlide');
+    let html = '';
+    charList.forEach((item, i) => {
+        html += `<div class="slide-thumb ${i===currentIndex ? 'active' : ''}" onclick="goStudy(${i})">${item.c}</div>`;
+    });
+    box.innerHTML = html;
+}
+function goStudy(index) {
+    currentIndex = index;
+    renderStudySlide();
+    showChar();
+}
+
+// 开始学习
+function startStudy() {
+    currentIndex = 0;
+    isFromWrongBook = false;
+    renderStudySlide();
+    showChar();
+    switchPage('pageStudy');
+}
+
+// 显示当前字
+function showChar() {
+    const item = charList[currentIndex];
+    writer = initChar('hanzi-target', item.c);
+    document.getElementById('pinyin').innerText = item.p;
+    document.getElementById('tipTxt').innerText = isFromWrongBook ? "✅ 学会后点击认识，自动移除错字" : "请点击麦克风跟读";
+    document.getElementById('micWrap').classList.remove('listening');
+}
+
+// 播放笔顺
+function playStroke() {
+    writer.animateCharacter();
+}
+
+// 语音朗读
+function playVoice() {
+    const u = new SpeechSynthesisUtterance(charList[currentIndex].c);
+    u.lang = 'zh-CN';
+    u.rate = 0.9;
+    window.speechSynthesis.speak(u);
+}
+
+// 麦克风动画
+function openMicAnim() {
+    document.getElementById('micWrap').classList.add('listening');
+}
+function closeMicAnim() {
+    document.getElementById('micWrap').classList.remove('listening');
+}
+
+// 语音识别
+function startListen() {
+    if (!('webkitSpeechRecognition' in window) && !('SpeechRecognition' in window)) {
+        alert("请用 Chrome / Edge 浏览器打开，支持语音识别");
+        return;
+    }
+    openMicAnim();
+    const SpeechRecognition = window.SpeechRecognition || window.webkitSpeechRecognition;
+    recognition = new SpeechRecognition();
+    recognition.lang = "zh-CN";
+    recognition.continuous = false;
+    recognition.interimResults = true;
+    recognition.maxAlternatives = 5;
+    document.getElementById('tipTxt').innerText = "认真听你读，请慢慢读单个汉字...";
+    recognition.start();
+
+    recognition.onresult = function (e) {
+        closeMicAnim();
+        const targetChar = charList[currentIndex].c;
+        let ok = false;
+        for (let i = 0; i < e.results.length; i++) {
+            const transcript = e.results[i][0].transcript.trim();
+            if (transcript.indexOf(targetChar) !== -1) {
+                ok = true;
+                break;
+            }
+        }
+        if (ok) {
+            document.getElementById('tipTxt').innerText = "✅ 太棒啦！读对了！";
+            playNiceVoice();
+            if(isFromWrongBook){
+                removeCharFromWrong(targetChar);
+                setTimeout(openWrongBook,1500);
+                return;
+            }
+            setTimeout(nextChar, 1500);
+        } else {
+            document.getElementById('tipTxt').innerText = "😉 差一点点，再慢慢读一次～";
+        }
+    };
+    recognition.onerror = function () {
+        closeMicAnim();
+        document.getElementById('tipTxt').innerText = "没听清，请离手机近一点慢慢读";
+    };
+    recognition.onend = function () {
+        closeMicAnim();
+    };
+}
+
+// 表扬语音
+function playNiceVoice() {
+    const list = ["真棒", "太厉害啦", "你真棒", "答对了", "好聪明"];
+    const msg = list[Math.floor(Math.random() * list.length)];
+    const u = new SpeechSynthesisUtterance(msg);
+    u.lang = 'zh-CN';
+    u.rate = 1.0;
+    speechSynthesis.speak(u);
+}
+
+// 认识
+function knowChar() {
+    const currentChar = charList[currentIndex].c;
+    if(isFromWrongBook){
+        document.getElementById('tipTxt').innerText = "✅ 太棒了！已从错字本移除！";
+        removeCharFromWrong(currentChar);
+        setTimeout(openWrongBook, 1200);
+        return;
+    }
+    document.getElementById('tipTxt').innerText = "✅ 很棒！继续学习下一个";
+    nextChar();
+}
+
+// 不认识 → 加入待复习 + 记录历史
+function unknowChar() {
+    const char = charList[currentIndex].c;
+    addCharToWrong(char);
+    addCharToHistory(char);
+    alert("❌ 已加入错字本，稍后专门复习");
+    nextChar();
+}
+
+// 下一个字
+function nextChar() {
+    if(isFromWrongBook){
+        openWrongBook();
+        return;
+    }
+    if (currentIndex < charList.length - 1) {
+        currentIndex++;
+        renderStudySlide();
+        showChar();
+    } else {
+        alert("🎉 今日所有汉字学习完成！太优秀啦！");
+        goBack();
+    }
+}
+
+// 复习闯关
+function openReview() {
+    reviewIndex = 0;
+    renderReviewSlide();
+    showReviewChar();
+    switchPage('pageReview');
+}
+function renderReviewSlide() {
+    const box = document.getElementById('reviewSlide');
+    let html = '';
+    charList.forEach((item, i) => {
+        html += `<div class="slide-thumb ${i===reviewIndex ? 'active' : ''}" onclick="goReview(${i})">${item.c}</div>`;
+    });
+    box.innerHTML = html;
+}
+function goReview(index) {
+    reviewIndex = index;
+    renderReviewSlide();
+    showReviewChar();
+}
+function showReviewChar() {
+    const item = charList[reviewIndex];
+    initReviewChar(item.c);
+}
+function reviewRight() {
+    alert("✅ 读对！非常棒！");
+    if(reviewIndex < charList.length-1) {
+        reviewIndex++;
+        renderReviewSlide();
+        showReviewChar();
+    } else {
+        alert("🎉 今日复习完成！");
+        goBack();
+    }
+}
+function reviewWrong() {
+    const char = charList[reviewIndex].c;
+    addCharToWrong(char);
+    addCharToHistory(char);
+    alert("❌ 已加入错字本，多练习几次就会啦");
+    if(reviewIndex < charList.length-1) {
+        reviewIndex++;
+        renderReviewSlide();
+        showReviewChar();
+    }
+}
+
+function openCalendar(){
+    alert("📅 日历选择功能：可选择日期学习对应内容！");
+}
+
+// 错字数据（两套独立存储）
+// 1. 待复习
+function getWrongData(){
+    return JSON.parse(localStorage.wrongData || '[]');
+}
+function saveWrongData(data){
+    localStorage.wrongData = JSON.stringify(data);
+}
+function addCharToWrong(char){
+    let data = getWrongData();
+    let item = data.find(i => i.c === char);
+    if(item) item.count++;
+    else data.push({c: char, count: 1});
+    saveWrongData(data);
+}
+function removeCharFromWrong(char){
+    let data = getWrongData();
+    data = data.filter(i => i.c !== char);
+    saveWrongData(data);
+}
+
+// 2. 历史记录（永久保存，不会删除）
+function getWrongHistory(){
+    return JSON.parse(localStorage.wrongHistory || '[]');
+}
+function saveWrongHistory(data){
+    localStorage.wrongHistory = JSON.stringify(data);
+}
+function addCharToHistory(char){
+    let data = getWrongHistory();
+    let exists = data.find(i => i.c === char);
+    if(!exists) data.push({c: char});
+    saveWrongHistory(data);
+}
+
+// 打开错字页面
+// 打开待复习
+function openWrongBook() {
+    isFromWrongBook = false;
+    switchPage('pageWrong');
+    renderWrongList();
+}
+// 打开历史记录
+function openWrongHistory() {
+    switchPage('pageWrongHistory');
+    renderWrongHistory();
+}
+
+// 渲染待复习
+function renderWrongList() {
+    const data = getWrongData();
+    const box = document.getElementById('wrongList');
+    if (data.length === 0) {
+        box.innerHTML = '<div class="empty-tip">暂无错字，太棒啦！🎉</div>';
+        return;
+    }
+    let html = '';
+    data.forEach(item => {
+        html += `
+        <div class="wrong-char" onclick="goToStudyChar('${item.c}')">
+            <span class="hanzi-text">${item.c}</span>
+            <span class="wrong-count">错${item.count}次</span>
+        </div>`;
+    });
+    box.innerHTML = html;
+}
+
+// 渲染历史记录
+function renderWrongHistory() {
+    const data = getWrongHistory();
+    const box = document.getElementById('wrongHistoryList');
+    if (data.length === 0) {
+        box.innerHTML = '<div class="empty-tip">暂无历史记录🎉</div>';
+        return;
+    }
+    let html = '';
+    data.forEach(item => {
+        html += `
+        <div class="wrong-char">
+            <span class="hanzi-text">${item.c}</span>
+            <span class="wrong-count">历史错字</span>
+        </div>`;
+    });
+    box.innerHTML = html;
+}
+
+// 点击错字学习
+function goToStudyChar(char){
+    let idx = charList.findIndex(i => i.c === char);
+    if(idx === -1) return;
+    currentIndex = idx;
+    isFromWrongBook = true;
+    showChar();
+    switchPage('pageStudy');
+}
+
+// 清空待复习
+function clearWrongBook() {
+    if (!confirm('确定要清空所有待复习记录吗？')) return;
+    saveWrongData([]);
+    renderWrongList();
+    alert('已清空错字待复习');
+}
+// 清空历史
+function clearWrongHistory() {
+    if (!confirm('确定要清空所有错字历史吗？此操作不可恢复！')) return;
+    saveWrongHistory([]);
+    renderWrongHistory();
+    alert('已清空错字历史记录');
+}
+</script>
+</body>
+</html>
