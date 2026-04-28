@@ -1,1580 +1,2737 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="zh-CN">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+  <head>
+    <meta charset="UTF-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"
+    />
     <title>艾莎冰雪识字乐园</title>
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/hanzi-writer@1.3/dist/hanzi-writer.min.css">
-    <link rel="stylesheet" href="styles.css">
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/hanzi-writer@1.3/dist/hanzi-writer.min.css"
+    />
+    <link rel="stylesheet" href="styles.css" />
     <script src="https://cdn.jsdelivr.net/npm/hanzi-writer@1.3/dist/hanzi-writer.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/pinyin-pro/3.23.0/index.js"></script>
-</head>
+  </head>
 
-<body>
+  <body>
     <!-- Toast -->
     <div class="toast" id="toast"></div>
 
     <!-- 日历弹窗 -->
     <div class="calendar-modal" id="calendarModal">
-        <div class="modal-box">
-            <div class="modal-title" id="modalDateTitle">2025年12月25日 学习计划</div>
-            <div class="plan-char-list" id="planCharList"></div>
-            <button class="modal-close" onclick="closeCalendarModal()">关闭</button>
+      <div class="modal-box">
+        <div class="modal-title" id="modalDateTitle">
+          2025年12月25日 学习计划
         </div>
+        <div class="plan-char-list" id="planCharList"></div>
+        <button class="modal-close" onclick="closeCalendarModal()">关闭</button>
+      </div>
     </div>
 
     <!-- 欢迎页 -->
     <div class="welcome-page" id="welcomePage">
-        <div class="welcome-title">爱莎汉字小课堂</div>
-        <img class="elsa-welcome" src="https://img0.baidu.com/it/u=1615767756,860607809&fm=253&app=138&f=JPEG?w=684&h=1216" alt="艾莎">
-        <button class="welcome-btn" onclick="skipWelcome()">启动欢迎页</button>
-        <div class="countdown" id="countdown">3秒后自动进入...</div>
+      <div class="welcome-title">爱莎汉字小课堂</div>
+      <img
+        class="elsa-welcome"
+        src="https://img0.baidu.com/it/u=1615767756,860607809&fm=253&app=138&f=JPEG?w=684&h=1216"
+        alt="艾莎"
+      />
+      <button class="welcome-btn" onclick="skipWelcome()">启动欢迎页</button>
+      <div class="countdown" id="countdown">3秒后自动进入...</div>
     </div>
 
     <!-- 顶部导航 -->
     <div class="app-header">
-        <button class="back-btn" onclick="goBack()">←</button>
-        <div class="header-title">艾莎冰雪识字乐园</div>
-        <div class="header-space"></div>
+      <button class="back-btn" onclick="goBack()">←</button>
+      <div class="header-title">艾莎冰雪识字乐园</div>
+      <div class="header-space"></div>
     </div>
 
     <!-- 首页 -->
     <div class="page active" id="pageHome">
-        <div class="top-title">👸 欢迎来到识字乐园</div>
+      <div class="top-title">👸 欢迎来到识字乐园</div>
 
-        <!-- 日历模块 -->
-        <div class="calendar-wrap">
-            <div class="calendar-head">
-                <button onclick="prevMonth()">&lt;</button>
-                <div class="calendar-title" id="calendarTitle">2026年4月</div>
-                <button onclick="nextMonth()">&gt;</button>
-            </div>
-            <div class="calendar-week">
-                <div class="week-item">日</div>
-                <div class="week-item">一</div>
-                <div class="week-item">二</div>
-                <div class="week-item">三</div>
-                <div class="week-item">四</div>
-                <div class="week-item">五</div>
-                <div class="week-item">六</div>
-            </div>
-            <div class="calendar-day-list" id="calendarDayList"></div>
+      <!-- 日历模块 -->
+      <div class="calendar-wrap">
+        <div class="calendar-head">
+          <button onclick="prevMonth()">&lt;</button>
+          <div class="calendar-title" id="calendarTitle">2026年4月</div>
+          <button onclick="nextMonth()">&gt;</button>
         </div>
-        
-        <div class="home-container">
-            <div class="home-menu-grid">
-                <button class="elsa-menu-btn btn-elsa-blue" onclick="startStudy()">
-                    <span class="menu-icon">📚</span>开始今日学习
-                </button>
-                <button class="elsa-menu-btn btn-elsa-lightblue" onclick="openReview()">
-                    <span class="menu-icon">❄️</span>复习闯关
-                </button>
-                <button class="elsa-menu-btn btn-elsa-purple" onclick="openAllChars()">
-                    <span class="menu-icon">📝</span>全部汉字
-                </button>
-                <button class="elsa-menu-btn btn-elsa-green" onclick="openCustomStudy()">
-                    <span class="menu-icon">✏️</span>自定义学习
-                </button>
-                <button class="elsa-menu-btn btn-elsa-blue" onclick="openLearnedChars()">
-                    <span class="menu-icon">🎓</span>已认识汉字
-                </button>
-                <button class="elsa-menu-btn btn-elsa-lightblue" onclick="openWrongBook()">
-                    <span class="menu-icon">📖</span>错字待复习
-                </button>
-            </div>
+        <div class="calendar-week">
+          <div class="week-item">日</div>
+          <div class="week-item">一</div>
+          <div class="week-item">二</div>
+          <div class="week-item">三</div>
+          <div class="week-item">四</div>
+          <div class="week-item">五</div>
+          <div class="week-item">六</div>
         </div>
+        <div class="calendar-day-list" id="calendarDayList"></div>
+      </div>
+
+      <div class="home-container">
+        <div class="home-menu-grid">
+          <button class="elsa-menu-btn btn-elsa-blue" onclick="startStudy()">
+            <span class="menu-icon">📚</span>开始今日学习
+          </button>
+          <button
+            class="elsa-menu-btn btn-elsa-lightblue"
+            onclick="openReview()"
+          >
+            <span class="menu-icon">❄️</span>复习闯关
+          </button>
+          <button
+            class="elsa-menu-btn btn-elsa-purple"
+            onclick="openAllChars()"
+          >
+            <span class="menu-icon">📝</span>全部汉字
+          </button>
+          <button
+            class="elsa-menu-btn btn-elsa-green"
+            onclick="openCustomStudy()"
+          >
+            <span class="menu-icon">✏️</span>自定义学习
+          </button>
+          <button
+            class="elsa-menu-btn btn-elsa-blue"
+            onclick="openLearnedChars()"
+          >
+            <span class="menu-icon">🎓</span>已认识汉字
+          </button>
+          <button
+            class="elsa-menu-btn btn-elsa-lightblue"
+            onclick="openWrongBook()"
+          >
+            <span class="menu-icon">📖</span>错字待复习
+          </button>
+        </div>
+      </div>
     </div>
 
     <!-- 学习页 -->
     <div class="page" id="pageStudy">
-        <div class="top-title">✨ 今日学习</div>
-        <div class="study-plan">📅 学习计划：每日5个新字，轻松掌握</div>
-        <div class="slide-tip">📚 今日学习内容（左右滑动切换）</div>
-        <div class="slide-wrap">
-            <div class="slide-list" id="studySlide"></div>
+      <div class="top-title" id="studyTitle">✨ 今日学习</div>
+      <div class="study-plan" id="studyPlan">📅 学习计划：每日5个新字，轻松掌握</div>
+      <div class="slide-tip" id="studyTip">📚 今日学习内容（左右滑动切换）</div>
+      <div class="slide-wrap">
+        <div class="slide-list" id="studySlide"></div>
+      </div>
+      <div class="char-box">
+        <div id="hanzi-target"></div>
+      </div>
+      <div class="pinyin" id="pinyin">rén</div>
+      <div class="tip" id="tipTxt">请点击麦克风跟读</div>
+      <div class="row">
+        <button class="icon-btn" onclick="playVoice()">🔊</button>
+        <button class="icon-btn" onclick="playStroke()">✍️</button>
+        <div class="mic-wrap" id="micWrap">
+          <div class="mic-wave"></div>
+          <button class="icon-btn" onclick="startListen()">🎤</button>
         </div>
-        <div class="char-box">
-            <div id="hanzi-target"></div>
-        </div>
-        <div class="pinyin" id="pinyin">rén</div>
-        <div class="tip" id="tipTxt">请点击麦克风跟读</div>
-        <div class="row">
-            <button class="icon-btn" onclick="playVoice()">🔊</button>
-            <button class="icon-btn" onclick="playStroke()">✍️</button>
-            <div class="mic-wrap" id="micWrap">
-                <div class="mic-wave"></div>
-                <button class="icon-btn" onclick="startListen()">🎤</button>
-            </div>
-        </div>
-        <div class="row">
-            <button class="big-btn btn-green" onclick="knowChar()">✅ 认识</button>
-            <button class="big-btn btn-red" onclick="unknowChar()">❌ 不认识</button>
-        </div>
+      </div>
+      <div class="row">
+        <button class="big-btn btn-green" onclick="knowChar()">✅ 认识</button>
+        <button class="big-btn btn-red" onclick="unknowChar()">
+          ❌ 不认识
+        </button>
+      </div>
     </div>
 
     <!-- 复习页 -->
     <div class="page" id="pageReview">
-        <div class="top-title">❄️ 复习闯关</div>
-        <div class="review-plan">📅 复习计划：复习近3天学习的汉字，巩固记忆</div>
-        <div class="slide-tip">📚 近3天学习内容（左右滑动切换）</div>
-        <div class="slide-wrap">
-            <div class="slide-list" id="reviewSlide"></div>
-        </div>
-        <div class="char-box">
-            <div id="review-target"></div>
-        </div>
-        <div class="pinyin" id="review-pinyin">shān</div>
-        <div class="row">
-            <button class="big-btn btn-green" onclick="reviewRight()">✅ 读对</button>
-            <button class="big-btn btn-red" onclick="reviewWrong()">❌ 读错</button>
-        </div>
+      <div class="top-title">❄️ 复习闯关</div>
+      <div class="review-plan">📅 复习计划：复习近3天学习的汉字，巩固记忆</div>
+      <div class="slide-tip">📚 近3天学习内容（左右滑动切换）</div>
+      <div class="slide-wrap">
+        <div class="slide-list" id="reviewSlide"></div>
+      </div>
+      <div class="char-box">
+        <div id="review-target"></div>
+      </div>
+      <div class="pinyin" id="review-pinyin">shān</div>
+      <div class="row">
+        <button class="big-btn btn-green" onclick="reviewRight()">
+          ✅ 读对
+        </button>
+        <button class="big-btn btn-red" onclick="reviewWrong()">❌ 读错</button>
+      </div>
     </div>
 
     <!-- 错字待复习 -->
     <div class="page" id="pageWrong">
-        <div class="top-title">📖 错字待复习</div>
-        <div id="wrongList" class="wrong-list"></div>
-        <button class="big-btn" onclick="clearWrongBook()">🗑️ 清空待复习</button>
+      <div class="top-title">📖 错字待复习</div>
+      <div id="wrongList" class="wrong-list"></div>
+      <button class="big-btn" onclick="clearWrongBook()">🗑️ 清空待复习</button>
     </div>
 
     <!-- 错字历史 -->
     <div class="page" id="pageWrongHistory">
-        <div class="top-title">📜 错字历史记录</div>
-        <div id="wrongHistoryList" class="wrong-list"></div>
-        <button class="big-btn btn-red" onclick="clearWrongHistory()">🗑️ 清空历史记录</button>
+      <div class="top-title">📜 错字历史记录</div>
+      <div id="wrongHistoryList" class="wrong-list"></div>
+      <button class="big-btn btn-red" onclick="clearWrongHistory()">
+        🗑️ 清空历史记录
+      </button>
     </div>
 
     <!-- 全部汉字展示页面 -->
     <div class="page" id="pageAllChars">
-        <div class="top-title">📚 全部汉字展示</div>
-        <div class="tip">共3000个常用汉字，点击汉字可进入学习</div>
-        <div class="char-grid" id="allCharsGrid"></div>
-        <div class="row">
-            <button class="big-btn btn-green" onclick="goBack()">返回首页</button>
-        </div>
+      <div class="top-title">📚 全部汉字展示</div>
+      <div class="tip">共3000个常用汉字，点击汉字可进入学习</div>
+      <div class="char-grid" id="allCharsGrid"></div>
+      <div class="row">
+        <button class="big-btn btn-green" onclick="goBack()">返回首页</button>
+      </div>
     </div>
 
     <!-- 自定义学习页面 -->
     <div class="page" id="pageCustomStudy">
-        <div class="top-title">✏️ 自定义学习</div>
-        <div class="tip">请输入要学习的汉字，用逗号分隔</div>
-        <div class="input-wrap">
-            <input type="text" id="customCharsInput" placeholder="例如：你,好,学,习" class="custom-input">
-        </div>
-        <div class="row">
-            <button class="big-btn btn-green" onclick="startCustomStudy()">开始学习</button>
-        </div>
-        <div class="char-box" style="display: none;" id="customCharBox">
-            <div id="custom-target"></div>
-        </div>
-        <div class="pinyin" id="custom-pinyin" style="display: none;"></div>
-        <div class="row" style="display: none;" id="customControls">
-            <button class="icon-btn" onclick="playCustomVoice()">🔊</button>
-            <button class="icon-btn" onclick="playCustomStroke()">✍️</button>
-            <button class="icon-btn" onclick="startCustomListen()">🎤</button>
-        </div>
-        <div class="row" style="display: none;" id="customButtons">
-            <button class="big-btn btn-green" onclick="customKnowChar()">✅ 认识</button>
-            <button class="big-btn btn-red" onclick="customUnknowChar()">❌ 不认识</button>
-        </div>
+      <div class="top-title">✏️ 自定义学习</div>
+      <div class="tip">请输入要学习的汉字，直接输入即可</div>
+      <div class="input-wrap">
+        <input
+          type="text"
+          id="customCharsInput"
+          placeholder="例如：你好学习"
+          class="custom-input"
+        />
+      </div>
+      <div class="row">
+        <button class="big-btn btn-green" onclick="startCustomStudy()">
+          开始学习
+        </button>
+      </div>
+      <div class="slide-wrap" style="display: none" id="customSlideWrap">
+        <div class="slide-list" id="customSlide"></div>
+      </div>
+      <div class="char-box" style="display: none" id="customCharBox">
+        <div id="custom-target"></div>
+      </div>
+      <div class="pinyin" id="custom-pinyin" style="display: none"></div>
+      <div class="row" style="display: none" id="customControls">
+        <button class="icon-btn" onclick="playCustomVoice()">🔊</button>
+        <button class="icon-btn" onclick="playCustomStroke()">✍️</button>
+        <button class="icon-btn" onclick="startCustomListen()">🎤</button>
+      </div>
+      <div class="row" style="display: none" id="customButtons">
+        <button class="big-btn btn-green" onclick="customKnowChar()">
+          ✅ 认识
+        </button>
+        <button class="big-btn btn-red" onclick="customUnknowChar()">
+          ❌ 不认识
+        </button>
+      </div>
     </div>
 
     <!-- 已认识汉字页面（页签形式） -->
     <div class="page" id="pageLearnedChars">
-        <div class="top-title">📖 已认识汉字</div>
-        <div class="tab-container">
-            <div class="tab-buttons">
-                <button class="tab-btn active" onclick="switchTab('learned')">已认识</button>
-                <button class="tab-btn" onclick="switchTab('wrong')">错字历史</button>
-            </div>
-            <div class="tab-content active" id="learnedContent">
-                <div id="learnedList" class="wrong-list"></div>
-            </div>
-            <div class="tab-content" id="wrongContent">
-                <div id="mergedWrongList" class="wrong-list"></div>
-                <button class="big-btn btn-red" onclick="clearMergedWrongHistory()">🗑️ 清空历史记录</button>
-            </div>
+      <div class="top-title">📖 已认识汉字</div>
+      <div class="tab-container">
+        <div class="tab-buttons">
+          <button class="tab-btn active" onclick="switchTab('learned')">
+            已认识
+          </button>
+          <button class="tab-btn" onclick="switchTab('wrong')">错字历史</button>
         </div>
+        <div class="tab-content active" id="learnedContent">
+          <div id="learnedList" class="wrong-list"></div>
+        </div>
+        <div class="tab-content" id="wrongContent">
+          <div id="mergedWrongList" class="wrong-list"></div>
+          <button class="big-btn btn-red" onclick="clearMergedWrongHistory()">
+            🗑️ 清空历史记录
+          </button>
+        </div>
+      </div>
     </div>
 
-<script>
-// ========== 核心修改1：从外部JSON文件加载3000个常用汉字库 ==========
-let allChars = [];
+    <script>
+      // ========== 核心修改1：从外部JSON文件加载3000个常用汉字库 ==========
+      let allChars = [];
 
-// 加载汉字数据
-async function loadChars() {
-    try {
-        console.log('开始加载汉字数据...');
-        
-        // 直接嵌入characters.json文件的内容
-        const charactersData = {
-            "characters": [
-                { "c": "一", "p": "yī" },
-                { "c": "二", "p": "èr" },
-                { "c": "三", "p": "sān" },
-                { "c": "四", "p": "sì" },
-                { "c": "五", "p": "wǔ" },
-                { "c": "六", "p": "liù" },
-                { "c": "七", "p": "qī" },
-                { "c": "八", "p": "bā" },
-                { "c": "九", "p": "jiǔ" },
-                { "c": "十", "p": "shí" },
-                { "c": "人", "p": "rén" },
-                { "c": "口", "p": "kǒu" },
-                { "c": "日", "p": "rì" },
-                { "c": "月", "p": "yuè" },
-                { "c": "水", "p": "shuǐ" },
-                { "c": "火", "p": "huǒ" },
-                { "c": "土", "p": "tǔ" },
-                { "c": "木", "p": "mù" },
-                { "c": "大", "p": "dà" },
-                { "c": "小", "p": "xiǎo" },
-                { "c": "上", "p": "shàng" },
-                { "c": "下", "p": "xià" },
-                { "c": "左", "p": "zuǒ" },
-                { "c": "右", "p": "yòu" },
-                { "c": "前", "p": "qián" },
-                { "c": "后", "p": "hòu" },
-                { "c": "天", "p": "tiān" },
-                { "c": "地", "p": "dì" },
-                { "c": "山", "p": "shān" },
-                { "c": "石", "p": "shí" },
-                { "c": "田", "p": "tián" },
-                { "c": "禾", "p": "hé" },
-                { "c": "米", "p": "mǐ" },
-                { "c": "豆", "p": "dòu" },
-                { "c": "花", "p": "huā" },
-                { "c": "草", "p": "cǎo" },
-                { "c": "树", "p": "shù" },
-                { "c": "鸟", "p": "niǎo" },
-                { "c": "鱼", "p": "yú" },
-                { "c": "虫", "p": "chóng" },
-                { "c": "马", "p": "mǎ" },
-                { "c": "牛", "p": "niú" },
-                { "c": "羊", "p": "yáng" },
-                { "c": "狗", "p": "gǒu" },
-                { "c": "猫", "p": "māo" },
-                { "c": "鸡", "p": "jī" },
-                { "c": "鸭", "p": "yā" },
-                { "c": "鹅", "p": "é" },
-                { "c": "兔", "p": "tù" },
-                { "c": "猪", "p": "zhū" },
-                { "c": "爸", "p": "bà" },
-                { "c": "妈", "p": "mā" },
-                { "c": "爷", "p": "yé" },
-                { "c": "奶", "p": "nǎi" },
-                { "c": "哥", "p": "gē" },
-                { "c": "姐", "p": "jiě" },
-                { "c": "弟", "p": "dì" },
-                { "c": "妹", "p": "mèi" },
-                { "c": "手", "p": "shǒu" },
-                { "c": "足", "p": "zú" },
-                { "c": "头", "p": "tóu" },
-                { "c": "耳", "p": "ěr" },
-                { "c": "目", "p": "mù" },
-                { "c": "鼻", "p": "bí" },
-                { "c": "舌", "p": "shé" },
-                { "c": "牙", "p": "yá" },
-                { "c": "心", "p": "xīn" },
-                { "c": "肝", "p": "gān" },
-                { "c": "肺", "p": "fèi" },
-                { "c": "肚", "p": "dù" },
-                { "c": "腿", "p": "tuǐ" },
-                { "c": "身", "p": "shēn" },
-                { "c": "发", "p": "fà" },
-                { "c": "眼", "p": "yǎn" },
-                { "c": "眉", "p": "méi" },
-                { "c": "指", "p": "zhǐ" },
-                { "c": "脚", "p": "jiǎo" },
-                { "c": "脸", "p": "liǎn" },
-                { "c": "嘴", "p": "zuǐ" },
-                { "c": "胸", "p": "xiōng" },
-                { "c": "背", "p": "bèi" },
-                { "c": "学", "p": "xué" },
-                { "c": "校", "p": "xiào" },
-                { "c": "书", "p": "shū" },
-                { "c": "本", "p": "běn" },
-                { "c": "笔", "p": "bǐ" },
-                { "c": "纸", "p": "zhǐ" },
-                { "c": "尺", "p": "chǐ" },
-                { "c": "刀", "p": "dāo" },
-                { "c": "桌", "p": "zhuō" },
-                { "c": "椅", "p": "yǐ" },
-                { "c": "床", "p": "chuáng" },
-                { "c": "房", "p": "fáng" },
-                { "c": "门", "p": "mén" },
-                { "c": "窗", "p": "chuāng" },
-                { "c": "墙", "p": "qiáng" },
-                { "c": "瓦", "p": "wǎ" },
-                { "c": "砖", "p": "zhuān" },
-                { "c": "铁", "p": "tiě" },
-                { "c": "铜", "p": "tóng" },
-                { "c": "铝", "p": "lǚ" },
-                { "c": "金", "p": "jīn" },
-                { "c": "银", "p": "yín" },
-                { "c": "玉", "p": "yù" },
-                { "c": "宝", "p": "bǎo" },
-                { "c": "珠", "p": "zhū" },
-                { "c": "贝", "p": "bèi" },
-                { "c": "钱", "p": "qián" },
-                { "c": "币", "p": "bì" },
-                { "c": "元", "p": "yuán" },
-                { "c": "角", "p": "jiǎo" },
-                { "c": "分", "p": "fēn" },
-                { "c": "百", "p": "bǎi" },
-                { "c": "千", "p": "qiān" },
-                { "c": "万", "p": "wàn" },
-                { "c": "亿", "p": "yì" },
-                { "c": "零", "p": "líng" },
-                { "c": "壹", "p": "yī" },
-                { "c": "贰", "p": "èr" },
-                { "c": "叁", "p": "sān" },
-                { "c": "肆", "p": "sì" },
-                { "c": "伍", "p": "wǔ" },
-                { "c": "陆", "p": "liù" },
-                { "c": "柒", "p": "qī" },
-                { "c": "捌", "p": "bā" },
-                { "c": "玖", "p": "jiǔ" },
-                { "c": "拾", "p": "shí" },
-                { "c": "东", "p": "dōng" },
-                { "c": "南", "p": "nán" },
-                { "c": "西", "p": "xī" },
-                { "c": "北", "p": "běi" },
-                { "c": "中", "p": "zhōng" },
-                { "c": "里", "p": "lǐ" },
-                { "c": "外", "p": "wài" },
-                { "c": "内", "p": "nèi" },
-                { "c": "远", "p": "yuǎn" },
-                { "c": "近", "p": "jìn" },
-                { "c": "高", "p": "gāo" },
-                { "c": "低", "p": "dī" },
-                { "c": "长", "p": "cháng" },
-                { "c": "短", "p": "duǎn" },
-                { "c": "宽", "p": "kuān" },
-                { "c": "窄", "p": "zhǎi" },
-                { "c": "厚", "p": "hòu" },
-                { "c": "薄", "p": "báo" },
-                { "c": "深", "p": "shēn" },
-                { "c": "浅", "p": "qiǎn" },
-                { "c": "重", "p": "zhòng" },
-                { "c": "轻", "p": "qīng" },
-                { "c": "快", "p": "kuài" },
-                { "c": "慢", "p": "màn" },
-                { "c": "早", "p": "zǎo" },
-                { "c": "晚", "p": "wǎn" },
-                { "c": "冷", "p": "lěng" },
-                { "c": "热", "p": "rè" },
-                { "c": "凉", "p": "liáng" },
-                { "c": "暖", "p": "nuǎn" },
-                { "c": "湿", "p": "shī" },
-                { "c": "干", "p": "gàn" },
-                { "c": "硬", "p": "yìng" },
-                { "c": "软", "p": "ruǎn" },
-                { "c": "粗", "p": "cū" },
-                { "c": "细", "p": "xì" },
-                { "c": "圆", "p": "yuán" },
-                { "c": "方", "p": "fāng" },
-                { "c": "正", "p": "zhèng" },
-                { "c": "反", "p": "fǎn" },
-                { "c": "真", "p": "zhēn" },
-                { "c": "假", "p": "jiǎ" },
-                { "c": "好", "p": "hǎo" },
-                { "c": "坏", "p": "huài" },
-                { "c": "善", "p": "shàn" },
-                { "c": "恶", "p": "è" },
-                { "c": "美", "p": "měi" },
-                { "c": "丑", "p": "chǒu" },
-                { "c": "香", "p": "xiāng" },
-                { "c": "臭", "p": "chòu" },
-                { "c": "甜", "p": "tián" },
-                { "c": "苦", "p": "kǔ" },
-                { "c": "酸", "p": "suān" },
-                { "c": "辣", "p": "là" },
-                { "c": "咸", "p": "xián" },
-                { "c": "淡", "p": "dàn" },
-                { "c": "饱", "p": "bǎo" },
-                { "c": "饿", "p": "è" },
-                { "c": "渴", "p": "kě" },
-                { "c": "喝", "p": "hē" },
-                { "c": "吃", "p": "chī" },
-                { "c": "睡", "p": "shuì" },
-                { "c": "醒", "p": "xǐng" },
-                { "c": "坐", "p": "zuò" },
-                { "c": "站", "p": "zhàn" },
-                { "c": "走", "p": "zǒu" },
-                { "c": "跑", "p": "pǎo" },
-                { "c": "跳", "p": "tiào" },
-                { "c": "爬", "p": "pá" },
-                { "c": "游", "p": "yóu" },
-                { "c": "飞", "p": "fēi" },
-                { "c": "行", "p": "xíng" },
-                { "c": "驶", "p": "shǐ" },
-                { "c": "骑", "p": "qí" },
-                { "c": "乘", "p": "chéng" },
-                { "c": "载", "p": "zài" },
-                { "c": "拉", "p": "lā" },
-                { "c": "推", "p": "tuī" },
-                { "c": "拖", "p": "tuō" },
-                { "c": "抬", "p": "tái" },
-                { "c": "扛", "p": "káng" },
-                { "c": "挑", "p": "tiāo" },
-                { "c": "背", "p": "bēi" },
-                { "c": "抱", "p": "bào" },
-                { "c": "摸", "p": "mō" },
-                { "c": "抓", "p": "zhuā" },
-                { "c": "握", "p": "wò" },
-                { "c": "拿", "p": "ná" },
-                { "c": "放", "p": "fàng" },
-                { "c": "取", "p": "qǔ" },
-                { "c": "送", "p": "sòng" },
-                { "c": "给", "p": "gěi" },
-                { "c": "借", "p": "jiè" },
-                { "c": "还", "p": "huán" },
-                { "c": "买", "p": "mǎi" },
-                { "c": "卖", "p": "mài" },
-                { "c": "收", "p": "shōu" },
-                { "c": "发", "p": "fā" },
-                { "c": "接", "p": "jiē" },
-                { "c": "寄", "p": "jì" },
-                { "c": "写", "p": "xiě" },
-                { "c": "读", "p": "dú" },
-                { "c": "说", "p": "shuō" },
-                { "c": "听", "p": "tīng" },
-                { "c": "看", "p": "kàn" },
-                { "c": "望", "p": "wàng" },
-                { "c": "见", "p": "jiàn" },
-                { "c": "闻", "p": "wén" },
-                { "c": "尝", "p": "cháng" },
-                { "c": "品", "p": "pǐn" },
-                { "c": "试", "p": "shì" },
-                { "c": "验", "p": "yàn" },
-                { "c": "测", "p": "cè" },
-                { "c": "量", "p": "liáng" },
-                { "c": "称", "p": "chēng" },
-                { "c": "算", "p": "suàn" },
-                { "c": "计", "p": "jì" },
-                { "c": "数", "p": "shǔ" },
-                { "c": "量", "p": "liàng" },
-                { "c": "划", "p": "huà" },
-                { "c": "规", "p": "guī" },
-                { "c": "划", "p": "huá" },
-                { "c": "统", "p": "tǒng" },
-                { "c": "估", "p": "gū" }
-            ]
-        };
-        
-        allChars = charactersData.characters;
-        
-        console.log(`成功加载 ${allChars.length} 个汉字`);
-        
-        // 如果数据不足3000个，补充生成
-        if (allChars.length < 3000) {
-            console.log('补充生成汉字数据...');
+      // 加载汉字数据
+      async function loadChars() {
+        try {
+          console.log("开始加载汉字数据...");
+
+          // 直接嵌入characters.json文件的内容
+          const charactersData = {
+            characters: [
+              { c: "一", p: "yī" },
+              { c: "二", p: "èr" },
+              { c: "三", p: "sān" },
+              { c: "个", p: "gè" },
+              { c: "人", p: "rén" },
+              { c: "大", p: "dà" },
+              { c: "山", p: "shān" },
+              { c: "上", p: "shàng" },
+              { c: "下", p: "xià" },
+              { c: "小", p: "xiǎo" },
+              { c: "雨", p: "yǔ" },
+              { c: "天", p: "tiān" },
+              { c: "车", p: "chē" },
+              { c: "开", p: "kāi" },
+              { c: "火", p: "huǒ" },
+              { c: "门", p: "mén" },
+              { c: "口", p: "kǒu" },
+              { c: "月", p: "yuè" },
+              { c: "羊", p: "yáng" },
+              { c: "只", p: "zhī" },
+              { c: "有", p: "yǒu" },
+              { c: "牛", p: "niú" },
+              { c: "水", p: "shuǐ" },
+              { c: "中", p: "zhōng" },
+              { c: "风", p: "fēng" },
+              { c: "头", p: "tóu" },
+              { c: "田", p: "tián" },
+              { c: "土", p: "tǔ" },
+              { c: "里", p: "lǐ" },
+              { c: "在", p: "zài" },
+              { c: "日", p: "rì" },
+              { c: "白", p: "bái" },
+              { c: "马", p: "mǎ" },
+              { c: "手", p: "shǒu" },
+              { c: "出", p: "chū" },
+              { c: "王", p: "wáng" },
+              { c: "子", p: "zǐ" },
+              { c: "儿", p: "ér" },
+              { c: "女", p: "nǚ" },
+              { c: "刀", p: "dāo" },
+              { c: "木", p: "mù" },
+              { c: "鸟", p: "niǎo" },
+              { c: "伞", p: "sǎn" },
+              { c: "鱼", p: "yú" },
+              { c: "瓜", p: "guā" },
+              { c: "气", p: "qì" },
+              { c: "飞", p: "fēi" },
+              { c: "虫", p: "chóng" },
+              { c: "米", p: "mǐ" },
+              { c: "云", p: "yún" },
+              { c: "电", p: "diàn" },
+              { c: "石", p: "shí" },
+              { c: "了", p: "le" },
+              { c: "来", p: "lái" },
+              { c: "玉", p: "yù" },
+              { c: "去", p: "qù" },
+              { c: "回", p: "huí" },
+              { c: "多", p: "duō" },
+              { c: "少", p: "shǎo" },
+              { c: "问", p: "wèn" },
+              { c: "早", p: "zǎo" },
+              { c: "巴", p: "bā" },
+              { c: "父", p: "fù" },
+              { c: "工", p: "gōng" },
+              { c: "力", p: "lì" },
+              { c: "不", p: "bù" },
+              { c: "干", p: "gàn" },
+              { c: "几", p: "jǐ" },
+              { c: "男", p: "nán" },
+              { c: "坐", p: "zuò" },
+              { c: "打", p: "dǎ" },
+              { c: "四", p: "sì" },
+              { c: "五", p: "wǔ" },
+              { c: "六", p: "liù" },
+              { c: "闪", p: "shǎn" },
+              { c: "的", p: "de" },
+              { c: "花", p: "huā" },
+              { c: "朵", p: "duǒ" },
+              { c: "果", p: "guǒ" },
+              { c: "比", p: "bǐ" },
+              { c: "午", p: "wǔ" },
+              { c: "面", p: "miàn" },
+              { c: "高", p: "gāo" },
+              { c: "包", p: "bāo" },
+              { c: "文", p: "wén" },
+              { c: "分", p: "fēn" },
+              { c: "平", p: "píng" },
+              { c: "我", p: "wǒ" },
+              { c: "连", p: "lián" },
+              { c: "元", p: "yuán" },
+              { c: "丁", p: "dīng" },
+              { c: "厂", p: "chǎng" },
+              { c: "目", p: "mù" },
+              { c: "见", p: "jiàn" },
+              { c: "兔", p: "tù" },
+              { c: "禾", p: "hé" },
+              { c: "是", p: "shì" },
+              { c: "把", p: "bǎ" },
+              { c: "笑", p: "xiào" },
+              { c: "着", p: "zhe" },
+              { c: "看", p: "kàn" },
+              { c: "会", p: "huì" },
+              { c: "自", p: "zì" },
+              { c: "己", p: "jǐ" },
+              { c: "画", p: "huà" },
+              { c: "好", p: "hǎo" },
+              { c: "爱", p: "ài" },
+              { c: "心", p: "xīn" },
+              { c: "也", p: "yě" },
+              { c: "可", p: "kě" },
+              { c: "家", p: "jiā" },
+              { c: "爸", p: "bà" },
+              { c: "妈", p: "mā" },
+              { c: "这", p: "zhè" },
+              { c: "爷", p: "yé" },
+              { c: "奶", p: "nǎi" },
+              { c: "们", p: "men" },
+              { c: "书", p: "shū" },
+              { c: "串", p: "chuàn" },
+              { c: "球", p: "qiú" },
+              { c: "圆", p: "yuán" },
+              { c: "形", p: "xíng" },
+              { c: "长", p: "cháng" },
+              { c: "方", p: "fāng" },
+              { c: "正", p: "zhèng" },
+              { c: "尖", p: "jiān" },
+              { c: "扁", p: "biǎn" },
+              { c: "弯", p: "wān" },
+              { c: "直", p: "zhí" },
+              { c: "线", p: "xiàn" },
+              { c: "蓝", p: "lán" },
+              { c: "白", p: "bái" },
+              { c: "云", p: "yún" },
+              { c: "红", p: "hóng" },
+              { c: "绿", p: "lǜ" },
+              { c: "草", p: "cǎo" },
+              { c: "黑", p: "hēi" },
+              { c: "夜", p: "yè" },
+              { c: "春", p: "chūn" },
+              { c: "夏", p: "xià" },
+              { c: "秋", p: "qiū" },
+              { c: "冬", p: "dōng" },
+              { c: "雷", p: "léi" },
+              { c: "雪", p: "xuě" },
+              { c: "霜", p: "shuāng" },
+              { c: "东", p: "dōng" },
+              { c: "西", p: "xī" },
+              { c: "南", p: "nán" },
+              { c: "北", p: "běi" },
+              { c: "前", p: "qián" },
+              { c: "后", p: "hòu" },
+              { c: "左", p: "zuǒ" },
+              { c: "右", p: "yòu" },
+              { c: "外", p: "wài" },
+              { c: "低", p: "dī" },
+              { c: "远", p: "yuǎn" },
+              { c: "近", p: "jìn" },
+              { c: "快", p: "kuài" },
+              { c: "慢", p: "màn" },
+              { c: "学", p: "xué" },
+              { c: "老", p: "lǎo" },
+              { c: "师", p: "shī" },
+              { c: "同", p: "tóng" },
+              { c: "校", p: "xiào" },
+              { c: "班", p: "bān" },
+              { c: "级", p: "jí" },
+              { c: "课", p: "kè" },
+              { c: "桌", p: "zhuō" },
+              { c: "椅", p: "yǐ" },
+              { c: "板", p: "bǎn" },
+              { c: "粉", p: "fěn" },
+              { c: "笔", p: "bǐ" },
+              { c: "纸", p: "zhǐ" },
+              { c: "尺", p: "chǐ" },
+              { c: "窗", p: "chuāng" },
+              { c: "墙", p: "qiáng" },
+              { c: "房", p: "fáng" },
+              { c: "屋", p: "wū" },
+              { c: "楼", p: "lóu" },
+              { c: "梯", p: "tī" },
+              { c: "灯", p: "dēng" },
+              { c: "钟", p: "zhōng" },
+              { c: "表", p: "biǎo" },
+              { c: "床", p: "chuáng" },
+              { c: "被", p: "bèi" },
+              { c: "枕", p: "zhěn" },
+              { c: "席", p: "xí" },
+              { c: "衣", p: "yī" },
+              { c: "帽", p: "mào" },
+              { c: "鞋", p: "xié" },
+              { c: "袜", p: "wà" },
+              { c: "裙", p: "qún" },
+              { c: "裤", p: "kù" },
+              { c: "饭", p: "fàn" },
+              { c: "菜", p: "cài" },
+              { c: "肉", p: "ròu" },
+              { c: "蛋", p: "dàn" },
+              { c: "奶", p: "nǎi" },
+              { c: "油", p: "yóu" },
+              { c: "盐", p: "yán" },
+              { c: "酱", p: "jiàng" },
+              { c: "醋", p: "cù" },
+              { c: "吃", p: "chī" },
+              { c: "喝", p: "hē" },
+              { c: "睡", p: "shuì" },
+              { c: "醒", p: "xǐng" },
+              { c: "走", p: "zǒu" },
+              { c: "跑", p: "pǎo" },
+              { c: "跳", p: "tiào" },
+              { c: "站", p: "zhàn" },
+              { c: "卧", p: "wò" },
+              { c: "听", p: "tīng" },
+              { c: "说", p: "shuō" },
+              { c: "读", p: "dú" },
+              { c: "写", p: "xiě" },
+              { c: "唱", p: "chàng" },
+              { c: "玩", p: "wán" },
+              { c: "哭", p: "kū" },
+              { c: "哥", p: "gē" },
+              { c: "姐", p: "jiě" },
+              { c: "弟", p: "dì" },
+              { c: "妹", p: "mèi" },
+              { c: "叔", p: "shū" },
+              { c: "伯", p: "bó" },
+              { c: "姨", p: "yí" },
+              { c: "姑", p: "gū" },
+              { c: "你", p: "nǐ" },
+              { c: "他", p: "tā" },
+              { c: "她", p: "tā" },
+              { c: "它", p: "tā" },
+              { c: "谁", p: "shuí" },
+              { c: "哪", p: "nǎ" },
+              { c: "那", p: "nà" },
+              { c: "些", p: "xiē" },
+              { c: "都", p: "dōu" },
+              { c: "无", p: "wú" },
+              { c: "入", p: "rù" },
+              { c: "关", p: "guān" },
+              { c: "合", p: "hé" },
+              { c: "升", p: "shēng" },
+              { c: "降", p: "jiàng" },
+              { c: "进", p: "jìn" },
+              { c: "退", p: "tuì" },
+              { c: "起", p: "qǐ" },
+              { c: "落", p: "luò" },
+              { c: "游", p: "yóu" },
+              { c: "爬", p: "pá" },
+              { c: "滚", p: "gǔn" },
+              { c: "七", p: "qī" },
+              { c: "八", p: "bā" },
+              { c: "九", p: "jiǔ" },
+              { c: "十", p: "shí" },
+              { c: "百", p: "bǎi" },
+              { c: "千", p: "qiān" },
+              { c: "万", p: "wàn" },
+              { c: "本", p: "běn" },
+              { c: "片", p: "piàn" },
+              { c: "棵", p: "kē" },
+              { c: "条", p: "tiáo" },
+              { c: "匹", p: "pǐ" },
+              { c: "辆", p: "liàng" },
+              { c: "台", p: "tái" },
+              { c: "张", p: "zhāng" },
+              { c: "页", p: "yè" },
+              { c: "岁", p: "suì" },
+              { c: "时", p: "shí" },
+              { c: "分", p: "fēn" },
+              { c: "秒", p: "miǎo" },
+              { c: "年", p: "nián" },
+              { c: "晨", p: "chén" },
+              { c: "昏", p: "hūn" },
+              { c: "晚", p: "wǎn" },
+              { c: "今", p: "jīn" },
+              { c: "明", p: "míng" },
+              { c: "昨", p: "zuó" },
+              { c: "后", p: "hòu" },
+              { c: "每", p: "měi" },
+              { c: "次", p: "cì" },
+              { c: "常", p: "cháng" },
+              { c: "久", p: "jiǔ" },
+              { c: "请", p: "qǐng" },
+              { c: "情", p: "qíng" },
+              { c: "清", p: "qīng" },
+              { c: "晴", p: "qíng" },
+              { c: "静", p: "jìng" },
+              { c: "精", p: "jīng" },
+              { c: "睛", p: "jīng" },
+              { c: "行", p: "xíng" },
+              { c: "很", p: "hěn" },
+              { c: "得", p: "dé" },
+              { c: "往", p: "wǎng" },
+              { c: "待", p: "dài" },
+              { c: "街", p: "jiē" },
+              { c: "术", p: "shù" },
+              { c: "本", p: "běn" },
+              { c: "末", p: "mò" },
+              { c: "未", p: "wèi" },
+              { c: "来", p: "lái" },
+              { c: "必", p: "bì" },
+              { c: "心", p: "xīn" },
+              { c: "义", p: "yì" },
+              { c: "之", p: "zhī" },
+              { c: "乎", p: "hū" },
+              { c: "者", p: "zhě" },
+              { c: "也", p: "yě" },
+              { c: "因", p: "yīn" },
+              { c: "为", p: "wèi" },
+              { c: "以", p: "yǐ" },
+              { c: "已", p: "yǐ" },
+              { c: "己", p: "jǐ" },
+              { c: "巳", p: "sì" },
+              { c: "经", p: "jīng" },
+              { c: "常", p: "cháng" },
+              { c: "太", p: "tài" },
+              { c: "阳", p: "yáng" },
+              { c: "阴", p: "yīn" },
+              { c: "暗", p: "àn" },
+              { c: "亮", p: "liàng" },
+              { c: "弯", p: "wān" },
+              { c: "直", p: "zhí" },
+              { c: "圆", p: "yuán" },
+              { c: "方", p: "fāng" },
+              { c: "平", p: "píng" },
+              { c: "正", p: "zhèng" },
+              { c: "偏", p: "piān" },
+              { c: "斜", p: "xié" },
+              { c: "厚", p: "hòu" },
+              { c: "薄", p: "báo" },
+              { c: "轻", p: "qīng" },
+              { c: "重", p: "zhòng" },
+              { c: "空", p: "kōng" },
+              { c: "满", p: "mǎn" },
+              { c: "闲", p: "xián" },
+              { c: "忙", p: "máng" },
+              { c: "累", p: "lèi" },
+              { c: "苦", p: "kǔ" },
+              { c: "甜", p: "tián" },
+              { c: "酸", p: "suān" },
+              { c: "辣", p: "là" },
+              { c: "香", p: "xiāng" },
+              { c: "臭", p: "chòu" },
+              { c: "脏", p: "zāng" },
+              { c: "净", p: "jìng" },
+              { c: "干", p: "gān" },
+              { c: "湿", p: "shī" },
+              { c: "软", p: "ruǎn" },
+              { c: "硬", p: "yìng" },
+              { c: "嫩", p: "nèn" },
+              { c: "老", p: "lǎo" },
+              { c: "幼", p: "yòu" },
+              { c: "壮", p: "zhuàng" },
+              { c: "弱", p: "ruò" },
+              { c: "强", p: "qiáng" },
+              { c: "勇", p: "yǒng" },
+              { c: "敢", p: "gǎn" },
+              { c: "怕", p: "pà" },
+              { c: "胆", p: "dǎn" },
+              { c: "怯", p: "qiè" },
+              { c: "羞", p: "xiū" },
+              { c: "急", p: "jí" },
+              { c: "缓", p: "huǎn" },
+              { c: "专", p: "zhuān" },
+              { c: "注", p: "zhù" },
+              { c: "乱", p: "luàn" },
+              { c: "整", p: "zhěng" },
+              { c: "齐", p: "qí" },
+              { c: "散", p: "sàn" },
+              { c: "单", p: "dān" },
+              { c: "双", p: "shuāng" },
+              { c: "独", p: "dú" },
+              { c: "群", p: "qún" },
+              { c: "众", p: "zhòng" },
+              { c: "体", p: "tǐ" },
+              { c: "团", p: "tuán" },
+              { c: "队", p: "duì" },
+              { c: "级", p: "jí" },
+              { c: "班", p: "bān" },
+              { c: "年", p: "nián" },
+              { c: "纪", p: "jì" },
+              { c: "龄", p: "líng" },
+              { c: "辈", p: "bèi" },
+              { c: "份", p: "fèn" },
+              { c: "额", p: "é" },
+              { c: "数", p: "shù" },
+              { c: "量", p: "liàng" },
+              { c: "算", p: "suàn" },
+              { c: "计", p: "jì" },
+              { c: "号", p: "hào" },
+              { c: "码", p: "mǎ" },
+              { c: "序", p: "xù" },
+              { c: "列", p: "liè" },
+              { c: "次", p: "cì" },
+              { c: "首", p: "shǒu" },
+              { c: "尾", p: "wěi" },
+              { c: "根", p: "gēn" },
+              { c: "底", p: "dǐ" },
+              { c: "顶", p: "dǐng" },
+              { c: "端", p: "duān" },
+              { c: "边", p: "biān" },
+              { c: "缘", p: "yuán" },
+              { c: "旁", p: "páng" },
+              { c: "围", p: "wéi" },
+              { c: "周", p: "zhōu" },
+              { c: "附", p: "fù" },
+              { c: "近", p: "jìn" },
+              { c: "邻", p: "lín" },
+              { c: "居", p: "jū" },
+              { c: "城", p: "chéng" },
+              { c: "市", p: "shì" },
+              { c: "乡", p: "xiāng" },
+              { c: "村", p: "cūn" },
+              { c: "镇", p: "zhèn" },
+              { c: "街", p: "jiē" },
+              { c: "道", p: "dào" },
+              { c: "巷", p: "xiàng" },
+              { c: "郊", p: "jiāo" },
+              { c: "野", p: "yě" },
+              { c: "滩", p: "tān" },
+              { c: "岸", p: "àn" },
+              { c: "湾", p: "wān" },
+              { c: "港", p: "gǎng" },
+              { c: "岛", p: "dǎo" },
+              { c: "屿", p: "yǔ" },
+              { c: "峡", p: "xiá" },
+              { c: "谷", p: "gǔ" },
+              { c: "坡", p: "pō" },
+              { c: "岗", p: "gǎng" },
+              { c: "崖", p: "yá" },
+              { c: "洞", p: "dòng" },
+              { c: "坑", p: "kēng" },
+              { c: "洼", p: "wā" },
+              { c: "泉", p: "quán" },
+              { c: "潭", p: "tán" },
+              { c: "坝", p: "bà" },
+              { c: "闸", p: "zhá" },
+              { c: "渠", p: "qú" },
+              { c: "沟", p: "gōu" },
+              { c: "塘", p: "táng" },
+              { c: "坪", p: "píng" },
+              { c: "坛", p: "tán" },
+              { c: "园", p: "yuán" },
+              { c: "艺", p: "yì" },
+              { c: "景", p: "jǐng" },
+              { c: "观", p: "guān" },
+              { c: "阁", p: "gé" },
+              { c: "亭", p: "tíng" },
+              { c: "台", p: "tái" },
+              { c: "楼", p: "lóu" },
+              { c: "廊", p: "láng" },
+              { c: "厅", p: "tīng" },
+              { c: "堂", p: "táng" },
+              { c: "馆", p: "guǎn" },
+              { c: "店", p: "diàn" },
+              { c: "铺", p: "pù" },
+              { c: "仓", p: "cāng" },
+              { c: "库", p: "kù" },
+              { c: "庙", p: "miào" },
+              { c: "寺", p: "sì" },
+              { c: "观", p: "guàn" },
+              { c: "户", p: "hù" },
+              { c: "院", p: "yuàn" },
+              { c: "墙", p: "qiáng" },
+              { c: "壁", p: "bì" },
+              { c: "窗", p: "chuāng" },
+              { c: "帘", p: "lián" },
+              { c: "屏", p: "píng" },
+              { c: "柜", p: "guì" },
+              { c: "架", p: "jià" },
+              { c: "箱", p: "xiāng" },
+              { c: "盒", p: "hé" },
+              { c: "袋", p: "dài" },
+              { c: "罐", p: "guàn" },
+              { c: "瓶", p: "píng" },
+              { c: "壶", p: "hú" },
+              { c: "杯", p: "bēi" },
+              { c: "碗", p: "wǎn" },
+              { c: "盘", p: "pán" },
+              { c: "勺", p: "sháo" },
+              { c: "筷", p: "kuài" },
+              { c: "盆", p: "pén" },
+              { c: "桶", p: "tǒng" },
+              { c: "缸", p: "gāng" },
+              { c: "锅", p: "guō" },
+              { c: "铲", p: "chǎn" },
+              { c: "刀", p: "dāo" },
+              { c: "剪", p: "jiǎn" },
+              { c: "针", p: "zhēn" },
+              { c: "线", p: "xiàn" },
+              { c: "布", p: "bù" },
+              { c: "匹", p: "pǐ" },
+              { c: "绸", p: "chóu" },
+              { c: "缎", p: "duàn" },
+              { c: "棉", p: "mián" },
+              { c: "麻", p: "má" },
+              { c: "绒", p: "róng" },
+              { c: "毛", p: "máo" },
+              { c: "皮", p: "pí" },
+              { c: "革", p: "gé" },
+              { c: "饰", p: "shì" },
+              { c: "环", p: "huán" },
+              { c: "铃", p: "líng" },
+              { c: "锁", p: "suǒ" },
+              { c: "钥", p: "yào" },
+              { c: "钱", p: "qián" },
+              { c: "币", p: "bì" },
+              { c: "财", p: "cái" },
+              { c: "货", p: "huò" },
+              { c: "价", p: "jià" },
+              { c: "值", p: "zhí" },
+              { c: "贵", p: "guì" },
+              { c: "贱", p: "jiàn" },
+              { c: "便", p: "biàn" },
+              { c: "宜", p: "yí" },
+              { c: "买", p: "mǎi" },
+              { c: "卖", p: "mài" },
+              { c: "交", p: "jiāo" },
+              { c: "换", p: "huàn" },
+              { c: "借", p: "jiè" },
+              { c: "还", p: "huán" },
+              { c: "送", p: "sòng" },
+              { c: "给", p: "gěi" },
+              { c: "收", p: "shōu" },
+              { c: "取", p: "qǔ" },
+              { c: "存", p: "cún" },
+              { c: "放", p: "fàng" },
+              { c: "藏", p: "cáng" },
+              { c: "丢", p: "diū" },
+              { c: "捡", p: "jiǎn" },
+              { c: "拾", p: "shí" },
+              { c: "搬", p: "bān" },
+              { c: "运", p: "yùn" },
+              { c: "输", p: "shū" },
+              { c: "寄", p: "jì" },
+              { c: "邮", p: "yóu" },
+              { c: "旅", p: "lǚ" },
+              { c: "游", p: "yóu" },
+              { c: "客", p: "kè" },
+              { c: "宾", p: "bīn" },
+              { c: "友", p: "yǒu" },
+              { c: "邻", p: "lín" },
+              { c: "伴", p: "bàn" },
+              { c: "伙", p: "huǒ" },
+              { c: "朋", p: "péng" },
+              { c: "亲", p: "qīn" },
+              { c: "戚", p: "qī" },
+              { c: "里", p: "lǐ" },
+              { c: "群", p: "qún" },
+              { c: "民", p: "mín" },
+              { c: "众", p: "zhòng" },
+              { c: "士", p: "shì" },
+              { c: "兵", p: "bīng" },
+              { c: "医", p: "yī" },
+              { c: "生", p: "shēng" },
+              { c: "护", p: "hù" },
+              { c: "士", p: "shì" },
+              { c: "工", p: "gōng" },
+              { c: "农", p: "nóng" },
+              { c: "商", p: "shāng" },
+              { c: "师", p: "shī" },
+              { c: "官", p: "guān" },
+              { c: "警", p: "jǐng" },
+              { c: "察", p: "chá" },
+              { c: "司", p: "sī" },
+              { c: "机", p: "jī" },
+              { c: "厨", p: "chú" },
+              { c: "师", p: "shī" },
+              { c: "演", p: "yǎn" },
+              { c: "员", p: "yuán" },
+              { c: "艺", p: "yì" },
+              { c: "人", p: "rén" },
+              { c: "作", p: "zuò" },
+              { c: "家", p: "jiā" },
+              { c: "画", p: "huà" },
+              { c: "家", p: "jiā" },
+              { c: "音", p: "yīn" },
+              { c: "乐", p: "yuè" },
+              { c: "舞", p: "wǔ" },
+              { c: "蹈", p: "dǎo" },
+              { c: "武", p: "wǔ" },
+              { c: "术", p: "shù" },
+              { c: "体", p: "tǐ" },
+              { c: "育", p: "yù" },
+              { c: "跑", p: "pǎo" },
+              { c: "步", p: "bù" },
+              { c: "跳", p: "tiào" },
+              { c: "绳", p: "shéng" },
+              { c: "球", p: "qiú" },
+              { c: "赛", p: "sài" },
+              { c: "帮", p: "bāng" },
+              { c: "助", p: "zhù" },
+              { c: "功", p: "gōng" },
+              { c: "劳", p: "láo" },
+              { c: "辛", p: "xīn" },
+              { c: "苦", p: "kǔ" },
+              { c: "休", p: "xiū" },
+              { c: "息", p: "xī" },
+              { c: "安", p: "ān" },
+              { c: "康", p: "kāng" },
+              { c: "健", p: "jiàn" },
+              { c: "壮", p: "zhuàng" },
+              { c: "病", p: "bìng" },
+              { c: "痛", p: "tòng" },
+              { c: "药", p: "yào" },
+              { c: "治", p: "zhì" },
+              { c: "疗", p: "liáo" },
+              { c: "养", p: "yǎng" },
+              { c: "生", p: "shēng" },
+              { c: "习", p: "xí" },
+              { c: "惯", p: "guàn" },
+              { c: "规", p: "guī" },
+              { c: "矩", p: "jǔ" },
+              { c: "纪", p: "jì" },
+              { c: "律", p: "lǜ" },
+              { c: "礼", p: "lǐ" },
+              { c: "貌", p: "mào" },
+              { c: "文", p: "wén" },
+              { c: "明", p: "míng" },
+              { c: "道", p: "dào" },
+              { c: "德", p: "dé" },
+              { c: "善", p: "shàn" },
+              { c: "良", p: "liáng" },
+              { c: "慈", p: "cí" },
+              { c: "悲", p: "bēi" },
+              { c: "宽", p: "kuān" },
+              { c: "容", p: "róng" },
+              { c: "谦", p: "qiān" },
+              { c: "虚", p: "xū" },
+              { c: "诚", p: "chéng" },
+              { c: "实", p: "shí" },
+              { c: "信", p: "xìn" },
+              { c: "用", p: "yòng" },
+              { c: "勇", p: "yǒng" },
+              { c: "敢", p: "gǎn" },
+              { c: "坚", p: "jiān" },
+              { c: "强", p: "qiáng" },
+              { c: "毅", p: "yì" },
+              { c: "力", p: "lì" },
+              { c: "志", p: "zhì" },
+              { c: "向", p: "xiàng" },
+              { c: "梦", p: "mèng" },
+              { c: "想", p: "xiǎng" },
+              { c: "理", p: "lǐ" },
+              { c: "念", p: "niàn" },
+              { c: "目", p: "mù" },
+              { c: "标", p: "biāo" },
+              { c: "追", p: "zhuī" },
+              { c: "求", p: "qiú" },
+              { c: "努", p: "nǔ" },
+              { c: "力", p: "lì" },
+              { c: "奋", p: "fèn" },
+              { c: "斗", p: "dòu" },
+              { c: "拼", p: "pīn" },
+              { c: "搏", p: "bó" },
+              { c: "成", p: "chéng" },
+              { c: "功", p: "gōng" },
+              { c: "失", p: "shī" },
+              { c: "败", p: "bài" },
+              { c: "错", p: "cuò" },
+              { c: "误", p: "wù" },
+              { c: "悔", p: "huǐ" },
+              { c: "改", p: "gǎi" },
+              { c: "学", p: "xué" },
+              { c: "问", p: "wèn" },
+              { c: "智", p: "zhì" },
+              { c: "慧", p: "huì" },
+              { c: "思", p: "sī" },
+              { c: "考", p: "kǎo" },
+              { c: "悟", p: "wù" },
+              { c: "理", p: "lǐ" },
+              { c: "知", p: "zhī" },
+              { c: "识", p: "shí" },
+              { c: "见", p: "jiàn" },
+              { c: "闻", p: "wén" },
+              { c: "博", p: "bó" },
+              { c: "学", p: "xué" },
+              { c: "多", p: "duō" },
+              { c: "闻", p: "wén" },
+              { c: "诗", p: "shī" },
+              { c: "词", p: "cí" },
+              { c: "文", p: "wén" },
+              { c: "章", p: "zhāng" },
+              { c: "字", p: "zì" },
+              { c: "句", p: "jù" },
+              { c: "篇", p: "piān" },
+              { c: "段", p: "duàn" },
+              { c: "意", p: "yì" },
+              { c: "思", p: "sī" },
+              { c: "情", p: "qíng" },
+              { c: "感", p: "gǎn" },
+              { c: "怀", p: "huái" },
+              { c: "念", p: "niàn" },
+              { c: "思", p: "sī" },
+              { c: "乡", p: "xiāng" },
+              { c: "思", p: "sī" },
+              { c: "亲", p: "qīn" },
+              { c: "祝", p: "zhù" },
+              { c: "福", p: "fú" },
+              { c: "愿", p: "yuàn" },
+              { c: "望", p: "wàng" },
+              { c: "期", p: "qī" },
+              { c: "待", p: "dài" },
+              { c: "盼", p: "pàn" },
+              { c: "望", p: "wàng" },
+              { c: "幸", p: "xìng" },
+              { c: "福", p: "fú" },
+              { c: "快", p: "kuài" },
+              { c: "乐", p: "lè" },
+              { c: "悲", p: "bēi" },
+              { c: "伤", p: "shāng" },
+              { c: "愁", p: "chóu" },
+              { c: "闷", p: "mèn" },
+              { c: "孤", p: "gū" },
+              { c: "独", p: "dú" },
+              { c: "寂", p: "jì" },
+              { c: "寞", p: "mò" },
+              { c: "惊", p: "jīng" },
+              { c: "奇", p: "qí" },
+              { c: "讶", p: "yà" },
+              { c: "慌", p: "huāng" },
+              { c: "张", p: "zhāng" },
+              { c: "紧", p: "jǐn" },
+              { c: "张", p: "zhāng" },
+              { c: "放", p: "fàng" },
+              { c: "松", p: "sōng" },
+              { c: "冷", p: "lěng" },
+              { c: "淡", p: "dàn" },
+              { c: "热", p: "rè" },
+              { c: "情", p: "qíng" },
+              { c: "淡", p: "dàn" },
+              { c: "漠", p: "mò" },
+              { c: "温", p: "wēn" },
+              { c: "柔", p: "róu" },
+              { c: "和", p: "hé" },
+              { c: "气", p: "qì" },
+              { c: "生", p: "shēng" },
+              { c: "气", p: "qì" },
+              { c: "怒", p: "nù" },
+              { c: "恨", p: "hèn" },
+              { c: "怨", p: "yuàn" },
+              { c: "仇", p: "chóu" },
+              { c: "惜", p: "xī" },
+              { c: "怜", p: "lián" },
+              { c: "喜", p: "xǐ" },
+              { c: "欢", p: "huān" },
+              { c: "爱", p: "ài" },
+              { c: "恋", p: "liàn" },
+              { c: "慕", p: "mù" },
+              { c: "敬", p: "jìng" },
+              { c: "佩", p: "pèi" },
+              { c: "尊", p: "zūn" },
+              { c: "重", p: "zhòng" },
+              { c: "仰", p: "yǎng" },
+              { c: "慕", p: "mù" },
+              { c: "羡", p: "xiàn" },
+              { c: "慕", p: "mù" },
+              { c: "嫉", p: "jí" },
+              { c: "妒", p: "dù" },
+              { c: "比", p: "bǐ" },
+              { c: "较", p: "jiào" },
+              { c: "竞", p: "jìng" },
+              { c: "争", p: "zhēng" },
+              { c: "合", p: "hé" },
+              { c: "作", p: "zuò" },
+              { c: "团", p: "tuán" },
+              { c: "结", p: "jié" },
+              { c: "分", p: "fēn" },
+              { c: "离", p: "lí" },
+              { c: "聚", p: "jù" },
+              { c: "散", p: "sàn" },
+              { c: "离", p: "lí" },
+              { c: "别", p: "bié" },
+              { c: "逢", p: "féng" },
+              { c: "合", p: "hé" },
+              { c: "遇", p: "yù" },
+              { c: "见", p: "jiàn" },
+              { c: "识", p: "shí" },
+              { c: "别", p: "bié" },
+              { c: "交", p: "jiāo" },
+              { c: "往", p: "wǎng" },
+              { c: "沟", p: "gōu" },
+              { c: "通", p: "tōng" },
+              { c: "表", p: "biǎo" },
+              { c: "达", p: "dá" },
+              { c: "解", p: "jiě" },
+              { c: "释", p: "shì" },
+              { c: "辩", p: "biàn" },
+              { c: "论", p: "lùn" },
+              { c: "商", p: "shāng" },
+              { c: "量", p: "liàng" },
+              { c: "商", p: "shāng" },
+              { c: "议", p: "yì" },
+              { c: "决", p: "jué" },
+              { c: "定", p: "dìng" },
+              { c: "选", p: "xuǎn" },
+              { c: "择", p: "zé" },
+              { c: "判", p: "pàn" },
+              { c: "断", p: "duàn" },
+              { c: "管", p: "guǎn" },
+              { c: "理", p: "lǐ" },
+              { c: "组", p: "zǔ" },
+              { c: "织", p: "zhī" },
+              { c: "领", p: "lǐng" },
+              { c: "导", p: "dǎo" },
+              { c: "执", p: "zhí" },
+              { c: "行", p: "xíng" },
+              { c: "完", p: "wán" },
+              { c: "成", p: "chéng" },
+              { c: "任", p: "rèn" },
+              { c: "务", p: "wù" },
+              { c: "责", p: "zé" },
+              { c: "任", p: "rèn" },
+              { c: "义", p: "yì" },
+              { c: "务", p: "wù" },
+              { c: "权", p: "quán" },
+              { c: "利", p: "lì" },
+              { c: "规", p: "guī" },
+              { c: "则", p: "zé" },
+              { c: "制", p: "zhì" },
+              { c: "度", p: "dù" },
+              { c: "法", p: "fǎ" },
+              { c: "律", p: "lǜ" },
+              { c: "安", p: "ān" },
+              { c: "全", p: "quán" },
+              { c: "保", p: "bǎo" },
+              { c: "护", p: "hù" },
+              { c: "防", p: "fáng" },
+              { c: "守", p: "shǒu" },
+              { c: "危", p: "wēi" },
+              { c: "险", p: "xiǎn" },
+              { c: "灾", p: "zāi" },
+              { c: "难", p: "nàn" },
+              { c: "救", p: "jiù" },
+              { c: "援", p: "yuán" },
+              { c: "公", p: "gōng" },
+              { c: "平", p: "píng" },
+              { c: "公", p: "gōng" },
+              { c: "正", p: "zhèng" },
+              { c: "义", p: "yì" },
+              { c: "气", p: "qì" },
+              { c: "公", p: "gōng" },
+              { c: "私", p: "sī" },
+              { c: "利", p: "lì" },
+              { c: "害", p: "hài" },
+              { c: "得", p: "dé" },
+              { c: "失", p: "shī" },
+              { c: "舍", p: "shě" },
+              { c: "取", p: "qǔ" },
+              { c: "缓", p: "huǎn" },
+              { c: "急", p: "jí" },
+              { c: "轻", p: "qīng" },
+              { c: "重", p: "zhòng" },
+              { c: "主", p: "zhǔ" },
+              { c: "次", p: "cì" },
+              { c: "先", p: "xiān" },
+              { c: "后", p: "hòu" },
+              { c: "本", p: "běn" },
+              { c: "末", p: "mò" },
+              { c: "因", p: "yīn" },
+              { c: "果", p: "guǒ" },
+              { c: "关", p: "guān" },
+              { c: "联", p: "lián" },
+              { c: "整", p: "zhěng" },
+              { c: "体", p: "tǐ" },
+              { c: "局", p: "jú" },
+              { c: "部", p: "bù" },
+              { c: "概", p: "gài" },
+              { c: "括", p: "kuò" },
+              { c: "详", p: "xiáng" },
+              { c: "细", p: "xì" },
+              { c: "多", p: "duō" },
+              { c: "样", p: "yàng" },
+              { c: "统", p: "tǒng" },
+              { c: "一", p: "yī" },
+              { c: "变", p: "biàn" },
+              { c: "化", p: "huà" },
+              { c: "发", p: "fā" },
+              { c: "展", p: "zhǎn" },
+              { c: "进", p: "jìn" },
+              { c: "化", p: "huà" },
+              { c: "更", p: "gēng" },
+              { c: "新", p: "xīn" },
+              { c: "古", p: "gǔ" },
+              { c: "今", p: "jīn" },
+              { c: "中", p: "zhōng" },
+              { c: "外", p: "wài" },
+              { c: "历", p: "lì" },
+              { c: "史", p: "shǐ" },
+              { c: "文", p: "wén" },
+              { c: "化", p: "huà" },
+              { c: "风", p: "fēng" },
+              { c: "俗", p: "sú" },
+              { c: "民", p: "mín" },
+              { c: "情", p: "qíng" },
+              { c: "地", p: "dì" },
+              { c: "理", p: "lǐ" },
+              { c: "气", p: "qì" },
+              { c: "候", p: "hòu" },
+              { c: "资", p: "zī" },
+              { c: "源", p: "yuán" },
+              { c: "环", p: "huán" },
+              { c: "境", p: "jìng" },
+              { c: "保", p: "bǎo" },
+              { c: "护", p: "hù" },
+              { c: "绿", p: "lǜ" },
+              { c: "色", p: "sè" },
+              { c: "节", p: "jié" },
+              { c: "约", p: "yuē" },
+              { c: "节", p: "jié" },
+              { c: "能", p: "néng" },
+              { c: "减", p: "jiǎn" },
+              { c: "排", p: "pái" },
+              { c: "科", p: "kē" },
+              { c: "技", p: "jì" },
+              { c: "发", p: "fā" },
+              { c: "明", p: "míng" },
+              { c: "创", p: "chuàng" },
+              { c: "新", p: "xīn" },
+              { c: "工", p: "gōng" },
+              { c: "业", p: "yè" },
+              { c: "农", p: "nóng" },
+              { c: "业", p: "yè" },
+              { c: "商", p: "shāng" },
+              { c: "业", p: "yè" },
+              { c: "交", p: "jiāo" },
+              { c: "通", p: "tōng" },
+              { c: "运", p: "yùn" },
+              { c: "输", p: "shū" },
+              { c: "信", p: "xìn" },
+              { c: "息", p: "xī" },
+              { c: "网", p: "wǎng" },
+              { c: "络", p: "luò" },
+              { c: "电", p: "diàn" },
+              { c: "脑", p: "nǎo" },
+              { c: "手", p: "shǒu" },
+              { c: "机", p: "jī" },
+              { c: "媒", p: "méi" },
+              { c: "体", p: "tǐ" },
+              { c: "教", p: "jiào" },
+              { c: "育", p: "yù" },
+              { c: "科", p: "kē" },
+              { c: "学", p: "xué" },
+              { c: "艺", p: "yì" },
+              { c: "术", p: "shù" },
+              { c: "健", p: "jiàn" },
+              { c: "身", p: "shēn" },
+              { c: "娱", p: "yú" },
+              { c: "乐", p: "lè" },
+              { c: "养", p: "yǎng" },
+              { c: "殖", p: "zhí" },
+              { c: "种", p: "zhǒng" },
+              { c: "植", p: "zhí" },
+              { c: "粮", p: "liáng" },
+              { c: "食", p: "shí" },
+              { c: "蔬", p: "shū" },
+              { c: "菜", p: "cài" },
+              { c: "水", p: "shuǐ" },
+              { c: "果", p: "guǒ" },
+              { c: "营", p: "yíng" },
+              { c: "养", p: "yǎng" },
+              { c: "膳", p: "shàn" },
+              { c: "食", p: "shí" },
+              { c: "健", p: "jiàn" },
+              { c: "康", p: "kāng" },
+              { c: "长", p: "zhǎng" },
+              { c: "高", p: "gāo" },
+              { c: "发", p: "fā" },
+              { c: "育", p: "yù" },
+              { c: "早", p: "zǎo" },
+              { c: "教", p: "jiào" },
+              { c: "启", p: "qǐ" },
+              { c: "蒙", p: "méng" },
+              { c: "智", p: "zhì" },
+              { c: "力", p: "lì" },
+              { c: "潜", p: "qián" },
+              { c: "能", p: "néng" },
+              { c: "兴", p: "xìng" },
+              { c: "趣", p: "qù" },
+              { c: "爱", p: "ài" },
+              { c: "好", p: "hào" },
+              { c: "专", p: "zhuān" },
+              { c: "长", p: "cháng" },
+              { c: "特", p: "tè" },
+              { c: "点", p: "diǎn" },
+              { c: "性", p: "xìng" },
+              { c: "格", p: "gé" },
+              { c: "品", p: "pǐn" },
+              { c: "质", p: "zhì" },
+              { c: "习", p: "xí" },
+              { c: "惯", p: "guàn" },
+              { c: "态", p: "tài" },
+              { c: "度", p: "dù" },
+              { c: "价", p: "jià" },
+              { c: "值", p: "zhí" },
+              { c: "观", p: "guān" },
+              { c: "世", p: "shì" },
+              { c: "界", p: "jiè" },
+              { c: "观", p: "guān" },
+              { c: "人", p: "rén" },
+              { c: "生", p: "shēng" },
+              { c: "观", p: "guān" },
+              { c: "梦", p: "mèng" },
+              { c: "想", p: "xiǎng" },
+              { c: "信", p: "xìn" },
+              { c: "念", p: "niàn" },
+              { c: "目", p: "mù" },
+              { c: "标", p: "biāo" },
+              { c: "计", p: "jì" },
+              { c: "划", p: "huà" },
+              { c: "行", p: "xíng" },
+              { c: "动", p: "dòng" },
+              { c: "执", p: "zhí" },
+              { c: "行", p: "xíng" },
+              { c: "效", p: "xiào" },
+              { c: "率", p: "lǜ" },
+              { c: "结", p: "jié" },
+              { c: "果", p: "guǒ" },
+              { c: "反", p: "fǎn" },
+              { c: "馈", p: "kuì" },
+              { c: "调", p: "tiáo" },
+              { c: "整", p: "zhěng" },
+              { c: "进", p: "jìn" },
+              { c: "步", p: "bù" },
+              { c: "成", p: "chéng" },
+              { c: "长", p: "zhǎng" },
+              { c: "失", p: "shī" },
+              { c: "败", p: "bài" },
+              { c: "经", p: "jīng" },
+              { c: "验", p: "yàn" },
+              { c: "教", p: "jiào" },
+              { c: "训", p: "xùn" },
+              { c: "勇", p: "yǒng" },
+              { c: "气", p: "qì" },
+              { c: "毅", p: "yì" },
+              { c: "力", p: "lì" },
+              { c: "坚", p: "jiān" },
+              { c: "持", p: "chí" },
+              { c: "努", p: "nǔ" },
+              { c: "力", p: "lì" },
+              { c: "拼", p: "pīn" },
+              { c: "搏", p: "bó" },
+              { c: "机", p: "jī" },
+              { c: "遇", p: "yù" },
+              { c: "挑", p: "tiāo" },
+              { c: "战", p: "zhàn" },
+              { c: "竞", p: "jìng" },
+              { c: "争", p: "zhēng" },
+              { c: "合", p: "hé" },
+              { c: "作", p: "zuò" },
+              { c: "沟", p: "gōu" },
+              { c: "通", p: "tōng" },
+              { c: "理", p: "lǐ" },
+              { c: "解", p: "jiě" },
+              { c: "包", p: "bāo" },
+              { c: "容", p: "róng" },
+              { c: "尊", p: "zūn" },
+              { c: "重", p: "zhòng" },
+              { c: "礼", p: "lǐ" },
+              { c: "貌", p: "mào" },
+              { c: "诚", p: "chéng" },
+              { c: "信", p: "xìn" },
+              { c: "友", p: "yǒu" },
+              { c: "善", p: "shàn" },
+              { c: "负", p: "fù" },
+              { c: "责", p: "zé" },
+              { c: "担", p: "dān" },
+              { c: "当", p: "dāng" },
+              { c: "感", p: "gǎn" },
+              { c: "恩", p: "ēn" },
+              { c: "奉", p: "fèng" },
+              { c: "献", p: "xiàn" },
+              { c: "爱", p: "ài" },
+              { c: "心", p: "xīn" },
+              { c: "温", p: "wēn" },
+              { c: "暖", p: "nuǎn" },
+              { c: "正", p: "zhèng" },
+              { c: "能", p: "néng" },
+              { c: "量", p: "liàng" },
+              { c: "快", p: "kuài" },
+              { c: "乐", p: "lè" },
+              { c: "学", p: "xué" },
+              { c: "习", p: "xí" },
+              { c: "幸", p: "xìng" },
+              { c: "福", p: "fú" },
+              { c: "生", p: "shēng" },
+              { c: "活", p: "huó" },
+              { c: "美", p: "měi" },
+              { c: "好", p: "hǎo" },
+              { c: "未", p: "wèi" },
+              { c: "来", p: "lái" },
+              { c: "希", p: "xī" },
+              { c: "望", p: "wàng" },
+              { c: "阳", p: "yáng" },
+              { c: "光", p: "guāng" },
+              { c: "春", p: "chūn" },
+              { c: "天", p: "tiān" },
+              { c: "花", p: "huā" },
+              { c: "开", p: "kāi" },
+              { c: "鸟", p: "niǎo" },
+              { c: "语", p: "yǔ" },
+              { c: "香", p: "xiāng" },
+              { c: "气", p: "qì" },
+              { c: "大", p: "dà" },
+              { c: "地", p: "dì" },
+              { c: "万", p: "wàn" },
+              { c: "物", p: "wù" },
+              { c: "生", p: "shēng" },
+              { c: "长", p: "zhǎng" },
+              { c: "希", p: "xī" },
+              { c: "望", p: "wàng" },
+              { c: "童", p: "tóng" },
+              { c: "年", p: "nián" },
+              { c: "时", p: "shí" },
+              { c: "光", p: "guāng" },
+              { c: "记", p: "jì" },
+              { c: "忆", p: "yì" },
+              { c: "童", p: "tóng" },
+              { c: "趣", p: "qù" },
+              { c: "游", p: "yóu" },
+              { c: "戏", p: "xì" },
+              { c: "伙", p: "huǒ" },
+              { c: "伴", p: "bàn" },
+              { c: "友", p: "yǒu" },
+              { c: "情", p: "qíng" },
+              { c: "亲", p: "qīn" },
+              { c: "情", p: "qíng" },
+              { c: "关", p: "guān" },
+              { c: "爱", p: "ài" },
+              { c: "陪", p: "péi" },
+              { c: "伴", p: "bàn" },
+              { c: "成", p: "chéng" },
+              { c: "长", p: "zhǎng" },
+              { c: "感", p: "gǎn" },
+              { c: "恩", p: "ēn" },
+              { c: "心", p: "xīn" },
+              { c: "情", p: "qíng" },
+              { c: "心", p: "xīn" },
+              { c: "灵", p: "líng" },
+              { c: "眼", p: "yǎn" },
+              { c: "睛", p: "jīng" },
+              { c: "发", p: "fā" },
+              { c: "现", p: "xiàn" },
+              { c: "美", p: "měi" },
+              { c: "好", p: "hǎo" },
+              { c: "世", p: "shì" },
+              { c: "界", p: "jiè" },
+              { c: "探", p: "tàn" },
+              { c: "索", p: "suǒ" },
+              { c: "未", p: "wèi" },
+              { c: "知", p: "zhī" },
+              { c: "勇", p: "yǒng" },
+              { c: "敢", p: "gǎn" },
+              { c: "追", p: "zhuī" },
+              { c: "梦", p: "mèng" },
+              { c: "自", p: "zì" },
+              { c: "信", p: "xìn" },
+              { c: "自", p: "zì" },
+              { c: "强", p: "qiáng" },
+              { c: "独", p: "dú" },
+              { c: "立", p: "lì" },
+              { c: "思", p: "sī" },
+              { c: "考", p: "kǎo" },
+              { c: "创", p: "chuàng" },
+              { c: "造", p: "zào" },
+              { c: "奇", p: "qí" },
+              { c: "迹", p: "jì" },
+              { c: "努", p: "nǔ" },
+              { c: "力", p: "lì" },
+              { c: "就", p: "jiù" },
+              { c: "会", p: "huì" },
+              { c: "成", p: "chéng" },
+              { c: "功", p: "gōng" },
+              { c: "坚", p: "jiān" },
+              { c: "持", p: "chí" },
+              { c: "就", p: "jiù" },
+              { c: "是", p: "shì" },
+              { c: "胜", p: "shèng" },
+              { c: "利", p: "lì" },
+            ],
+          };
+
+          allChars = charactersData.characters;
+
+          console.log(`成功加载 ${allChars.length} 个汉字`);
+
+          // 如果数据不足3000个，补充生成
+          if (allChars.length < 3000) {
+            console.log("补充生成汉字数据...");
             // 使用Unicode汉字范围生成更多汉字（U+4E00到U+9FFF是汉字基本区）
             let count = allChars.length;
-            let codePoint = 0x4E00; // 汉字起始编码
-            
+            let codePoint = 0x4e00; // 汉字起始编码
+
             // 跳过前2000个编码，这些编码中包含较多的偏旁部首
-            codePoint = 0x4E00 + 2000;
-            
-            while (count < 3000 && codePoint <= 0x9FFF) {
-                const char = String.fromCodePoint(codePoint);
-                // 跳过一些特殊字符，只保留常用汉字
-                if (typeof char === 'string' && char.length === 1) {
-                    // 尝试使用pinyin-pro库获取拼音
-                    let pinyin = '未知拼音';
-                    if (typeof window.pinyinPro !== 'undefined') {
-                        try {
-                            pinyin = window.pinyinPro.pinyin(char);
-                        } catch (e) {
-                            console.log('获取拼音失败:', char, e);
-                        }
-                    }
-                    allChars.push({ 
-                        c: char, 
-                        p: pinyin
-                    });
-                    count++;
+            codePoint = 0x4e00 + 2000;
+
+            while (count < 3000 && codePoint <= 0x9fff) {
+              const char = String.fromCodePoint(codePoint);
+              // 跳过一些特殊字符，只保留常用汉字
+              if (typeof char === "string" && char.length === 1) {
+                // 尝试使用pinyin-pro库获取拼音
+                let pinyin = "未知拼音";
+                if (typeof window.pinyinPro !== "undefined") {
+                  try {
+                    pinyin = window.pinyinPro.pinyin(char);
+                  } catch (e) {
+                    console.log("获取拼音失败:", char, e);
+                  }
                 }
-                codePoint++;
+                allChars.push({
+                  c: char,
+                  p: pinyin,
+                });
+                count++;
+              }
+              codePoint++;
             }
             console.log(`最终生成 ${allChars.length} 个汉字`);
+          }
+        } catch (error) {
+          console.error("加载汉字数据失败:", error);
+          // 加载失败时使用默认数据
+          console.log("使用默认汉字数据");
+          allChars = [];
         }
-    } catch (error) {
-        console.error('加载汉字数据失败:', error);
-        // 加载失败时使用默认数据
-        console.log('使用默认汉字数据');
-        allChars = [
-            { c: "一", p: "yī" }, { c: "二", p: "èr" }, { c: "三", p: "sān" }, { c: "四", p: "sì" }, { c: "五", p: "wǔ" },
-            { c: "六", p: "liù" }, { c: "七", p: "qī" }, { c: "八", p: "bā" }, { c: "九", p: "jiǔ" }, { c: "十", p: "shí" }
-        ];
-    }
-}
+      }
 
-function generate3000Chars() {
-    return allChars;
-}
+      function generate3000Chars() {
+        return allChars;
+      }
 
-// 初始化3000个汉字库
-let charList = [];
+      // 初始化3000个汉字库
+      let charList = [];
 
-// ========== 核心修改2：每天固定学习5个汉字 ==========
-const DAY_CHAR_COUNT = 5; // 确认每日学习5个汉字
+      // ========== 核心修改2：每天固定学习5个汉字 ==========
+      const DAY_CHAR_COUNT = 5; // 确认每日学习5个汉字
 
-let currentIndex = 0;
-let reviewIndex = 0;
-let writer, reviewWriter;
-let recognition;
-let isFromWrongBook = false;
+      let currentIndex = 0;
+      let reviewIndex = 0;
+      let writer, reviewWriter;
+      let recognition;
+      let isFromWrongBook = false;
 
-// 日历变量
-let nowDate = new Date();
-let calendarYear = nowDate.getFullYear();
-let calendarMonth = nowDate.getMonth();
+      // 日历变量
+      let nowDate = new Date();
+      let calendarYear = nowDate.getFullYear();
+      let calendarMonth = nowDate.getMonth();
 
-// ========== 核心修改：设置学习起始日期为2026年4月20日 ==========
-const START_STUDY_DATE = new Date(2026, 3, 20); // 月份从0开始，4月对应3
-// ========== 新增：指定展示的目标日期2026年4月27日 ==========
-const TARGET_STUDY_DATE = new Date(2026, 3, 27); // 2026年4月27日
+      // ========== 核心修改：设置学习起始日期为2026年4月20日 ==========
+      const START_STUDY_DATE = new Date(2026, 3, 3); // 月份从0开始，4月对应3
+      // ========== 新增：指定展示的目标日期2026年4月27日 ==========
+      const TARGET_STUDY_DATE = new Date(2026, 3, 27); // 2026年4月27日
 
-// ========== 本地存储：每日学习规划 ==========
-function getDayPlan(){
-    return JSON.parse(localStorage.dayPlan || '{}');
-}
-function saveDayPlan(obj){
-    localStorage.dayPlan = JSON.stringify(obj);
-}
+      // ========== 本地存储：每日学习规划 ==========
+      function getDayPlan() {
+        return JSON.parse(localStorage.dayPlan || "{}");
+      }
+      function saveDayPlan(obj) {
+        localStorage.dayPlan = JSON.stringify(obj);
+      }
 
-// 自动生成每日生字规划（从指定日期开始，每天5个，循环3000字）
-function autoBuildPlan(){
-    // 确保charList已经加载完成
-    if (charList.length === 0) {
-        console.log('汉字数据尚未加载完成，稍后再生成计划');
-        return;
-    }
-    
-    let plan = getDayPlan();
-    // 无论是否已有计划，都重新生成，确保与当前charList匹配
-    const startKey = `${START_STUDY_DATE.getFullYear()}-${START_STUDY_DATE.getMonth()+1}-${START_STUDY_DATE.getDate()}`;
+      // 自动生成每日生字规划（从指定日期开始，每天5个，循环3000字）
+      function autoBuildPlan() {
+        // 确保charList已经加载完成
+        if (charList.length === 0) {
+          console.log("汉字数据尚未加载完成，稍后再生成计划");
+          return;
+        }
 
-    let idx = 0;
-    let d = new Date(START_STUDY_DATE); // 从指定日期开始生成计划
-    // 生成600天的学习计划（3000字/5字/天 = 600天）
-    for(let i=0;i<600;i++){
-        let y = d.getFullYear();
-        let m = d.getMonth()+1;
-        let day = d.getDate();
-        let key = `${y}-${m}-${day}`;
-        let arr = [];
-        for(let j=0;j<DAY_CHAR_COUNT;j++){
-            if(idx >= charList.length) idx = 0; // 3000字循环
+        let plan = getDayPlan();
+        // 无论是否已有计划，都重新生成，确保与当前charList匹配
+        const startKey = `${START_STUDY_DATE.getFullYear()}-${START_STUDY_DATE.getMonth() + 1}-${START_STUDY_DATE.getDate()}`;
+
+        let idx = 0;
+        let d = new Date(START_STUDY_DATE); // 从指定日期开始生成计划
+        // 生成600天的学习计划（3000字/5字/天 = 600天）
+        for (let i = 0; i < 600; i++) {
+          let y = d.getFullYear();
+          let m = d.getMonth() + 1;
+          let day = d.getDate();
+          let key = `${y}-${m}-${day}`;
+          let arr = [];
+          for (let j = 0; j < DAY_CHAR_COUNT; j++) {
+            if (idx >= charList.length) idx = 0; // 3000字循环
             arr.push(charList[idx].c);
             idx++;
+          }
+          plan[key] = arr;
+          d.setDate(d.getDate() + 1);
         }
-        plan[key] = arr;
-        d.setDate(d.getDate()+1);
-    }
-    saveDayPlan(plan);
-    console.log('使用加载的汉字数据生成学习计划');
-}
+        saveDayPlan(plan);
+        console.log("使用加载的汉字数据生成学习计划");
+      }
 
-// ========== Toast ==========
-function showToast(message, duration = 3000) {
-    const toast = document.getElementById('toast');
-    toast.textContent = message;
-    toast.classList.add('show');
-    setTimeout(() => {
-        toast.classList.remove('show');
-    }, duration);
-}
+      // ========== Toast ==========
+      function showToast(message, duration = 3000) {
+        const toast = document.getElementById("toast");
+        toast.textContent = message;
+        toast.classList.add("show");
+        setTimeout(() => {
+          toast.classList.remove("show");
+        }, duration);
+      }
 
-// ========== 日历渲染 ==========
-function renderCalendar(){
-    autoBuildPlan();
-    document.getElementById('calendarTitle').innerText = `${calendarYear}年${calendarMonth+1}月`;
-    let wrap = document.getElementById('calendarDayList');
-    let firstDay = new Date(calendarYear, calendarMonth, 1);
-    let weekStart = firstDay.getDay();
-    let days = new Date(calendarYear, calendarMonth+1, 0).getDate();
-    let today = new Date();
-    let tY = today.getFullYear();
-    let tM = today.getMonth();
-    let tD = today.getDate();
+      // ========== 日历渲染 ==========
+      function renderCalendar() {
+        autoBuildPlan();
+        document.getElementById("calendarTitle").innerText =
+          `${calendarYear}年${calendarMonth + 1}月`;
+        let wrap = document.getElementById("calendarDayList");
+        let firstDay = new Date(calendarYear, calendarMonth, 1);
+        let weekStart = firstDay.getDay();
+        let days = new Date(calendarYear, calendarMonth + 1, 0).getDate();
+        let today = new Date();
+        let tY = today.getFullYear();
+        let tM = today.getMonth();
+        let tD = today.getDate();
 
-    let html = '';
-    // 前置空白
-    for(let i=0;i<weekStart;i++){
-        html += `<div class="day-item other"></div>`;
-    }
-    // 当月日期
-    for(let d=1;d<=days;d++){
-        let isToday = (tY===calendarYear && tM===calendarMonth && tD===d);
-        let key = `${calendarYear}-${calendarMonth+1}-${d}`;
+        let html = "";
+        // 前置空白
+        for (let i = 0; i < weekStart; i++) {
+          html += `<div class="day-item other"></div>`;
+        }
+        // 当月日期
+        for (let d = 1; d <= days; d++) {
+          let isToday = tY === calendarYear && tM === calendarMonth && tD === d;
+          let key = `${calendarYear}-${calendarMonth + 1}-${d}`;
+          let plan = getDayPlan();
+          let hasPlan = !!plan[key];
+          let cls = "day-item";
+          if (isToday) cls += " today";
+          if (hasPlan) cls += " has-plan";
+          html += `<div class="${cls}" onclick="openDayPlan(${calendarYear},${calendarMonth},${d})">${d}</div>`;
+        }
+        wrap.innerHTML = html;
+      }
+      function prevMonth() {
+        calendarMonth--;
+        if (calendarMonth < 0) {
+          calendarMonth = 11;
+          calendarYear--;
+        }
+        renderCalendar();
+      }
+      function nextMonth() {
+        calendarMonth++;
+        if (calendarMonth > 11) {
+          calendarMonth = 0;
+          calendarYear++;
+        }
+        renderCalendar();
+      }
+
+      // 打开某天学习计划弹窗
+      function openDayPlan(y, m, d) {
+        let key = `${y}-${m + 1}-${d}`;
         let plan = getDayPlan();
-        let hasPlan = !!plan[key];
-        let cls = 'day-item';
-        if(isToday) cls += ' today';
-        if(hasPlan) cls += ' has-plan';
-        html += `<div class="${cls}" onclick="openDayPlan(${calendarYear},${calendarMonth},${d})">${d}</div>`;
-    }
-    wrap.innerHTML = html;
-}
-function prevMonth(){
-    calendarMonth--;
-    if(calendarMonth < 0){
-        calendarMonth = 11;
-        calendarYear--;
-    }
-    renderCalendar();
-}
-function nextMonth(){
-    calendarMonth++;
-    if(calendarMonth > 11){
-        calendarMonth = 0;
-        calendarYear++;
-    }
-    renderCalendar();
-}
-
-// 打开某天学习计划弹窗
-function openDayPlan(y,m,d){
-    let key = `${y}-${m+1}-${d}`;
-    let plan = getDayPlan();
-    let list = plan[key] || [];
-    document.getElementById('modalDateTitle').innerText = `${y}年${m+1}月${d}日 学习计划`;
-    let box = document.getElementById('planCharList');
-    if(list.length === 0){
-        box.innerHTML = '<div class="empty-tip">当日暂无学习安排</div>';
-    }else{
-        let html = '';
-        list.forEach(c=>{
+        let list = plan[key] || [];
+        document.getElementById("modalDateTitle").innerText =
+          `${y}年${m + 1}月${d}日 学习计划`;
+        let box = document.getElementById("planCharList");
+        if (list.length === 0) {
+          box.innerHTML = '<div class="empty-tip">当日暂无学习安排</div>';
+        } else {
+          let html = "";
+          list.forEach((c) => {
             html += `<div class="plan-char-item" onclick="startStudyByChar('${c}')">${c}</div>`;
-        });
-        box.innerHTML = html;
-    }
-    document.getElementById('calendarModal').classList.add('show');
-}
-function closeCalendarModal(){
-    document.getElementById('calendarModal').classList.remove('show');
-}
-// 点击弹窗汉字直接进入学习
-function startStudyByChar(c){
-    let idx = charList.findIndex(item=>item.c === c);
-    if(idx === -1) return;
-    currentIndex = idx;
-    isFromWrongBook = false;
-    renderStudySlide();
-    showChar();
-    switchPage('pageStudy');
-    closeCalendarModal();
-}
+          });
+          box.innerHTML = html;
+        }
+        document.getElementById("calendarModal").classList.add("show");
+      }
+      function closeCalendarModal() {
+        document.getElementById("calendarModal").classList.remove("show");
+      }
+      // 点击汉字直接进入学习
+      function startStudyByChar(c) {
+        // 标记从其他页面进入
+        isFromOtherPage = true;
+        
+        let idx = charList.findIndex((item) => item.c === c);
+        if (idx === -1) {
+          showToast("未找到该汉字");
+          return;
+        }
+        currentIndex = idx;
+        isFromWrongBook = false;
+        renderStudySlide();
+        showChar();
+        switchPage("pageStudy");
+        // 尝试关闭日历弹窗（如果打开的话）
+        try {
+          closeCalendarModal();
+        } catch (e) {}
+      }
 
-// ========== 核心修改3：获取近3天（指定日期范围内）的学习汉字 ==========
-function getRecent3DaysChars() {
-    let recentChars = [];
-    // 从目标日期（2026年4月27日）往前推3天获取复习汉字
-    let baseDate = new Date(TARGET_STUDY_DATE);
-    
-    // 循环获取目标日期-2天、目标日期-1天、目标日期的汉字（确保3天×5字=15字）
-    for (let i = -2; i <= 0; i++) {
-        let date = new Date(baseDate);
-        date.setDate(baseDate.getDate() + i);
-        let y = date.getFullYear();
-        let m = date.getMonth() + 1;
-        let d = date.getDate();
-        let key = `${y}-${m}-${d}`;
-        let dayChars = getDayPlan()[key] || [];
-        recentChars = [...recentChars, ...dayChars];
-    }
-    
-    // 去重并返回（确保正好15个）
-    return recentChars.slice(0, 15);
-}
+      // ========== 核心修改3：获取近3天（指定日期范围内）的学习汉字 ==========
+      function getRecent3DaysChars() {
+        let recentChars = [];
+        // 从目标日期（2026年4月27日）往前推3天获取复习汉字
+        let baseDate = new Date(TARGET_STUDY_DATE);
 
-// ========== 原有逻辑调整 ==========
-let countdownTimer;
-let countdown = 3;
+        // 循环获取目标日期-2天、目标日期-1天、目标日期的汉字（确保3天×5字=15字）
+        for (let i = -2; i <= 0; i++) {
+          let date = new Date(baseDate);
+          date.setDate(baseDate.getDate() + i);
+          let y = date.getFullYear();
+          let m = date.getMonth() + 1;
+          let d = date.getDate();
+          let key = `${y}-${m}-${d}`;
+          let dayChars = getDayPlan()[key] || [];
+          recentChars = [...recentChars, ...dayChars];
+        }
 
-window.onload = async function () {
-    console.log('页面加载中...');
-    // 加载汉字数据
-    await loadChars();
-    charList = generate3000Chars();
-    console.log(`汉字数据加载完成，共 ${charList.length} 个汉字`);
-    
-    // 生成学习计划
-    autoBuildPlan();
-    console.log('学习计划生成完成');
-    
-    startWelcomeCountdown();
-    initChar('hanzi-target', '人');
-    initReviewChar('山');
-    switchPage('pageHome');
-    renderCalendar();
-    renderAllChars();
-    console.log('页面初始化完成');
-};
+        // 去重并返回（确保正好15个）
+        return recentChars.slice(0, 15);
+      }
 
-function startWelcomeCountdown() {
-    const countdownEl = document.getElementById('countdown');
-    countdownTimer = setInterval(() => {
-        countdown--;
-        if (countdown <= 0) {
+      // ========== 原有逻辑调整 ==========
+      let countdownTimer;
+      let countdown = 3;
+
+      window.onload = async function () {
+        console.log("页面加载中...");
+        // 加载汉字数据
+        await loadChars();
+        charList = generate3000Chars();
+        console.log(`汉字数据加载完成，共 ${charList.length} 个汉字`);
+
+        // 生成学习计划
+        autoBuildPlan();
+        console.log("学习计划生成完成");
+
+        startWelcomeCountdown();
+        initChar("hanzi-target", "人");
+        initReviewChar("山");
+        switchPage("pageHome");
+        renderCalendar();
+        renderAllChars();
+        console.log("页面初始化完成");
+      };
+
+      function startWelcomeCountdown() {
+        const countdownEl = document.getElementById("countdown");
+        countdownTimer = setInterval(() => {
+          countdown--;
+          if (countdown <= 0) {
             clearInterval(countdownTimer);
             enterHomePage();
-        } else {
+          } else {
             countdownEl.innerText = `${countdown}秒后自动进入...`;
-        }
-    }, 1000);
-}
-function skipWelcome() {
-    clearInterval(countdownTimer);
-    enterHomePage();
-}
-function enterHomePage() {
-    const welcomePage = document.getElementById('welcomePage');
-    welcomePage.classList.add('hide');
-    document.getElementById('pageHome').classList.add('active');
-}
-function goBack() {
-    switchPage('pageHome');
-}
-function switchPage(id) {
-    document.querySelectorAll('.page').forEach(p => p.classList.remove('active'));
-    document.getElementById(id).classList.add('active');
-    const backBtn = document.querySelector('.back-btn');
-    backBtn.style.visibility = id === 'pageHome' ? 'hidden' : 'visible';
-}
-function initChar(target, char) {
-    document.getElementById(target).innerHTML = "";
-    return HanziWriter.create(target, char, {
-        width: 230, height: 230, padding: 8,
-        strokeColor: '#1976d2',
-        strokeAnimationSpeed: 1.4,
-        delayBetweenStrokes: 550
-    });
-}
-function initReviewChar(char) {
-    reviewWriter = initChar('review-target', char);
-    // 查找当前复习汉字的拼音
-    const charItem = charList.find(item => item.c === char);
-    document.getElementById('review-pinyin').innerText = charItem ? charItem.p : '';
-}
-function renderStudySlide() {
-    const box = document.getElementById('studySlide');
-    box.innerHTML = '';
-    // 核心修改：显示2026年4月27日的5个学习汉字
-    const targetKey = `${TARGET_STUDY_DATE.getFullYear()}-${TARGET_STUDY_DATE.getMonth()+1}-${TARGET_STUDY_DATE.getDate()}`;
-    let targetChars = getDayPlan()[targetKey];
-    
-    // 确保targetChars有效
-    if (!targetChars || targetChars.length === 0) {
-        // 如果没有计划，使用charList的前5个汉字
-        targetChars = charList.slice(0, DAY_CHAR_COUNT).map(item => item.c);
-    }
-    
-    // 确保targetChars不包含重复值
-    targetChars = [...new Set(targetChars)];
-    
-    // 确保至少有一个汉字
-    if (targetChars.length === 0) {
-        targetChars = ['一'];
-    }
-    
-    // 获取当前显示的汉字
-    let currentChar = '';
-    if (charList[currentIndex]) {
-        currentChar = charList[currentIndex].c;
-    }
-    
-    // 确保currentChar在targetChars中
-    if (!targetChars.includes(currentChar)) {
-        currentChar = targetChars[0];
-        // 更新currentIndex为第一个汉字的索引
-        const newIndex = charList.findIndex(item => item.c === currentChar);
-        if (newIndex !== -1) {
-            currentIndex = newIndex;
-        }
-    }
-    
-    targetChars.forEach((char, i) => {
-        // 创建滑块元素
-        const thumb = document.createElement('div');
-        thumb.className = `slide-thumb ${char === currentChar ? 'active' : ''}`;
-        thumb.textContent = char;
-        // 绑定点击事件
-        thumb.addEventListener('click', () => {
-            goStudyByChar(char);
+          }
+        }, 1000);
+      }
+      function skipWelcome() {
+        clearInterval(countdownTimer);
+        enterHomePage();
+      }
+      function enterHomePage() {
+        const welcomePage = document.getElementById("welcomePage");
+        welcomePage.classList.add("hide");
+        document.getElementById("pageHome").classList.add("active");
+      }
+      function goBack() {
+        switchPage("pageHome");
+      }
+      function switchPage(id) {
+        document
+          .querySelectorAll(".page")
+          .forEach((p) => p.classList.remove("active"));
+        document.getElementById(id).classList.add("active");
+        const backBtn = document.querySelector(".back-btn");
+        backBtn.style.visibility = id === "pageHome" ? "hidden" : "visible";
+      }
+      function initChar(target, char) {
+        document.getElementById(target).innerHTML = "";
+        return HanziWriter.create(target, char, {
+          width: 230,
+          height: 230,
+          padding: 8,
+          strokeColor: "#1976d2",
+          strokeAnimationSpeed: 1.4,
+          delayBetweenStrokes: 550,
         });
-        box.appendChild(thumb);
-    });
-}
+      }
+      function initReviewChar(char) {
+        reviewWriter = initChar("review-target", char);
+        // 查找当前复习汉字的拼音
+        const charItem = charList.find((item) => item.c === char);
+        document.getElementById("review-pinyin").innerText = charItem
+          ? charItem.p
+          : "";
+      }
+      function renderStudySlide() {
+        const box = document.getElementById("studySlide");
+        box.innerHTML = "";
+        
+        // 获取当前显示的汉字
+        let currentChar = "";
+        if (currentStudyChar) {
+          currentChar = currentStudyChar.c;
+        } else if (charList[currentIndex]) {
+          currentChar = charList[currentIndex].c;
+        }
 
-// 根据汉字字符切换学习内容
-function goStudyByChar(char) {
-    console.log('goStudyByChar called with char:', char);
-    // 找到字符在charList中的索引
-    const index = charList.findIndex(item => item.c === char);
-    console.log('Found index:', index);
-    if (index !== -1) {
+        // 控制标题区域的显示/隐藏
+        const studyTitle = document.getElementById("studyTitle");
+        const studyPlan = document.getElementById("studyPlan");
+        const studyTip = document.getElementById("studyTip");
+        
+        let targetChars = [];
+
+        // 如果从其他页面（全部汉字、已认识汉字、待复习错字）进入，只显示当前汉字
+        if (isFromOtherPage) {
+          targetChars = [currentChar];
+          // 隐藏今日学习相关的标题
+          studyTitle.style.display = "none";
+          studyPlan.style.display = "none";
+          studyTip.style.display = "none";
+        } else {
+          // 显示今日学习相关的标题
+          studyTitle.style.display = "block";
+          studyPlan.style.display = "block";
+          studyTip.style.display = "block";
+          
+          // 如果有今日学习计划，显示今日学习计划的汉字
+          const today = new Date();
+          const targetKey = `${today.getFullYear()}-${today.getMonth() + 1}-${today.getDate()}`;
+          targetChars = getDayPlan()[targetKey];
+
+          // 确保targetChars有效
+          if (!targetChars || targetChars.length === 0) {
+            // 如果没有计划，只显示当前汉字
+            targetChars = [currentChar];
+          }
+
+          // 确保targetChars不包含重复值
+          targetChars = [...new Set(targetChars)];
+
+          // 确保至少有一个汉字
+          if (targetChars.length === 0) {
+            targetChars = ["一"];
+          }
+
+          // 如果当前汉字不在计划中，添加到列表开头
+          if (currentChar && !targetChars.includes(currentChar)) {
+            targetChars.unshift(currentChar);
+          }
+        }
+
+        targetChars.forEach((char, i) => {
+          // 创建滑块元素
+          const thumb = document.createElement("div");
+          thumb.className = `slide-thumb ${char === currentChar ? "active" : ""}`;
+          thumb.textContent = char;
+          // 绑定点击事件
+          thumb.addEventListener("click", () => {
+            goStudyByChar(char);
+          });
+          box.appendChild(thumb);
+        });
+      }
+
+      // 根据汉字字符切换学习内容
+      function goStudyByChar(char) {
+        // 重置从其他页面进入的标记，恢复显示当天学习计划
+        isFromOtherPage = false;
+        
+        // 找到字符在charList中的索引
+        const index = charList.findIndex((item) => item.c === char);
+        if (index !== -1) {
+          currentIndex = index;
+          renderStudySlide();
+          showChar();
+        } else {
+          showToast("未找到该汉字");
+        }
+      }
+      function goStudy(index) {
+        // 确保index在有效范围内
+        if (index < 0 || index >= charList.length) {
+          index = 0;
+        }
         currentIndex = index;
-        console.log('Updated currentIndex:', currentIndex);
         renderStudySlide();
         showChar();
-    } else {
-        console.log('Char not found in charList:', char);
-    }
-}
-function goStudy(index) {
-    // 确保index在有效范围内
-    if (index < 0 || index >= charList.length) {
-        index = 0;
-    }
-    currentIndex = index;
-    renderStudySlide();
-    showChar();
-}
-function startStudy() {
-    // 核心修改：获取2026年4月27日的5个学习字的第一个
-    const targetKey = `${TARGET_STUDY_DATE.getFullYear()}-${TARGET_STUDY_DATE.getMonth()+1}-${TARGET_STUDY_DATE.getDate()}`;
-    let targetChars = getDayPlan()[targetKey];
-    
-    // 确保targetChars有效
-    if (!targetChars || targetChars.length === 0) {
-        // 如果没有计划，使用charList的前5个汉字
-        targetChars = charList.slice(0, DAY_CHAR_COUNT).map(item => item.c);
-    }
-    
-    // 确保targetChars不包含重复值
-    targetChars = [...new Set(targetChars)];
-    
-    // 确保至少有一个汉字
-    if (targetChars.length === 0) {
-        targetChars = ['一'];
-    }
-    
-    // 设置当前索引为第一个汉字
-    // 尝试找到第一个汉字的索引
-    const firstChar = targetChars[0];
-    currentIndex = charList.findIndex(item => item.c === firstChar);
-    // 如果找不到，使用第一个汉字
-    if (currentIndex === -1) {
-        currentIndex = 0;
-    }
-    
-    isFromWrongBook = false;
-    renderStudySlide();
-    showChar();
-    switchPage('pageStudy');
-}
-function showChar() {
-    // 确保charList和currentIndex有效
-    if (!charList || charList.length === 0) {
-        console.error('汉字数据为空');
-        document.getElementById('pinyin').innerText = '加载中...';
-        document.getElementById('tipTxt').innerText = '汉字数据正在加载，请稍候';
-        return;
-    }
-    
-    // 确保currentIndex在有效范围内
-    if (currentIndex < 0 || currentIndex >= charList.length) {
-        currentIndex = 0; // 重置为第一个汉字
-    }
-    
-    // 确保当前汉字在今日学习计划中
-    const targetKey = `${TARGET_STUDY_DATE.getFullYear()}-${TARGET_STUDY_DATE.getMonth()+1}-${TARGET_STUDY_DATE.getDate()}`;
-    let targetChars = getDayPlan()[targetKey];
-    
-    // 确保targetChars有效
-    if (!targetChars || targetChars.length === 0) {
-        // 如果没有计划，使用charList的前5个汉字
-        targetChars = charList.slice(0, DAY_CHAR_COUNT).map(item => item.c);
-    }
-    
-    // 确保targetChars不包含重复值
-    targetChars = [...new Set(targetChars)];
-    
-    // 确保至少有一个汉字
-    if (targetChars.length === 0) {
-        targetChars = ['一'];
-    }
-    
-    // 获取当前显示的汉字
-    let currentItem = charList[currentIndex];
-    
-    // 确保currentItem有效
-    if (!currentItem) {
-        currentIndex = 0;
-        currentItem = charList[currentIndex];
-    }
-    
-    // 如果当前汉字不在今日学习计划中，使用第一个汉字
-    if (!targetChars.includes(currentItem.c)) {
+      }
+      function startStudy() {
+        // 重置从其他页面进入的标记
+        isFromOtherPage = false;
+        
+        // 使用当前日期获取学习计划
+        const today = new Date();
+        const targetKey = `${today.getFullYear()}-${today.getMonth() + 1}-${today.getDate()}`;
+        let targetChars = getDayPlan()[targetKey];
+
+        // 确保targetChars有效
+        if (!targetChars || targetChars.length === 0) {
+          // 如果没有计划，使用charList的前5个汉字
+          targetChars = charList.slice(0, DAY_CHAR_COUNT).map((item) => item.c);
+        }
+
+        // 确保targetChars不包含重复值
+        targetChars = [...new Set(targetChars)];
+
+        // 确保至少有一个汉字
+        if (targetChars.length === 0) {
+          targetChars = ["一"];
+        }
+
+        // 设置当前索引为第一个汉字
+        // 尝试找到第一个汉字的索引
         const firstChar = targetChars[0];
-        const newIndex = charList.findIndex(item => item.c === firstChar);
-        if (newIndex !== -1) {
-            currentIndex = newIndex;
-            currentItem = charList[currentIndex];
-            renderStudySlide();
+        currentIndex = charList.findIndex((item) => item.c === firstChar);
+        // 如果找不到，使用第一个汉字
+        if (currentIndex === -1) {
+          currentIndex = 0;
         }
-    }
-    
-    // 再次确保currentItem有效
-    if (!currentItem) {
-        console.error('当前汉字数据无效');
-        document.getElementById('pinyin').innerText = '加载中...';
-        document.getElementById('tipTxt').innerText = '汉字数据正在加载，请稍候';
-        return;
-    }
-    
-    writer = initChar('hanzi-target', currentItem.c);
-    document.getElementById('pinyin').innerText = currentItem.p;
-    document.getElementById('tipTxt').innerText = isFromWrongBook ? "✅ 学会后点击认识，自动移除错字" : "请点击麦克风跟读";
-    document.getElementById('micWrap').classList.remove('listening');
-}
-function playStroke() {
-    writer.animateCharacter();
-}
-function playVoice() {
-    // 确保charList和currentIndex有效
-    if (!charList || charList.length === 0) {
-        console.error('汉字数据为空');
-        return;
-    }
-    
-    // 确保currentIndex在有效范围内
-    if (currentIndex < 0 || currentIndex >= charList.length) {
-        currentIndex = 0; // 重置为第一个汉字
-    }
-    
-    const item = charList[currentIndex];
-    if (!item) {
-        console.error('当前汉字数据无效');
-        return;
-    }
-    
-    const u = new SpeechSynthesisUtterance(item.c);
-    u.lang = 'zh-CN';
-    u.rate = 0.9;
-    window.speechSynthesis.speak(u);
-}
-function openMicAnim() {
-    document.getElementById('micWrap').classList.add('listening');
-}
-function closeMicAnim() {
-    document.getElementById('micWrap').classList.remove('listening');
-}
-function startListen() {
-    if (!('webkitSpeechRecognition' in window) && !('SpeechRecognition' in window)) {
-        showToast("请用 Chrome / Edge 浏览器打开，支持语音识别");
-        return;
-    }
-    openMicAnim();
-    const SpeechRecognition = window.SpeechRecognition || window.webkitSpeechRecognition;
-    recognition = new SpeechRecognition();
-    recognition.lang = "zh-CN";
-    recognition.continuous = false;
-    recognition.interimResults = true;
-    recognition.maxAlternatives = 5;
-    document.getElementById('tipTxt').innerText = "认真听你读，请慢慢读单个汉字...";
-    recognition.start();
-    recognition.onresult = function (e) {
-        closeMicAnim();
-        
+
+        isFromWrongBook = false;
+        renderStudySlide();
+        showChar();
+        switchPage("pageStudy");
+      }
+      function showChar() {
+        // 检查是否有临时学习的汉字（不在charList中）
+        if (currentStudyChar) {
+          writer = initChar("hanzi-target", currentStudyChar.c);
+          document.getElementById("pinyin").innerText = currentStudyChar.p;
+          document.getElementById("tipTxt").innerText = isFromWrongBook
+            ? "✅ 学会后点击认识，自动移除错字"
+            : "请点击麦克风跟读";
+          document.getElementById("micWrap").classList.remove("listening");
+          return;
+        }
+
         // 确保charList和currentIndex有效
-        if (!charList || charList.length === 0 || currentIndex < 0 || currentIndex >= charList.length) {
-            console.error('汉字数据无效');
-            document.getElementById('tipTxt').innerText = '汉字数据加载失败，请刷新页面重试';
-            return;
+        if (!charList || charList.length === 0) {
+          console.error("汉字数据为空");
+          document.getElementById("pinyin").innerText = "加载中...";
+          document.getElementById("tipTxt").innerText =
+            "汉字数据正在加载，请稍候";
+          return;
         }
-        
+
+        // 确保currentIndex在有效范围内
+        if (currentIndex < 0 || currentIndex >= charList.length) {
+          currentIndex = 0; // 重置为第一个汉字
+        }
+
+        // 获取当前显示的汉字
+        let currentItem = charList[currentIndex];
+
+        // 确保currentItem有效
+        if (!currentItem) {
+          currentIndex = 0;
+          currentItem = charList[currentIndex];
+        }
+
+        // 再次确保currentItem有效
+        if (!currentItem) {
+          console.error("当前汉字数据无效");
+          document.getElementById("pinyin").innerText = "加载中...";
+          document.getElementById("tipTxt").innerText =
+            "汉字数据正在加载，请稍候";
+          return;
+        }
+
+        writer = initChar("hanzi-target", currentItem.c);
+        document.getElementById("pinyin").innerText = currentItem.p;
+        document.getElementById("tipTxt").innerText = isFromWrongBook
+          ? "✅ 学会后点击认识，自动移除错字"
+          : "请点击麦克风跟读";
+        document.getElementById("micWrap").classList.remove("listening");
+      }
+      function playStroke() {
+        writer.animateCharacter();
+      }
+      function playVoice() {
+        // 确保charList和currentIndex有效
+        if (!charList || charList.length === 0) {
+          console.error("汉字数据为空");
+          return;
+        }
+
+        // 确保currentIndex在有效范围内
+        if (currentIndex < 0 || currentIndex >= charList.length) {
+          currentIndex = 0; // 重置为第一个汉字
+        }
+
         const item = charList[currentIndex];
         if (!item) {
-            console.error('当前汉字数据无效');
-            document.getElementById('tipTxt').innerText = '汉字数据加载失败，请刷新页面重试';
-            return;
+          console.error("当前汉字数据无效");
+          return;
         }
-        
-        const targetChar = item.c;
-        let ok = false;
-        for (let i = 0; i < e.results.length; i++) {
+
+        const u = new SpeechSynthesisUtterance(item.c);
+        u.lang = "zh-CN";
+        u.rate = 0.9;
+        window.speechSynthesis.speak(u);
+      }
+      function openMicAnim() {
+        document.getElementById("micWrap").classList.add("listening");
+      }
+      function closeMicAnim() {
+        document.getElementById("micWrap").classList.remove("listening");
+      }
+      function startListen() {
+        if (
+          !("webkitSpeechRecognition" in window) &&
+          !("SpeechRecognition" in window)
+        ) {
+          showToast("请用 Chrome / Edge 浏览器打开，支持语音识别");
+          return;
+        }
+        openMicAnim();
+        const SpeechRecognition =
+          window.SpeechRecognition || window.webkitSpeechRecognition;
+        recognition = new SpeechRecognition();
+        recognition.lang = "zh-CN";
+        recognition.continuous = false;
+        recognition.interimResults = true;
+        recognition.maxAlternatives = 5;
+        document.getElementById("tipTxt").innerText =
+          "认真听你读，请慢慢读单个汉字...";
+        recognition.start();
+        recognition.onresult = function (e) {
+          closeMicAnim();
+
+          // 确保charList和currentIndex有效
+          if (
+            !charList ||
+            charList.length === 0 ||
+            currentIndex < 0 ||
+            currentIndex >= charList.length
+          ) {
+            console.error("汉字数据无效");
+            document.getElementById("tipTxt").innerText =
+              "汉字数据加载失败，请刷新页面重试";
+            return;
+          }
+
+          const item = charList[currentIndex];
+          if (!item) {
+            console.error("当前汉字数据无效");
+            document.getElementById("tipTxt").innerText =
+              "汉字数据加载失败，请刷新页面重试";
+            return;
+          }
+
+          const targetChar = item.c;
+          let ok = false;
+          for (let i = 0; i < e.results.length; i++) {
             const transcript = e.results[i][0].transcript.trim();
             if (transcript.indexOf(targetChar) !== -1) {
-                ok = true;
-                break;
+              ok = true;
+              break;
             }
-        }
-        if (ok) {
-            document.getElementById('tipTxt').innerText = "✅ 太棒啦！读对了！";
+          }
+          if (ok) {
+            document.getElementById("tipTxt").innerText = "✅ 太棒啦！读对了！";
             playNiceVoice();
-            if(isFromWrongBook){
-                removeCharFromWrong(targetChar);
-                setTimeout(openWrongBook,1500);
-                return;
+            if (isFromWrongBook) {
+              removeCharFromWrong(targetChar);
+              setTimeout(openWrongBook, 1500);
+              return;
             }
             setTimeout(nextChar, 1500);
+          } else {
+            document.getElementById("tipTxt").innerText =
+              "😉 差一点点，再慢慢读一次～";
+          }
+        };
+        recognition.onerror = function () {
+          closeMicAnim();
+          document.getElementById("tipTxt").innerText =
+            "没听清，请离手机近一点慢慢读";
+        };
+        recognition.onend = function () {
+          closeMicAnim();
+        };
+      }
+      function playNiceVoice() {
+        const list = ["真棒", "太厉害啦", "你真棒", "答对了", "好聪明"];
+        const msg = list[Math.floor(Math.random() * list.length)];
+        const u = new SpeechSynthesisUtterance(msg);
+        u.lang = "zh-CN";
+        u.rate = 1.0;
+        speechSynthesis.speak(u);
+      }
+      function knowChar() {
+        // 获取当前汉字（可能来自charList或currentStudyChar）
+        let currentChar = null;
+        
+        if (currentStudyChar) {
+          // 如果有临时学习的汉字（不在charList中）
+          currentChar = currentStudyChar.c;
         } else {
-            document.getElementById('tipTxt').innerText = "😉 差一点点，再慢慢读一次～";
+          // 确保charList和currentIndex有效
+          if (
+            !charList ||
+            charList.length === 0 ||
+            currentIndex < 0 ||
+            currentIndex >= charList.length
+          ) {
+            console.error("汉字数据无效");
+            document.getElementById("tipTxt").innerText =
+              "汉字数据加载失败，请刷新页面重试";
+            return;
+          }
+
+          const item = charList[currentIndex];
+          if (!item) {
+            console.error("当前汉字数据无效");
+            document.getElementById("tipTxt").innerText =
+              "汉字数据加载失败，请刷新页面重试";
+            return;
+          }
+          currentChar = item.c;
         }
-    };
-    recognition.onerror = function () {
-        closeMicAnim();
-        document.getElementById('tipTxt').innerText = "没听清，请离手机近一点慢慢读";
-    };
-    recognition.onend = function () {
-        closeMicAnim();
-    };
-}
-function playNiceVoice() {
-    const list = ["真棒", "太厉害啦", "你真棒", "答对了", "好聪明"];
-    const msg = list[Math.floor(Math.random() * list.length)];
-    const u = new SpeechSynthesisUtterance(msg);
-    u.lang = 'zh-CN';
-    u.rate = 1.0;
-    speechSynthesis.speak(u);
-}
-function knowChar() {
-    // 确保charList和currentIndex有效
-    if (!charList || charList.length === 0 || currentIndex < 0 || currentIndex >= charList.length) {
-        console.error('汉字数据无效');
-        document.getElementById('tipTxt').innerText = '汉字数据加载失败，请刷新页面重试';
-        return;
-    }
-    
-    const item = charList[currentIndex];
-    if (!item) {
-        console.error('当前汉字数据无效');
-        document.getElementById('tipTxt').innerText = '汉字数据加载失败，请刷新页面重试';
-        return;
-    }
-    
-    const currentChar = item.c;
-    if(isFromWrongBook){
-        document.getElementById('tipTxt').innerText = "✅ 太棒了！已从错字本移除！";
-        removeCharFromWrong(currentChar);
-        setTimeout(openWrongBook, 1200);
-        return;
-    }
-    document.getElementById('tipTxt').innerText = "✅ 很棒！继续学习下一个";
-    nextChar();
-}
-function unknowChar() {
-    // 确保charList和currentIndex有效
-    if (!charList || charList.length === 0 || currentIndex < 0 || currentIndex >= charList.length) {
-        console.error('汉字数据无效');
-        document.getElementById('tipTxt').innerText = '汉字数据加载失败，请刷新页面重试';
-        return;
-    }
-    
-    const item = charList[currentIndex];
-    if (!item) {
-        console.error('当前汉字数据无效');
-        document.getElementById('tipTxt').innerText = '汉字数据加载失败，请刷新页面重试';
-        return;
-    }
-    
-    const char = item.c;
-    addCharToWrong(char);
-    showToast("❌ 已加入错字本（同时记录到错字历史），稍后专门复习");
-    nextChar();
-}
-function nextChar() {
-    if(isFromWrongBook){
-        openWrongBook();
-        return;
-    }
-    // 核心修改：切换2026年4月27日的5个学习字
-    const targetKey = `${TARGET_STUDY_DATE.getFullYear()}-${TARGET_STUDY_DATE.getMonth()+1}-${TARGET_STUDY_DATE.getDate()}`;
-    let targetChars = getDayPlan()[targetKey];
-    
-    // 确保targetChars有效
-    if (!targetChars || targetChars.length === 0) {
-        // 如果没有计划，使用charList的前5个汉字
-        targetChars = charList.slice(0, DAY_CHAR_COUNT).map(item => item.c);
-    }
-    
-    // 确保targetChars不包含重复值
-    targetChars = [...new Set(targetChars)];
-    
-    // 确保至少有一个汉字
-    if (targetChars.length === 0) {
-        targetChars = ['一'];
-    }
-    
-    // 确保currentIndex有效
-    if (currentIndex < 0 || currentIndex >= charList.length) {
-        currentIndex = 0;
-    }
-    
-    const item = charList[currentIndex];
-    if (!item) {
-        currentIndex = 0;
-    }
-    
-    const currentChar = item ? item.c : '';
-    const currentPos = targetChars.indexOf(currentChar);
-    
-    if (currentPos < targetChars.length - 1 && currentPos !== -1) {
-        // 找到下一个汉字的索引
-        const nextChar = targetChars[currentPos + 1];
-        const nextIndex = charList.findIndex(item => item.c === nextChar);
-        if (nextIndex !== -1) {
-            currentIndex = nextIndex;
+
+        if (isFromWrongBook) {
+          document.getElementById("tipTxt").innerText =
+            "✅ 太棒了！已从错字本移除！";
+          removeCharFromWrong(currentChar);
+          // 清空临时学习的汉字
+          currentStudyChar = null;
+          setTimeout(openWrongBook, 1200);
+          return;
+        }
+        // 清空临时学习的汉字
+        currentStudyChar = null;
+        document.getElementById("tipTxt").innerText = "✅ 很棒！继续学习下一个";
+        nextChar();
+      }
+      function unknowChar() {
+        // 获取当前汉字（可能来自charList或currentStudyChar）
+        let currentChar = null;
+        
+        if (currentStudyChar) {
+          // 如果有临时学习的汉字（不在charList中）
+          currentChar = currentStudyChar.c;
         } else {
+          // 确保charList和currentIndex有效
+          if (
+            !charList ||
+            charList.length === 0 ||
+            currentIndex < 0 ||
+            currentIndex >= charList.length
+          ) {
+            console.error("汉字数据无效");
+            document.getElementById("tipTxt").innerText =
+              "汉字数据加载失败，请刷新页面重试";
+            return;
+          }
+
+          const item = charList[currentIndex];
+          if (!item) {
+            console.error("当前汉字数据无效");
+            document.getElementById("tipTxt").innerText =
+              "汉字数据加载失败，请刷新页面重试";
+            return;
+          }
+          currentChar = item.c;
+        }
+
+        addCharToWrong(currentChar);
+        // 清空临时学习的汉字
+        currentStudyChar = null;
+        showToast("❌ 已加入错字本（同时记录到错字历史），稍后专门复习");
+        nextChar();
+      }
+      function nextChar() {
+        if (isFromWrongBook) {
+          openWrongBook();
+          return;
+        }
+        // 使用当前日期获取学习计划
+        const today = new Date();
+        const targetKey = `${today.getFullYear()}-${today.getMonth() + 1}-${today.getDate()}`;
+        let targetChars = getDayPlan()[targetKey];
+
+        // 确保targetChars有效
+        if (!targetChars || targetChars.length === 0) {
+          // 如果没有计划，使用charList的前5个汉字
+          targetChars = charList.slice(0, DAY_CHAR_COUNT).map((item) => item.c);
+        }
+
+        // 确保targetChars不包含重复值
+        targetChars = [...new Set(targetChars)];
+
+        // 确保至少有一个汉字
+        if (targetChars.length === 0) {
+          targetChars = ["一"];
+        }
+
+        // 确保currentIndex有效
+        if (currentIndex < 0 || currentIndex >= charList.length) {
+          currentIndex = 0;
+        }
+
+        const item = charList[currentIndex];
+        if (!item) {
+          currentIndex = 0;
+        }
+
+        const currentChar = item ? item.c : "";
+        const currentPos = targetChars.indexOf(currentChar);
+
+        if (currentPos < targetChars.length - 1 && currentPos !== -1) {
+          // 找到下一个汉字的索引
+          const nextChar = targetChars[currentPos + 1];
+          const nextIndex = charList.findIndex((item) => item.c === nextChar);
+          if (nextIndex !== -1) {
+            currentIndex = nextIndex;
+          } else {
             // 如果找不到，使用当前索引的下一个
             currentIndex = (currentIndex + 1) % charList.length;
+          }
+          renderStudySlide();
+          showChar();
+        } else {
+          showToast("🎉 今日5个汉字学习完成！太优秀啦！");
+          setTimeout(goBack, 1500);
         }
-        renderStudySlide();
-        showChar();
-    } else {
-        showToast("🎉 今日5个汉字学习完成！太优秀啦！");
-        setTimeout(goBack, 1500);
-    }
-}
-function openReview() {
-    // 获取近3天的汉字列表（15个）
-    const recentChars = getRecent3DaysChars();
-    if (recentChars.length === 0) {
-        showToast("暂无近3天的学习内容可复习");
-        return;
-    }
-    // 设置复习起始索引为第一个汉字
-    reviewIndex = charList.findIndex(item => item.c === recentChars[0]);
-    renderReviewSlide();
-    showReviewChar();
-    switchPage('pageReview');
-}
-function renderReviewSlide() {
-    const box = document.getElementById('reviewSlide');
-    let html = '';
-    // 获取近3天的汉字（15个）
-    const recentChars = getRecent3DaysChars();
-    
-    if (recentChars.length === 0) {
-        html = '<div class="empty-tip">暂无近3天的学习内容可复习🎉</div>';
-    } else if (!charList || charList.length === 0) {
-        html = '<div class="empty-tip">汉字数据正在加载，请稍候...</div>';
-    } else {
-        recentChars.forEach((char, i) => {
-            const idx = charList.findIndex(c => c.c === char);
-            html += `<div class="slide-thumb ${idx===reviewIndex ? 'active' : ''}" onclick="goReview(${idx})">${char}</div>`;
-        });
-    }
-    box.innerHTML = html;
-}
-function goReview(index) {
-    reviewIndex = index;
-    renderReviewSlide();
-    showReviewChar();
-}
-function showReviewChar() {
-    // 确保charList和reviewIndex有效
-    if (!charList || charList.length === 0) {
-        console.error('汉字数据为空');
-        return;
-    }
-    
-    // 确保reviewIndex在有效范围内
-    if (reviewIndex < 0 || reviewIndex >= charList.length) {
-        reviewIndex = 0; // 重置为第一个汉字
-    }
-    
-    const item = charList[reviewIndex];
-    if (!item) {
-        console.error('当前汉字数据无效');
-        return;
-    }
-    
-    initReviewChar(item.c);
-}
-function reviewRight() {
-    showToast("✅ 读对！非常棒！");
-    // 获取近3天的汉字列表（15个）
-    const recentChars = getRecent3DaysChars();
-    
-    // 确保charList和reviewIndex有效
-    if (!charList || charList.length === 0 || reviewIndex < 0 || reviewIndex >= charList.length) {
-        console.error('汉字数据无效');
-        setTimeout(goBack, 1500);
-        return;
-    }
-    
-    const item = charList[reviewIndex];
-    if (!item) {
-        console.error('当前汉字数据无效');
-        setTimeout(goBack, 1500);
-        return;
-    }
-    
-    const currentChar = item.c;
-    const currentPos = recentChars.indexOf(currentChar);
-    
-    if (currentPos < recentChars.length - 1) {
-        reviewIndex = charList.findIndex(item => item.c === recentChars[currentPos + 1]);
+      }
+      function openReview() {
+        // 获取近3天的汉字列表（15个）
+        const recentChars = getRecent3DaysChars();
+        if (recentChars.length === 0) {
+          showToast("暂无近3天的学习内容可复习");
+          return;
+        }
+        // 设置复习起始索引为第一个汉字
+        reviewIndex = charList.findIndex((item) => item.c === recentChars[0]);
         renderReviewSlide();
         showReviewChar();
-    } else {
-        showToast("🎉 今日复习完成！");
-        setTimeout(goBack, 1500);
-    }
-}
-function reviewWrong() {
-    // 确保charList和reviewIndex有效
-    if (!charList || charList.length === 0 || reviewIndex < 0 || reviewIndex >= charList.length) {
-        console.error('汉字数据无效');
-        setTimeout(goBack, 1500);
-        return;
-    }
-    
-    const item = charList[reviewIndex];
-    if (!item) {
-        console.error('当前汉字数据无效');
-        setTimeout(goBack, 1500);
-        return;
-    }
-    
-    const char = item.c;
-    addCharToWrong(char);
-    showToast("❌ 已加入错字本（同时记录到错字历史），多练习几次就会啦");
-    
-    // 获取近3天的汉字列表（15个）
-    const recentChars = getRecent3DaysChars();
-    const currentChar = item.c;
-    const currentPos = recentChars.indexOf(currentChar);
-    
-    if (currentPos < recentChars.length - 1) {
-        reviewIndex = charList.findIndex(item => item.c === recentChars[currentPos + 1]);
+        switchPage("pageReview");
+      }
+      function renderReviewSlide() {
+        const box = document.getElementById("reviewSlide");
+        let html = "";
+        // 获取近3天的汉字（15个）
+        const recentChars = getRecent3DaysChars();
+
+        if (recentChars.length === 0) {
+          html = '<div class="empty-tip">暂无近3天的学习内容可复习🎉</div>';
+        } else if (!charList || charList.length === 0) {
+          html = '<div class="empty-tip">汉字数据正在加载，请稍候...</div>';
+        } else {
+          recentChars.forEach((char, i) => {
+            const idx = charList.findIndex((c) => c.c === char);
+            html += `<div class="slide-thumb ${idx === reviewIndex ? "active" : ""}" onclick="goReview(${idx})">${char}</div>`;
+          });
+        }
+        box.innerHTML = html;
+      }
+      function goReview(index) {
+        reviewIndex = index;
         renderReviewSlide();
         showReviewChar();
-    }
-}
-function getWrongData(){
-    return JSON.parse(localStorage.wrongData || '[]');
-}
-function saveWrongData(data){
-    localStorage.wrongData = JSON.stringify(data);
-}
-function addCharToWrong(char){
-    let data = getWrongData();
-    let item = data.find(i => i.c === char);
-    if(item) item.count++;
-    else data.push({c: char, count: 1});
-    saveWrongData(data);
-    addCharToHistory(char);
-}
-function removeCharFromWrong(char){
-    let data = getWrongData();
-    data = data.filter(i => i.c !== char);
-    saveWrongData(data);
-    // 注意：错字历史记录保持不变，仍然保留
-}
-function getWrongHistory(){
-    return JSON.parse(localStorage.wrongHistory || '[]');
-}
-function saveWrongHistory(data){
-    localStorage.wrongHistory = JSON.stringify(data);
-}
-function addCharToHistory(char){
-    let data = getWrongHistory();
-    let exists = data.find(i => i.c === char);
-    if(!exists) data.push({c: char});
-    saveWrongHistory(data);
-}
-function openWrongBook() {
-    isFromWrongBook = false;
-    switchPage('pageWrong');
-    renderWrongList();
-}
-function openWrongHistory() {
-    switchPage('pageWrongHistory');
-    renderWrongHistory();
-}
-function renderWrongList() {
-    const data = getWrongData();
-    const box = document.getElementById('wrongList');
-    if (data.length === 0) {
-        box.innerHTML = '<div class="empty-tip">暂无错字，太棒啦！🎉</div>';
-        return;
-    }
-    let html = '';
-    data.forEach(item => {
-        html += `
+      }
+      function showReviewChar() {
+        // 确保charList和reviewIndex有效
+        if (!charList || charList.length === 0) {
+          console.error("汉字数据为空");
+          return;
+        }
+
+        // 确保reviewIndex在有效范围内
+        if (reviewIndex < 0 || reviewIndex >= charList.length) {
+          reviewIndex = 0; // 重置为第一个汉字
+        }
+
+        const item = charList[reviewIndex];
+        if (!item) {
+          console.error("当前汉字数据无效");
+          return;
+        }
+
+        initReviewChar(item.c);
+      }
+      function reviewRight() {
+        showToast("✅ 读对！非常棒！");
+        // 获取近3天的汉字列表（15个）
+        const recentChars = getRecent3DaysChars();
+
+        // 确保charList和reviewIndex有效
+        if (
+          !charList ||
+          charList.length === 0 ||
+          reviewIndex < 0 ||
+          reviewIndex >= charList.length
+        ) {
+          console.error("汉字数据无效");
+          setTimeout(goBack, 1500);
+          return;
+        }
+
+        const item = charList[reviewIndex];
+        if (!item) {
+          console.error("当前汉字数据无效");
+          setTimeout(goBack, 1500);
+          return;
+        }
+
+        const currentChar = item.c;
+        const currentPos = recentChars.indexOf(currentChar);
+
+        if (currentPos < recentChars.length - 1) {
+          reviewIndex = charList.findIndex(
+            (item) => item.c === recentChars[currentPos + 1],
+          );
+          renderReviewSlide();
+          showReviewChar();
+        } else {
+          showToast("🎉 今日复习完成！");
+          setTimeout(goBack, 1500);
+        }
+      }
+      function reviewWrong() {
+        // 确保charList和reviewIndex有效
+        if (
+          !charList ||
+          charList.length === 0 ||
+          reviewIndex < 0 ||
+          reviewIndex >= charList.length
+        ) {
+          console.error("汉字数据无效");
+          setTimeout(goBack, 1500);
+          return;
+        }
+
+        const item = charList[reviewIndex];
+        if (!item) {
+          console.error("当前汉字数据无效");
+          setTimeout(goBack, 1500);
+          return;
+        }
+
+        const char = item.c;
+        addCharToWrong(char);
+        showToast("❌ 已加入错字本（同时记录到错字历史），多练习几次就会啦");
+
+        // 获取近3天的汉字列表（15个）
+        const recentChars = getRecent3DaysChars();
+        const currentChar = item.c;
+        const currentPos = recentChars.indexOf(currentChar);
+
+        if (currentPos < recentChars.length - 1) {
+          reviewIndex = charList.findIndex(
+            (item) => item.c === recentChars[currentPos + 1],
+          );
+          renderReviewSlide();
+          showReviewChar();
+        }
+      }
+      function getWrongData() {
+        return JSON.parse(localStorage.wrongData || "[]");
+      }
+      function saveWrongData(data) {
+        localStorage.wrongData = JSON.stringify(data);
+      }
+      function addCharToWrong(char) {
+        let data = getWrongData();
+        let item = data.find((i) => i.c === char);
+        if (item) item.count++;
+        else data.push({ c: char, count: 1 });
+        saveWrongData(data);
+        addCharToHistory(char);
+      }
+      function removeCharFromWrong(char) {
+        let data = getWrongData();
+        data = data.filter((i) => i.c !== char);
+        saveWrongData(data);
+        // 注意：错字历史记录保持不变，仍然保留
+      }
+      function getWrongHistory() {
+        return JSON.parse(localStorage.wrongHistory || "[]");
+      }
+      function saveWrongHistory(data) {
+        localStorage.wrongHistory = JSON.stringify(data);
+      }
+      function addCharToHistory(char) {
+        let data = getWrongHistory();
+        let exists = data.find((i) => i.c === char);
+        if (!exists) data.push({ c: char });
+        saveWrongHistory(data);
+      }
+      function openWrongBook() {
+        isFromWrongBook = false;
+        switchPage("pageWrong");
+        renderWrongList();
+      }
+      function openWrongHistory() {
+        switchPage("pageWrongHistory");
+        renderWrongHistory();
+      }
+      function renderWrongList() {
+        const data = getWrongData();
+        const box = document.getElementById("wrongList");
+        if (data.length === 0) {
+          box.innerHTML = '<div class="empty-tip">暂无错字，太棒啦！🎉</div>';
+          return;
+        }
+        let html = "";
+        data.forEach((item) => {
+          // 获取带声调的拼音
+          let pinyin = "";
+          if (typeof window.pinyinPro !== 'undefined') {
+            try {
+              pinyin = window.pinyinPro.pinyin(item.c, { toneType: 'tone' });
+            } catch (e) {
+              console.log('获取拼音失败:', item.c, e);
+            }
+          }
+          html += `
         <div class="wrong-char" onclick="goToStudyChar('${item.c}')">
             <span class="hanzi-text">${item.c}</span>
+            <span class="pinyin-text">${pinyin}</span>
             <span class="wrong-count">错${item.count}次</span>
         </div>`;
-    });
-    box.innerHTML = html;
-}
-function renderWrongHistory() {
-    const data = getWrongHistory();
-    const box = document.getElementById('wrongHistoryList');
-    if (data.length === 0) {
-        box.innerHTML = '<div class="empty-tip">暂无历史记录🎉</div>';
-        return;
-    }
-    let html = '';
-    data.forEach(item => {
-        html += `
-        <div class="wrong-char">
+        });
+        box.innerHTML = html;
+      }
+      function renderWrongHistory() {
+        const data = getWrongHistory();
+        const box = document.getElementById("wrongHistoryList");
+        if (data.length === 0) {
+          box.innerHTML = '<div class="empty-tip">暂无历史记录🎉</div>';
+          return;
+        }
+        let html = "";
+        data.forEach((item) => {
+          // 获取带声调的拼音
+          let pinyin = "";
+          if (typeof window.pinyinPro !== 'undefined') {
+            try {
+              pinyin = window.pinyinPro.pinyin(item.c, { toneType: 'tone' });
+            } catch (e) {
+              console.log('获取拼音失败:', item.c, e);
+            }
+          }
+          html += `
+        <div class="wrong-char" onclick="goToStudyChar('${item.c}')">
             <span class="hanzi-text">${item.c}</span>
+            <span class="pinyin-text">${pinyin}</span>
             <span class="wrong-count">历史错字</span>
         </div>`;
-    });
-    box.innerHTML = html;
-}
-function goToStudyChar(char){
-    let idx = charList.findIndex(i => i.c === char);
-    if(idx === -1) return;
-    currentIndex = idx;
-    isFromWrongBook = true;
-    showChar();
-    switchPage('pageStudy');
-}
-function clearWrongBook() {
-    if (!confirm('确定要清空所有待复习记录吗？')) return;
-    saveWrongData([]);
-    renderWrongList();
-    showToast('已清空错字待复习');
-}
-function clearWrongHistory() {
-    if (!confirm('确定要清空所有错字历史吗？此操作不可恢复！')) return;
-    saveWrongHistory([]);
-    renderWrongHistory();
-    showToast('已清空错字历史记录');
-}
-
-// ========== 全部汉字展示页面逻辑 ==========
-function openAllChars() {
-    switchPage('pageAllChars');
-    renderAllChars();
-}
-
-function renderAllChars() {
-    const grid = document.getElementById('allCharsGrid');
-    
-    if (charList.length === 0) {
-        grid.innerHTML = '<div class="empty-tip">正在加载汉字数据...</div>';
-        return;
-    }
-    
-    let html = '';
-    charList.forEach((item, index) => {
-        html += `<div class="grid-char-item" onclick="startStudyByChar('${item.c}')">${item.c}</div>`;
-    });
-    grid.innerHTML = html;
-}
-
-// ========== 自定义学习页面逻辑 ==========
-function openCustomStudy() {
-    switchPage('pageCustomStudy');
-    // 重置自定义学习页面
-    document.getElementById('customCharsInput').value = '';
-    document.getElementById('customCharBox').style.display = 'none';
-    document.getElementById('custom-pinyin').style.display = 'none';
-    document.getElementById('customControls').style.display = 'none';
-    document.getElementById('customButtons').style.display = 'none';
-}
-
-let customChars = [];
-let customIndex = 0;
-let customWriter;
-
-function startCustomStudy() {
-    const input = document.getElementById('customCharsInput').value.trim();
-    if (!input) {
-        showToast('请输入要学习的汉字');
-        return;
-    }
-    
-    // 解析输入的汉字，按逗号分隔
-    customChars = input.split(',').map(char => char.trim()).filter(char => char.length > 0);
-    
-    if (customChars.length === 0) {
-        showToast('请输入有效的汉字');
-        return;
-    }
-    
-    customIndex = 0;
-    showCustomChar();
-    
-    // 显示学习界面
-    document.getElementById('customCharBox').style.display = 'flex';
-    document.getElementById('custom-pinyin').style.display = 'block';
-    document.getElementById('customControls').style.display = 'flex';
-    document.getElementById('customButtons').style.display = 'flex';
-}
-
-function showCustomChar() {
-    if (customIndex >= customChars.length) {
-        showToast('🎉 自定义学习完成！');
-        setTimeout(openCustomStudy, 1500);
-        return;
-    }
-    
-    const char = customChars[customIndex];
-    
-    // 尝试从charList获取拼音，如果找不到则使用pinyin-pro库获取
-    let pinyin = '未知拼音';
-    const charItem = charList.find(item => item.c === char);
-    
-    if (charItem && charItem.p !== '未知拼音') {
-        pinyin = charItem.p;
-    } else if (typeof window.pinyinPro !== 'undefined') {
-        // 使用pinyin-pro库获取拼音
-        try {
-            pinyin = window.pinyinPro.pinyin(char);
-        } catch (e) {
-            console.log('获取拼音失败:', char, e);
+        });
+        box.innerHTML = html;
+      }
+      // 当前正在学习的汉字（可能不在charList中）
+      let currentStudyChar = null;
+      // 是否从其他页面（全部汉字、已认识汉字、待复习错字）点击进入
+      let isFromOtherPage = false;
+      
+      function goToStudyChar(char) {
+        // 标记从其他页面进入
+        isFromOtherPage = true;
+        
+        let idx = charList.findIndex((i) => i.c === char);
+        
+        if (idx !== -1) {
+          // 如果汉字在charList中，使用正常流程
+          currentIndex = idx;
+          currentStudyChar = null;
+        } else {
+          // 如果汉字不在charList中，使用临时变量存储
+          // 使用pinyin-pro库获取拼音
+          let pinyin = "未知拼音";
+          if (typeof window.pinyinPro !== 'undefined') {
+            try {
+              pinyin = window.pinyinPro.pinyin(char);
+            } catch (e) {
+              console.log('获取拼音失败:', char, e);
+            }
+          }
+          currentStudyChar = { c: char, p: pinyin };
+          // 设置一个无效的索引，让showChar知道使用currentStudyChar
+          currentIndex = -1;
         }
-    }
-    
-    customWriter = initChar('custom-target', char);
-    document.getElementById('custom-pinyin').innerText = pinyin;
-}
+        
+        isFromWrongBook = true;
+        renderStudySlide();
+        showChar();
+        switchPage("pageStudy");
+      }
+      function clearWrongBook() {
+        if (!confirm("确定要清空所有待复习记录吗？")) return;
+        saveWrongData([]);
+        renderWrongList();
+        showToast("已清空错字待复习");
+      }
+      function clearWrongHistory() {
+        if (!confirm("确定要清空所有错字历史吗？此操作不可恢复！")) return;
+        saveWrongHistory([]);
+        renderWrongHistory();
+        showToast("已清空错字历史记录");
+      }
 
-function playCustomVoice() {
-    const char = customChars[customIndex];
-    const u = new SpeechSynthesisUtterance(char);
-    u.lang = 'zh-CN';
-    u.rate = 0.9;
-    window.speechSynthesis.speak(u);
-}
+      // ========== 全部汉字展示页面逻辑 ==========
+      function openAllChars() {
+        switchPage("pageAllChars");
+        renderAllChars();
+      }
 
-function playCustomStroke() {
-    customWriter.animateCharacter();
-}
+      function renderAllChars() {
+        const grid = document.getElementById("allCharsGrid");
 
-function startCustomListen() {
-    if (!('webkitSpeechRecognition' in window) && !('SpeechRecognition' in window)) {
-        showToast("请用 Chrome / Edge 浏览器打开，支持语音识别");
-        return;
-    }
-    
-    const SpeechRecognition = window.SpeechRecognition || window.webkitSpeechRecognition;
-    const recognition = new SpeechRecognition();
-    recognition.lang = "zh-CN";
-    recognition.continuous = false;
-    recognition.interimResults = true;
-    recognition.maxAlternatives = 5;
-    
-    recognition.start();
-    recognition.onresult = function (e) {
-        const targetChar = customChars[customIndex];
-        let ok = false;
-        for (let i = 0; i < e.results.length; i++) {
+        if (charList.length === 0) {
+          grid.innerHTML = '<div class="empty-tip">正在加载汉字数据...</div>';
+          return;
+        }
+
+        let html = "";
+        charList.forEach((item, index) => {
+          html += `<div class="grid-char-item" onclick="startStudyByChar('${item.c}')">${item.c}</div>`;
+        });
+        grid.innerHTML = html;
+      }
+
+      // ========== 自定义学习页面逻辑 ==========
+      function openCustomStudy() {
+        switchPage("pageCustomStudy");
+        // 重置自定义学习页面
+        document.getElementById("customCharsInput").value = "";
+        document.getElementById("customSlideWrap").style.display = "none";
+        document.getElementById("customCharBox").style.display = "none";
+        document.getElementById("custom-pinyin").style.display = "none";
+        document.getElementById("customControls").style.display = "none";
+        document.getElementById("customButtons").style.display = "none";
+      }
+
+      let customChars = [];
+      let customIndex = 0;
+      let customWriter;
+
+      function startCustomStudy() {
+        const input = document.getElementById("customCharsInput").value.trim();
+        if (!input) {
+          showToast("请输入要学习的汉字");
+          return;
+        }
+
+        // 直接按字符分隔，不需要逗号
+        customChars = input
+          .split("")
+          .map((char) => char.trim())
+          .filter((char) => char.length > 0);
+
+        if (customChars.length === 0) {
+          showToast("请输入有效的汉字");
+          return;
+        }
+
+        customIndex = 0;
+        showCustomChar();
+
+        // 显示学习界面
+        document.getElementById("customCharBox").style.display = "flex";
+        document.getElementById("custom-pinyin").style.display = "block";
+        document.getElementById("customControls").style.display = "flex";
+        document.getElementById("customButtons").style.display = "flex";
+        
+        // 显示要学习的汉字列表
+        renderCustomSlide();
+      }
+
+      function showCustomChar() {
+        if (customIndex >= customChars.length) {
+          showToast("🎉 自定义学习完成！");
+          setTimeout(openCustomStudy, 1500);
+          return;
+        }
+
+        const char = customChars[customIndex];
+
+        // 尝试从charList获取拼音，如果找不到则使用pinyin-pro库获取
+        let pinyin = "未知拼音";
+        const charItem = charList.find((item) => item.c === char);
+
+        if (charItem && charItem.p !== "未知拼音") {
+          pinyin = charItem.p;
+        } else if (typeof window.pinyinPro !== "undefined") {
+          // 使用pinyin-pro库获取拼音
+          try {
+            pinyin = window.pinyinPro.pinyin(char);
+          } catch (e) {
+            console.log("获取拼音失败:", char, e);
+          }
+        }
+
+        customWriter = initChar("custom-target", char);
+        document.getElementById("custom-pinyin").innerText = pinyin;
+      }
+
+      function renderCustomSlide() {
+        const box = document.getElementById("customSlide");
+        box.innerHTML = "";
+        
+        const currentChar = customChars[customIndex];
+        
+        customChars.forEach((char, i) => {
+          const thumb = document.createElement("div");
+          thumb.className = `slide-thumb ${char === currentChar ? "active" : ""}`;
+          thumb.textContent = char;
+          thumb.addEventListener("click", () => {
+            customIndex = i;
+            renderCustomSlide();
+            showCustomChar();
+          });
+          box.appendChild(thumb);
+        });
+        
+        // 显示滑块容器
+        document.getElementById("customSlideWrap").style.display = "block";
+      }
+
+      function playCustomVoice() {
+        const char = customChars[customIndex];
+        const u = new SpeechSynthesisUtterance(char);
+        u.lang = "zh-CN";
+        u.rate = 0.9;
+        window.speechSynthesis.speak(u);
+      }
+
+      function playCustomStroke() {
+        customWriter.animateCharacter();
+      }
+
+      function startCustomListen() {
+        if (
+          !("webkitSpeechRecognition" in window) &&
+          !("SpeechRecognition" in window)
+        ) {
+          showToast("请用 Chrome / Edge 浏览器打开，支持语音识别");
+          return;
+        }
+
+        const SpeechRecognition =
+          window.SpeechRecognition || window.webkitSpeechRecognition;
+        const recognition = new SpeechRecognition();
+        recognition.lang = "zh-CN";
+        recognition.continuous = false;
+        recognition.interimResults = true;
+        recognition.maxAlternatives = 5;
+
+        recognition.start();
+        recognition.onresult = function (e) {
+          const targetChar = customChars[customIndex];
+          let ok = false;
+          for (let i = 0; i < e.results.length; i++) {
             const transcript = e.results[i][0].transcript.trim();
             if (transcript.indexOf(targetChar) !== -1) {
-                ok = true;
-                break;
+              ok = true;
+              break;
             }
-        }
-        if (ok) {
-            showToast('✅ 读对了！');
+          }
+          if (ok) {
+            showToast("✅ 读对了！");
             playNiceVoice();
             setTimeout(customNextChar, 1000);
-        } else {
-            showToast('😉 再试一次');
+          } else {
+            showToast("😉 再试一次");
+          }
+        };
+        recognition.onerror = function () {
+          showToast("没听清，请离手机近一点慢慢读");
+        };
+      }
+
+      function customKnowChar() {
+        showToast("✅ 很棒！");
+        customNextChar();
+      }
+
+      function customUnknowChar() {
+        const char = customChars[customIndex];
+        addCharToWrong(char);
+        showToast("❌ 已加入错字本");
+        customNextChar();
+      }
+
+      function customNextChar() {
+        customIndex++;
+        showCustomChar();
+        // 更新滑块选中状态
+        if (customIndex < customChars.length) {
+          renderCustomSlide();
         }
-    };
-    recognition.onerror = function () {
-        showToast('没听清，请离手机近一点慢慢读');
-    };
-}
+      }
 
-function customKnowChar() {
-    showToast('✅ 很棒！');
-    customNextChar();
-}
+      // ========== 已学习汉字页面逻辑 ==========
+      function openLearnedChars() {
+        switchPage("pageLearnedChars");
+        switchTab("learned");
+      }
 
-function customUnknowChar() {
-    const char = customChars[customIndex];
-    addCharToWrong(char);
-    showToast('❌ 已加入错字本');
-    customNextChar();
-}
+      function switchTab(tab) {
+        // 切换页签按钮状态
+        document
+          .querySelectorAll(".tab-btn")
+          .forEach((btn) => btn.classList.remove("active"));
+        document
+          .querySelector(`.tab-btn[onclick="switchTab('${tab}')"]`)
+          .classList.add("active");
 
-function customNextChar() {
-    customIndex++;
-    showCustomChar();
-}
+        // 切换内容
+        document
+          .querySelectorAll(".tab-content")
+          .forEach((content) => content.classList.remove("active"));
+        document.getElementById(`${tab}Content`).classList.add("active");
 
-// ========== 已学习汉字页面逻辑 ==========
-function openLearnedChars() {
-    switchPage('pageLearnedChars');
-    switchTab('learned');
-}
+        // 渲染对应内容
+        if (tab === "learned") {
+          renderLearnedList();
+        } else if (tab === "wrong") {
+          renderMergedWrongList();
+        }
+      }
 
-function switchTab(tab) {
-    // 切换页签按钮状态
-    document.querySelectorAll('.tab-btn').forEach(btn => btn.classList.remove('active'));
-    document.querySelector(`.tab-btn[onclick="switchTab('${tab}')"]`).classList.add('active');
-    
-    // 切换内容
-    document.querySelectorAll('.tab-content').forEach(content => content.classList.remove('active'));
-    document.getElementById(`${tab}Content`).classList.add('active');
-    
-    // 渲染对应内容
-    if (tab === 'learned') {
-        renderLearnedList();
-    } else if (tab === 'wrong') {
-        renderMergedWrongList();
-    }
-}
+      function getLearnedChars() {
+        // 这里简化处理，实际应该从本地存储中获取已学习的汉字
+        // 暂时返回前100个汉字作为示例
+        return charList.slice(0, 100).map((item) => item.c);
+      }
 
-function getLearnedChars() {
-    // 这里简化处理，实际应该从本地存储中获取已学习的汉字
-    // 暂时返回前100个汉字作为示例
-    return charList.slice(0, 100).map(item => item.c);
-}
+      function renderLearnedList() {
+        const learnedChars = getLearnedChars();
+        const list = document.getElementById("learnedList");
 
-function renderLearnedList() {
-    const learnedChars = getLearnedChars();
-    const list = document.getElementById('learnedList');
-    
-    if (learnedChars.length === 0) {
-        list.innerHTML = '<div class="empty-tip">暂无已认识汉字</div>';
-        return;
-    }
-    
-    let html = '';
-    learnedChars.forEach(char => {
-        html += `
+        if (learnedChars.length === 0) {
+          list.innerHTML = '<div class="empty-tip">暂无已认识汉字</div>';
+          return;
+        }
+
+        let html = "";
+        learnedChars.forEach((char) => {
+          html += `
         <div class="wrong-char" onclick="startStudyByChar('${char}')">
             <span class="hanzi-text">${char}</span>
             <span class="wrong-count">已认识</span>
         </div>`;
-    });
-    list.innerHTML = html;
-}
+        });
+        list.innerHTML = html;
+      }
 
-function renderMergedWrongList() {
-    const wrongData = getWrongData();
-    const list = document.getElementById('mergedWrongList');
-    
-    if (wrongData.length === 0) {
-        list.innerHTML = '<div class="empty-tip">暂无错字记录</div>';
-        return;
-    }
-    
-    let html = '';
-    wrongData.forEach(item => {
-        html += `
+      function renderMergedWrongList() {
+        const wrongData = getWrongHistory();
+        const list = document.getElementById("mergedWrongList");
+
+        if (wrongData.length === 0) {
+          list.innerHTML = '<div class="empty-tip">暂无错字历史记录</div>';
+          return;
+        }
+
+        let html = "";
+        wrongData.forEach((item) => {
+          html += `
         <div class="wrong-char" onclick="goToStudyChar('${item.c}')">
             <span class="hanzi-text">${item.c}</span>
-            <span class="wrong-count">错${item.count}次</span>
+            <span class="wrong-count">历史错字</span>
         </div>`;
-    });
-    list.innerHTML = html;
-}
+        });
+        list.innerHTML = html;
+      }
 
-function clearMergedWrongHistory() {
-    if (!confirm('确定要清空所有错字历史吗？此操作不可恢复！')) return;
-    saveWrongHistory([]);
-    saveWrongData([]);
-    renderMergedWrongList();
-    showToast('已清空错字历史记录');
-}
-</script>
-</body>
+      function clearMergedWrongHistory() {
+        if (!confirm("确定要清空所有错字历史吗？此操作不可恢复！")) return;
+        saveWrongHistory([]);
+        renderMergedWrongList();
+        showToast("已清空错字历史记录");
+      }
+    </script>
+  </body>
 </html>
